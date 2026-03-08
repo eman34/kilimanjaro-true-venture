@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
+import RouteItinerary from "@/components/RouteItinerary";
 import { KILIMANJARO_ROUTES, PACKAGE_INCLUDES, PACKAGE_EXCLUDES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -113,6 +114,14 @@ export default function KilimanjaroPage() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Day-by-Day Itinerary */}
+                {route.detailedItinerary && (
+                  <RouteItinerary
+                    routeName={route.name}
+                    detailedItinerary={route.detailedItinerary}
+                  />
+                )}
               </div>
             </div>
           ))}
