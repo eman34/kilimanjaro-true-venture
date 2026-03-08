@@ -13,29 +13,41 @@ const ITINERARY = [
     day: "Day 1",
     title: "Hotel to Arusha National Park – Miriakamba Camp",
     altitude: "1,500m → 2,514m",
+    distance: "10 km",
+    time: "4-5 hours",
+    terrain: "Rainforest",
     description:
-      "Begin your trek at Arusha National Park. Walk through lush montane forest, passing waterfalls and possibly encountering giraffes, buffaloes, and colobus monkeys.",
+      "Your guide collects you from your hotel for the short drive to Momella Gate in Arusha National Park. Unlike Kilimanjaro, Mount Meru treks are accompanied by an armed ranger — the park is home to buffalo, elephant, giraffe, and leopard. The trail winds through lush montane forest, crossing streams and passing a beautiful waterfall. Giraffes often graze unconcerned just meters from the trail. You'll arrive at Miriakamba Hut, a comfortable camp set in a forest clearing with views into the volcanic crater.",
   },
   {
     day: "Day 2",
-    title: "Miriakamba Camp – Saddle Camp (for summit)",
+    title: "Miriakamba Camp – Saddle Camp",
     altitude: "2,514m → 3,566m",
+    distance: "7 km",
+    time: "4-5 hours",
+    terrain: "Moorland & giant heather",
     description:
-      "Ascend through the heather and moorland zone with increasingly spectacular views. Prepare at Saddle Camp for the early morning summit push.",
+      "The trail steepens as you climb through the heather zone, with giant heather trees draped in old man's beard moss creating an enchanting atmosphere. The forest thins, and views begin to open up — on clear days, Kilimanjaro's snow-capped summit is visible to the east. You'll pass through Topela Mbogo (\"Buffalo Swamp\") before arriving at Saddle Camp, perched between Meru's summit and the dramatic ash cone. Early dinner and rest — your alarm is set for 1 AM.",
   },
   {
     day: "Day 3",
-    title: "Summit (from Saddle Camp) – Miriakamba Camp",
+    title: "Summit Day — Socialist Peak, descend to Miriakamba Camp",
     altitude: "3,566m → 4,566m → 2,514m",
+    distance: "14 km",
+    time: "10-12 hours",
+    terrain: "Exposed ridge & scree",
     description:
-      "Early morning start for the summit push along the spectacular ridge. Watch the sunrise from Socialist Peak with panoramic views of Kilimanjaro and the Great Rift Valley. Descend to Miriakamba Camp.",
+      "Rising at 1 AM, you climb by headlamp along Meru's spectacular knife-edge ridge — with a sheer drop into the volcanic crater on one side and the forested slopes on the other. It's one of the most dramatic summit approaches in East Africa. As dawn breaks, the sky turns pink and Kilimanjaro emerges from the clouds like an island in the sky. At Socialist Peak (4,566m), you're rewarded with 360-degree views of the Rift Valley, Serengeti plains, and the mighty Kilimanjaro. Descend all the way to Miriakamba Hut for the night.",
   },
   {
     day: "Day 4",
     title: "Miriakamba Camp – Back to Hotel",
     altitude: "2,514m → 1,500m",
+    distance: "5 km",
+    time: "2-3 hours",
+    terrain: "Rainforest",
     description:
-      "Final descent through the forest, with more chances to spot wildlife. Transfer back to your hotel for a well-earned rest.",
+      "A gentle final descent back through the rainforest with more opportunities to spot wildlife. Colobus monkeys are common in the canopy, and you may encounter giraffe and warthog near the lower trails. At Momella Gate, your transfer awaits. Back at your hotel, you'll have time to reflect on an extraordinary four days — and if Kilimanjaro is next on your list, you'll feel confident and prepared for the bigger challenge ahead.",
   },
 ];
 
@@ -98,6 +110,11 @@ export default function MeruPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-light mb-2">{day.title}</h3>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
+                      <span className="text-secondary/70 text-xs font-medium">{day.distance}</span>
+                      <span className="text-secondary/70 text-xs font-medium">{day.time}</span>
+                      <span className="text-secondary/70 text-xs font-medium">{day.terrain}</span>
+                    </div>
                     <p className="text-light/70 leading-relaxed">{day.description}</p>
                   </div>
                 </div>
