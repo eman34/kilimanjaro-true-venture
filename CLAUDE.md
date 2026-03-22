@@ -12,26 +12,26 @@
 ## Design System
 
 ### Color Palette
-- **Primary**: Forest Green (`#1F8E4D`) - nature, growth, trust
-- **Secondary**: Vibrant Orange (`#FF6B35`) - energy, action, CTAs
-- **Accent**: Gold (`#FFD700`) - premium, highlights
-- **Backgrounds**: White (`#FFFFFF`) - clean, modern, professional
-- **Text**: Dark (`#1A1A1A`) on white, not light text on dark
-- **Neutrals**: Grays for supporting text (`#666`, `#999`, `#CCC`)
+- **Primary**: Deep Navy (`#1A3A5C`) - trust, sophistication, depth
+- **Secondary**: Mustard Gold (`#D4A843`) - warmth, action, CTAs
+- **Accent**: Coral Pink (`#E94560`) - energy, highlights, attention
+- **Background**: Very Dark (`#0F1923`) - premium, luxe feel, dark theme
+- **Text**: Off-White (`#F0F0F0`) - on dark backgrounds, excellent contrast
+- **Neutrals**: Dark grays for supporting text and secondary elements
 
 ### Design Principles
-- **Modern & Vibrant**: Not dark/luxury theme
-- **Nature-First**: Large, high-quality nature photography as hero elements
-- **Clean Layout**: Plenty of white space, card-based design
-- **Interactive**: Hover effects, smooth transitions (300ms)
+- **Dark & Luxe**: Premium dark theme with sophisticated navy + gold accents
+- **Nature-First**: Large, high-quality nature photography as hero elements (stands out on dark)
+- **Clean Layout**: Dark cards with subtle borders, ample spacing
+- **Interactive**: Hover effects, smooth transitions (300ms) with gold highlights
 - **Responsive**: Mobile-first, works on all screen sizes
 
 ### Component Styling Rules
-- Cards: White background, 2px gray borders, subtle shadows
-- Buttons: Primary (green) + Secondary (orange) with hover states
-- Images: Rounded corners (`rounded-xl` or `rounded-2xl`), bordered, quality photos
-- Text: Gray-600 body text, light (dark) for headings
-- Sections: Alternating white/gray-50 backgrounds
+- Cards: Dark background (#162636), subtle borders, minimal shadows
+- Buttons: Primary (navy) + Secondary (mustard gold) with hover states (gold accent)
+- Images: Rounded corners (`rounded-xl` or `rounded-2xl`), bordered, quality photos (pop on dark)
+- Text: Off-white (#F0F0F0) body text, bright for headings and emphasis
+- Sections: Dark backgrounds with subtle color variations
 
 ## Code Standards
 
@@ -131,10 +131,10 @@ All starting prices are in the `KILIMANJARO_ROUTES` and `SAFARI_PACKAGES` in con
 ## Things to AVOID ❌
 
 ### Design
-- ❌ Dark backgrounds (we use WHITE, not `#0F1923` or dark-theme)
+- ❌ Light backgrounds (we use DARK navy/black theme, not white)
 - ❌ Placeholder/generic images (use real nature photos from `/public/images/`)
-- ❌ Light text on dark (use dark text on light backgrounds)
-- ❌ Overwhelming color - stick to primary/secondary/accent palette
+- ❌ Low contrast text on dark (use #F0F0F0 off-white for excellent readability)
+- ❌ Overwhelming color - stick to navy/mustard/coral palette, use gold sparingly
 - ❌ Breaking the responsive layout on mobile
 
 ### Code
