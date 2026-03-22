@@ -204,6 +204,75 @@ Before considering any page "done", test:
   - Buttons have hover states
   - Links are understandable
 
+## 📚 Learning & Education
+
+### How I Teach You While Building
+
+As a beginner developer, you want to **learn web development** while building this site. When I make changes, I will:
+
+1. **Explain the "why"** - Not just what the code does, but why it's done that way
+2. **Name the concept** - "This is called X" so you can research it later
+3. **Show the pattern** - How this applies beyond just this one change
+4. **Point out learning moments** - When something reinforces a concept
+
+### Example of My Explanations
+
+**Bad (Just fixing code):**
+```
+Changed className from "text-light" to "text-gray-600"
+```
+
+**Good (Teaching you):**
+```
+Changed className from "text-light" to "text-gray-600"
+
+💡 WHY: This is a **color contrast fix**. White backgrounds need dark text for readability (WCAG accessibility standards). "text-light" was dark blue, but now we're using proper semantic gray-600 for body text on white backgrounds.
+
+CONCEPT: Contrast Ratio - The darker your text on a light background, the easier to read. This follows the principle of "semantic colors" in design systems.
+
+PATTERN: In Tailwind, use:
+- text-light (dark) for headings on white
+- text-gray-600 for body text on white
+- text-white for text on dark/colored backgrounds
+```
+
+### Concepts You'll Learn Building This Site
+
+These are the **core web development concepts** you'll encounter:
+
+| Concept | What It Is | Where You'll See It |
+|---------|-----------|---|
+| **React Components** | Reusable blocks of UI code | Every `<Hero />`, `<TourCard />` |
+| **Props** | How components get data | `<TourCard title="..." image="..." />` |
+| **JSX** | HTML-like syntax in JavaScript | `<div className="...">Text</div>` |
+| **State (useState)** | Data that changes & re-renders | Testimonial carousel switching slides |
+| **Responsive Design** | Sites that work on mobile/tablet/desktop | `md:` `lg:` prefixes in Tailwind |
+| **Conditional Rendering** | Show/hide elements based on logic | `{loading ? <Loading /> : <Content />}` |
+| **Routing** | How URLs navigate between pages | `/about`, `/tours/kilimanjaro` |
+| **Next.js Image Optimization** | Making images load faster | `<Image />` component vs `<img />` |
+| **Tailwind CSS** | CSS utility classes (no writing CSS) | `bg-white text-gray-600 rounded-xl` |
+| **Type Safety** | Catching errors before runtime | TypeScript interfaces and types |
+| **Component Composition** | Building complex UIs from simple pieces | Page layouts built from multiple components |
+| **Git & Commits** | Tracking changes, explaining your work | `git commit -m "message"` |
+
+### Questions I'll Answer While Coding
+
+If you see a change and wonder "why that?", I'm explaining:
+- ✅ "This uses a map() because we're iterating over an array"
+- ✅ "This needs a key prop for React to track list items efficiently"
+- ✅ "We're using next/Image instead of <img> for automatic optimization"
+- ✅ "This component is 'controlled' because state drives the input value"
+
+### Your Learning Responsibility
+
+As I teach you, you should:
+1. **Ask follow-up questions** - "Why use Array.map instead of a for loop?"
+2. **Request explanations** - "Can you explain what 'props drilling' means?"
+3. **Ask me to explain patterns** - "When should I create a new component?"
+4. **Point out what confuses you** - "I don't understand why we need hooks"
+
+---
+
 ## How to Work With Me
 
 ### Ask Before Making Changes
