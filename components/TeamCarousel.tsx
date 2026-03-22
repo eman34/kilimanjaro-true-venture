@@ -9,7 +9,7 @@ const CAROUSEL_MEMBERS = TEAM_MEMBERS.slice(1);
 
 export default function TeamCarousel() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const animationIdRef = useRef<number>();
+  const animationIdRef = useRef<number | null>(null);
   const resetPointRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function TeamCarousel() {
 
     return () => {
       clearTimeout(measureTimer);
-      if (animationIdRef.current) {
+      if (animationIdRef.current !== null) {
         cancelAnimationFrame(animationIdRef.current);
       }
       container.removeEventListener('wheel', preventScroll);
