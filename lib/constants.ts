@@ -26,7 +26,6 @@ export const NAV_LINKS = [
       { label: "Cultural Experiences", href: "/tours/cultural" },
     ],
   },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 export const FEATURED_TOURS = [
