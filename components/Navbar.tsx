@@ -92,7 +92,7 @@ export default function Navbar() {
               )
             )}
             <Link href="/contact" className="btn-primary text-sm">
-              Book Now
+              Contact Us
             </Link>
           </div>
 
@@ -151,7 +151,7 @@ export default function Navbar() {
                 className="btn-primary block text-center"
                 onClick={() => setMobileOpen(false)}
               >
-                Book Now
+                Contact Us
               </Link>
             </div>
           </div>
