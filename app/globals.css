@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1F8E4D;
-  --color-secondary: #FF6B35;
-  --color-accent: #FFD700;
-  --color-dark: #FFFFFF;
-  --color-light: #1A1A1A;
-  --color-primary-light: #2EAE6E;
-  --color-dark-lighter: #F5F5F5;
-  --color-earth: #8B7355;
-  --color-sky: #87CEEB;
+  --color-primary: #1A3A5C;
+  --color-secondary: #D4A843;
+  --color-accent: #E94560;
+  --color-dark: #0F1923;
+  --color-light: #F0F0F0;
+  --color-primary-light: #24507a;
+  --color-dark-lighter: #162636;
 }
 
 @layer base {
@@ -24,11 +22,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary-light text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 inline-block shadow-lg hover:shadow-xl;
+    @apply bg-secondary text-dark font-bold px-8 py-3 rounded-lg hover:bg-yellow-400 transition-all duration-300 inline-block;
   }
 
   .btn-accent {
-    @apply bg-secondary hover:bg-red-500 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 inline-block shadow-lg hover:shadow-xl;
+    @apply bg-accent text-white font-bold px-8 py-3 rounded-lg hover:bg-red-400 transition-all duration-300 inline-block;
   }
 
   .section-padding {
