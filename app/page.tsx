@@ -73,7 +73,7 @@ export default function Home() {
               Why Choose Kilimanjaro True Venture
             </h2>
             <p className="text-light/60 max-w-2xl mx-auto">
-              We don&apos;t just take you to the mountain — we make sure you have the safest, most rewarding experience possible.
+              We guide adventurers to Kilimanjaro&apos;s summit, track wildlife through Tanzania&apos;s legendary parks, and help travelers discover Zanzibar. For years, we&apos;ve done this work because we love this land. Every journey is personal, led by local guides whose goal is your success.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

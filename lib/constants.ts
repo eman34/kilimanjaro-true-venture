@@ -2,8 +2,8 @@ export const COMPANY = {
   name: "Kilimanjaro True Venture",
   tagline: "Experience True Adventure in Africa",
   email: "info@kilimanjarotrueventure.com",
-  phone: "+255 123 456 789",
-  whatsapp: "+255 123 456 789",
+  phone: "+255 791 137 698",
+  whatsapp: "+255 791 137 698",
   address: "Sekei, Arusha, Tanzania",
   social: {
     instagram: "https://instagram.com/kilimanjarotrueventure",
@@ -26,6 +26,8 @@ export const NAV_LINKS = [
       { label: "Cultural Experiences", href: "/tours/cultural" },
     ],
   },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Charity", href: "/charity" },
 ];
 
 export const FEATURED_TOURS = [
@@ -711,8 +713,38 @@ export const TEAM_MEMBERS = [
   {
     name: "Abdallah Athumani (Abu)",
     role: "Founder & Professional Mountain Guide",
-    bio: "Abu began his journey on Kilimanjaro as a porter before becoming a certified professional mountain guide. His years of experience shaped the company's core values: safety, respect, hard work, and integrity.",
-    image: "/images/guide-client.jpg",
+    bio: "Abu is the founder of Kilimanjaro True Venture and an experienced professional mountain guide. Having started his career on Mount Kilimanjaro as a porter, he worked his way through different roles before becoming a guide. His deep knowledge of the mountain and strong passion for tourism help ensure every expedition is organized with care, safety, and professionalism.",
+    image: "/images/team/team-member-1.png",
+  },
+  {
+    name: "Ivan Ismail Kaaya",
+    role: "Senior Mountain Guide",
+    bio: "Our Senior Mountain Guide leads many of our climbing expeditions on Mount Kilimanjaro. With more than 15–20 years of experience on the mountain, he plays a key role in ensuring the safety, pace, and success of every climb. His leadership, knowledge of the routes, and ability to motivate climbers make him an essential part of the team.",
+    image: "/images/team/team-member-4.png",
+  },
+  {
+    name: "Amdani Mputa",
+    role: "Assistant Mountain Guide",
+    bio: "The Assistant Guide supports the lead guide throughout the expedition. From monitoring climbers' health to helping maintain the pace of the group, the assistant guide plays an important role in ensuring the well-being and comfort of every climber during the journey.",
+    image: "/images/team/team-member-5.png",
+  },
+  {
+    name: "Athumani R. Mkuna",
+    role: "Professional Mountain Cook",
+    bio: "Our mountain cook is responsible for preparing fresh, nutritious meals during the expedition. With years of experience cooking at high altitude, he ensures that climbers receive balanced meals that provide the energy needed for the climb. His dedication and care help make the experience both comfortable and memorable.",
+    image: "/images/team/team-member-6.png",
+  },
+  {
+    name: "Said Hassan Petro",
+    role: "Camp Waiter",
+    bio: "The camp waiter assists with organizing the camp, serving meals, and ensuring that climbers are comfortable after a long day of trekking. Their friendly attitude and attention to detail help create a welcoming camp environment for every guest.",
+    image: "/images/team/team-member-8.png",
+  },
+  {
+    name: "Ombeni Kanuya",
+    role: "Professional Safari Driver Guide",
+    bio: "Our safari driver guides are highly experienced professionals who know the national parks of Tanzania inside and out. With strong driving skills and deep knowledge of wildlife behavior, they ensure that every safari is both safe and exciting.",
+    image: "/images/team/team-member-12.png",
   },
 ];
 
@@ -768,4 +800,109 @@ export const TOUR_INTERESTS = [
   "Cultural Experience",
   "Kilimanjaro + Safari Combo",
   "Custom Trip",
+];
+
+export const GALLERY_IMAGES = [
+  {
+    src: "/images/kilimanjaro-peak.jpg",
+    alt: "Kilimanjaro peak above the clouds",
+    category: "Summit",
+    span: "large",
+  },
+  {
+    src: "/images/summit-celebration.jpg",
+    alt: "Climbers celebrating at Uhuru Peak",
+    category: "Summit",
+    span: "large",
+  },
+  {
+    src: "/images/summit-glaciers.jpg",
+    alt: "Ancient glaciers at Kilimanjaro summit",
+    category: "Summit",
+    span: "wide",
+  },
+  {
+    src: "/images/summit-panorama.jpg",
+    alt: "Panoramic view from the summit",
+    category: "Summit",
+    span: "wide",
+  },
+  {
+    src: "/images/summit-sunrise.jpg",
+    alt: "Sunrise from Kilimanjaro summit",
+    category: "Summit",
+    span: "normal",
+  },
+  {
+    src: "/images/mawenzi-silhouette.jpg",
+    alt: "Mawenzi peak silhouette at dusk",
+    category: "Summit",
+    span: "normal",
+  },
+  {
+    src: "/images/camp-snowy-peak.jpg",
+    alt: "High-altitude camp with snowy peak backdrop",
+    category: "Summit",
+    span: "normal",
+  },
+  {
+    src: "/images/zebra-herd.jpg",
+    alt: "Zebra herd on the Serengeti plains",
+    category: "Wildlife",
+    span: "normal",
+  },
+  {
+    src: "/images/flamingos-flight.jpg",
+    alt: "Flamingos in flight over Lake Natron",
+    category: "Wildlife",
+    span: "normal",
+  },
+  {
+    src: "/images/ngorongoro-wildlife.jpg",
+    alt: "Wildlife in Ngorongoro crater",
+    category: "Wildlife",
+    span: "normal",
+  },
+  {
+    src: "/images/waterhole-wildlife.jpg",
+    alt: "Animals gathering at a waterhole",
+    category: "Wildlife",
+    span: "normal",
+  },
+  {
+    src: "/images/guide-client.jpg",
+    alt: "Guide leading a client on the mountain trail",
+    category: "Guides",
+    span: "normal",
+  },
+  {
+    src: "/images/guide-mountain.jpg",
+    alt: "Experienced guide on the mountain slopes",
+    category: "Guides",
+    span: "normal",
+  },
+  {
+    src: "/images/camp-setup.jpg",
+    alt: "Team setting up camp at high altitude",
+    category: "Landscape",
+    span: "normal",
+  },
+  {
+    src: "/images/crater-wall.jpg",
+    alt: "Ngorongoro crater wall at sunset",
+    category: "Landscape",
+    span: "normal",
+  },
+  {
+    src: "/images/hero-sunset.jpg",
+    alt: "Golden sunset over the African savanna",
+    category: "Landscape",
+    span: "normal",
+  },
+  {
+    src: "/images/milky-way.jpg",
+    alt: "Milky Way above Kilimanjaro",
+    category: "Landscape",
+    span: "normal",
+  },
 ];

@@ -173,7 +173,7 @@ export default function InquiryForm({
         </button>
         {status === "error" && (
           <p className="mt-3 text-accent text-sm">
-            Something went wrong. Please try again or contact us directly.
+            Something went wrong. Please try again or get in touch directly.
           </p>
         )}
       </div>

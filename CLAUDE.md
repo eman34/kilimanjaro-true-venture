@@ -79,6 +79,32 @@ public/images/ (All nature photos, 17 high-quality images available)
 - Use `@/` for absolute imports (e.g., `@/components/Hero`, `@/lib/constants`)
 - Never use relative imports like `../../../`
 
+## Writing & Copy Standards
+
+All copy should feel direct, human, and authentic. Avoid generic AI-like language.
+
+### Avoid
+- ❌ Oxford commas
+- ❌ Em dashes (—) — use periods or semicolons instead
+- ❌ "Not just X, but also Y" constructions
+- ❌ Metaphors and clichés
+- ❌ Generalizations and vague language
+- ❌ Setup language ("In conclusion", "In closing", "That said")
+
+### Examples
+
+**Bad (generic, AI-like):**
+> This isn't just a trek; it's a transformative journey that will change the way you see the world.
+
+**Good (direct, specific):**
+> This 5-day trek covers 60km of terrain, reaching 5,895m altitude with expert guides.
+
+**Bad (setup language):**
+> In conclusion, Kilimanjaro offers an unforgettable experience.
+
+**Good (direct):**
+> Book your Kilimanjaro trek today.
+
 ## Content & Features
 
 ### Complete Features

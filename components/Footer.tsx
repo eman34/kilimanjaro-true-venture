@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-light font-bold mb-4 uppercase text-sm tracking-wider">
-              Contact Us
+              Get in Touch
             </h4>
             <ul className="space-y-3 text-sm text-light/70">
               <li className="flex items-start gap-2">

@@ -3,7 +3,7 @@ import InquiryForm from "@/components/InquiryForm";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Get in Touch",
   description:
     "Get in touch with Kilimanjaro True Venture. Send us your inquiry for Kilimanjaro climbs, Mount Meru treks, wildlife safaris, Zanzibar holidays, or cultural experiences. We respond within 24 hours.",
 };
