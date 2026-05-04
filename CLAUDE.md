@@ -1,5 +1,18 @@
 # Kilimanjaro True Venture - Project Guidelines
 
+## Active Learning Curriculum
+
+This project is a **low-stakes vehicle for learning advanced vibe coding** for the user (a beginner programmer with course exposure). Building Abu's site is the side effect; the user's skill development is the primary goal.
+
+- **Curriculum:** `LEARNING.md` — 8 modules, ~22 lessons, structured/school-esque
+- **Progress tracker:** `PROGRESS.md` — checkboxes per lesson; current state of the journey
+
+**At session start:** read `PROGRESS.md` to find the next unchecked lesson. The user may say "next lesson" (start it), "where am I?" (summarize without starting), or "skip to module N."
+
+**Every session follows the Session Protocol** in `LEARNING.md`. Name the primary skill at the start of the lesson. After the session, append a one-line entry to the Session Log in `PROGRESS.md` and tick the lesson's checkbox.
+
+**Calibration:** explanations should name patterns ("this is `useState`") without re-explaining fundamentals (what React is). The Skills Matrix in `LEARNING.md` is the user's vocabulary — use those tags in conversation.
+
 ## Project Overview
 
 **Kilimanjaro True Venture** is a modern, vibrant travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
