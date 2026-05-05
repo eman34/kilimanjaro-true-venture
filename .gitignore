@@ -29,3 +29,6 @@ next-env.d.ts
 # claude code
 .claude/settings.local.json
 .claude/agent-memory/
+
+# direnv
+.envrc
