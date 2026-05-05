@@ -50,7 +50,7 @@ export const FEATURED_TOURS = [
   {
     title: "Wildlife Safaris",
     description:
-      "Witness the Big Five in Serengeti, Ngorongoro Crater, and Tarangire — Africa's iconic wildlife parks.",
+      "Witness the Big Five in Serengeti, Ngorongoro Crater, and Tarangire. Africa's iconic wildlife parks.",
     href: "/tours/safaris",
     image: "/images/zebra-herd.jpg",
     tag: "Adventure",

@@ -8,13 +8,13 @@ Curriculum: see `LEARNING.md`.
 
 ## Current Status
 
-**Next up:** L1 — First Loop (`#protocol`)
+**Next up:** L2 — Diff Review Drill (`#diff-review` `#scope`)
 
 ---
 
 ## Module 0 — Foundations
-- [ ] **L1: First Loop** ← next — `#protocol` — one-line copy fix in `lib/constants.ts`
-- [ ] L2: Diff Review Drill — `#diff-review` `#scope` — read a 50-line change line by line
+- [x] L1: First Loop — `#protocol` — one-line copy fix in `lib/constants.ts`
+- [ ] **L2: Diff Review Drill** ← next — `#diff-review` `#scope` — read a 50-line change line by line
 
 ## Module 1 — Prompt Craft
 - [ ] L3: Specificity & Constraints — `#prompt-craft` `#constraint-driven`
@@ -55,3 +55,5 @@ Curriculum: see `LEARNING.md`.
 ## Session Log
 
 (Claude appends one line per completed session: date, lesson, skill practiced, brief note.)
+
+- 2026-05-05 — L1: First Loop — `#protocol` — Em dash → period in `lib/constants.ts:53` (Wildlife Safaris card). Side trip mid-lesson: built `BRAND.md` and referenced from `CLAUDE.md` (foreshadows L12 `#claude-md`); plus `#meta-prompt` exercise on agentic loop design.
