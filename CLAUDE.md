@@ -94,6 +94,8 @@ public/images/ (All nature photos, 17 high-quality images available)
 
 ## Writing & Copy Standards
 
+**For brand voice, audience, and anti-patterns, read `BRAND.md` first.** It is the source of truth for copy work on this project. The rules below are the mechanical layer; BRAND.md is the taste layer.
+
 All copy should feel direct, human, and authentic. Avoid generic AI-like language.
 
 ### Avoid
