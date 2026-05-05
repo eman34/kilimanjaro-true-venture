@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import TourCard from "@/components/TourCard";
+import TrustStrip from "@/components/TrustStrip";
 import CTABanner from "@/components/CTABanner";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { FEATURED_TOURS, WHY_CHOOSE_US } from "@/lib/constants";
@@ -47,6 +48,8 @@ export default function Home() {
         ctaHref="/contact"
         backgroundImage="/images/hero-sunset.jpg"
       />
+
+      <TrustStrip />
 
       {/* Featured Tours */}
       <section className="section-padding">

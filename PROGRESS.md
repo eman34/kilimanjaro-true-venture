@@ -8,16 +8,16 @@ Curriculum: see `LEARNING.md`.
 
 ## Current Status
 
-**Next up:** L2 — Diff Review Drill (`#diff-review` `#scope`)
+**Next up:** L3 — Specificity & Constraints (`#prompt-craft` `#constraint-driven`)
 
 ---
 
 ## Module 0 — Foundations
 - [x] L1: First Loop — `#protocol` — one-line copy fix in `lib/constants.ts`
-- [ ] **L2: Diff Review Drill** ← next — `#diff-review` `#scope` — read a 50-line change line by line
+- [x] L2: Diff Review Drill — `#diff-review` `#scope` — read a 50-line change line by line
 
 ## Module 1 — Prompt Craft
-- [ ] L3: Specificity & Constraints — `#prompt-craft` `#constraint-driven`
+- [ ] **L3: Specificity & Constraints** ← next — `#prompt-craft` `#constraint-driven`
 - [ ] L4: Spec-Driven Prompts — `#spec-driven`
 - [ ] L5: Role Priming — `#role-priming`
 - [ ] L6: Meta-Prompting — `#meta-prompt`
@@ -57,3 +57,4 @@ Curriculum: see `LEARNING.md`.
 (Claude appends one line per completed session: date, lesson, skill practiced, brief note.)
 
 - 2026-05-05 — L1: First Loop — `#protocol` — Em dash → period in `lib/constants.ts:53` (Wildlife Safaris card). Side trip mid-lesson: built `BRAND.md` and referenced from `CLAUDE.md` (foreshadows L12 `#claude-md`); plus `#meta-prompt` exercise on agentic loop design.
+- 2026-05-06 — L2: Diff Review Drill — `#diff-review` `#scope` — Added `components/TrustStrip.tsx` and wired into `app/page.tsx` between Hero and Featured Tours, reinforcing the BRAND.md takeaway thread. ~40 lines across 2 files. Read line-by-line, scope verified clean. Bonus concepts surfaced: utility-first CSS philosophy, Tailwind 4 `@theme` config in `app/globals.css`, flexbox main/cross axis, `group`/`group-hover:` parent-scoped hover, `node_modules` vs project code.
