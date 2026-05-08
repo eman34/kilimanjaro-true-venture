@@ -1,9 +1,9 @@
 import Hero from "@/components/Hero";
-import TourCard from "@/components/TourCard";
+import FeaturedTours from "@/components/FeaturedTours";
 import TrustStrip from "@/components/TrustStrip";
 import CTABanner from "@/components/CTABanner";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-import { FEATURED_TOURS, WHY_CHOOSE_US } from "@/lib/constants";
+import { WHY_CHOOSE_US } from "@/lib/constants";
 
 const ICONS: Record<string, React.ReactNode> = {
   compass: (
@@ -51,22 +51,7 @@ export default function Home() {
 
       <TrustStrip />
 
-      {/* Featured Tours */}
-      <section className="section-padding">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
-            Our Adventures
-          </h2>
-          <p className="text-light/60 max-w-2xl mx-auto">
-            From the summit of Kilimanjaro to the plains of the Serengeti — choose your next unforgettable experience.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURED_TOURS.map((tour) => (
-            <TourCard key={tour.title} {...tour} />
-          ))}
-        </div>
-      </section>
+      <FeaturedTours />
 
       {/* Why Choose Us */}
       <section className="py-20 bg-dark-lighter">

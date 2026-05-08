@@ -8,7 +8,7 @@ Curriculum: see `LEARNING.md`.
 
 ## Current Status
 
-**Next up:** L3 — Specificity & Constraints (`#prompt-craft` `#constraint-driven`)
+**Next up:** L4 — Spec-Driven Prompts (`#spec-driven`)
 
 ---
 
@@ -17,8 +17,8 @@ Curriculum: see `LEARNING.md`.
 - [x] L2: Diff Review Drill — `#diff-review` `#scope` — read a 50-line change line by line
 
 ## Module 1 — Prompt Craft
-- [ ] **L3: Specificity & Constraints** ← next — `#prompt-craft` `#constraint-driven`
-- [ ] L4: Spec-Driven Prompts — `#spec-driven`
+- [x] L3: Specificity & Constraints — `#prompt-craft` `#constraint-driven`
+- [ ] **L4: Spec-Driven Prompts** ← next — `#spec-driven`
 - [ ] L5: Role Priming — `#role-priming`
 - [ ] L6: Meta-Prompting — `#meta-prompt`
 
@@ -58,3 +58,4 @@ Curriculum: see `LEARNING.md`.
 
 - 2026-05-05 — L1: First Loop — `#protocol` — Em dash → period in `lib/constants.ts:53` (Wildlife Safaris card). Side trip mid-lesson: built `BRAND.md` and referenced from `CLAUDE.md` (foreshadows L12 `#claude-md`); plus `#meta-prompt` exercise on agentic loop design.
 - 2026-05-06 — L2: Diff Review Drill — `#diff-review` `#scope` — Added `components/TrustStrip.tsx` and wired into `app/page.tsx` between Hero and Featured Tours, reinforcing the BRAND.md takeaway thread. ~40 lines across 2 files. Read line-by-line, scope verified clean. Bonus concepts surfaced: utility-first CSS philosophy, Tailwind 4 `@theme` config in `app/globals.css`, flexbox main/cross axis, `group`/`group-hover:` parent-scoped hover, `node_modules` vs project code.
+- 2026-05-08 — L3: Specificity & Constraints — `#prompt-craft` `#constraint-driven` — Compared three prompts (vague / specific / specific+constrained) for refactoring home Featured Tours. User caught the meta-flaw: even Prompt C was scoped to a Kili-specific section while the brand spans 5 product lines — Step 0 of #prompt-craft is "is this the right thing to build?" Refactored `FEATURED_TOURS` shape (added `category` + `duration` + `priceFrom`), redesigned `TourCard.tsx`, created `components/FeaturedTours.tsx` as a client component with filter chips (All / Kilimanjaro / Safari) and a horizontal snap-scroll carousel with chevron buttons (disabled-at-edges, hidden on mobile). Multiple plan-mode pivots driven by browser-test feedback: layout flipped from grid→single row→arrows-outside-cards; cards tightened (smaller image, less padding, lower min-h); UI cleanup (removed Starts from / Per person / View Trip pill; added USD prefix). Bonus concepts: `useState`+`useRef`+`useEffect` cleanup, client/server component split (`"use client"`), CSS `scroll-snap`, programmatic `scrollBy`, the `mt-auto` + `min-h` pattern for uniform card heights with bottom-aligned content (and the asymmetric-gap trade-off it forces).

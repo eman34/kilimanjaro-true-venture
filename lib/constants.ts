@@ -30,46 +30,89 @@ export const NAV_LINKS = [
   { label: "Charity", href: "/charity" },
 ];
 
-export const FEATURED_TOURS = [
+export type TourCategory = "kilimanjaro" | "safari";
+
+export interface FeaturedTour {
+  title: string;
+  image: string;
+  href: string;
+  category: TourCategory;
+  duration: string;
+  priceFrom: string;
+}
+
+export const FEATURED_TOURS: FeaturedTour[] = [
   {
-    title: "Mount Kilimanjaro",
-    description:
-      "Conquer Africa's highest peak via 6 unique routes. An unforgettable journey to the Roof of Africa at 5,895m.",
-    href: "/tours/kilimanjaro",
+    title: "Machame Route",
     image: "/images/kilimanjaro-peak.jpg",
-    tag: "Most Popular",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "6 days hike",
+    priceFrom: "$2,050",
   },
   {
-    title: "Mount Meru",
-    description:
-      "Tanzania's second-highest peak offers stunning views and incredible wildlife encounters on the trail.",
-    href: "/tours/meru",
-    image: "/images/guide-mountain.jpg",
-    tag: "Hidden Gem",
+    title: "Lemosho Route",
+    image: "/images/summit-panorama.jpg",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "8 days hike",
+    priceFrom: "$2,340",
   },
   {
-    title: "Wildlife Safaris",
-    description:
-      "Witness the Big Five in Serengeti, Ngorongoro Crater, and Tarangire. Africa's iconic wildlife parks.",
-    href: "/tours/safaris",
+    title: "Marangu Route",
+    image: "/images/summit-sunrise.jpg",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "5 days hike",
+    priceFrom: "$1,750",
+  },
+  {
+    title: "Rongai Route",
+    image: "/images/mawenzi-silhouette.jpg",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "7 days hike",
+    priceFrom: "$2,440",
+  },
+  {
+    title: "Umbwe Route",
+    image: "/images/crater-wall.jpg",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "6 days hike",
+    priceFrom: "$2,197",
+  },
+  {
+    title: "Londorossi Route",
+    image: "/images/camp-snowy-peak.jpg",
+    href: "/tours/kilimanjaro",
+    category: "kilimanjaro",
+    duration: "7 days hike",
+    priceFrom: "$2,200",
+  },
+  {
+    title: "Great Migration & River Crossing",
     image: "/images/zebra-herd.jpg",
-    tag: "Adventure",
+    href: "/tours/safaris",
+    category: "safari",
+    duration: "5 days safari",
+    priceFrom: "$2,230",
   },
   {
-    title: "Zanzibar Holidays",
-    description:
-      "Relax in beautiful Zanzibar after your adventure. Crystal waters, Stone Town, and tropical paradise.",
-    href: "/tours/zanzibar",
-    image: "/images/flamingos-flight.jpg",
-    tag: "Beach & Culture",
+    title: "Northern Circuit Safari",
+    image: "/images/ngorongoro-wildlife.jpg",
+    href: "/tours/safaris",
+    category: "safari",
+    duration: "3 days safari",
+    priceFrom: "$1,365",
   },
   {
-    title: "Cultural Experiences",
-    description:
-      "Immerse yourself in authentic Tanzanian culture with community visits, local traditions, and unique encounters.",
-    href: "/tours/cultural",
-    image: "/images/guide-client.jpg",
-    tag: "Unique",
+    title: "Serengeti & Ngorongoro",
+    image: "/images/waterhole-wildlife.jpg",
+    href: "/tours/safaris",
+    category: "safari",
+    duration: "4 days safari",
+    priceFrom: "$1,670",
   },
 ];
 
