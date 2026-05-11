@@ -713,42 +713,24 @@ export const TESTIMONIALS = [
   },
 ];
 
-export const WHY_CHOOSE_US = [
+export const VALUES = [
   {
-    title: "Local Expert Guides",
+    title: "Tanzanian, top to bottom.",
     description:
-      "Our certified, born-and-raised Tanzanian guides bring deep knowledge of altitude management, acclimatization, and mountain safety.",
+      "Based in Arusha. Built by people who grew up on this mountain.",
     icon: "compass",
   },
   {
-    title: "Safety First",
+    title: "Guided by Tanzanians.",
     description:
-      "Daily health checks, oxygen monitoring, emergency oxygen cylinders, first aid kits, proper acclimatization schedules, and clear evacuation procedures.",
-    icon: "shield",
-  },
-  {
-    title: "Ethical Porter Treatment",
-    description:
-      "Our founder's experience as a former porter ensures fair wages, proper meals, reasonable load limits, and respectful working conditions for all crew.",
-    icon: "heart",
-  },
-  {
-    title: "All-Inclusive Packages",
-    description:
-      "Airport transfers, hotel accommodation, park fees, quality equipment, nutritious meals, professional guides — everything taken care of.",
-    icon: "package",
-  },
-  {
-    title: "Community Impact",
-    description:
-      "A portion of our profits supports education initiatives, health awareness, and environmental conservation in local communities.",
+      "Every lead guide is Tanzanian and certified at altitude. You can meet them by name on our team page.",
     icon: "users",
   },
   {
-    title: "Founded by Experience",
+    title: "Abu Hope Foundation.",
     description:
-      "Our founder started as a porter and became a professional guide. We understand the mountain from every level — physically, emotionally, and professionally.",
-    icon: "trophy",
+      "Schools and health programs in the communities our crew comes from.",
+    icon: "heart",
   },
 ];
 
