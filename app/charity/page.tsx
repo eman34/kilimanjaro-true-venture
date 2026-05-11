@@ -28,7 +28,7 @@ export default function CharityPage() {
           </h2>
           <div className="space-y-6 text-light/70 leading-relaxed">
             <p>
-              At Kilimanjaro True Venture, adventure is not only about reaching the summit. It is also about creating a positive impact in the communities that make these journeys possible. Through our community initiative, Abu Hope Foundation, we aim to connect travel with meaningful change and social responsibility.
+              At Kilimanjaro True Venture, adventure means more than reaching the summit. It means creating a positive impact in the communities that make these journeys possible. Through our community initiative, Abu Hope Foundation, we aim to connect travel with meaningful change and social responsibility.
             </p>
             <p>
               Founded in 2019 by Abdallah Athumani (Abu), Abu Hope Foundation works to support local communities in Tanzania through initiatives focused on health, education, and environmental awareness. The foundation was created from a deep desire to give back to the communities surrounding the mountains and national parks that are at the heart of Tanzania's tourism industry.
@@ -63,7 +63,7 @@ export default function CharityPage() {
                 Adventure for Charity Climbs
               </h3>
               <p className="text-light/70 leading-relaxed">
-                We encourage what we call Adventure for Charity—special climbing experiences where travelers can combine their journey with a purpose by supporting community initiatives through fundraising or direct involvement. These charity climbs allow guests not only to experience the challenge and beauty of climbing Mount Kilimanjaro but also to contribute to projects that help local communities thrive.
+                We encourage what we call Adventure for Charity: special climbing experiences where travelers can combine their journey with a purpose by supporting community initiatives through fundraising or direct involvement. These charity climbs combine the challenge and beauty of climbing Mount Kilimanjaro with contributing to projects that help local communities thrive.
               </p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function CharityPage() {
               To empower communities and inspire hope.
             </p>
             <p>
-              We believe that tourism can be a force for good, bringing people from around the world together while creating opportunities that benefit the communities that make these adventures possible. Through Abu Hope Foundation, our mission is simple but powerful: to create lasting positive change in the communities we serve.
+              We believe that tourism can be a force for good, bringing people from around the world together while creating opportunities that benefit the communities that make these adventures possible.
             </p>
           </div>
         </div>
