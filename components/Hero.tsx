@@ -21,7 +21,7 @@ export default function Hero({
   return (
     <section
       className={`relative flex items-center justify-center ${
-        compact ? "min-h-[60vh]" : "min-h-screen"
+        compact ? "min-h-[60vh]" : "min-h-[70vh]"
       }`}
     >
       {/* Background */}

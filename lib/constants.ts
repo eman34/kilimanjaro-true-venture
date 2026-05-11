@@ -715,21 +715,15 @@ export const TESTIMONIALS = [
 
 export const VALUES = [
   {
-    title: "Tanzanian, top to bottom.",
-    description:
-      "Based in Arusha. Built by people who grew up on this mountain.",
+    text: "Built by people who grew up on this mountain.",
     icon: "compass",
   },
   {
-    title: "Guided by Tanzanians.",
-    description:
-      "Every lead guide is Tanzanian and certified at altitude. You can meet them by name on our team page.",
+    text: "Every lead guide is Tanzanian, certified at altitude.",
     icon: "users",
   },
   {
-    title: "Abu Hope Foundation.",
-    description:
-      "Schools and health programs in the communities our crew comes from.",
+    text: "Tied to Abu Hope Foundation in our home communities.",
     icon: "heart",
   },
 ];
