@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
-import TeamCarousel from "@/components/TeamCarousel";
 import { TEAM_MEMBERS, MOUNTAIN_CREW, SAFARI_CREW } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -53,26 +52,49 @@ export default function AboutPage() {
             Abu&apos;s Story
           </h2>
           <div className="space-y-6 text-light/70 leading-relaxed">
-            <p className="text-light text-lg">
-              Abu didn&apos;t choose the mountain. The mountain chose him.
+            <p>
+              Kilimanjaro True Venture was founded by <strong className="text-secondary">Abdallah Athumani</strong>, widely known as Abu, a passionate mountain guide born and raised in the small village of Lokoro in Tarakea, located on the slopes of Mount Kilimanjaro in northern Tanzania. Growing up in the shadow of Africa&apos;s highest mountain shaped Abu&apos;s early dreams and curiosity about the world of adventure and exploration.
             </p>
             <p>
-              Born in Lokoro, a small village on Kilimanjaro&apos;s slopes, he grew up where most kids see their future mapped out by geography. His father worked the mountain—a porter, a guide—and Abu spent his childhood watching climbers from distant countries arrive with expensive gear and wild dreams. He&apos;d stare up at the glaciers above his village and wonder: <em>What would it feel like to stand there?</em>
+              As a child, Abu would wake up every morning and look up at the majestic mountain rising above his village. The sight of Kilimanjaro was both inspiring and mysterious to him. His father, who also worked on the mountain, often shared stories about climbers, guides, and porters who traveled from around the world to attempt the summit. These stories deeply inspired Abu and planted the first seeds of his passion for tourism and mountain guiding. He was especially fascinated by the climbers&apos; equipment and imagined himself one day becoming part of those expeditions.
             </p>
             <p>
-              At 18, Abu didn&apos;t have the luxury of wondering much longer. He started as a porter. The hardest job on the mountain. Carrying loads up 5,895 meters while older guides barked orders. The work was brutal. But it was his way in.
+              In 2021, Abu began his own journey on Mount Kilimanjaro, starting from the very foundation of mountain expeditions as a porter. Through dedication, determination, and a strong work ethic, he gradually progressed through several roles on the mountain. He worked as a porter, later as a camp waiter, then as a camp manager responsible for organizing daily camp operations. With experience and training, he advanced to assistant guide and eventually became a professional mountain guide.
             </p>
             <p>
-              He learned something most guides never do: what it feels like to be at the bottom. He carried loads through storms, fell behind the group, nearly quit. He watched porters get treated like they didn&apos;t matter. That stuck with him.
+              Each step of this journey gave Abu a deep understanding of the mountain, the needs of international travelers, and the importance of teamwork during a successful expedition. Over the years, he has climbed Mount Kilimanjaro many times and gained extensive experience guiding climbers from around the world.
             </p>
             <p>
-              Over the next few years, Abu moved through every role. Camp waiter, camp manager, assistant guide. Each step wasn&apos;t a promotion; it was a lesson. By the time he became a full guide, he didn&apos;t just know the mountain&apos;s routes. He knew every person who worked them and what they needed to keep going.
+              The idea to establish Kilimanjaro True Venture came from Abu&apos;s personal experiences on the mountain, especially the challenges faced by porters and crew members. Having once worked in those roles himself, he understands their struggles and believes strongly in treating every team member with respect and dignity. His vision is to build a company that not only offers unforgettable adventures to travelers but also supports local communities and improves opportunities for the people who work on the mountain.
             </p>
             <p>
-              When <strong className="text-secondary">Abdallah Athumani (Abu)</strong> founded Kilimanjaro True Venture, it wasn&apos;t to get rich. He had a simple vision: create a company where people actually matter. Where the person carrying your pack gets paid fairly and respected. Where your guide remembers your name and knows you&apos;re scared, but won&apos;t let you quit.
+              Today, Abu leads Kilimanjaro True Venture with a commitment to professionalism, safety, authenticity, and genuine Tanzanian hospitality. His goal is to build a trusted and respected company that provides life-changing adventures across Tanzania, from climbing Mount Kilimanjaro to exploring wildlife safaris and the beautiful island of Zanzibar.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team & Crew narrative */}
+      <section className="section-padding">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-light mb-8 text-center">
+            Our Team &amp; Crew
+          </h2>
+          <div className="space-y-6 text-light/70 leading-relaxed">
+            <p>
+              At Kilimanjaro True Venture, we believe that every successful adventure is made possible by a dedicated and experienced team. Our mountain and safari crews are the heart of every expedition we organize. Many members of our team have spent years working in the mountains and national parks of Tanzania, bringing deep local knowledge, professionalism, and genuine hospitality to every journey.
             </p>
             <p>
-              Today, Abu brings you not just to the summit. He brings you to meet the real Tanzania. To understand why this mountain, these people, and these journeys matter. He&apos;s still here. Still climbing. Still leading every season.
+              Most of our team members come from communities surrounding Mount Kilimanjaro and Arusha, where mountain guiding and safari operations are part of everyday life. Their experience, teamwork, and passion ensure that every guest enjoys a safe, well-organized, and unforgettable adventure.
+            </p>
+            <p>
+              Depending on the size of the group, each expedition includes a carefully selected crew made up of experienced mountain guides, assistant guides, professional cooks, camp staff, and porters. Together they work as one team with a shared mission: to help every climber reach their goal while creating an atmosphere of encouragement, safety, and positive energy throughout the journey.
+            </p>
+            <p>
+              Our guides have extensive experience on Mount Kilimanjaro, with many having worked on the mountain for over 15 to 20 years. They are professionally trained in mountain safety, first aid, and high-altitude awareness, ensuring that every climb is conducted with the highest level of safety and care.
+            </p>
+            <p>
+              Beyond experience, what makes our team special is their character. Our crew is known for their friendliness, motivation, and dedication to supporting climbers every step of the way. They celebrate every achievement with our guests and take pride in helping travelers experience the true spirit of adventure in Africa.
             </p>
           </div>
         </div>
@@ -81,36 +103,38 @@ export default function AboutPage() {
       {/* Team */}
       <section id="team" className="py-20 bg-dark-lighter">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          {/* Founder - Static */}
-          <div className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-light text-center mb-4">
-              Leadership
-            </h2>
-            <p className="text-center text-light/60 mb-12 max-w-2xl mx-auto">
-              Guided by our founder who built this company on the values of respect, safety, and integrity.
-            </p>
-
-            <div className="bg-dark rounded-2xl overflow-hidden border border-white/10 max-w-2xl mx-auto">
-              <div className="h-64 relative">
-                <Image
-                  src={TEAM_MEMBERS[0].image}
-                  alt={TEAM_MEMBERS[0].name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 672px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark to-transparent" />
+          <h2 className="text-3xl md:text-4xl font-bold text-light text-center mb-12">
+            Meet Our Team
+          </h2>
+          <div className="max-w-3xl mx-auto divide-y divide-white/10">
+            {TEAM_MEMBERS.map((member) => (
+              <div
+                key={member.name}
+                className="flex items-start gap-6 sm:gap-8 py-8 first:pt-0 last:pb-0"
+              >
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0 rounded-xl overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name}, ${member.role}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 128px, 160px"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-semibold text-light">
+                    {member.name}
+                  </h3>
+                  <p className="text-secondary text-xs font-semibold uppercase tracking-wider mt-1 mb-3">
+                    {member.role}
+                  </p>
+                  <p className="text-base text-light/70 leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
               </div>
-              <div className="p-8 text-center -mt-12 relative">
-                <h3 className="text-2xl font-bold text-light">{TEAM_MEMBERS[0].name}</h3>
-                <p className="text-secondary font-medium mb-4">{TEAM_MEMBERS[0].role}</p>
-                <p className="text-light/60 leading-relaxed">{TEAM_MEMBERS[0].bio}</p>
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Team Carousel */}
-          <TeamCarousel />
 
           {/* Crew */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-20">
