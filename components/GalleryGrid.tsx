@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { GALLERY_IMAGES } from "@/lib/constants";
@@ -17,13 +17,16 @@ type GalleryImage = (typeof GALLERY_IMAGES)[0];
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxRef = useRef<HTMLDivElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
 
   const filteredImages: GalleryImage[] =
     activeCategory === "All"
       ? GALLERY_IMAGES
       : GALLERY_IMAGES.filter((img) => img.category === activeCategory);
 
-  // Keyboard navigation for lightbox
+  // Keyboard navigation + focus trap inside the lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
@@ -34,12 +37,47 @@ export default function GalleryGrid() {
         setLightboxIndex(Math.max(0, lightboxIndex - 1));
       } else if (e.key === "ArrowRight") {
         setLightboxIndex(Math.min(filteredImages.length - 1, lightboxIndex + 1));
+      } else if (e.key === "Tab") {
+        const focusables = lightboxRef.current?.querySelectorAll<HTMLElement>(
+          'button, [href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables?.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex, filteredImages.length]);
+
+  // Body scroll lock while lightbox is open
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lightboxIndex]);
+
+  // Move focus into the modal on open; restore to the opening tile on close
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      closeButtonRef.current?.focus();
+    } else if (lastTriggerRef.current) {
+      const trigger = lastTriggerRef.current;
+      lastTriggerRef.current = null;
+      queueMicrotask(() => trigger.focus());
+    }
+  }, [lightboxIndex]);
 
   const currentImage = lightboxIndex !== null ? filteredImages[lightboxIndex] : null;
 
@@ -68,10 +106,15 @@ export default function GalleryGrid() {
       {/* Image Masonry */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 max-w-7xl mx-auto">
         {filteredImages.map((img, index) => (
-          <figure
+          <button
             key={img.src}
-            onClick={() => setLightboxIndex(index)}
-            className="relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer transition-transform duration-300 hover:scale-[1.02] break-inside-avoid mb-4"
+            type="button"
+            onClick={(e) => {
+              lastTriggerRef.current = e.currentTarget;
+              setLightboxIndex(index);
+            }}
+            aria-label={`Open photo: ${img.alt}`}
+            className="block w-full text-left relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary break-inside-avoid mb-4"
           >
             <Image
               src={img.src}
@@ -81,24 +124,29 @@ export default function GalleryGrid() {
               className="w-full h-auto"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-          </figure>
+          </button>
         ))}
       </div>
 
       {/* Lightbox Modal */}
       {currentImage && lightboxIndex !== null && (
         <div
+          ref={lightboxRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo viewer"
           className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
           onClick={() => setLightboxIndex(null)}
         >
           {/* Close Button */}
           <button
+            ref={closeButtonRef}
             onClick={(e) => {
               e.stopPropagation();
               setLightboxIndex(null);
             }}
             className="absolute top-4 right-4 text-light hover:text-secondary transition-colors z-10"
-            aria-label="Close lightbox"
+            aria-label="Close photo viewer"
           >
             <svg
               className="w-8 h-8"
@@ -115,18 +163,21 @@ export default function GalleryGrid() {
             </svg>
           </button>
 
-          {/* Main Image Container */}
+          {/* Main Image — wrapper sized to image aspect ratio, capped at source resolution */}
           <div
-            className="relative w-full h-[70vh] max-w-5xl flex items-center justify-center"
+            style={{
+              width: `min(95vw, ${currentImage.width}px, calc(85vh * ${currentImage.width / currentImage.height}))`,
+              aspectRatio: `${currentImage.width} / ${currentImage.height}`,
+            }}
+            className="relative"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
               fill
+              sizes="95vw"
               className="object-contain"
-              sizes="(max-width: 1280px) 100vw, 80vw"
-              priority
             />
           </div>
 
