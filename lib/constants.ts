@@ -711,6 +711,20 @@ export const TESTIMONIALS = [
     tour: "Kilimanjaro — Machame Route",
     rating: 5,
   },
+  {
+    name: "Pieter van der Meer",
+    location: "Netherlands",
+    text: "We chose Meru as a warm-up climb before Kilimanjaro the following year. The route was quiet, the guide read every shift in the weather and the rim camp at sunrise gave us a clear view across to Kibo. Stronger than its reputation as a warm-up.",
+    tour: "Mount Meru — 4 Days",
+    rating: 5,
+  },
+  {
+    name: "Anika Rao",
+    location: "India",
+    text: "We did Kilimanjaro with True Venture and added a week in Zanzibar to recover. Same level of organization, same direct communication. The driver met us at the ferry, the hotel was exactly what they described and they had a backup snorkeling plan ready when our first day got rained out.",
+    tour: "Zanzibar Beach Holiday",
+    rating: 5,
+  },
 ];
 
 export const VALUES = [

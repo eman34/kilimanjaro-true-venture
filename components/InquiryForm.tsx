@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { TOUR_INTERESTS } from "@/lib/constants";
 
 interface InquiryFormProps {
@@ -8,18 +8,79 @@ interface InquiryFormProps {
   compact?: boolean;
 }
 
+const MAX_MESSAGE_LENGTH = 2000;
+
+function validate(data: Record<string, string>): Record<string, string> {
+  const errs: Record<string, string> = {};
+
+  if (!data.name) {
+    errs.name = "Please enter your name.";
+  }
+
+  if (!data.email) {
+    errs.email = "Please enter your email address.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+    errs.email = "Please enter a valid email address.";
+  }
+
+  if (!data.tour) {
+    errs.tour = "Please select a tour.";
+  }
+
+  if (data.groupSize) {
+    if (!/^\d+$/.test(data.groupSize)) {
+      errs.groupSize = "Group size must be a whole number between 1 and 50.";
+    } else {
+      const n = Number(data.groupSize);
+      if (n < 1 || n > 50) {
+        errs.groupSize = "Group size must be a whole number between 1 and 50.";
+      }
+    }
+  }
+
+  if (data.message && data.message.length > MAX_MESSAGE_LENGTH) {
+    errs.message = `Message is too long. Please keep it under ${MAX_MESSAGE_LENGTH} characters.`;
+  }
+
+  return errs;
+}
+
 export default function InquiryForm({
   defaultTour = "",
   compact = false,
 }: InquiryFormProps) {
+  const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function clearFieldError(name: string) {
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
+  }
+
+  async function handleSubmit() {
+    if (!formRef.current || status === "sending") return;
+
+    const formData = new FormData(formRef.current);
+    const data: Record<string, string> = {};
+    for (const [key, value] of formData.entries()) {
+      if (typeof value === "string") {
+        data[key] = value.trim();
+      }
+    }
+
+    const validationErrors = validate(data);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
     setStatus("sending");
-
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
 
     try {
       const res = await fetch("/api/inquiry", {
@@ -30,7 +91,7 @@ export default function InquiryForm({
 
       if (res.ok) {
         setStatus("sent");
-        (e.target as HTMLFormElement).reset();
+        formRef.current?.reset();
       } else {
         setStatus("error");
       }
@@ -63,7 +124,12 @@ export default function InquiryForm({
 
   return (
     <form
-      onSubmit={handleSubmit}
+      ref={formRef}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+      noValidate
       className="bg-dark-lighter rounded-2xl p-8 md:p-12 border border-white/10"
     >
       <div className={`grid gap-6 ${compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
@@ -75,10 +141,11 @@ export default function InquiryForm({
             type="text"
             id="name"
             name="name"
-            required
+            onChange={() => clearFieldError("name")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors"
             placeholder="Your full name"
           />
+          {errors.name && <p className="mt-2 text-accent text-sm">{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="email" className="block text-light text-sm font-medium mb-2">
@@ -88,10 +155,11 @@ export default function InquiryForm({
             type="email"
             id="email"
             name="email"
-            required
+            onChange={() => clearFieldError("email")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors"
             placeholder="your@email.com"
           />
+          {errors.email && <p className="mt-2 text-accent text-sm">{errors.email}</p>}
         </div>
         <div>
           <label htmlFor="country" className="block text-light text-sm font-medium mb-2">
@@ -101,6 +169,7 @@ export default function InquiryForm({
             type="text"
             id="country"
             name="country"
+            onChange={() => clearFieldError("country")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors"
             placeholder="Your country"
           />
@@ -112,8 +181,8 @@ export default function InquiryForm({
           <select
             id="tour"
             name="tour"
-            required
             defaultValue={defaultTour}
+            onChange={() => clearFieldError("tour")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light focus:border-secondary focus:outline-none transition-colors"
           >
             <option value="">Select a tour</option>
@@ -123,6 +192,7 @@ export default function InquiryForm({
               </option>
             ))}
           </select>
+          {errors.tour && <p className="mt-2 text-accent text-sm">{errors.tour}</p>}
         </div>
         <div>
           <label htmlFor="dates" className="block text-light text-sm font-medium mb-2">
@@ -132,6 +202,7 @@ export default function InquiryForm({
             type="text"
             id="dates"
             name="dates"
+            onChange={() => clearFieldError("dates")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors"
             placeholder="e.g. June 2026"
           />
@@ -146,9 +217,12 @@ export default function InquiryForm({
             name="groupSize"
             min="1"
             max="50"
+            step="1"
+            onChange={() => clearFieldError("groupSize")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors"
             placeholder="Number of people"
           />
+          {errors.groupSize && <p className="mt-2 text-accent text-sm">{errors.groupSize}</p>}
         </div>
         <div className={compact ? "" : "md:col-span-2"}>
           <label htmlFor="message" className="block text-light text-sm font-medium mb-2">
@@ -158,9 +232,12 @@ export default function InquiryForm({
             id="message"
             name="message"
             rows={4}
+            maxLength={MAX_MESSAGE_LENGTH}
+            onChange={() => clearFieldError("message")}
             className="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 text-light placeholder-light/40 focus:border-secondary focus:outline-none transition-colors resize-none"
             placeholder="Tell us about your dream adventure..."
           />
+          {errors.message && <p className="mt-2 text-accent text-sm">{errors.message}</p>}
         </div>
       </div>
       <div className="mt-6">
