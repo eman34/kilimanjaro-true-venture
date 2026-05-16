@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GALLERY_IMAGES } from "@/lib/constants";
 
-const CATEGORIES = ["All", "Kilimanjaro", "Safari"];
+const CATEGORIES = ["All", ...Array.from(new Set(GALLERY_IMAGES.map((img) => img.category)))];
 
 const CATEGORY_TOUR_LINKS: Record<string, { href: string; label: string }> = {
   Kilimanjaro: { href: "/tours/kilimanjaro", label: "See Kilimanjaro tours" },
@@ -20,6 +20,7 @@ export default function GalleryGrid() {
   const lightboxRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const lastTriggerRef = useRef<HTMLElement | null>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const filteredImages: GalleryImage[] =
     activeCategory === "All"
@@ -34,8 +35,10 @@ export default function GalleryGrid() {
       if (e.key === "Escape") {
         setLightboxIndex(null);
       } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
         setLightboxIndex(Math.max(0, lightboxIndex - 1));
       } else if (e.key === "ArrowRight") {
+        e.preventDefault();
         setLightboxIndex(Math.min(filteredImages.length - 1, lightboxIndex + 1));
       } else if (e.key === "Tab") {
         const focusables = lightboxRef.current?.querySelectorAll<HTMLElement>(
@@ -79,7 +82,25 @@ export default function GalleryGrid() {
     }
   }, [lightboxIndex]);
 
-  const currentImage = lightboxIndex !== null ? filteredImages[lightboxIndex] : null;
+  function handleTouchStart(clientX: number, clientY: number) {
+    touchStartRef.current = { x: clientX, y: clientY };
+  }
+
+  function handleTouchEnd(clientX: number, clientY: number) {
+    if (!touchStartRef.current || lightboxIndex === null) return;
+    const dx = clientX - touchStartRef.current.x;
+    const dy = clientY - touchStartRef.current.y;
+    touchStartRef.current = null;
+    if (Math.abs(dx) > 50 && Math.abs(dy) < 50) {
+      if (dx > 0 && lightboxIndex > 0) {
+        setLightboxIndex(lightboxIndex - 1);
+      } else if (dx < 0 && lightboxIndex < filteredImages.length - 1) {
+        setLightboxIndex(lightboxIndex + 1);
+      }
+    }
+  }
+
+  const currentImage = lightboxIndex !== null ? filteredImages[lightboxIndex] ?? null : null;
 
   return (
     <>
@@ -114,13 +135,14 @@ export default function GalleryGrid() {
               setLightboxIndex(index);
             }}
             aria-label={`Open photo: ${img.alt}`}
-            className="block w-full text-left relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary break-inside-avoid mb-4"
+            className="block w-full text-left relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary break-inside-avoid mb-4"
           >
             <Image
               src={img.src}
               alt={img.alt}
               width={img.width}
               height={img.height}
+              priority={index < 2}
               className="w-full h-auto"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
@@ -137,6 +159,8 @@ export default function GalleryGrid() {
           aria-label="Photo viewer"
           className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
           onClick={() => setLightboxIndex(null)}
+          onTouchStart={(e) => handleTouchStart(e.touches[0].clientX, e.touches[0].clientY)}
+          onTouchEnd={(e) => handleTouchEnd(e.changedTouches[0].clientX, e.changedTouches[0].clientY)}
         >
           {/* Close Button */}
           <button
@@ -188,7 +212,7 @@ export default function GalleryGrid() {
                 e.stopPropagation();
                 setLightboxIndex(lightboxIndex - 1);
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10 p-3"
               aria-label="Previous image"
             >
               <svg
@@ -213,7 +237,7 @@ export default function GalleryGrid() {
                 e.stopPropagation();
                 setLightboxIndex(lightboxIndex + 1);
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10 p-3"
               aria-label="Next image"
             >
               <svg
