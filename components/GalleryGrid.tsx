@@ -2,33 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { GALLERY_IMAGES } from "@/lib/constants";
 
-const CATEGORIES = ["All", "Summit", "Wildlife", "Guides", "Landscape"];
+const CATEGORIES = ["All", "Kilimanjaro", "Safari"];
+
+const CATEGORY_TOUR_LINKS: Record<string, { href: string; label: string }> = {
+  Kilimanjaro: { href: "/tours/kilimanjaro", label: "See Kilimanjaro tours" },
+  Safari: { href: "/tours/safaris", label: "See safari tours" },
+};
 
 type GalleryImage = (typeof GALLERY_IMAGES)[0];
-
-function getGridClasses(span: string): string {
-  switch (span) {
-    case "large":
-      return "lg:col-span-2 lg:row-span-2";
-    case "wide":
-      return "lg:col-span-2 lg:row-span-1";
-    default:
-      return "lg:col-span-1 lg:row-span-1";
-  }
-}
-
-function getAspectRatio(span: string): string {
-  switch (span) {
-    case "large":
-      return "lg:aspect-square aspect-[4/3]";
-    case "wide":
-      return "lg:aspect-[2/1] aspect-[4/3]";
-    default:
-      return "aspect-[4/3]";
-  }
-}
 
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -81,27 +65,22 @@ export default function GalleryGrid() {
         ))}
       </div>
 
-      {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto auto-rows-max lg:auto-rows-fr">
+      {/* Image Masonry */}
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 max-w-7xl mx-auto">
         {filteredImages.map((img, index) => (
           <figure
             key={img.src}
             onClick={() => setLightboxIndex(index)}
-            className={`group relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer transition-transform duration-300 hover:scale-105 ${getGridClasses(img.span)} ${getAspectRatio(img.span)}`}
+            className="relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer transition-transform duration-300 hover:scale-[1.02] break-inside-avoid mb-4"
           >
             <Image
               src={img.src}
               alt={img.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              width={img.width}
+              height={img.height}
+              className="w-full h-auto"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark to-transparent p-4 pt-12">
-              <span className="text-secondary text-xs font-semibold uppercase tracking-wider">
-                {img.category}
-              </span>
-              <p className="text-light text-sm font-medium mt-1">{img.alt}</p>
-            </figcaption>
           </figure>
         ))}
       </div>
@@ -202,13 +181,20 @@ export default function GalleryGrid() {
             </button>
           )}
 
-          {/* Caption */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-center">
-            <p className="text-secondary text-sm font-semibold uppercase tracking-wider">
-              {currentImage.category}
-            </p>
-            <p className="text-light text-lg mt-2">{currentImage.alt}</p>
-            <p className="text-light/60 text-sm mt-2">
+          {/* Tour link + counter */}
+          <div
+            className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {CATEGORY_TOUR_LINKS[currentImage.category] && (
+              <Link
+                href={CATEGORY_TOUR_LINKS[currentImage.category].href}
+                className="text-secondary hover:text-secondary/80 transition-colors text-sm font-semibold inline-flex items-center gap-1"
+              >
+                {CATEGORY_TOUR_LINKS[currentImage.category].label} →
+              </Link>
+            )}
+            <p className="text-light/60 text-xs">
               {lightboxIndex + 1} of {filteredImages.length}
             </p>
           </div>
