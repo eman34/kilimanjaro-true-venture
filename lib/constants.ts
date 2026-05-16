@@ -13,21 +13,12 @@ export const COMPANY = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Tours",
-    href: "/tours/kilimanjaro",
-    children: [
-      { label: "Mount Kilimanjaro", href: "/tours/kilimanjaro" },
-      { label: "Mount Meru", href: "/tours/meru" },
-      { label: "Wildlife Safaris", href: "/tours/safaris" },
-      { label: "Zanzibar Holidays", href: "/tours/zanzibar" },
-      { label: "Cultural Experiences", href: "/tours/cultural" },
-    ],
-  },
+  { label: "Kilimanjaro", href: "/tours/kilimanjaro" },
+  { label: "Safari", href: "/tours/safaris" },
+  { label: "Other Adventures", href: "/tours/other-adventures" },
   { label: "Gallery", href: "/gallery" },
   { label: "Charity", href: "/charity" },
+  { label: "About Us", href: "/about" },
 ];
 
 export type TourCategory = "kilimanjaro" | "safari";

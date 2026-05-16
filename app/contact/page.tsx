@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-primary/20 to-dark">
+      <section className="pt-16 pb-12 bg-gradient-to-b from-primary/20 to-dark">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-light mb-4">
             Get in Touch
