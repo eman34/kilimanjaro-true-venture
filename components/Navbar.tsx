@@ -20,7 +20,9 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handler);
   }, []);
 
-  const isActive = (href: string) => pathname === href;
+  const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
+  const isActive = (href: string) =>
+    pathname !== null && normalize(pathname) === normalize(href);
 
   return (
     <nav className="sticky top-0 z-50 bg-primary shadow-lg">
