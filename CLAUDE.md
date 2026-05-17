@@ -15,7 +15,7 @@ This project is a **low-stakes vehicle for learning advanced vibe coding** for t
 
 ## Project Overview
 
-**Kilimanjaro True Venture** is a modern, vibrant travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
+**Kilimanjaro True Venture** is a premium dark-themed travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
 
 - **Owner**: Abdallah Athumani (Abu)
 - **Tech Stack**: Next.js 16, React 19, Tailwind CSS 4, TypeScript
@@ -94,31 +94,7 @@ public/images/ (All nature photos, 17 high-quality images available)
 
 ## Writing & Copy Standards
 
-**For brand voice, audience, and anti-patterns, read `BRAND.md` first.** It is the source of truth for copy work on this project. The rules below are the mechanical layer; BRAND.md is the taste layer.
-
-All copy should feel direct, human, and authentic. Avoid generic AI-like language.
-
-### Avoid
-- ❌ Oxford commas
-- ❌ Em dashes (—) — use periods or semicolons instead
-- ❌ "Not just X, but also Y" constructions
-- ❌ Metaphors and clichés
-- ❌ Generalizations and vague language
-- ❌ Setup language ("In conclusion", "In closing", "That said")
-
-### Examples
-
-**Bad (generic, AI-like):**
-> This isn't just a trek; it's a transformative journey that will change the way you see the world.
-
-**Good (direct, specific):**
-> This 5-day trek covers 60km of terrain, reaching 5,895m altitude with expert guides.
-
-**Bad (setup language):**
-> In conclusion, Kilimanjaro offers an unforgettable experience.
-
-**Good (direct):**
-> Book your Kilimanjaro trek today.
+**For all copy work, `BRAND.md` is the source of truth.** Read it before writing any copy. It owns voice, audience, anti-patterns, and worked examples. Don't restate its rules here — keep this section as a pointer so the two files can't diverge.
 
 ## Content & Features
 
@@ -135,32 +111,17 @@ All copy should feel direct, human, and authentic. Avoid generic AI-like languag
 ✅ Charity section (Abu Hope Foundation)
 ✅ Team profiles (8 team members)
 
-### Contact Information (MUST USE)
-**Never hardcode different contact info. Always use:**
-- **Phone/WhatsApp**: `+255 791 137 698`
-- **Email**: `info@kilimanjarotrueventure.com`
-- **Address**: `Sekei, Arusha, Tanzania`
-- **Company Name**: `Kilimanjaro True Venture`
-- **Slogan**: `Experience True Adventure in Africa`
+### Contact Info & Pricing — source of truth
 
-Location: `lib/constants.ts` → `COMPANY` object
+Never hardcode contact info or pricing. Always read from `lib/constants.ts`:
+- `COMPANY` → phone, email, address, company name, slogan
+- `KILIMANJARO_ROUTES` and `SAFARI_PACKAGES` → starting prices
 
-### Pricing Structure
-All starting prices are in the `KILIMANJARO_ROUTES` and `SAFARI_PACKAGES` in constants:
-- Machame Route: $2,050–$2,130
-- Lemosho Route: $2,350
-- Mount Meru: $950 (4 days)
-- Safari packages: $430–$2,230 depending on duration
+If a value isn't in `lib/constants.ts`, ask before inventing one.
 
 ## Images & Assets
 
-### Available Images
-17 high-quality photos in `/public/images/`:
-- Summit photos (glaciers, panorama, sunrise, celebration)
-- Wildlife (zebra, flamingos, waterhole, animals)
-- People/guides (guide-client, guide-mountain)
-- Landscape (crater-wall, camp-setup, hero-sunset, etc)
-- Nature (milky-way, mawenzi-silhouette, summit-peak)
+Available photos live in `/public/images/`. List the folder before assuming what's there — the inventory changes as photos are added.
 
 ### Image Best Practices
 - Always use Next.js `Image` component (lazy loading, optimization)
@@ -203,7 +164,7 @@ All starting prices are in the `KILIMANJARO_ROUTES` and `SAFARI_PACKAGES` in con
 Before considering any page "done", test:
 
 - [ ] **Visual Design**
-  - Page looks modern and vibrant (not dark)
+  - Page matches the dark/luxe design system (navy background, mustard CTAs, off-white text)
   - Colors match design system
   - All images load correctly and look crisp
   - Typography is readable (headings, body text, links)
@@ -245,72 +206,9 @@ Before considering any page "done", test:
   - Buttons have hover states
   - Links are understandable
 
-## 📚 Learning & Education
+## Learning & Education
 
-### How I Teach You While Building
-
-As a beginner developer, you want to **learn web development** while building this site. When I make changes, I will:
-
-1. **Explain the "why"** - Not just what the code does, but why it's done that way
-2. **Name the concept** - "This is called X" so you can research it later
-3. **Show the pattern** - How this applies beyond just this one change
-4. **Point out learning moments** - When something reinforces a concept
-
-### Example of My Explanations
-
-**Bad (Just fixing code):**
-```
-Changed className from "text-light" to "text-gray-600"
-```
-
-**Good (Teaching you):**
-```
-Changed className from "text-light" to "text-gray-600"
-
-💡 WHY: This is a **color contrast fix**. White backgrounds need dark text for readability (WCAG accessibility standards). "text-light" was dark blue, but now we're using proper semantic gray-600 for body text on white backgrounds.
-
-CONCEPT: Contrast Ratio - The darker your text on a light background, the easier to read. This follows the principle of "semantic colors" in design systems.
-
-PATTERN: In Tailwind, use:
-- text-light (dark) for headings on white
-- text-gray-600 for body text on white
-- text-white for text on dark/colored backgrounds
-```
-
-### Concepts You'll Learn Building This Site
-
-These are the **core web development concepts** you'll encounter:
-
-| Concept | What It Is | Where You'll See It |
-|---------|-----------|---|
-| **React Components** | Reusable blocks of UI code | Every `<Hero />`, `<TourCard />` |
-| **Props** | How components get data | `<TourCard title="..." image="..." />` |
-| **JSX** | HTML-like syntax in JavaScript | `<div className="...">Text</div>` |
-| **State (useState)** | Data that changes & re-renders | Testimonial carousel switching slides |
-| **Responsive Design** | Sites that work on mobile/tablet/desktop | `md:` `lg:` prefixes in Tailwind |
-| **Conditional Rendering** | Show/hide elements based on logic | `{loading ? <Loading /> : <Content />}` |
-| **Routing** | How URLs navigate between pages | `/about`, `/tours/kilimanjaro` |
-| **Next.js Image Optimization** | Making images load faster | `<Image />` component vs `<img />` |
-| **Tailwind CSS** | CSS utility classes (no writing CSS) | `bg-white text-gray-600 rounded-xl` |
-| **Type Safety** | Catching errors before runtime | TypeScript interfaces and types |
-| **Component Composition** | Building complex UIs from simple pieces | Page layouts built from multiple components |
-| **Git & Commits** | Tracking changes, explaining your work | `git commit -m "message"` |
-
-### Questions I'll Answer While Coding
-
-If you see a change and wonder "why that?", I'm explaining:
-- ✅ "This uses a map() because we're iterating over an array"
-- ✅ "This needs a key prop for React to track list items efficiently"
-- ✅ "We're using next/Image instead of <img> for automatic optimization"
-- ✅ "This component is 'controlled' because state drives the input value"
-
-### Your Learning Responsibility
-
-As I teach you, you should:
-1. **Ask follow-up questions** - "Why use Array.map instead of a for loop?"
-2. **Request explanations** - "Can you explain what 'props drilling' means?"
-3. **Ask me to explain patterns** - "When should I create a new component?"
-4. **Point out what confuses you** - "I don't understand why we need hooks"
+Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (tracker). The Active Learning Curriculum section at the top of this file points there. Don't restate teaching style here — the calibration ("name patterns without re-explaining fundamentals") is in the Active Learning Curriculum section above.
 
 ---
 
@@ -359,20 +257,8 @@ As I teach you, you should:
 - Mobile-first responsive design
 - No IE11 support needed
 
-## Next Steps / Future Features
-
-Potential enhancements (discuss before building):
-- Customer testimonials/reviews page
-- Blog/news section
-- Online booking system
-- Live availability calendar
-- WhatsApp integration for inquiries
-- Multi-language support
-- Team member photos (when available)
-- Video tours/YouTube integration
-
 ---
 
-**Last Updated**: March 2026
-**Current Theme**: Modern, Vibrant, Nature-Focused
+**Last Updated**: May 2026
+**Current Theme**: Dark & Luxe, Nature-Focused
 **Status**: Active Development
