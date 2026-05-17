@@ -1,11 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
+
+const CTA_LABEL = "Get in Touch";
+const CTA_HREF = "/contact";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <nav className="sticky top-0 z-50 bg-primary shadow-lg">
@@ -27,19 +42,24 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-light hover:text-secondary transition-colors font-medium"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`font-medium transition-colors ${
+                  isActive(link.href)
+                    ? "text-secondary"
+                    : "text-light hover:text-secondary"
+                }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary text-sm">
-              Get in Touch
+            <Link href={CTA_HREF} className="btn-primary text-sm">
+              {CTA_LABEL}
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-light p-2"
+            className="md:hidden text-light p-2.5"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -62,7 +82,12 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-3 text-light hover:text-secondary transition-colors font-medium"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`block px-4 py-3 transition-colors font-medium ${
+                  isActive(link.href)
+                    ? "text-secondary"
+                    : "text-light hover:text-secondary"
+                }`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -70,11 +95,11 @@ export default function Navbar() {
             ))}
             <div className="px-4 mt-4">
               <Link
-                href="/contact"
+                href={CTA_HREF}
                 className="btn-primary block text-center"
                 onClick={() => setMobileOpen(false)}
               >
-                Get in Touch
+                {CTA_LABEL}
               </Link>
             </div>
           </div>

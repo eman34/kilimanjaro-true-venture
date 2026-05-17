@@ -46,7 +46,7 @@ export default function Hero({
         <p className="text-lg sm:text-xl md:text-2xl text-light/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
           {subtitle}
         </p>
-        {ctaText && (
+        {ctaText && ctaHref && (
           <Link href={ctaHref} className="btn-primary text-lg">
             {ctaText}
           </Link>
@@ -54,7 +54,7 @@ export default function Hero({
       </div>
       {/* Scroll indicator */}
       {!compact && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 motion-safe:animate-bounce">
           <svg
             className="w-6 h-6 text-secondary"
             fill="none"
