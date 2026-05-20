@@ -15,7 +15,7 @@ This project is a **low-stakes vehicle for learning advanced vibe coding** for t
 
 ## Project Overview
 
-**Kilimanjaro True Venture** is a premium dark-themed travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
+**Kilimanjaro True Venture** is a premium editorial-luxe travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
 
 - **Owner**: Abdallah Athumani (Abu)
 - **Tech Stack**: Next.js 16, React 19, Tailwind CSS 4, TypeScript
@@ -24,27 +24,35 @@ This project is a **low-stakes vehicle for learning advanced vibe coding** for t
 
 ## Design System
 
-### Color Palette
-- **Primary**: Deep Navy (`#1A3A5C`) - trust, sophistication, depth
-- **Secondary**: Mustard Gold (`#D4A843`) - warmth, action, CTAs
-- **Accent**: Coral Pink (`#E94560`) - energy, highlights, attention
-- **Background**: Very Dark (`#0F1923`) - premium, luxe feel, dark theme
-- **Text**: Off-White (`#F0F0F0`) - on dark backgrounds, excellent contrast
-- **Neutrals**: Dark grays for supporting text and secondary elements
+### Color Palette — Wine + Emerald on Paper
+Tokens describe color, not role — palette swaps shouldn't require renames.
+
+- **`paper`** `#FBF9F4` — page background AND navbar background (warm paper-white)
+- **`parchment`** `#F4F1E8` — card surface, form-wrapper bg, footer bg (slightly deeper paper)
+- **`wine`** `#3F1A26` — body text, nav text, dark-anchor surfaces (deep burgundy)
+- **`wine-deep`** `#2A1019` — wine accent button hover, CTABanner gradient depth
+- **`rose`** `#8A6570` — muted/secondary text (dusty rose-gray)
+- **`emerald`** `#1F5F3A` — primary CTA, focus rings, hover highlights, accent
+- **`emerald-deep`** `#154528` — primary CTA hover state
+- **`taupe`** `#E5DFD2` — borders, dividers (soft paper-gray)
+
+Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`bg-paper`, `text-wine`, `border-taupe`, etc.) — do not reach for hex literals in JSX.
 
 ### Design Principles
-- **Dark & Luxe**: Premium dark theme with sophisticated navy + gold accents
-- **Nature-First**: Large, high-quality nature photography as hero elements (stands out on dark)
-- **Clean Layout**: Dark cards with subtle borders, ample spacing
-- **Interactive**: Hover effects, smooth transitions (300ms) with gold highlights
-- **Responsive**: Mobile-first, works on all screen sizes
+- **Editorial luxe**: Wine-bar / library / boutique-hotel restraint. Photos do the work; the palette is the frame.
+- **Light page, subtle navbar**: Page bg is paper. Navbar uses the same paper with a thin `border-b border-taupe` — sticky and opaque, but has no color block at the top.
+- **One confident accent**: Forest emerald is the only saturated color on the page. Use it for CTAs, focus rings, hover highlights, and the occasional brand mark — sparingly.
+- **Selectively dark**: Hero photo overlays use wine at 45% (`bg-wine/45`) for legibility on bright photos. The CTABanner block uses `bg-wine` for a sophisticated dark anchor section. Gallery lightbox keeps `bg-black/90` for photo-viewing context.
+- **Responsive**: Mobile-first, works on all screen sizes.
 
 ### Component Styling Rules
-- Cards: Dark background (#162636), subtle borders, minimal shadows
-- Buttons: Primary (navy) + Secondary (mustard gold) with hover states (gold accent)
-- Images: Rounded corners (`rounded-xl` or `rounded-2xl`), bordered, quality photos (pop on dark)
-- Text: Off-white (#F0F0F0) body text, bright for headings and emphasis
-- Sections: Dark backgrounds with subtle color variations
+- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo "KTV" in `text-emerald`. Nav links `text-wine hover:text-emerald`. Active link `text-emerald`.
+- **Cards**: `bg-parchment border border-taupe` with `hover:border-emerald/40` for interactive cards.
+- **Buttons**: `.btn-primary` (emerald, primary CTA) and `.btn-accent` (wine, secondary heavy action) — defined in `globals.css`.
+- **Form inputs**: `bg-paper border-taupe` inside a `bg-parchment` form card (inputs are lighter than the wrapper — "carved-out" feel). Focus state uses `border-emerald`.
+- **Images**: Rounded corners (`rounded-xl` or `rounded-2xl`), `border-taupe` outline on cards, photos from `/public/images/`.
+- **Text**: `text-wine` for body and nav; `text-rose` (or `text-wine/60`–`/70`) for muted; `text-paper` only when on a dark surface (Hero overlay, CTABanner, lightbox controls).
+- **Sections**: Default page bg is `bg-paper`. Use `bg-parchment` for distinct sections that need a slightly deeper tone. Use `bg-wine` for dramatic anchor blocks (e.g., CTABanner).
 
 ## Code Standards
 
@@ -96,6 +104,26 @@ public/images/ (All nature photos, 17 high-quality images available)
 
 **For all copy work, `BRAND.md` is the source of truth.** Read it before writing any copy. It owns voice, audience, anti-patterns, and worked examples. Don't restate its rules here — keep this section as a pointer so the two files can't diverge.
 
+## Per-Page Depth Strategy
+
+Different pages do different jobs. The site is not uniformly restrained — restraint is for the home page. **Density is the trust-building work on tour pages.** Calibrate depth to the page's job, not to a global aesthetic.
+
+| Page | Job | Depth | Density signals |
+|---|---|---|---|
+| **Home** | Earn the first WhatsApp message | **Light** | ≤3 sentences per section, photo-led, ≤8 trust signals from `AUDIENCE.md` §8, founder line, no SME-level operational detail |
+| **About / Founder** | Make the brand a person | **Medium** | Long-form Abu story, named team with years/summits, real office photo (Sekei), year-stamped milestones |
+| **Kilimanjaro routes** | The SME proof page; survives a 41-day nurture | **Heavy** | Daily itinerary with altitude + km, route success rate by day count, AMS protocol, evacuation procedure, oxygen carried per expedition, gear standards, named guides, what's-included line-item, porter-wage stance |
+| **Safari** | SME proof at slightly lower density | **Medium-heavy** | Daily itinerary with named camps, vehicle ratio, guide credentials, seasonality (migration calendar), park-fee transparency |
+| **Mount Meru** | Acclimatization-pairing + standalone trek | **Medium-heavy** | Same shape as Kili pages, shorter (fewer route variants) |
+| **Zanzibar** | Couples-trip logic; mainland combo | **Medium** | Real lodge photography, named partners, transfer logistics, what's-included vs not |
+| **Cultural** | Show care without claiming primary expertise | **Medium** | Named partner communities (Maasai, Hadzabe), what the experience is, ethical framing |
+| **Gallery / Contact** | Function, not depth | **Light** | One job per page |
+| **Charity (Abu Hope)** | Adjacent funnel; mention, don't lead | **Medium** | Specific projects with numbers, year stamps, no "profits fund" framing |
+
+**The principle.** A traveler weighing a $2,500 trek who reads three pretty sentences on a tour page leaves. A traveler who reads dense, specific, numbered detail on AMS protocol, porter wages, oxygen, and evacuation sends the message. **Restraint on the home is editorial. Density on a tour page is trust.**
+
+For the funnel and persona logic that drives this — buyer objections, conversion principles, trust-signal hierarchy — see `AUDIENCE.md`. For the operational topics that *are* the trust substance — see `BRAND.md` "Operational proof topics." For voice rules governing *how* the density reads — see `BRAND.md`. Depth lives in what's said; voice governs how it's said.
+
 ## Content & Features
 
 ### Complete Features
@@ -133,10 +161,11 @@ Available photos live in `/public/images/`. List the folder before assuming what
 ## Things to AVOID ❌
 
 ### Design
-- ❌ Light backgrounds (we use DARK navy/black theme, not white)
+- ❌ Dark page backgrounds (the theme is light/paper — page bg is `bg-paper`, not dark)
 - ❌ Placeholder/generic images (use real nature photos from `/public/images/`)
-- ❌ Low contrast text on dark (use #F0F0F0 off-white for excellent readability)
-- ❌ Overwhelming color - stick to navy/mustard/coral palette, use gold sparingly
+- ❌ Low-contrast pairings (e.g. `text-wine` on `bg-emerald` — both dark; use `text-paper` on emerald instead)
+- ❌ Reaching for hex literals in JSX (use the Wine + Emerald tokens: paper, parchment, wine, wine-deep, rose, emerald, emerald-deep, taupe)
+- ❌ Overusing emerald — it's a single confident accent on CTAs and hover states, not flood fill
 - ❌ Breaking the responsive layout on mobile
 
 ### Code
@@ -164,7 +193,7 @@ Available photos live in `/public/images/`. List the folder before assuming what
 Before considering any page "done", test:
 
 - [ ] **Visual Design**
-  - Page matches the dark/luxe design system (navy background, mustard CTAs, off-white text)
+  - Page matches Wine + Emerald (paper bg, paper navbar with bottom border, wine body text, emerald CTAs)
   - Colors match design system
   - All images load correctly and look crisp
   - Typography is readable (headings, body text, links)
@@ -193,6 +222,14 @@ Before considering any page "done", test:
   - Team info is accurate
   - No typos or placeholder text
   - All sections have meaningful content
+
+- [ ] **Expertise Depth** (tour pages only — Kilimanjaro, Safari, Meru)
+  - Page answers `AUDIENCE.md` §4's seven objections in order (mortality/AMS, operator legitimacy, summit success, porter ethics, fitness, change policy, value)
+  - Specific numbers present (altitude, km, days, success %, porter wage figure, oxygen bottles)
+  - Named entities present (route names, partner orgs, guide names with summits-led, year stamps)
+  - No paragraph is purely adjectival — each has a fact
+  - Line-item "what's included" visible (not bundled into a single sentence)
+  - ≥60% of relevant topics from `BRAND.md` "Operational proof topics" are surfaced
 
 - [ ] **Performance**
   - Page loads quickly (under 3 seconds)
@@ -260,5 +297,5 @@ Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (track
 ---
 
 **Last Updated**: May 2026
-**Current Theme**: Dark & Luxe, Nature-Focused
+**Current Theme**: Wine + Emerald on Paper — editorial luxe, photo-led
 **Status**: Active Development

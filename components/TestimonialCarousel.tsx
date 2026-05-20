@@ -13,23 +13,23 @@ export default function TestimonialCarousel() {
   const testimonial = TESTIMONIALS[current];
 
   return (
-    <section className="py-20 bg-dark-lighter">
+    <section className="py-20 bg-parchment">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-wine mb-4">
           What Our Adventurers Say
         </h2>
-        <p className="text-center text-light/60 mb-12">
+        <p className="text-center text-wine/60 mb-12">
           Real stories from real travelers
         </p>
 
         <div className="relative">
-          <div className="bg-dark rounded-2xl p-8 md:p-12 border border-white/10">
+          <div className="bg-paper rounded-2xl p-8 md:p-12 border border-taupe/10">
             {/* Stars */}
             <div className="flex gap-1 mb-6 justify-center">
               {Array.from({ length: testimonial.rating }).map((_, i) => (
                 <svg
                   key={i}
-                  className="w-5 h-5 text-secondary"
+                  className="w-5 h-5 text-emerald"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -39,15 +39,15 @@ export default function TestimonialCarousel() {
             </div>
 
             {/* Quote */}
-            <blockquote className="text-lg md:text-xl text-light/90 text-center leading-relaxed mb-8">
+            <blockquote className="text-lg md:text-xl text-wine/90 text-center leading-relaxed mb-8">
               &ldquo;{testimonial.text}&rdquo;
             </blockquote>
 
             {/* Author */}
             <div className="text-center">
-              <p className="text-secondary font-bold">{testimonial.name}</p>
-              <p className="text-light/50 text-sm">{testimonial.location}</p>
-              <p className="text-light/40 text-xs mt-1">{testimonial.tour}</p>
+              <p className="text-emerald font-bold">{testimonial.name}</p>
+              <p className="text-wine/50 text-sm">{testimonial.location}</p>
+              <p className="text-wine/40 text-xs mt-1">{testimonial.tour}</p>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export default function TestimonialCarousel() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-secondary hover:text-dark transition-all flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-wine/10 hover:bg-emerald hover:text-paper transition-all flex items-center justify-center"
               aria-label="Previous testimonial"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,8 +69,8 @@ export default function TestimonialCarousel() {
                   onClick={() => setCurrent(i)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
                     i === current
-                      ? "bg-secondary w-8"
-                      : "bg-white/30 hover:bg-white/50"
+                      ? "bg-emerald w-8"
+                      : "bg-wine/30 hover:bg-wine/50"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -78,7 +78,7 @@ export default function TestimonialCarousel() {
             </div>
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-secondary hover:text-dark transition-all flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-wine/10 hover:bg-emerald hover:text-paper transition-all flex items-center justify-center"
               aria-label="Next testimonial"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

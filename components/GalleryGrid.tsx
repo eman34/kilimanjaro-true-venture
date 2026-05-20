@@ -115,8 +115,8 @@ export default function GalleryGrid() {
             }}
             className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
               activeCategory === category
-                ? "bg-secondary text-dark"
-                : "border border-white/20 text-light/70 hover:border-secondary/50 hover:text-light"
+                ? "bg-emerald text-paper"
+                : "border border-taupe text-wine/70 hover:border-emerald/50 hover:text-wine"
             }`}
           >
             {category}
@@ -135,7 +135,7 @@ export default function GalleryGrid() {
               setLightboxIndex(index);
             }}
             aria-label={`Open photo: ${img.alt}`}
-            className="block w-full text-left relative rounded-2xl overflow-hidden border border-white/10 bg-dark-lighter cursor-pointer motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary break-inside-avoid mb-4"
+            className="block w-full text-left relative rounded-2xl overflow-hidden border border-taupe/10 bg-parchment cursor-pointer motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald break-inside-avoid mb-4"
           >
             <Image
               src={img.src}
@@ -169,7 +169,7 @@ export default function GalleryGrid() {
               e.stopPropagation();
               setLightboxIndex(null);
             }}
-            className="absolute top-4 right-4 text-light hover:text-secondary transition-colors z-10"
+            className="absolute top-4 right-4 text-paper hover:text-emerald transition-colors z-10"
             aria-label="Close photo viewer"
           >
             <svg
@@ -212,7 +212,7 @@ export default function GalleryGrid() {
                 e.stopPropagation();
                 setLightboxIndex(lightboxIndex - 1);
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10 p-3"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-paper hover:text-emerald transition-colors z-10 p-3"
               aria-label="Previous image"
             >
               <svg
@@ -237,7 +237,7 @@ export default function GalleryGrid() {
                 e.stopPropagation();
                 setLightboxIndex(lightboxIndex + 1);
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-light hover:text-secondary transition-colors z-10 p-3"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-paper hover:text-emerald transition-colors z-10 p-3"
               aria-label="Next image"
             >
               <svg
@@ -264,12 +264,12 @@ export default function GalleryGrid() {
             {CATEGORY_TOUR_LINKS[currentImage.category] && (
               <Link
                 href={CATEGORY_TOUR_LINKS[currentImage.category].href}
-                className="text-secondary hover:text-secondary/80 transition-colors text-sm font-semibold inline-flex items-center gap-1"
+                className="text-emerald hover:text-emerald/80 transition-colors text-sm font-semibold inline-flex items-center gap-1"
               >
                 {CATEGORY_TOUR_LINKS[currentImage.category].label} →
               </Link>
             )}
-            <p className="text-light/60 text-xs">
+            <p className="text-paper/60 text-xs">
               {lightboxIndex + 1} of {filteredImages.length}
             </p>
           </div>

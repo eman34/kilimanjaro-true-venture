@@ -15,9 +15,9 @@ type FilterId = (typeof FILTERS)[number]["id"];
 const arrowBase =
   "w-10 h-10 rounded-full border flex-shrink-0 items-center justify-center transition-colors";
 const arrowEnabled =
-  "border-white/15 bg-dark-lighter text-light hover:border-secondary/50 hover:text-secondary";
+  "border-taupe/15 bg-parchment text-wine hover:border-emerald/50 hover:text-emerald";
 const arrowDisabled =
-  "border-white/5 bg-dark-lighter/40 text-light/20 cursor-not-allowed";
+  "border-taupe/5 bg-parchment/40 text-wine/20 cursor-not-allowed";
 
 export default function FeaturedTours() {
   const [filter, setFilter] = useState<FilterId>("all");
@@ -59,10 +59,10 @@ export default function FeaturedTours() {
   return (
     <section className="section-padding">
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-wine mb-4">
           Our Adventures
         </h2>
-        <p className="text-light/60 max-w-2xl mx-auto">
+        <p className="text-wine/60 max-w-2xl mx-auto">
           From the summit of Kilimanjaro to the plains of the Serengeti. Pick your next trip.
         </p>
       </div>
@@ -77,8 +77,8 @@ export default function FeaturedTours() {
               className={
                 "px-5 py-2 rounded-full text-sm font-semibold border transition-colors " +
                 (active
-                  ? "bg-secondary border-secondary text-dark"
-                  : "border-white/15 text-light/70 hover:border-secondary/50 hover:text-light")
+                  ? "bg-emerald border-emerald text-wine"
+                  : "border-taupe/15 text-wine/70 hover:border-emerald/50 hover:text-wine")
               }
             >
               {f.label}

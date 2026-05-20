@@ -46,44 +46,41 @@ export default function ZanzibarPage() {
     <>
       <Hero
         title="Zanzibar Holidays"
-        subtitle="Relax in beautiful Zanzibar after your adventure. Crystal waters, historic Stone Town, and tropical paradise await."
-        ctaText="Plan Your Getaway"
-        ctaHref="/contact"
+        tagline="Crystal water. Old Stone Town. Rest."
         backgroundImage="/images/flamingos-flight.jpg"
-        compact
       />
 
       {/* Overview */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-6">
             The Perfect Post-Adventure Reward
           </h2>
-          <p className="text-light/70 leading-relaxed mb-8">
+          <p className="text-wine/70 leading-relaxed mb-8">
             After conquering Kilimanjaro or exploring the Serengeti, unwind in the tropical paradise of Zanzibar. With its stunning beaches, rich history, and vibrant culture, Zanzibar is the ideal way to cap off your Tanzanian adventure.
           </p>
-          <div className="inline-block bg-dark-lighter rounded-xl p-8 border border-secondary/30">
-            <p className="text-light/50 text-sm mb-2">Packages start from</p>
-            <p className="text-4xl font-bold text-secondary mb-2">$600</p>
-            <p className="text-light/60 text-sm">3 days including hotel, airport transfer, and Stone Town tour</p>
+          <div className="inline-block bg-parchment rounded-xl p-8 border border-emerald/30">
+            <p className="text-wine/50 text-sm mb-2">Packages start from</p>
+            <p className="text-4xl font-bold text-emerald mb-2">$600</p>
+            <p className="text-wine/60 text-sm">3 days including hotel, airport transfer, and Stone Town tour</p>
           </div>
         </div>
       </section>
 
       {/* Highlights */}
-      <section className="py-20 bg-dark-lighter">
+      <section className="py-20 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-light text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-12">
             Zanzibar Highlights
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {HIGHLIGHTS.map((item) => (
               <div
                 key={item.title}
-                className="bg-dark rounded-xl p-6 border border-white/10 hover:border-secondary/30 transition-all duration-300"
+                className="bg-paper rounded-xl p-6 border border-taupe/10 hover:border-emerald/30 transition-all duration-300"
               >
-                <h3 className="text-lg font-bold text-secondary mb-3">{item.title}</h3>
-                <p className="text-light/60 text-sm leading-relaxed">{item.description}</p>
+                <h3 className="text-lg font-bold text-emerald mb-3">{item.title}</h3>
+                <p className="text-wine/60 text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -93,7 +90,7 @@ export default function ZanzibarPage() {
       {/* What's Included */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-light text-center mb-8">What&apos;s Included</h2>
+          <h2 className="text-3xl font-bold text-wine text-center mb-8">What&apos;s Included</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Hotel accommodation",
@@ -103,8 +100,8 @@ export default function ZanzibarPage() {
               "Local transport assistance",
               "24/7 trip support",
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 text-light/70">
-                <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item} className="flex items-start gap-3 text-wine/70">
+                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 {item}
@@ -117,7 +114,6 @@ export default function ZanzibarPage() {
       <CTABanner
         title="Add Zanzibar to Your Adventure"
         subtitle="Combine a Kilimanjaro climb or safari with a relaxing Zanzibar beach holiday for the ultimate Tanzania experience."
-        ctaText="Plan Your Zanzibar Trip"
       />
     </>
   );

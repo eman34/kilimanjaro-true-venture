@@ -14,11 +14,8 @@ export default function GalleryPage() {
     <>
       <Hero
         title="Gallery"
-        subtitle="A visual taste of Kilimanjaro summits, safari plains, local culture, and coastal beauty — the experiences we are proud to share with our guests."
-        ctaText="Plan Your Trip"
-        ctaHref="/contact"
+        tagline="Summits, plains, coast. Captured."
         backgroundImage="/images/summit-panorama.jpg"
-        compact
       />
 
       <section className="section-padding">
@@ -28,7 +25,6 @@ export default function GalleryPage() {
       <CTABanner
         title="Ready to Create Your Own Memories?"
         subtitle="Get in touch for Kilimanjaro, safari, culture, or Zanzibar — we will help you build the right itinerary."
-        ctaText="Get in Touch"
       />
     </>
   );

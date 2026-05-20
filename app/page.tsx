@@ -28,27 +28,25 @@ export default function Home() {
     <>
       <Hero
         title="Conquer the Roof of Africa"
-        subtitle="Authentic, safe, and professionally guided adventures across Tanzania — from the summit of Kilimanjaro to the Serengeti and the turquoise waters of Zanzibar."
-        ctaText="Plan Your Adventure"
-        ctaHref="/contact"
+        tagline="Tanzanian-owned. Tanzanian-guided."
         backgroundImage="/images/hero-sunset.jpg"
       />
 
       {/* Values */}
-      <section className="py-16 bg-dark-lighter">
+      <section className="py-16 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-light">
+            <h2 className="text-3xl md:text-4xl font-bold text-wine">
               Tanzanian-owned. Tanzanian-guided. Tanzanian-built.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {VALUES.map((item) => (
               <div key={item.text} className="flex items-start gap-4">
-                <div className="flex-shrink-0 text-secondary">
+                <div className="flex-shrink-0 text-emerald">
                   {ICONS[item.icon]}
                 </div>
-                <p className="text-light/80 text-base md:text-lg leading-relaxed">
+                <p className="text-wine/80 text-base md:text-lg leading-relaxed">
                   {item.text}
                 </p>
               </div>

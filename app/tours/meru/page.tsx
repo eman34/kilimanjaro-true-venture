@@ -56,20 +56,17 @@ export default function MeruPage() {
     <>
       <Hero
         title="Mount Meru"
-        subtitle="Tanzania's second-highest peak at 4,566m. A stunning 4-day trek through wildlife-rich Arusha National Park to a dramatic volcanic summit."
-        ctaText="Book This Trek"
-        ctaHref="/contact"
+        tagline="Four days. One volcano. Few crowds."
         backgroundImage="/images/mawenzi-silhouette.jpg"
-        compact
       />
 
       {/* Overview */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-6">
             Perfect Preparation Before Kilimanjaro
           </h2>
-          <p className="text-light/70 leading-relaxed">
+          <p className="text-wine/70 leading-relaxed">
             Climb Tanzania&apos;s second highest peak in Arusha National Park. Mount Meru is often overlooked in favor of its famous neighbor, but those who trek it call it one of the best experiences in East Africa. With close wildlife encounters, dramatic crater scenery, and stunning views of Kilimanjaro, Meru offers an intimate and rewarding adventure.
           </p>
         </div>
@@ -82,40 +79,40 @@ export default function MeruPage() {
             { label: "Difficulty", value: "Moderate" },
             { label: "Price", value: "From $950" },
           ].map((fact) => (
-            <div key={fact.label} className="bg-dark-lighter rounded-xl p-6 text-center border border-white/10">
-              <p className="text-secondary text-2xl font-bold mb-1">{fact.value}</p>
-              <p className="text-light/50 text-sm">{fact.label}</p>
+            <div key={fact.label} className="bg-parchment rounded-xl p-6 text-center border border-taupe/10">
+              <p className="text-emerald text-2xl font-bold mb-1">{fact.value}</p>
+              <p className="text-wine/50 text-sm">{fact.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Itinerary */}
-      <section className="py-20 bg-dark-lighter">
+      <section className="py-20 bg-parchment">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-light text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-12">
             Day-by-Day Itinerary
           </h2>
           <div className="space-y-6">
             {ITINERARY.map((day) => (
               <div
                 key={day.day}
-                className="bg-dark rounded-xl p-6 md:p-8 border border-white/10 relative overflow-hidden"
+                className="bg-paper rounded-xl p-6 md:p-8 border border-taupe/10 relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-secondary" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-emerald" />
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
                   <div className="shrink-0">
-                    <span className="text-secondary font-bold text-lg">{day.day}</span>
-                    <p className="text-light/40 text-xs">{day.altitude}</p>
+                    <span className="text-emerald font-bold text-lg">{day.day}</span>
+                    <p className="text-wine/40 text-xs">{day.altitude}</p>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-light mb-2">{day.title}</h3>
+                    <h3 className="text-xl font-bold text-wine mb-2">{day.title}</h3>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
-                      <span className="text-secondary/70 text-xs font-medium">{day.distance}</span>
-                      <span className="text-secondary/70 text-xs font-medium">{day.time}</span>
-                      <span className="text-secondary/70 text-xs font-medium">{day.terrain}</span>
+                      <span className="text-emerald/70 text-xs font-medium">{day.distance}</span>
+                      <span className="text-emerald/70 text-xs font-medium">{day.time}</span>
+                      <span className="text-emerald/70 text-xs font-medium">{day.terrain}</span>
                     </div>
-                    <p className="text-light/70 leading-relaxed">{day.description}</p>
+                    <p className="text-wine/70 leading-relaxed">{day.description}</p>
                   </div>
                 </div>
               </div>
@@ -127,7 +124,7 @@ export default function MeruPage() {
       {/* What's Included */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-light text-center mb-8">What&apos;s Included</h2>
+          <h2 className="text-3xl font-bold text-wine text-center mb-8">What&apos;s Included</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Professional armed ranger & mountain guide",
@@ -139,8 +136,8 @@ export default function MeruPage() {
               "Pre and post-trek hotel accommodation",
               "Drinking water",
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 text-light/70">
-                <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item} className="flex items-start gap-3 text-wine/70">
+                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 {item}
@@ -153,7 +150,6 @@ export default function MeruPage() {
       <CTABanner
         title="Trek Mount Meru With Us"
         subtitle="Combine it with a Kilimanjaro climb or enjoy it as a standalone adventure. Let's plan your perfect trip."
-        ctaText="Inquire Now"
       />
     </>
   );

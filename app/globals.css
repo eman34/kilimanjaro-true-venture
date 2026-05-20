@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1A3A5C;
-  --color-secondary: #D4A843;
-  --color-accent: #E94560;
-  --color-dark: #0F1923;
-  --color-light: #F0F0F0;
-  --color-primary-light: #24507a;
-  --color-dark-lighter: #162636;
+  --color-paper: #FBF9F4;
+  --color-parchment: #F4F1E8;
+  --color-wine: #3F1A26;
+  --color-wine-deep: #2A1019;
+  --color-rose: #8A6570;
+  --color-emerald: #1F5F3A;
+  --color-emerald-deep: #154528;
+  --color-taupe: #E5DFD2;
 }
 
 @layer base {
   body {
-    @apply bg-dark text-light antialiased;
+    @apply bg-paper text-wine antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -22,11 +23,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-secondary text-dark font-bold px-8 py-3 rounded-lg hover:bg-yellow-400 transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light;
+    @apply bg-emerald text-paper font-bold px-8 py-3 rounded-lg hover:bg-emerald-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine;
   }
 
   .btn-accent {
-    @apply bg-accent text-white font-bold px-8 py-3 rounded-lg hover:bg-red-400 transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light;
+    @apply bg-wine text-paper font-bold px-8 py-3 rounded-lg hover:bg-wine-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
   }
 
   .section-padding {

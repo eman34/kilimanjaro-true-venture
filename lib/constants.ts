@@ -39,7 +39,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "6 days hike",
-    priceFrom: "$2,050",
+    priceFrom: "$2,350",
   },
   {
     title: "Lemosho Route",
@@ -47,7 +47,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "8 days hike",
-    priceFrom: "$2,340",
+    priceFrom: "$2,640",
   },
   {
     title: "Marangu Route",
@@ -55,7 +55,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "5 days hike",
-    priceFrom: "$1,750",
+    priceFrom: "$1,950",
   },
   {
     title: "Rongai Route",
@@ -63,7 +63,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "7 days hike",
-    priceFrom: "$2,440",
+    priceFrom: "$2,740",
   },
   {
     title: "Umbwe Route",
@@ -71,7 +71,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "6 days hike",
-    priceFrom: "$2,197",
+    priceFrom: "$2,497",
   },
   {
     title: "Londorossi Route",
@@ -79,7 +79,7 @@ export const FEATURED_TOURS: FeaturedTour[] = [
     href: "/tours/kilimanjaro",
     category: "kilimanjaro",
     duration: "7 days hike",
-    priceFrom: "$2,200",
+    priceFrom: "$2,500",
   },
   {
     title: "Great Migration & River Crossing",
@@ -107,18 +107,51 @@ export const FEATURED_TOURS: FeaturedTour[] = [
   },
 ];
 
-export const KILIMANJARO_ROUTES = [
+export interface KilimanjaroRouteDuration {
+  days: string;
+  price: string;
+}
+
+export interface KilimanjaroRouteDay {
+  day: number;
+  title: string;
+  elevation: string;
+  distance: string;
+  time: string;
+  terrain: string;
+  description: string;
+}
+
+export interface KilimanjaroRoute {
+  name: string;
+  nickname: string;
+  durations: KilimanjaroRouteDuration[];
+  difficulty: string;
+  scenery: number;
+  description: string;
+  itinerary: string[];
+  detailedItinerary?: KilimanjaroRouteDay[];
+  highlights: string[];
+  tag?: string;
+  image: string;
+  successRate?: string;
+  leadGuide?: string;
+}
+
+export const KILIMANJARO_ROUTES: KilimanjaroRoute[] = [
   {
     name: "Machame",
     nickname: "The Whiskey Route",
     durations: [
-      { days: "7 Days", price: "From $2,130" },
-      { days: "6 Days", price: "From $2,050" },
+      { days: "6", price: "$2,350" },
+      { days: "7", price: "$2,430" },
     ],
     difficulty: "Challenging",
     scenery: 5,
+    tag: "Popular pick",
+    image: "/images/kilimanjaro-peak.jpg",
     description:
-      'Known as the "Whiskey Route," Machame offers stunning scenery and strong acclimatization. Best for adventurous trekkers seeking scenic diversity.',
+      "Kilimanjaro's most popular route. Crosses five ecosystems on the way up: rainforest, lava ridges, alpine desert, glacial summit. A camping route that uses the 'climb high, sleep low' acclimatization pattern, which lifts summit success rates well above shorter routes. Steeper ascents and longer days than Marangu. Suited to climbers prepared for camping and varied terrain over scenic ground.",
     itinerary: [
       "Hotel to Machame Gate – Machame Camp",
       "Machame Camp – Shira Camp",
@@ -136,7 +169,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "11 km",
         time: "5-7 hours",
         terrain: "Rainforest",
-        description: "Your adventure begins with a drive from your hotel to Machame Gate (1,800m), where you'll register and meet your mountain crew. The trail winds through lush montane rainforest alive with birdsong, colobus monkeys, and towering moss-draped trees. The air is thick and humid as you climb steadily through the canopy, catching glimpses of sunlight filtering through the leaves. You'll arrive at Machame Camp nestled in a clearing at the edge of the forest.",
+        description: "Drive from your hotel to Machame Gate (1,800m) to register and meet your crew. The trail climbs through montane rainforest with colobus monkeys and moss-draped trees. The air is thick and humid. Machame Camp sits in a clearing at the edge of the forest.",
       },
       {
         day: 2,
@@ -145,7 +178,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-6 hours",
         terrain: "Moorland",
-        description: "Leaving the rainforest behind, you emerge into the heath and moorland zone — a dramatic shift in landscape. Giant heather and wildflowers line the trail as the views open up spectacularly. On clear days, you'll catch your first breathtaking glimpse of Kibo peak towering above. The terrain becomes rocky and exposed as you cross the Shira Plateau, one of Kilimanjaro's ancient volcanic calderas.",
+        description: "Out of the rainforest and into the heath and moorland zone. Giant heather and wildflowers line the trail; views open up. On clear days, you get a first sight of Kibo peak above. The terrain becomes rocky and exposed as you cross the Shira Plateau, one of Kilimanjaro's three ancient volcanic cones.",
       },
       {
         day: 3,
@@ -154,7 +187,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "6-8 hours",
         terrain: "Alpine desert",
-        description: "Today follows the crucial \"climb high, sleep low\" principle. You'll ascend through the alpine desert to the imposing Lava Tower — a 90-metre volcanic rock formation at 4,630m. This is your first real test at altitude. After lunch in the shadow of the tower, you descend steeply into the stunning Barranco Valley. The descent aids acclimatization and you'll sleep over 600m lower than your high point, waking refreshed and better adapted.",
+        description: "The classic \"climb high, sleep low\" day. You ascend through the alpine desert to Lava Tower, a 90m volcanic plug at 4,630m. First real test at altitude. After lunch in the shadow of the tower, descend steeply into the Barranco Valley. You sleep over 600m lower than your high point, which speeds acclimatization.",
       },
       {
         day: 4,
@@ -163,7 +196,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-5 hours",
         terrain: "Rocky scramble & valley",
-        description: "The day begins with the legendary Barranco Wall — a thrilling scramble up a near-vertical rock face. It looks intimidating but requires no technical climbing, just hands and feet and a sense of adventure. Your guides will be right beside you. From the top, you're rewarded with sweeping views of the southern glaciers and the summit. The trail then dips in and out of valleys before reaching Karanga Camp, your last water collection point.",
+        description: "The day starts with the Barranco Wall, a scramble up a near-vertical rock face. It looks intimidating but is non-technical: hands and feet, nothing else. Your guides stay beside you. From the top, views open to the southern glaciers and the summit. The trail then dips through valleys to Karanga Camp, the last water-collection point on the route.",
       },
       {
         day: 5,
@@ -172,16 +205,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "4 km",
         time: "3-4 hours",
         terrain: "Barren alpine desert",
-        description: "A shorter day designed to conserve energy for summit night. The trail crosses a barren, rocky landscape where very little grows — you're now in the true alpine desert. The air is thin and cold, and the summit feels tantalizingly close. You'll arrive at Barafu Camp (\"ice\" in Swahili) by early afternoon, giving you time to rest, eat, hydrate, and prepare mentally for the midnight summit push.",
+        description: "A shorter day to conserve energy for summit night. The trail crosses barren rock; you're in the true alpine desert now. Air is thin and cold. You arrive at Barafu Camp (\"ice\" in Swahili) by early afternoon, giving you time to rest, eat, hydrate, and prepare for the midnight summit push.",
       },
       {
         day: 6,
-        title: "Summit Day — Uhuru Peak to Mweka Camp",
+        title: "Summit Day: Uhuru Peak to Mweka Camp",
         elevation: "4,673m to 5,895m, descend to 3,068m",
         distance: "13 km",
         time: "12-16 hours",
         terrain: "Scree, ice, and glacier",
-        description: "You wake around midnight to hot tea and biscuits, then begin the climb under a canopy of stars. The trail zigzags up steep scree slopes toward Stella Point (5,756m) on the crater rim — the most mentally and physically demanding section. As the sky begins to lighten, the glaciers glow pink and gold. From Stella Point, it's a 45-minute walk along the crater rim to Uhuru Peak — the Roof of Africa at 5,895m. After celebrating and photos, you descend to Mweka Camp for a well-earned rest.",
+        description: "Wake around midnight to hot tea and biscuits, then start climbing under the stars. The trail zigzags up steep scree to Stella Point (5,756m) on the crater rim. This is the hardest section, mentally and physically. As the sky lightens, the glaciers turn pink and gold. From Stella Point, it's a 45-minute walk along the rim to Uhuru Peak at 5,895m. After photos, descend to Mweka Camp.",
       },
       {
         day: 7,
@@ -190,7 +223,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "3-4 hours",
         terrain: "Rainforest",
-        description: "Your final morning on the mountain. You descend through the cloud forest, retracing the journey from bare rock back to lush greenery. The air thickens, the temperature warms, and birdsong returns. At Mweka Gate, your crew will be waiting with celebration songs and your summit certificates. A transfer takes you back to your hotel in Moshi for a hot shower, a cold drink, and the deep satisfaction of having stood on Africa's highest point.",
+        description: "Final morning on the mountain. Descend through cloud forest from bare rock back to greenery. Air thickens, temperature warms, birds return. At Mweka Gate, your crew meets you with celebration songs and summit certificates. Transfer back to your hotel in Moshi for a hot shower.",
       },
     ],
     highlights: [
@@ -203,11 +236,13 @@ export const KILIMANJARO_ROUTES = [
   {
     name: "Lemosho",
     nickname: "The Wilderness Route",
-    durations: [{ days: "8 Days", price: "From $2,340" }],
+    durations: [{ days: "8", price: "$2,640" }],
     difficulty: "Moderate to Challenging",
     scenery: 5,
+    tag: "Recommended",
+    image: "/images/summit-sunrise.jpg",
     description:
-      "High success rate and gradual acclimatization. Ideal for serious climbers wanting the best summit chance.",
+      "Starts on the western side through quiet rainforest with the mountain's better wildlife. Merges with Machame on the upper slopes. The 8-day version is the longest standard route, giving the most acclimatization time and the highest summit success rate of any Kilimanjaro itinerary. Suited to climbers who want fewer crowds in the early days and the strongest chance of reaching the top.",
     itinerary: [
       "Hotel to Lemosho Gate – Mti Mkubwa Camp",
       "Mti Mkubwa Camp – Shira 1 Camp",
@@ -226,7 +261,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "6 km",
         time: "3-4 hours",
         terrain: "Rainforest",
-        description: "After a scenic drive along the western slopes of Kilimanjaro, you'll register at Londorossi Gate and continue to the Lemosho trailhead. The hike begins through pristine montane rainforest — one of the quietest and most untouched approaches on the mountain. Blue monkeys dart through the canopy above, and the forest floor is carpeted in ferns. The gentle start is perfect for easing into mountain life.",
+        description: "Drive along Kilimanjaro's western slopes to Londorossi Gate for registration, then on to the Lemosho trailhead. The hike begins through montane rainforest, one of the quietest approaches on the mountain. Blue monkeys move through the canopy. The forest floor is dense with ferns. A gentle start to ease into mountain pace.",
       },
       {
         day: 2,
@@ -235,7 +270,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "5-7 hours",
         terrain: "Moorland & heath",
-        description: "You climb out of the rainforest into the heather zone, where the landscape transforms dramatically. Giant heather gives way to open moorland with sweeping views of the western breach and the Shira Plateau. The going is steady, and you'll feel the air beginning to thin. Camp is set on the edge of the plateau — a vast, ancient caldera that feels like walking on the roof of the world.",
+        description: "Climb out of the rainforest into the heather zone. Giant heather opens into moorland with views of the western breach and the Shira Plateau. Pace is steady; the air starts to thin. Camp sits on the edge of the plateau, a vast volcanic cone.",
       },
       {
         day: 3,
@@ -244,7 +279,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "6 km",
         time: "4-5 hours",
         terrain: "Plateau moorland",
-        description: "A gentle traverse across the Shira Plateau — one of Kilimanjaro's three volcanic cones. The terrain is open, flat, and otherworldly, with the summit of Kibo looming ahead. You may spot eland, the world's largest antelope, grazing on the plateau. This easy day is designed for acclimatization, giving your body time to adjust before the bigger days ahead.",
+        description: "A gentle traverse of the Shira Plateau, one of Kilimanjaro's three volcanic cones. Open, flat terrain with Kibo ahead. You may see eland (the world's largest antelope) grazing on the plateau. An easy day for acclimatization before the bigger days ahead.",
       },
       {
         day: 4,
@@ -253,7 +288,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "6-8 hours",
         terrain: "Alpine desert",
-        description: "The critical acclimatization day. You ascend to the striking Lava Tower at 4,630m — a colossal volcanic plug rising from the barren landscape. Lunch is served in its shadow before a rewarding descent to Barranco Camp. By climbing high and sleeping low, your body adapts more effectively. The Barranco Valley is spectacular, with giant groundsels and lobelias dotting the otherworldly terrain.",
+        description: "The critical acclimatization day. You ascend to Lava Tower at 4,630m, a volcanic plug rising from the barren landscape. Lunch in its shadow, then descend to Barranco Camp. Climbing high and sleeping low helps the body adapt. The Barranco Valley below is dotted with giant groundsels and lobelias.",
       },
       {
         day: 5,
@@ -262,7 +297,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-5 hours",
         terrain: "Rocky scramble & valley",
-        description: "An exhilarating start as you tackle the Barranco Wall — a fun, non-technical scramble that feels like an adventure playground at altitude. The views from the top are staggering. The trail then undulates through a series of valleys, crossing streams and rocky terrain before arriving at Karanga Camp. Take time to enjoy the views of the southern ice fields catching the afternoon light.",
+        description: "Start with the Barranco Wall, a non-technical scramble. Views open from the top. The trail then crosses valleys, streams, and rocky terrain to Karanga Camp. The southern ice fields catch the afternoon light from camp.",
       },
       {
         day: 6,
@@ -271,16 +306,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "4 km",
         time: "3-4 hours",
         terrain: "Barren alpine desert",
-        description: "A deliberately short day to conserve energy. The landscape is stark and beautiful — bare rock, thin air, and vast sky. You'll arrive at Barafu base camp by lunchtime, giving you the entire afternoon to rest, eat well, and mentally prepare for the summit attempt. Your guides will brief you on the night ahead. Early dinner, then try to sleep before the midnight wake-up call.",
+        description: "A deliberately short day. Bare rock, thin air, open sky. You arrive at Barafu base camp by lunchtime, with the afternoon to rest, eat, and prepare for the summit attempt. Guides brief you on the night ahead. Early dinner, then try to sleep before the midnight wake-up.",
       },
       {
         day: 7,
-        title: "Summit Day — Uhuru Peak to Mweka Camp",
+        title: "Summit Day: Uhuru Peak to Mweka Camp",
         elevation: "4,673m to 5,895m, descend to 3,068m",
         distance: "13 km",
         time: "12-16 hours",
         terrain: "Scree, ice, and glacier",
-        description: "The pinnacle of your journey. Rising at midnight, you climb by headlamp through the darkness, each step bringing you closer to the Roof of Africa. The cold is intense, but your crew keeps you motivated with encouragement and hot drinks. Reaching Stella Point at dawn is deeply emotional — the glaciers shimmer in the first light. The final walk to Uhuru Peak (5,895m) is triumphant. After celebrations and photos, a long descent brings you to Mweka Camp.",
+        description: "Rise at midnight, climb by headlamp. The cold is intense; your crew keeps you moving with hot drinks. Reach Stella Point at dawn; the glaciers catch the first light. The final walk along the rim to Uhuru Peak (5,895m) is 45 minutes. After photos, a long descent to Mweka Camp.",
       },
       {
         day: 8,
@@ -289,13 +324,13 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "3-4 hours",
         terrain: "Rainforest",
-        description: "A joyful descent back to civilization through lush rainforest. The crew will sing traditional celebration songs as you walk, and the mood is electric — you've done it. At Mweka Gate, collect your summit certificates, tip your incredible crew, and say your goodbyes. Transfer back to your hotel to relive every moment over a well-deserved meal.",
+        description: "Descent through rainforest. The crew sings traditional celebration songs along the trail. At Mweka Gate, collect your summit certificates, tip the crew, and say goodbye. Transfer back to your hotel.",
       },
     ],
     highlights: [
       "Remote and uncrowded start",
       "Best acclimatization profile",
-      "Stunning panoramic views",
+      "Wide panoramic views",
       "Highest success rate",
     ],
   },
@@ -303,13 +338,15 @@ export const KILIMANJARO_ROUTES = [
     name: "Marangu",
     nickname: "The Coca-Cola Route",
     durations: [
-      { days: "6 Days", price: "From $1,810" },
-      { days: "5 Days", price: "From $1,750" },
+      { days: "5", price: "$1,950" },
+      { days: "6", price: "$2,030" },
     ],
     difficulty: "Moderate",
     scenery: 3,
+    tag: "Hut option",
+    image: "/images/camp-snowy-peak.jpg",
     description:
-      "The only route with hut accommodation. A comfort-focused option with a gradual ascent and cozy sleeping arrangements.",
+      "The oldest and most established route on Kilimanjaro, and the only one with hut accommodation instead of tents. Approaches from the southeast with a gradual incline early on. The shorter itinerary makes acclimatization harder; summit success rates are correspondingly lower than longer routes. Suited to climbers with limited time who prefer huts to camping. Patience and physical preparation matter.",
     itinerary: [
       "Marangu Gate – Mandara Hut",
       "Mandara – Horombo Hut",
@@ -326,7 +363,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "3-5 hours",
         terrain: "Rainforest",
-        description: "The classic Kilimanjaro experience begins at Marangu Gate. The well-maintained trail leads through dense montane rainforest, rich with birdlife and the occasional troop of blue monkeys. Unlike other routes, you'll sleep in comfortable wooden huts with bunk beds and mattresses. Mandara Hut is a cozy cluster of A-frame cabins surrounded by forest — a welcoming introduction to life on the mountain.",
+        description: "Start at Marangu Gate. The well-maintained trail climbs through montane rainforest with birdlife and the occasional troop of blue monkeys. Unlike other routes, you sleep in wooden huts with bunk beds and mattresses, not tents. Mandara Hut is a cluster of A-frame cabins in the forest.",
       },
       {
         day: 2,
@@ -335,7 +372,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "11 km",
         time: "5-7 hours",
         terrain: "Moorland",
-        description: "Leaving the forest canopy behind, the trail opens into rolling moorland with spectacular views. On clear mornings, both Kibo and Mawenzi peaks are visible ahead — a sight that takes your breath away. The heather and grasses give way to giant lobelias and groundsels, plants that look like they belong on another planet. Horombo Hut is the largest camp on the mountain with stunning sunset views.",
+        description: "Out of the forest canopy into rolling moorland. On clear mornings, both Kibo and Mawenzi peaks are visible ahead. The heather and grasses give way to giant lobelias and groundsels. Horombo Hut is the largest camp on the mountain.",
       },
       {
         day: 3,
@@ -344,7 +381,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "Optional hike",
         time: "3-4 hours",
         terrain: "Alpine desert",
-        description: "A rest day designed to help your body adjust to the altitude — crucial for summit success. Most climbers take an optional hike toward Mawenzi Hut at 4,200m, getting a close-up view of Mawenzi's dramatic spires before descending back. The rest of the day is for relaxation, card games, journaling, and enjoying the mountain atmosphere. Your guides will monitor your health and acclimatization progress.",
+        description: "A rest day to help your body adjust to altitude. Most climbers take an optional hike to Mawenzi Hut at 4,200m for a close view of Mawenzi's spires, then descend back. The rest of the day is for resting, eating, and hydrating. Guides monitor your health and acclimatization.",
       },
       {
         day: 4,
@@ -353,16 +390,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "5-7 hours",
         terrain: "Alpine desert",
-        description: "The landscape turns stark and lunar as you cross \"the saddle\" — the vast, barren plateau between Mawenzi and Kibo peaks. Very little grows here, and the wind can whip across the open terrain. Kibo Hut sits at the base of the summit cone, a stone building that serves as your launch point for the final push. Early dinner, early bed — you'll need every minute of rest.",
+        description: "The landscape turns lunar as you cross \"the saddle,\" the barren plateau between Mawenzi and Kibo peaks. Little grows; the wind moves across open terrain. Kibo Hut is a stone building at the base of the summit cone, the launch point for the final push. Early dinner, early bed.",
       },
       {
         day: 5,
-        title: "Summit Day — Uhuru Peak, descend to Horombo Hut",
+        title: "Summit Day: Uhuru Peak, descent to Horombo Hut",
         elevation: "4,703m to 5,895m, descend to 3,720m",
         distance: "21 km",
         time: "14-18 hours",
         terrain: "Scree, ice, and glacier",
-        description: "The alarm sounds at midnight. Dressed in every warm layer you own, you begin the steep climb up volcanic scree by headlamp. The zigzagging trail to Gilman's Point (5,681m) on the crater rim is relentless but achievable — one step at a time. From Gilman's, traverse the rim past glaciers to Uhuru Peak at 5,895m. Watch the sunrise from the top of Africa. The descent is long — all the way back to Horombo Hut — but you'll be walking on air.",
+        description: "Alarm at midnight. Dressed in every warm layer you own, you climb steep volcanic scree by headlamp. The zigzag trail to Gilman's Point (5,681m) on the crater rim is relentless but doable: one step, then the next. From Gilman's, traverse the rim past glaciers to Uhuru Peak at 5,895m. Sunrise from the top. The descent is long, all the way back to Horombo Hut.",
       },
       {
         day: 6,
@@ -371,7 +408,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "19 km",
         time: "5-7 hours",
         terrain: "Moorland & rainforest",
-        description: "Your final descent passes quickly as you retrace your steps through moorland and back into the welcoming rainforest. The rich, oxygen-filled air feels incredible after days at altitude. At Marangu Gate, your crew will celebrate with songs and dancing. Collect your summit certificates, share grateful goodbyes, and transfer back to your hotel — a Kilimanjaro summiteer.",
+        description: "Final descent through moorland and back into rainforest. The thicker, oxygen-rich air is a relief after days at altitude. At Marangu Gate, your crew celebrates with songs. Collect your summit certificates and transfer back to your hotel.",
       },
     ],
     highlights: [
@@ -384,11 +421,13 @@ export const KILIMANJARO_ROUTES = [
   {
     name: "Rongai",
     nickname: "The Northern Approach",
-    durations: [{ days: "7 Days", price: "From $2,440" }],
+    durations: [{ days: "7", price: "$2,740" }],
     difficulty: "Moderate",
     scenery: 4,
+    tag: "For solitude",
+    image: "/images/mawenzi-silhouette.jpg",
     description:
-      "Northern approach near the Kenya border. Quieter and less crowded route with a gentle gradient ascent.",
+      "Approaches from the northern side near the Kenyan border, the only route that does. Drier landscape early on (rain-shadow side of the mountain), and far fewer climbers than the southern routes. Terrain is gentler than Machame or Umbwe but acclimatization still matters. Suited to climbers who want solitude and a different view of the mountain.",
     itinerary: [
       "Hotel to Rongai Gate – Simba Camp",
       "Simba Camp – Second Cave Camp",
@@ -406,7 +445,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "3-4 hours",
         terrain: "Cultivated land & pine forest",
-        description: "A scenic drive along the northern slopes of Kilimanjaro passes through rural villages and farmland, offering a glimpse of local Chagga life. The trail from Rongai Gate passes through planted pine forest before entering natural montane forest. The northern side of the mountain is drier and less visited, giving you a sense of true wilderness. Simba Camp (\"lion\" in Swahili) sits at the edge of the forest with views toward Kenya.",
+        description: "A drive along Kilimanjaro's northern slopes through rural villages and Chagga farmland to Rongai Gate. The trail passes through planted pine forest before entering natural montane forest. The northern side of the mountain is drier and less travelled than the south. Simba Camp (\"lion\" in Swahili) sits at the edge of the forest with views north toward Kenya.",
       },
       {
         day: 2,
@@ -415,7 +454,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "5-6 hours",
         terrain: "Heath & moorland",
-        description: "The trail climbs through heather and moorland, with the terrain opening up to reveal the drier, wilder northern slopes. You'll pass First Cave — a shallow overhanging rock that once served as a shelter for early climbers — before continuing to Second Cave Camp. The views across the Kenyan plains are vast and peaceful. Keep an eye out for white-necked ravens riding the thermals above.",
+        description: "The trail climbs through heather and moorland. The terrain opens onto the drier, wilder northern slopes. You pass First Cave, a shallow overhanging rock that once sheltered early climbers, before continuing to Second Cave Camp. Views across the Kenyan plains are wide. White-necked ravens ride the thermals above.",
       },
       {
         day: 3,
@@ -424,7 +463,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "6 km",
         time: "3-4 hours",
         terrain: "Moorland",
-        description: "A gentle day winding through open moorland dotted with giant heather and tussock grass. The route contours around the mountain's northern flank, offering unique perspectives of Mawenzi's jagged peaks that most climbers never see. Kikelewa Camp is nestled in a sheltered valley — a quiet, beautiful spot to spend the evening watching the stars appear one by one in the thin, clear air.",
+        description: "A gentle day through open moorland with giant heather and tussock grass. The route contours around the mountain's northern flank, with views of Mawenzi's jagged peaks that most climbers never see. Kikelewa Camp is in a sheltered valley. Quiet evening; the stars come out one by one in the thin, clear air.",
       },
       {
         day: 4,
@@ -433,7 +472,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-5 hours",
         terrain: "Rocky alpine terrain",
-        description: "A steeper climb today as you ascend to Mawenzi Tarn — a stunning alpine lake sitting beneath the dramatic spires and buttresses of Mawenzi peak. The landscape is raw and rugged, with volcanic rock formations and sparse vegetation. Camp is perched on the edge of the tarn with Mawenzi's cathedral-like pinnacles looming directly overhead — one of the most spectacular campsites on Kilimanjaro.",
+        description: "A steeper climb to Mawenzi Tarn, an alpine lake beneath the spires of Mawenzi peak. Volcanic rock formations; sparse vegetation. Camp sits on the edge of the tarn with Mawenzi's pinnacles directly overhead. One of the most striking campsites on the mountain.",
       },
       {
         day: 5,
@@ -442,16 +481,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "5-6 hours",
         terrain: "Alpine desert",
-        description: "You cross \"the saddle\" — the high-altitude desert connecting Mawenzi and Kibo. This lunar landscape is one of the most surreal environments on Earth: barren rock, thin air, and endless sky. The walking is relatively flat but the altitude makes every step count. Kibo Camp sits at the base of the summit cone. Rest, eat well, and prepare for midnight.",
+        description: "Cross \"the saddle,\" the high-altitude desert connecting Mawenzi and Kibo. Barren rock, thin air, open sky. The walking is flat but the altitude makes every step heavy. Kibo Camp sits at the base of the summit cone. Rest, eat well, prepare for midnight.",
       },
       {
         day: 6,
-        title: "Summit Day — Uhuru Peak, descend to Horombo Hut",
+        title: "Summit Day: Uhuru Peak, descent to Horombo Hut",
         elevation: "4,703m to 5,895m, descend to 3,720m",
         distance: "21 km",
         time: "14-18 hours",
         terrain: "Scree, ice, and glacier",
-        description: "The midnight ascent up the summit cone is grueling and glorious. Switchbacking up loose scree by headlamp, you climb toward Gilman's Point on the crater rim. The stars overhead are impossibly bright. As dawn breaks, you traverse past ancient glaciers to Uhuru Peak — the highest point in Africa. The views stretch across the continent. After summit photos, descend via the Marangu route to Horombo Hut for the night.",
+        description: "The midnight ascent up the summit cone is the hardest day. Switchbacking up loose scree by headlamp toward Gilman's Point on the crater rim. The stars overhead are bright. As dawn breaks, traverse past glaciers to Uhuru Peak at 5,895m, the highest point in Africa. After photos, descend via the Marangu route to Horombo Hut.",
       },
       {
         day: 7,
@@ -460,24 +499,26 @@ export const KILIMANJARO_ROUTES = [
         distance: "19 km",
         time: "5-7 hours",
         terrain: "Moorland & rainforest",
-        description: "The final descent takes you down through zones you didn't climb through — the southern moorland and rainforest — offering a completely new perspective. The rich, thick forest air is a joy after days of thin mountain atmosphere. At Marangu Gate, celebrations await with singing, certificates, and the warm glow of achievement. Transfer back to your hotel as a Kilimanjaro summiteer.",
+        description: "Final descent through zones you didn't climb. The southern moorland and rainforest offer a new perspective. The thicker forest air is a relief after days above 3,000m. At Marangu Gate, the crew celebrates with songs. Collect certificates and transfer back to your hotel.",
       },
     ],
     highlights: [
       "Least crowded route",
       "Gentle gradient ascent",
       "Unique northern wilderness views",
-      "Great for those seeking solitude",
+      "Best route for solitude",
     ],
   },
   {
     name: "Umbwe",
     nickname: "The Steep Route",
-    durations: [{ days: "6 Days", price: "From $2,197" }],
+    durations: [{ days: "6", price: "$2,497" }],
     difficulty: "Very Challenging",
     scenery: 4,
+    tag: "Experienced only",
+    image: "/images/summit-glaciers.jpg",
     description:
-      "Challenging and steep — recommended for experienced trekkers. Fast ascent with dramatic landscapes.",
+      "The steepest and most direct route. Climbs sharply through dense forest in the first days, with rapid altitude gain and less time to acclimatize. Suitable only for climbers with prior high-altitude experience and a strong fitness base. We will talk through your altitude history before confirming a Umbwe booking. Few climbers, demanding terrain.",
     itinerary: [
       "Hotel to Umbwe Gate – Umbwe Camp",
       "Umbwe Camp – Barranco Camp",
@@ -494,7 +535,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "5-6 hours",
         terrain: "Dense rainforest",
-        description: "The Umbwe route wastes no time. From the gate, the trail plunges into thick, primeval rainforest and immediately begins climbing steeply along a narrow ridge between two river valleys. Exposed tree roots form natural staircases, and the forest is darker and denser than on other routes. It's demanding from the start, but the sense of wild isolation is unmatched. You'll feel like an explorer discovering the mountain for the first time.",
+        description: "The Umbwe route starts steep. From the gate, the trail enters thick rainforest and climbs immediately up a narrow ridge between two river valleys. Exposed tree roots form natural staircases. The forest is darker and denser than on the southern routes. Demanding from step one, but quiet: very few climbers come this way.",
       },
       {
         day: 2,
@@ -503,7 +544,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "6 km",
         time: "5-7 hours",
         terrain: "Steep moorland",
-        description: "Another steep day as you push through the heath zone and into the moorland. The gradient is relentless, and you gain over 1,000m in elevation. But the rewards are immense — the views open up dramatically, and you'll see few if any other climbers. The route follows a ridge with drop-offs on either side, adding to the sense of adventure. Barranco Camp feels like a well-earned oasis beneath the towering Barranco Wall.",
+        description: "Another steep day through the heath and into the moorland. You gain over 1,000m in elevation. Views open as you climb; you'll see few other climbers, if any. The route follows a ridge with drop-offs on either side. Barranco Camp sits beneath the Barranco Wall.",
       },
       {
         day: 3,
@@ -512,7 +553,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-5 hours",
         terrain: "Rocky scramble & valley",
-        description: "You join the Machame route climbers for the thrilling scramble up the Barranco Wall. After the intensity of the previous days, this feels almost playful — using your hands to pull yourself up rock faces with stunning drops below. From the top, the trail winds through valleys to Karanga Camp. The southern glaciers and ice fields are visible above, gleaming in the sunlight.",
+        description: "You join the Machame route climbers for the scramble up the Barranco Wall. After the previous two days, the wall feels almost manageable. From the top, the trail winds through valleys to Karanga Camp. The southern glaciers and ice fields are visible above.",
       },
       {
         day: 4,
@@ -521,16 +562,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "4 km",
         time: "3-4 hours",
         terrain: "Barren alpine desert",
-        description: "A short but significant ascent to Barafu base camp. The landscape is stripped bare — just rock, sky, and the summit above. Use the afternoon to rest deeply, eat well, and prepare for the midnight push. Your guides will check your health and brief you on summit night procedures. The sunset from Barafu is extraordinary — a sea of clouds below with Mawenzi's silhouette piercing the horizon.",
+        description: "A short but significant ascent to Barafu base camp. Stripped bare: rock, sky, and the summit above. The afternoon is for rest, food, and hydration. Guides check your health and brief you on summit night. The sunset from Barafu is wide: a layer of clouds below with Mawenzi's silhouette on the horizon.",
       },
       {
         day: 5,
-        title: "Summit Day — Uhuru Peak to Mweka Camp",
+        title: "Summit Day: Uhuru Peak to Mweka Camp",
         elevation: "4,673m to 5,895m, descend to 3,068m",
         distance: "13 km",
         time: "12-16 hours",
         terrain: "Scree, ice, and glacier",
-        description: "Having trained hard and climbed the steepest route on the mountain, you're as ready as you'll ever be. The midnight ascent is a test of everything you have — physical strength, mental resilience, and raw determination. But standing on Uhuru Peak as the sun rises over Africa, every difficult step is vindicated. You've conquered Kilimanjaro via its toughest route. The long descent to Mweka Camp passes in a euphoric blur.",
+        description: "After four steep days, you start the midnight ascent fitter than most. Up scree by headlamp to Stella Point, then along the rim to Uhuru Peak at 5,895m as the sun rises. Few people summit via Umbwe; you're one of them. Long descent to Mweka Camp.",
       },
       {
         day: 6,
@@ -539,11 +580,11 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "3-4 hours",
         terrain: "Rainforest",
-        description: "The final descent through rainforest is gentle and celebratory. The thick air feels luxurious in your lungs. Your crew walks with you, sharing stories and laughter. At Mweka Gate, receive your summit certificates and say farewell to the team that made it possible. Transfer to your hotel with a story few can tell — you climbed Kilimanjaro the hard way.",
+        description: "The final descent through rainforest is gentle. The thicker air is a relief after days above 4,000m. Your crew walks with you. At Mweka Gate, receive your summit certificates and say farewell. Transfer to your hotel.",
       },
     ],
     highlights: [
-      "Most challenging and rewarding",
+      "Most challenging route",
       "Steep and direct ascent",
       "Very few other climbers",
       "Best for experienced trekkers",
@@ -552,11 +593,13 @@ export const KILIMANJARO_ROUTES = [
   {
     name: "Londorossi",
     nickname: "The Western Approach",
-    durations: [{ days: "7 Days", price: "From $2,200" }],
+    durations: [{ days: "7", price: "$2,500" }],
     difficulty: "Moderate to Challenging",
     scenery: 5,
+    tag: "Western gate",
+    image: "/images/summit-panorama.jpg",
     description:
-      "Remote western approach with excellent scenery. Gradual ascent through rainforest and Shira Plateau, joining the Machame route before summit. High success rate and scenic diversity.",
+      "Enters Kilimanjaro through the Londorossi gate on the western side, leading into lush rainforest and quiet upper slopes. Less travelled than Lemosho despite a similar approach. The 7-day itinerary gives reasonable acclimatization, and the lower-elevation forest sections are among the most scenic on the mountain. Suited to climbers who want the western approach with a different campsite sequence than Lemosho.",
     itinerary: [
       "Hotel to Londorossi Gate – Shira 1 Camp",
       "Shira 1 Camp – Shira 2 Camp",
@@ -574,7 +617,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "8 km",
         time: "4-5 hours",
         terrain: "Rainforest & heath",
-        description: "The journey begins with a drive to the remote Londorossi Gate on Kilimanjaro's western face. After registration, you may drive or hike through the lower rainforest zone to reach the trailhead. The climb passes through mossy forest that gradually thins into heather moorland. You'll arrive at Shira 1 Camp on the western edge of the ancient Shira Plateau — a vast caldera with sweeping sunset views that few Kilimanjaro climbers ever witness.",
+        description: "Drive to Londorossi Gate on Kilimanjaro's western face. After registration, drive or hike through the lower rainforest zone to the trailhead. The climb passes through mossy forest that thins into heather moorland. Arrive at Shira 1 Camp on the western edge of the Shira Plateau, a volcanic cone with wide sunset views.",
       },
       {
         day: 2,
@@ -583,7 +626,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "7 km",
         time: "4-5 hours",
         terrain: "Plateau moorland",
-        description: "A scenic traverse across the Shira Plateau. The terrain is gently rolling, covered in tussock grass and wild flowers. Kibo peak dominates the eastern horizon, growing larger with every step. This is one of the most photogenic sections of any Kilimanjaro route — wide open skies, volcanic rock formations, and an extraordinary sense of space and solitude. A perfect acclimatization day.",
+        description: "A traverse across the Shira Plateau. Gently rolling terrain with tussock grass and wildflowers. Kibo peak fills the eastern horizon, growing closer with every step. Wide open skies, volcanic rock formations, room. A good acclimatization day.",
       },
       {
         day: 3,
@@ -592,7 +635,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "6-8 hours",
         terrain: "Alpine desert",
-        description: "The key acclimatization day as you ascend to the imposing Lava Tower at 4,630m. This massive volcanic rock pillar marks your high point before you descend into the Barranco Valley. The \"climb high, sleep low\" strategy is essential for summit success — and this day delivers it perfectly. The descent into Barranco reveals dramatic scenery: giant groundsels, lobelia plants, and the Great Barranco Wall ahead.",
+        description: "The key acclimatization day. You ascend to Lava Tower at 4,630m, a volcanic rock pillar that marks your high point before you descend into the Barranco Valley. The \"climb high, sleep low\" pattern is essential for summit success and this day uses it. The descent into Barranco passes giant groundsels, lobelias, and the Great Barranco Wall ahead.",
       },
       {
         day: 4,
@@ -601,7 +644,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "5 km",
         time: "4-5 hours",
         terrain: "Rocky scramble & valley",
-        description: "The Barranco Wall awaits — a thrilling, hands-on scramble that's more exhilarating than difficult. Your guides navigate the best line up the rock face, and the exposure is exciting without being dangerous. From the top, panoramic views of the southern glaciers reward your effort. The trail then dips through valleys to Karanga Camp, where you'll spend a peaceful afternoon watching clouds swirl around the summit above.",
+        description: "The Barranco Wall: a hands-on scramble. Your guides pick the best line up the rock face. The exposure looks worse than it climbs. From the top, views open to the southern glaciers. The trail then dips through valleys to Karanga Camp. Afternoon at camp watching clouds move around the summit above.",
       },
       {
         day: 5,
@@ -610,16 +653,16 @@ export const KILIMANJARO_ROUTES = [
         distance: "4 km",
         time: "3-4 hours",
         terrain: "Barren alpine desert",
-        description: "A short climb through increasingly barren terrain to Barafu base camp. The world is reduced to rock, wind, and sky. Arrive by lunchtime, rest through the afternoon, and eat a hearty early dinner. Your guide will brief the group on summit night logistics. Try to sleep — though anticipation often makes this the hardest night to rest. Tomorrow, you reach the top of Africa.",
+        description: "A short climb through barren terrain to Barafu base camp. Rock, wind, sky. Arrive by lunchtime, rest through the afternoon, eat an early dinner. Your guide briefs the group on summit-night logistics. Try to sleep. Tomorrow you summit.",
       },
       {
         day: 6,
-        title: "Summit Day — Uhuru Peak to Mweka Camp",
+        title: "Summit Day: Uhuru Peak to Mweka Camp",
         elevation: "4,673m to 5,895m, descend to 3,068m",
         distance: "13 km",
         time: "12-16 hours",
         terrain: "Scree, ice, and glacier",
-        description: "Midnight start under a brilliant star-filled sky. The steep, switchbacking climb up scree is a test of will and endurance. Your guides set a steady, manageable pace — \"pole pole\" (slowly, slowly) is the mantra. Reaching the crater rim at Stella Point as dawn breaks is overwhelmingly beautiful. The final walk along the rim to Uhuru Peak at 5,895m is the culmination of everything. Celebrate, take in the view across Africa, then begin the long descent to Mweka Camp.",
+        description: "Midnight start under the stars. The steep, switchbacking climb up scree is the hardest section of the trip. Your guides set a steady pace: \"pole pole\" (slowly, slowly) is the Swahili climber's mantra. Reach the crater rim at Stella Point as dawn breaks. The final walk along the rim to Uhuru Peak at 5,895m is 45 minutes. After photos and views, the long descent to Mweka Camp.",
       },
       {
         day: 7,
@@ -628,7 +671,7 @@ export const KILIMANJARO_ROUTES = [
         distance: "10 km",
         time: "3-4 hours",
         terrain: "Rainforest",
-        description: "The final morning on the mountain. Descend through cloud forest back to the warmth and richness of the lowlands. Your porters and guides will sing celebration songs along the trail. At Mweka Gate, receive your hard-earned summit certificates and share heartfelt goodbyes with the crew who made this journey possible. Transfer to your hotel and bask in the glow of an incredible achievement.",
+        description: "Final morning on the mountain. Descend through cloud forest back to the lowlands. Porters and guides sing celebration songs along the trail. At Mweka Gate, receive your summit certificates and say goodbye to the crew. Transfer to your hotel.",
       },
     ],
     highlights: [
@@ -678,14 +721,14 @@ export const TESTIMONIALS = [
     name: "Sarah Johnson",
     location: "United States",
     text: "Climbing Kilimanjaro with True Venture was the experience of a lifetime. Our guide Abu was incredible — knowledgeable, patient, and so encouraging. We reached the summit at sunrise and I cried tears of joy.",
-    tour: "Kilimanjaro — Lemosho Route",
+    tour: "Kilimanjaro: Lemosho Route",
     rating: 5,
   },
   {
     name: "Marcus Weber",
     location: "Germany",
     text: "The safari exceeded all expectations. Seeing the Great Migration in the Serengeti was something I'll never forget. The team planned everything perfectly and our guide spotted animals we would have never seen on our own.",
-    tour: "Wildlife Safari — 5 Days",
+    tour: "Wildlife Safari: 5 Days",
     rating: 5,
   },
   {
@@ -699,14 +742,14 @@ export const TESTIMONIALS = [
     name: "Emma & James Clarke",
     location: "United Kingdom",
     text: "We did the Machame route for our honeymoon adventure and it was magical. The crew was amazing — delicious food at altitude, warm smiles every day, and professional safety standards throughout.",
-    tour: "Kilimanjaro — Machame Route",
+    tour: "Kilimanjaro: Machame Route",
     rating: 5,
   },
   {
     name: "Pieter van der Meer",
     location: "Netherlands",
     text: "We chose Meru as a warm-up climb before Kilimanjaro the following year. The route was quiet, the guide read every shift in the weather and the rim camp at sunrise gave us a clear view across to Kibo. Stronger than its reputation as a warm-up.",
-    tour: "Mount Meru — 4 Days",
+    tour: "Mount Meru: 4 Days",
     rating: 5,
   },
   {
@@ -790,11 +833,11 @@ export const PACKAGE_INCLUDES = [
   "2-night hotel accommodation in Moshi/Arusha (before and after trek) on full board basis",
   "Quality, waterproof, four-season mountain sleeping tent",
   "Quality mess tents with table and chairs",
-  "Professional, experienced, English-speaking mountain guides",
+  "Experienced Tanzanian guides, English-speaking, with multi-year mountain experience",
   "All Tanzanian National Park fees",
   "All hot meals prepared by our cook while on the mountain",
   "Portable toilet tent",
-  "Fair wages for guides, porters, and cook as approved by KINAPA",
+  "Fair wages and proper gear for guides, porters, and cook (KPAP-aligned standards)",
   "Oxygen tank and pulse oximeter for health and safety",
   "Hot drinks at every meal",
   "Water provided on climb (mineral water day 1, boiled water daily)",
@@ -812,12 +855,12 @@ export const PACKAGE_EXCLUDES = [
 ];
 
 export const TOUR_INTERESTS = [
-  "Kilimanjaro — Machame Route",
-  "Kilimanjaro — Lemosho Route",
-  "Kilimanjaro — Marangu Route",
-  "Kilimanjaro — Rongai Route",
-  "Kilimanjaro — Umbwe Route",
-  "Kilimanjaro — Londorossi Route",
+  "Kilimanjaro: Machame Route",
+  "Kilimanjaro: Lemosho Route",
+  "Kilimanjaro: Marangu Route",
+  "Kilimanjaro: Rongai Route",
+  "Kilimanjaro: Umbwe Route",
+  "Kilimanjaro: Londorossi Route",
   "Mount Meru",
   "Wildlife Safari",
   "Zanzibar Holiday",
@@ -947,3 +990,57 @@ export const GALLERY_IMAGES = [
     height: 1080,
   },
 ];
+
+export const MOUNTAIN_INTRO =
+  "Africa's highest mountain. 5,895m, free-standing, in northern Tanzania. Walking pace, not technical: no ropes or climbing skill required, but altitude is the main challenge. Most first-time climbers reach the summit when they choose a longer route (7+ days) and pace it for acclimatization. Six routes go up; each has a different character. Pick the one that matches your fitness, time, and tolerance for crowds.";
+
+export interface EcologicalZone {
+  name: string;
+  altitude: string;
+  note: string;
+}
+
+export const ECOLOGICAL_ZONES: EcologicalZone[] = [
+  {
+    name: "Cultivated farmland",
+    altitude: "800–1,800m",
+    note: "Coffee and banana farms on the lower slopes. Where you start the drive to the trailhead.",
+  },
+  {
+    name: "Tropical rainforest",
+    altitude: "1,800–2,800m",
+    note: "Dense forest with colobus and blue monkeys. Most of Day 1 and Day 2.",
+  },
+  {
+    name: "Heath and moorland",
+    altitude: "2,800–4,000m",
+    note: "Open ground with giant lobelia and senecio. Cooler. Where the views open up.",
+  },
+  {
+    name: "Alpine desert",
+    altitude: "4,000–5,000m",
+    note: "Rocky and dry. Very little vegetation. This is where altitude becomes the work.",
+  },
+  {
+    name: "Arctic summit",
+    altitude: "5,000–5,895m",
+    note: "Glacier and rock. Below freezing. Summit night.",
+  },
+];
+
+export function formatDaysRange(durations: KilimanjaroRouteDuration[]): string {
+  if (durations.length === 0) return "";
+  if (durations.length === 1) return `${durations[0].days} days`;
+  const first = durations[0].days;
+  const last = durations[durations.length - 1].days;
+  return `${first}–${last} days`;
+}
+
+export function minPrice(durations: KilimanjaroRouteDuration[]): string {
+  if (durations.length === 0) return "";
+  const numericPrices = durations.map((d) => ({
+    raw: d.price,
+    num: parseInt(d.price.replace(/[^0-9]/g, ""), 10),
+  }));
+  return numericPrices.reduce((min, cur) => (cur.num < min.num ? cur : min)).raw;
+}

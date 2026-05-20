@@ -58,19 +58,16 @@ export default function CulturalPage() {
     <>
       <Hero
         title="Cultural Experiences"
-        subtitle="Go beyond the trail. Immerse yourself in the rich traditions, warm hospitality, and vibrant communities that make Tanzania truly special."
-        ctaText="Explore Experiences"
-        ctaHref="/contact"
-        compact
+        tagline="Beyond the trail. Into the community."
       />
 
       {/* Intro */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-6">
             More Than Just Tourism
           </h2>
-          <p className="text-light/70 leading-relaxed">
+          <p className="text-wine/70 leading-relaxed">
             Our cultural experiences are designed in partnership with local communities to create meaningful, respectful exchanges. Every visit supports local families, schools, and community projects. This isn&apos;t a show — it&apos;s a genuine connection.
           </p>
         </div>
@@ -80,24 +77,24 @@ export default function CulturalPage() {
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.title}
-              className="bg-dark-lighter rounded-2xl border border-white/10 overflow-hidden hover:border-secondary/30 transition-all duration-300"
+              className="bg-parchment rounded-2xl border border-taupe/10 overflow-hidden hover:border-emerald/30 transition-all duration-300"
             >
-              <div className="h-3 bg-gradient-to-r from-secondary to-accent" />
+              <div className="h-3 bg-gradient-to-r from-emerald to-emerald" />
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-light">{exp.title}</h3>
-                  <span className="text-xs text-secondary bg-secondary/10 px-2 py-1 rounded-full shrink-0 ml-2">
+                  <h3 className="text-xl font-bold text-wine">{exp.title}</h3>
+                  <span className="text-xs text-emerald bg-emerald/10 px-2 py-1 rounded-full shrink-0 ml-2">
                     {exp.duration}
                   </span>
                 </div>
-                <p className="text-light/60 text-sm leading-relaxed mb-4">
+                <p className="text-wine/60 text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.highlights.map((h) => (
                     <span
                       key={h}
-                      className="bg-primary/30 text-light/70 text-xs px-2 py-1 rounded-full"
+                      className="bg-wine/30 text-wine/70 text-xs px-2 py-1 rounded-full"
                     >
                       {h}
                     </span>
@@ -110,9 +107,9 @@ export default function CulturalPage() {
       </section>
 
       {/* What to Expect */}
-      <section className="py-20 bg-dark-lighter">
+      <section className="py-20 bg-parchment">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold text-light text-center mb-12">
+          <h2 className="text-3xl font-bold text-wine text-center mb-12">
             What to Expect
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -134,9 +131,9 @@ export default function CulturalPage() {
                 desc: "Cultural experiences can be added to any trek or safari package, or enjoyed as standalone day trips from Moshi or Arusha.",
               },
             ].map((item) => (
-              <div key={item.title} className="bg-dark rounded-xl p-6 border border-white/10">
-                <h3 className="text-lg font-bold text-secondary mb-2">{item.title}</h3>
-                <p className="text-light/60 text-sm leading-relaxed">{item.desc}</p>
+              <div key={item.title} className="bg-paper rounded-xl p-6 border border-taupe/10">
+                <h3 className="text-lg font-bold text-emerald mb-2">{item.title}</h3>
+                <p className="text-wine/60 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -146,7 +143,6 @@ export default function CulturalPage() {
       <CTABanner
         title="Connect With Tanzania's Culture"
         subtitle="Add a cultural experience to your trek or safari, or book a standalone cultural day trip."
-        ctaText="Plan Your Experience"
       />
     </>
   );

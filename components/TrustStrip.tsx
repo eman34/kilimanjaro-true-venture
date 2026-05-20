@@ -2,19 +2,19 @@ import Link from "next/link";
 
 export default function TrustStrip() {
   return (
-    <section className="bg-dark border-y border-white/10 py-8">
+    <section className="bg-paper border-y border-taupe/10 py-8">
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
-          <p className="text-light text-lg font-semibold">
+          <p className="text-wine text-lg font-semibold">
             Tanzanian-owned. Tanzanian-guided.
           </p>
-          <p className="text-light/60 text-sm mt-1">
+          <p className="text-wine/60 text-sm mt-1">
             Every guide grew up on these mountains. Every porter is paid fairly.
           </p>
         </div>
         <Link
           href="/about"
-          className="text-secondary font-semibold inline-flex items-center gap-1 group whitespace-nowrap"
+          className="text-emerald font-semibold inline-flex items-center gap-1 group whitespace-nowrap"
         >
           Meet the team
           <svg

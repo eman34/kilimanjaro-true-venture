@@ -25,15 +25,15 @@ export default function Navbar() {
     pathname !== null && normalize(pathname) === normalize(href);
 
   return (
-    <nav className="sticky top-0 z-50 bg-primary shadow-lg">
+    <nav className="sticky top-0 z-50 bg-paper border-b border-taupe">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-bold text-secondary">
+            <span className="text-2xl font-bold text-emerald">
               KTV
             </span>
-            <span className="hidden sm:block text-light font-semibold text-sm leading-tight">
+            <span className="hidden sm:block text-wine font-semibold text-sm leading-tight">
               {COMPANY.name}
             </span>
           </Link>
@@ -47,8 +47,8 @@ export default function Navbar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
-                    ? "text-secondary"
-                    : "text-light hover:text-secondary"
+                    ? "text-emerald"
+                    : "text-wine hover:text-emerald"
                 }`}
               >
                 {link.label}
@@ -61,7 +61,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-light p-2.5"
+            className="md:hidden text-wine p-2.5"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-6 border-t border-white/10 mt-2 pt-4">
+          <div className="md:hidden pb-6 border-t border-taupe mt-2 pt-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -87,8 +87,8 @@ export default function Navbar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`block px-4 py-3 transition-colors font-medium ${
                   isActive(link.href)
-                    ? "text-secondary"
-                    : "text-light hover:text-secondary"
+                    ? "text-emerald"
+                    : "text-wine hover:text-emerald"
                 }`}
                 onClick={() => setMobileOpen(false)}
               >
