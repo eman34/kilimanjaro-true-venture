@@ -45,11 +45,11 @@ export default function SafarisPage() {
       {/* Main Package */}
       <section className="section-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-4">
             5-Day, 4-Night Safari
           </h2>
           <p className="text-emerald text-2xl font-bold mb-4">Starting from $1,370</p>
-          <p className="text-wine/60 max-w-2xl mx-auto">
+          <p className="text-forest/60 max-w-2xl mx-auto">
             Our signature safari package covers Tanzania&apos;s three must-see wildlife destinations. Travel in comfort in our custom 4x4 Land Cruiser with professional driver guide.
           </p>
         </div>
@@ -68,8 +68,8 @@ export default function SafarisPage() {
                     <span className="text-emerald font-bold text-lg">{day.day}</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-wine mb-2">{day.title}</h3>
-                    <p className="text-wine/70 leading-relaxed">{day.description}</p>
+                    <h3 className="text-xl font-bold text-forest mb-2">{day.title}</h3>
+                    <p className="text-forest/70 leading-relaxed">{day.description}</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function SafarisPage() {
               "Park entry fees",
               "Airport transfers",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-wine/70 text-sm">
+              <div key={item} className="flex items-center gap-2 text-forest/70 text-sm">
                 <svg className="w-4 h-4 text-emerald shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -103,7 +103,7 @@ export default function SafarisPage() {
       {/* Parks We Visit */}
       <section className="py-20 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-12">
             Parks We Visit
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -112,7 +112,7 @@ export default function SafarisPage() {
                 key={park.name}
                 className="bg-paper rounded-2xl overflow-hidden border border-taupe/10"
               >
-                <div className="h-40 bg-gradient-to-br from-wine to-rose relative">
+                <div className="h-40 bg-gradient-to-br from-forest to-rose relative">
                   <div className="absolute inset-0 flex items-center justify-center opacity-20">
                     <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -120,15 +120,15 @@ export default function SafarisPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-wine mb-2">{park.name}</h3>
-                  <p className="text-wine/60 text-sm leading-relaxed mb-4">
+                  <h3 className="text-lg font-bold text-forest mb-2">{park.name}</h3>
+                  <p className="text-forest/60 text-sm leading-relaxed mb-4">
                     {park.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {park.highlights.map((h) => (
                       <span
                         key={h}
-                        className="bg-wine/30 text-wine/80 text-xs px-3 py-1 rounded-full"
+                        className="bg-forest/30 text-forest/80 text-xs px-3 py-1 rounded-full"
                       >
                         {h}
                       </span>

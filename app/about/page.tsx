@@ -45,10 +45,10 @@ export default function AboutPage() {
       {/* Story */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-8 text-center">
             Abu&apos;s Story
           </h2>
-          <div className="space-y-6 text-wine/70 leading-relaxed">
+          <div className="space-y-6 text-forest/70 leading-relaxed">
             <p>
               Kilimanjaro True Venture was founded by <strong className="text-emerald">Abdallah Athumani</strong>, widely known as Abu, a passionate mountain guide born and raised in the small village of Lokoro in Tarakea, located on the slopes of Mount Kilimanjaro in northern Tanzania. Growing up in the shadow of Africa&apos;s highest mountain shaped Abu&apos;s early dreams and curiosity about the world of adventure and exploration.
             </p>
@@ -74,10 +74,10 @@ export default function AboutPage() {
       {/* Team & Crew narrative */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-8 text-center">
             Our Team &amp; Crew
           </h2>
-          <div className="space-y-6 text-wine/70 leading-relaxed">
+          <div className="space-y-6 text-forest/70 leading-relaxed">
             <p>
               At Kilimanjaro True Venture, we believe that every successful adventure is made possible by a dedicated and experienced team. Our mountain and safari crews are the heart of every expedition we organize. Many members of our team have spent years working in the mountains and national parks of Tanzania, bringing deep local knowledge, professionalism, and genuine hospitality to every journey.
             </p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* Team */}
       <section id="team" className="py-20 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-12">
             Meet Our Team
           </h2>
           <div className="max-w-3xl mx-auto divide-y divide-white/10">
@@ -119,13 +119,13 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xl font-semibold text-wine">
+                  <h3 className="text-xl font-semibold text-forest">
                     {member.name}
                   </h3>
                   <p className="text-emerald text-xs font-semibold uppercase tracking-wider mt-1 mb-3">
                     {member.role}
                   </p>
-                  <p className="text-base text-wine/70 leading-relaxed">
+                  <p className="text-base text-forest/70 leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
@@ -137,10 +137,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-20">
             <div className="bg-paper rounded-xl p-8 border border-taupe/10">
               <h3 className="text-xl font-bold text-emerald mb-4">Mountain Crew</h3>
-              <p className="text-wine/50 text-sm mb-4">Every expedition is supported by:</p>
+              <p className="text-forest/50 text-sm mb-4">Every expedition is supported by:</p>
               <ul className="space-y-3">
                 {MOUNTAIN_CREW.map((role) => (
-                  <li key={role} className="flex items-center gap-3 text-wine/70">
+                  <li key={role} className="flex items-center gap-3 text-forest/70">
                     <svg className="w-5 h-5 text-emerald shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -151,10 +151,10 @@ export default function AboutPage() {
             </div>
             <div className="bg-paper rounded-xl p-8 border border-taupe/10">
               <h3 className="text-xl font-bold text-emerald mb-4">Safari Crew</h3>
-              <p className="text-wine/50 text-sm mb-4">Our safari team includes:</p>
+              <p className="text-forest/50 text-sm mb-4">Our safari team includes:</p>
               <ul className="space-y-3">
                 {SAFARI_CREW.map((role) => (
-                  <li key={role} className="flex items-center gap-3 text-wine/70">
+                  <li key={role} className="flex items-center gap-3 text-forest/70">
                     <svg className="w-5 h-5 text-emerald shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -162,7 +162,7 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <p className="text-wine/50 text-sm mt-4">
+              <p className="text-forest/50 text-sm mt-4">
                 We operate custom 4x4 safari vehicles designed for comfort and optimal wildlife viewing.
               </p>
             </div>
@@ -173,10 +173,10 @@ export default function AboutPage() {
       {/* Safety & Ethics */}
       <section className="section-padding">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-4">
             Safety & Ethics
           </h2>
-          <p className="text-center text-wine/60 mb-12">
+          <p className="text-center text-forest/60 mb-12">
             Climbing Mount Kilimanjaro requires serious preparation. Your safety is our top priority.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -192,7 +192,7 @@ export default function AboutPage() {
                 <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                <span className="text-wine/70 text-sm">{item}</span>
+                <span className="text-forest/70 text-sm">{item}</span>
               </div>
             ))}
           </div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
       {/* Values */}
       <section className="py-20 bg-parchment">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-12">
             What Sets Us Apart
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -214,8 +214,8 @@ export default function AboutPage() {
                 <div className="w-10 h-10 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald font-bold text-lg mb-4">
                   {i + 1}
                 </div>
-                <h3 className="text-xl font-bold text-wine mb-3">{value.title}</h3>
-                <p className="text-wine/60 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-forest mb-3">{value.title}</h3>
+                <p className="text-forest/60 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>

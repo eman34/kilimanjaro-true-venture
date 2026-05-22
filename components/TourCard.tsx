@@ -31,13 +31,13 @@ export default function TourCard({
           />
         </div>
         <div className="p-5 flex flex-col min-h-[160px]">
-          <p className="text-wine/60 text-xs uppercase tracking-wide mb-3">
+          <p className="text-forest/60 text-xs uppercase tracking-wide mb-3">
             {duration}
           </p>
-          <h3 className="text-xl font-bold text-wine leading-snug group-hover:text-emerald transition-colors">
+          <h3 className="text-xl font-bold text-forest leading-snug group-hover:text-emerald transition-colors">
             {title}
           </h3>
-          <p className="mt-auto text-wine text-base font-bold leading-tight text-right">
+          <p className="mt-auto text-forest text-base font-bold leading-tight text-right">
             USD {priceFrom}
           </p>
         </div>

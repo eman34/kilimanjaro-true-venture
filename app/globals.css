@@ -3,8 +3,8 @@
 @theme {
   --color-paper: #FBF9F4;
   --color-parchment: #F4F1E8;
-  --color-wine: #3F1A26;
-  --color-wine-deep: #2A1019;
+  --color-forest: #1A2A22;
+  --color-forest-deep: #0F1B14;
   --color-rose: #8A6570;
   --color-emerald: #1F5F3A;
   --color-emerald-deep: #154528;
@@ -13,7 +13,7 @@
 
 @layer base {
   body {
-    @apply bg-paper text-wine antialiased;
+    @apply bg-paper text-forest antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -23,11 +23,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-emerald text-paper font-bold px-8 py-3 rounded-lg hover:bg-emerald-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine;
+    @apply bg-emerald text-paper font-bold px-8 py-3 rounded-lg hover:bg-emerald-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
 
   .btn-accent {
-    @apply bg-wine text-paper font-bold px-8 py-3 rounded-lg hover:bg-wine-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+    @apply bg-forest text-paper font-bold px-8 py-3 rounded-lg hover:bg-forest-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
   }
 
   .section-padding {

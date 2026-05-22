@@ -20,9 +20,9 @@ export default function Hero({ title, tagline, backgroundImage }: HeroProps) {
           sizes="100vw"
         />
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-wine via-wine-deep to-wine" />
+        <div className="absolute inset-0 bg-gradient-to-br from-forest via-forest-deep to-forest" />
       )}
-      <div className="absolute inset-0 bg-wine/30" />
+      <div className="absolute inset-0 bg-forest/30" />
       <div className="absolute inset-0 flex items-end">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pb-8 md:pb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-paper leading-[1.1] tracking-tight drop-shadow-md">

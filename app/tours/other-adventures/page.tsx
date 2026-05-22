@@ -68,10 +68,10 @@ export default function OtherAdventuresPage() {
                   <p className="text-emerald text-xs uppercase tracking-wider font-semibold mb-2">
                     {adventure.tag}
                   </p>
-                  <h2 className="text-2xl font-bold text-wine mb-3 group-hover:text-emerald transition-colors">
+                  <h2 className="text-2xl font-bold text-forest mb-3 group-hover:text-emerald transition-colors">
                     {adventure.title}
                   </h2>
-                  <p className="text-wine/70 leading-relaxed mb-4">
+                  <p className="text-forest/70 leading-relaxed mb-4">
                     {adventure.description}
                   </p>
                   <span className="text-emerald font-semibold text-sm group-hover:underline">

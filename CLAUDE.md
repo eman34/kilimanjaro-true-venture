@@ -24,35 +24,35 @@ This project is a **low-stakes vehicle for learning advanced vibe coding** for t
 
 ## Design System
 
-### Color Palette — Wine + Emerald on Paper
+### Color Palette — Forest + Emerald on Paper
 Tokens describe color, not role — palette swaps shouldn't require renames.
 
 - **`paper`** `#FBF9F4` — page background AND navbar background (warm paper-white)
 - **`parchment`** `#F4F1E8` — card surface, form-wrapper bg, footer bg (slightly deeper paper)
-- **`wine`** `#3F1A26` — body text, nav text, dark-anchor surfaces (deep burgundy)
-- **`wine-deep`** `#2A1019` — wine accent button hover, CTABanner gradient depth
+- **`forest`** `#1A2A22` — body text, nav text, dark-anchor surfaces (deep evergreen ink)
+- **`forest-deep`** `#0F1B14` — forest accent button hover, CTABanner gradient depth
 - **`rose`** `#8A6570` — muted/secondary text (dusty rose-gray)
 - **`emerald`** `#1F5F3A` — primary CTA, focus rings, hover highlights, accent
 - **`emerald-deep`** `#154528` — primary CTA hover state
 - **`taupe`** `#E5DFD2` — borders, dividers (soft paper-gray)
 
-Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`bg-paper`, `text-wine`, `border-taupe`, etc.) — do not reach for hex literals in JSX.
+Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`bg-paper`, `text-forest`, `border-taupe`, etc.) — do not reach for hex literals in JSX.
 
 ### Design Principles
-- **Editorial luxe**: Wine-bar / library / boutique-hotel restraint. Photos do the work; the palette is the frame.
+- **Editorial luxe**: Library / national park lodge / boutique-hotel restraint. Photos do the work; the palette is the frame.
 - **Light page, subtle navbar**: Page bg is paper. Navbar uses the same paper with a thin `border-b border-taupe` — sticky and opaque, but has no color block at the top.
 - **One confident accent**: Forest emerald is the only saturated color on the page. Use it for CTAs, focus rings, hover highlights, and the occasional brand mark — sparingly.
-- **Selectively dark**: Hero photo overlays use wine at 45% (`bg-wine/45`) for legibility on bright photos. The CTABanner block uses `bg-wine` for a sophisticated dark anchor section. Gallery lightbox keeps `bg-black/90` for photo-viewing context.
+- **Selectively dark**: Hero photo overlays use forest at 45% (`bg-forest/45`) for legibility on bright photos. The CTABanner block uses `bg-forest` for a sophisticated dark anchor section. Gallery lightbox keeps `bg-black/90` for photo-viewing context.
 - **Responsive**: Mobile-first, works on all screen sizes.
 
 ### Component Styling Rules
-- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo "KTV" in `text-emerald`. Nav links `text-wine hover:text-emerald`. Active link `text-emerald`.
+- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo "KTV" in `text-emerald`. Nav links `text-forest hover:text-emerald`. Active link `text-emerald`.
 - **Cards**: `bg-parchment border border-taupe` with `hover:border-emerald/40` for interactive cards.
-- **Buttons**: `.btn-primary` (emerald, primary CTA) and `.btn-accent` (wine, secondary heavy action) — defined in `globals.css`.
+- **Buttons**: `.btn-primary` (emerald, primary CTA) and `.btn-accent` (forest, secondary heavy action) — defined in `globals.css`.
 - **Form inputs**: `bg-paper border-taupe` inside a `bg-parchment` form card (inputs are lighter than the wrapper — "carved-out" feel). Focus state uses `border-emerald`.
 - **Images**: Rounded corners (`rounded-xl` or `rounded-2xl`), `border-taupe` outline on cards, photos from `/public/images/`.
-- **Text**: `text-wine` for body and nav; `text-rose` (or `text-wine/60`–`/70`) for muted; `text-paper` only when on a dark surface (Hero overlay, CTABanner, lightbox controls).
-- **Sections**: Default page bg is `bg-paper`. Use `bg-parchment` for distinct sections that need a slightly deeper tone. Use `bg-wine` for dramatic anchor blocks (e.g., CTABanner).
+- **Text**: `text-forest` for body and nav; `text-rose` (or `text-forest/60`–`/70`) for muted; `text-paper` only when on a dark surface (Hero overlay, CTABanner, lightbox controls).
+- **Sections**: Default page bg is `bg-paper`. Use `bg-parchment` for distinct sections that need a slightly deeper tone. Use `bg-forest` for dramatic anchor blocks (e.g., CTABanner).
 
 ## Code Standards
 
@@ -163,8 +163,8 @@ Available photos live in `/public/images/`. List the folder before assuming what
 ### Design
 - ❌ Dark page backgrounds (the theme is light/paper — page bg is `bg-paper`, not dark)
 - ❌ Placeholder/generic images (use real nature photos from `/public/images/`)
-- ❌ Low-contrast pairings (e.g. `text-wine` on `bg-emerald` — both dark; use `text-paper` on emerald instead)
-- ❌ Reaching for hex literals in JSX (use the Wine + Emerald tokens: paper, parchment, wine, wine-deep, rose, emerald, emerald-deep, taupe)
+- ❌ Low-contrast pairings (e.g. `text-forest` on `bg-emerald` — both dark; use `text-paper` on emerald instead)
+- ❌ Reaching for hex literals in JSX (use the Forest + Emerald tokens: paper, parchment, forest, forest-deep, rose, emerald, emerald-deep, taupe)
 - ❌ Overusing emerald — it's a single confident accent on CTAs and hover states, not flood fill
 - ❌ Breaking the responsive layout on mobile
 
@@ -193,7 +193,7 @@ Available photos live in `/public/images/`. List the folder before assuming what
 Before considering any page "done", test:
 
 - [ ] **Visual Design**
-  - Page matches Wine + Emerald (paper bg, paper navbar with bottom border, wine body text, emerald CTAs)
+  - Page matches Forest + Emerald (paper bg, paper navbar with bottom border, forest body text, emerald CTAs)
   - Colors match design system
   - All images load correctly and look crisp
   - Typography is readable (headings, body text, links)
@@ -297,5 +297,5 @@ Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (track
 ---
 
 **Last Updated**: May 2026
-**Current Theme**: Wine + Emerald on Paper — editorial luxe, photo-led
+**Current Theme**: Forest + Emerald on Paper — editorial luxe, photo-led
 **Status**: Active Development

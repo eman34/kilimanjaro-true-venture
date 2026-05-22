@@ -5,10 +5,10 @@ export default function TrustStrip() {
     <section className="bg-paper border-y border-taupe/10 py-8">
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
-          <p className="text-wine text-lg font-semibold">
+          <p className="text-forest text-lg font-semibold">
             Tanzanian-owned. Tanzanian-guided.
           </p>
-          <p className="text-wine/60 text-sm mt-1">
+          <p className="text-forest/60 text-sm mt-1">
             Every guide grew up on these mountains. Every porter is paid fairly.
           </p>
         </div>

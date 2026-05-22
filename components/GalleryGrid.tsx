@@ -116,7 +116,7 @@ export default function GalleryGrid() {
             className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
               activeCategory === category
                 ? "bg-emerald text-paper"
-                : "border border-taupe text-wine/70 hover:border-emerald/50 hover:text-wine"
+                : "border border-taupe text-forest/70 hover:border-emerald/50 hover:text-forest"
             }`}
           >
             {category}

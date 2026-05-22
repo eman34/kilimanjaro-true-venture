@@ -135,7 +135,6 @@ export interface KilimanjaroRoute {
   tag?: string;
   image: string;
   successRate?: string;
-  leadGuide?: string;
 }
 
 export const KILIMANJARO_ROUTES: KilimanjaroRoute[] = [
@@ -834,7 +833,7 @@ export const PACKAGE_INCLUDES = [
   "Quality, waterproof, four-season mountain sleeping tent",
   "Quality mess tents with table and chairs",
   "Experienced Tanzanian guides, English-speaking, with multi-year mountain experience",
-  "All Tanzanian National Park fees",
+  "All Tanzanian National Park fees (≈35% of total trip cost)",
   "All hot meals prepared by our cook while on the mountain",
   "Portable toilet tent",
   "Fair wages and proper gear for guides, porters, and cook (KPAP-aligned standards)",

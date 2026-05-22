@@ -64,10 +64,10 @@ export default function CulturalPage() {
       {/* Intro */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-wine mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-6">
             More Than Just Tourism
           </h2>
-          <p className="text-wine/70 leading-relaxed">
+          <p className="text-forest/70 leading-relaxed">
             Our cultural experiences are designed in partnership with local communities to create meaningful, respectful exchanges. Every visit supports local families, schools, and community projects. This isn&apos;t a show — it&apos;s a genuine connection.
           </p>
         </div>
@@ -82,19 +82,19 @@ export default function CulturalPage() {
               <div className="h-3 bg-gradient-to-r from-emerald to-emerald" />
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-wine">{exp.title}</h3>
+                  <h3 className="text-xl font-bold text-forest">{exp.title}</h3>
                   <span className="text-xs text-emerald bg-emerald/10 px-2 py-1 rounded-full shrink-0 ml-2">
                     {exp.duration}
                   </span>
                 </div>
-                <p className="text-wine/60 text-sm leading-relaxed mb-4">
+                <p className="text-forest/60 text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.highlights.map((h) => (
                     <span
                       key={h}
-                      className="bg-wine/30 text-wine/70 text-xs px-2 py-1 rounded-full"
+                      className="bg-forest/30 text-forest/70 text-xs px-2 py-1 rounded-full"
                     >
                       {h}
                     </span>
@@ -109,7 +109,7 @@ export default function CulturalPage() {
       {/* What to Expect */}
       <section className="py-20 bg-parchment">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold text-wine text-center mb-12">
+          <h2 className="text-3xl font-bold text-forest text-center mb-12">
             What to Expect
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -133,7 +133,7 @@ export default function CulturalPage() {
             ].map((item) => (
               <div key={item.title} className="bg-paper rounded-xl p-6 border border-taupe/10">
                 <h3 className="text-lg font-bold text-emerald mb-2">{item.title}</h3>
-                <p className="text-wine/60 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-forest/60 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

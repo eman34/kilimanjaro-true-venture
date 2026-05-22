@@ -41,7 +41,7 @@ export default function Navbar() {
             <span className="text-2xl font-bold text-emerald">
               KTV
             </span>
-            <span className="hidden sm:block text-wine font-semibold text-sm leading-tight">
+            <span className="hidden sm:block text-forest font-semibold text-sm leading-tight">
               {COMPANY.name}
             </span>
           </Link>
@@ -56,7 +56,7 @@ export default function Navbar() {
                 className={`font-medium transition-colors ${
                   isActive(link.href)
                     ? "text-emerald"
-                    : "text-wine hover:text-emerald"
+                    : "text-forest hover:text-emerald"
                 }`}
               >
                 {link.label}
@@ -65,7 +65,7 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="p-2 text-wine hover:text-emerald transition-colors"
+              className="p-2 text-forest hover:text-emerald transition-colors"
             >
               <SearchIcon />
             </button>
@@ -79,12 +79,12 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="p-2.5 text-wine"
+              className="p-2.5 text-forest"
             >
               <SearchIcon />
             </button>
             <button
-              className="text-wine p-2.5"
+              className="text-forest p-2.5"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -112,7 +112,7 @@ export default function Navbar() {
                 className={`block px-4 py-3 transition-colors font-medium ${
                   isActive(link.href)
                     ? "text-emerald"
-                    : "text-wine hover:text-emerald"
+                    : "text-forest hover:text-emerald"
                 }`}
                 onClick={() => setMobileOpen(false)}
               >

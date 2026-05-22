@@ -36,7 +36,7 @@ export default function Home() {
       <section className="py-16 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-wine">
+            <h2 className="text-3xl md:text-4xl font-bold text-forest">
               Tanzanian-owned. Tanzanian-guided. Tanzanian-built.
             </h2>
           </div>
@@ -46,7 +46,7 @@ export default function Home() {
                 <div className="flex-shrink-0 text-emerald">
                   {ICONS[item.icon]}
                 </div>
-                <p className="text-wine/80 text-base md:text-lg leading-relaxed">
+                <p className="text-forest/80 text-base md:text-lg leading-relaxed">
                   {item.text}
                 </p>
               </div>

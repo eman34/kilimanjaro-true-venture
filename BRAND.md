@@ -31,6 +31,42 @@ Every page should reinforce this somewhere. When there's a choice between a gene
 
 **Reference voices:** Patagonia (earned, environmental, slightly anti-corporate) and REI (informative, communitarian, technically credible). The site should feel like one of those companies happened to be Tanzanian and happened to run treks.
 
+## Voice by purpose
+
+The voice in "What we sound like" is one default mode plus one subject-shift mode. Not six modes. Most prose cards and sections use the default. A small set use subject-shift.
+
+### Default — explain to a cold reader
+
+Use for any prose card or section that explains something to a reader coming in without context: risk, operations, training, seasonality, why-the-longer-route, what's-included.
+
+- **Open by stating the thing.** "Most climbers worry about fitness. The real risk on Kilimanjaro is altitude." Not "Did you know…" Not "Welcome to…"
+- **Short, period-driven.** Vary sentence length; do not vary by stuffing commas. Four facts joined by commas under one period is a spec sheet in disguise.
+- **Hedge appropriately.** "About 10 deaths a year." "Almost all preventable." Not "Zero deaths" and not "100% preventable."
+- **Name the principle in plain English.** "Climb high during the day, sleep lower at night, give your body time." Not "industry-standard acclimatization protocols."
+- **End with a reader-action sentence.** A small instruction ("If your dates are flexible…") or a small reassurance ("If something looks acute, we go down"). Not a sell.
+
+### Subject-shift — when a named subject leads
+
+Use when the card's job is to put a specific named subject on stage: a person (Ivan Ismail Kaaya), a place (Stella Point), an operator program (KPAP).
+
+- **The named subject IS the sentence subject.** "Ivan Ismail Kaaya has been on Kilimanjaro for 15 to 20 years." Not "We work with Ivan…"
+- **No framing line above the name.** Drop the reader in. The page already establishes that we are the operator.
+- **Short, declarative.** Tolerates fewer hedges than the default mode.
+
+### The picking rule
+
+> Is the card's subject a specific named person, place, or program? **Yes** → subject-shift. **No** → default.
+
+That is the whole rule. Rhythm and word-choice variation happens within each mode.
+
+### Anti-modes (never use)
+
+Same failure, different costumes:
+
+- **Spec-sheet voice.** "Load cap: 20kg. Wages: KPAP floor. Food: three meals/day." Reads as audit document, not co-op. Even reveal-operations stays conversational.
+- **Performative direct address.** "You should know who is going up the mountain with you." A reader-action sentence at the end of a paragraph is fine; a "you should know" opener is not — it asserts that the reader cares instead of giving them something to care about.
+- **Compressed run-on.** Multiple facts strung together under one period. Period the next one.
+
 ## What we do NOT sound like
 
 The voice we are actively avoiding is **adventure-bro**.
@@ -51,6 +87,16 @@ We are also avoiding:
 - **Generic SEO travel.** "Discover the magic of Tanzania."
 - **Charity-first framing at top of funnel.** Abu Hope Foundation matters and has its own page. It does not lead the home page.
 
+## Founder, ownership, foundation
+
+Three factual constraints on any copy that touches Abu, ownership, or the Abu Hope Foundation. All three were learned the hard way during mid-drafting; do not relearn them.
+
+1. **Abu is mid-20s. No veteran framing.** The porter-to-founder arc works because it speaks to *agency*, not *years on the mountain*. Banned phrasings: "veteran of the mountain," "for years we've…," "decades of experience," "lifelong guide." Proof comes from operational density, not seniority.
+2. **"Tanzanian-owned" is a plural values claim, not a legal claim.** Abu is the sole legal owner, but the framing on the site is collective ("Tanzanian-owned, top to bottom" / "Built by people who grew up on this mountain"). Do not single Abu out as "the owner" or "the founder" in body copy unless explicitly directed. The mission is to empower Tanzania, not elevate one person. (This is in tension with AUDIENCE.md §5's "founder-led" framing — reconcile when that doc is next touched.)
+3. **KTV is for-profit; the Abu Hope Foundation is supported when KTV can, with no fixed mechanism.** Banned: "profits fund…," "we donate X% to…," "all proceeds go to…." Acceptable: name the foundation, describe its work, imply the relationship by inclusion in a values section. The relationship verb is "supports" or "tied to," never "funded by us."
+
+Run all three as a checklist before drafting any copy that touches the founder, ownership, or community giving.
+
 ## Words and phrases
 
 **Keep**
@@ -70,7 +116,7 @@ We are also avoiding:
 
 ## Mechanical rules (mirrored from CLAUDE.md)
 
-- No em dashes. Use periods or semicolons.
+- **Em dashes: parenthetical asides only.** Use for naming or defining a thing mid-sentence ("KPAP — the porter-welfare program — is…"). Do not use for emphasis or dramatic pause ("Altitude — not fitness — is the risk." Cut.)
 - No Oxford commas.
 - No "not just X, but Y" constructions.
 - No setup language ("In conclusion", "That said").

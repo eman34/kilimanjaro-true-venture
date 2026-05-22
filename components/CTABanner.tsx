@@ -15,7 +15,7 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-wine via-wine-deep to-wine" />
+      <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest-deep to-forest" />
       <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--color-emerald)_0%,_transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,_var(--color-emerald)_0%,_transparent_55%)]" />

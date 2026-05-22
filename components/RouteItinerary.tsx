@@ -13,7 +13,6 @@ type DayDetail = {
 };
 
 type RouteItineraryProps = {
-  routeName: string;
   detailedItinerary: DayDetail[];
 };
 
@@ -28,17 +27,17 @@ function DayCard({ detail, isOpen, onToggle }: { detail: DayDetail; isOpen: bool
           D{detail.day}
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-wine font-semibold text-sm md:text-base truncate">
+          <h4 className="text-forest font-semibold text-sm md:text-base truncate">
             {detail.title}
           </h4>
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
-            <span className="text-wine/50 text-xs">{detail.elevation}</span>
-            <span className="text-wine/50 text-xs">{detail.distance}</span>
-            <span className="text-wine/50 text-xs">{detail.time}</span>
+            <span className="text-forest/50 text-xs">{detail.elevation}</span>
+            <span className="text-forest/50 text-xs">{detail.distance}</span>
+            <span className="text-forest/50 text-xs">{detail.time}</span>
           </div>
         </div>
         <svg
-          className={`w-5 h-5 text-wine/40 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          className={`w-5 h-5 text-forest/40 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -55,10 +54,10 @@ function DayCard({ detail, isOpen, onToggle }: { detail: DayDetail; isOpen: bool
         <div className="overflow-hidden">
           <div className="px-4 md:px-5 pb-5 pt-0">
             <div className="border-t border-taupe/5 pt-4">
-              <div className="inline-block bg-wine/50 text-emerald text-xs font-medium px-3 py-1 rounded-full mb-3">
+              <div className="inline-block bg-forest/50 text-emerald text-xs font-medium px-3 py-1 rounded-full mb-3">
                 {detail.terrain}
               </div>
-              <p className="text-wine/70 text-sm leading-relaxed">
+              <p className="text-forest/70 text-sm leading-relaxed">
                 {detail.description}
               </p>
             </div>
@@ -69,45 +68,19 @@ function DayCard({ detail, isOpen, onToggle }: { detail: DayDetail; isOpen: bool
   );
 }
 
-export default function RouteItinerary({ routeName, detailedItinerary }: RouteItineraryProps) {
+export default function RouteItinerary({ detailedItinerary }: RouteItineraryProps) {
   const [openDay, setOpenDay] = useState<number | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="mt-6">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-center gap-2 py-3 text-emerald text-sm font-semibold hover:text-emerald/80 transition-colors"
-      >
-        {isExpanded ? "Hide" : "View"} Day-by-Day Itinerary
-        <svg
-          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      <div
-        className={`grid transition-all duration-500 ease-in-out ${
-          isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="space-y-3 pt-3">
-            {detailedItinerary.map((detail) => (
-              <DayCard
-                key={detail.day}
-                detail={detail}
-                isOpen={openDay === detail.day}
-                onToggle={() => setOpenDay(openDay === detail.day ? null : detail.day)}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="space-y-3">
+      {detailedItinerary.map((detail) => (
+        <DayCard
+          key={detail.day}
+          detail={detail}
+          isOpen={openDay === detail.day}
+          onToggle={() => setOpenDay(openDay === detail.day ? null : detail.day)}
+        />
+      ))}
     </div>
   );
 }
