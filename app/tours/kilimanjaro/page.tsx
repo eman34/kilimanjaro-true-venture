@@ -7,8 +7,6 @@ import SectionDivider from "@/components/SectionDivider";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
 import {
   KILIMANJARO_ROUTES,
-  PACKAGE_INCLUDES,
-  PACKAGE_EXCLUDES,
   MOUNTAIN_INTRO,
   ECOLOGICAL_ZONES,
 } from "@/lib/constants";
@@ -235,77 +233,10 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
-
-      {/* What's Included / Excluded */}
-      <section className="py-6 md:py-7 bg-parchment">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
-            What&apos;s Included
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div>
-              <h3 className="text-xl font-bold text-gold-deep mb-4">
-                Included in Your Package
-              </h3>
-              <ul className="space-y-3">
-                {PACKAGE_INCLUDES.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-olive/85 text-sm"
-                  >
-                    <svg
-                      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gold-deep mb-4">Not Included</h3>
-              <ul className="space-y-3">
-                {PACKAGE_EXCLUDES.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-olive/85 text-sm"
-                  >
-                    <svg
-                      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CTABanner
         title="Plan your Kilimanjaro climb"
         subtitle="Tell us your dates, group size, and route interest. Abu will reply within 4 hours on WhatsApp."
-        seamFrom="parchment"
+        seamFrom="paper"
       />
 
       <StickyWhatsApp />

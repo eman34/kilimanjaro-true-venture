@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PackageInclusions from "@/components/PackageInclusions";
 import RouteItinerary from "@/components/RouteItinerary";
 import SectionDivider from "@/components/SectionDivider";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
@@ -169,8 +170,7 @@ export default async function RouteDetailPage({ params }: PageProps) {
               Day by day
             </h2>
             <p className="text-olive/85 leading-relaxed mb-8">
-              Tap any day for elevation, distance, and what to expect on the
-              trail.
+              Every day on the trail, from rainforest to the arctic summit.
             </p>
             <RouteItinerary detailedItinerary={route.detailedItinerary} />
           </div>
@@ -178,10 +178,11 @@ export default async function RouteDetailPage({ params }: PageProps) {
         </>
       )}
 
-      <SectionDivider
-        from={route.detailedItinerary ? "parchment" : "paper"}
-        to="olive"
-      />
+      {route.detailedItinerary && <SectionDivider from="parchment" to="paper" />}
+
+      <PackageInclusions />
+
+      <SectionDivider from="paper" to="olive" />
 
       {/* CTA */}
       <section className="bg-olive py-6 md:py-7">

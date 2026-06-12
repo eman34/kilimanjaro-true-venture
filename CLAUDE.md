@@ -46,7 +46,7 @@ Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`
 - **Responsive**: Mobile-first, works on all screen sizes.
 
 ### Component Styling Rules
-- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo is a stacked text lockup: "KILIMANJARO" in `text-gold-deep` extrabold uppercase over "TRUE VENTURE" small `text-olive` wide-tracked (strings derived from `COMPANY.name`). Nav links `text-olive hover:text-gold-deep`. Active link `text-gold-deep font-semibold`.
+- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo is the brand image `/images/brand/logo-nav.png` (tagline-free crop) rendered with `mix-blend-multiply` so its white background melts into the cream navbar. Full logo with tagline lives at `/images/brand/logo.png`; vector source is `docs/assets/logo.pdf`. The multiply trick only works on light surfaces — never place these assets on dark olive (the Footer keeps its text lockup). Nav links `text-olive hover:text-gold-deep`. Active link `text-gold-deep font-semibold`.
 - **Cards**: `bg-parchment border border-taupe` with `hover:border-gold/30` for interactive cards.
 - **Buttons**: `.btn-primary` (gold fill, `text-olive-deep`, hover flips to `bg-gold-deep text-paper`) and `.btn-accent` (olive, secondary heavy action) — defined in `globals.css`.
 - **Form inputs**: `bg-paper border-taupe` inside a `bg-parchment` form card (inputs are lighter than the wrapper — "carved-out" feel). Focus state uses `border-gold-deep`.

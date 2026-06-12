@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -19,7 +20,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
-  const [logoFirst, ...logoRest] = COMPANY.name.split(" ");
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -38,13 +38,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-none">
-            <span className="text-lg md:text-xl font-extrabold uppercase tracking-[0.08em] text-gold-deep">
-              {logoFirst}
-            </span>
-            <span className="text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-olive mt-0.5">
-              {logoRest.join(" ")}
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/brand/logo-nav.png"
+              alt={COMPANY.name}
+              width={575}
+              height={263}
+              priority
+              className="h-12 md:h-14 w-auto mix-blend-multiply"
+            />
           </Link>
 
           {/* Desktop Nav */}

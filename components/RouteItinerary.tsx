@@ -1,86 +1,66 @@
-"use client";
+import type { KilimanjaroRouteDay } from "@/lib/constants";
+import AscentProfile from "./AscentProfile";
 
-import { useState } from "react";
-
-type DayDetail = {
-  day: number;
-  title: string;
-  elevation: string;
-  distance: string;
-  time: string;
-  terrain: string;
-  description: string;
-};
+/* "Day by day" section for Kilimanjaro route pages: the animated elevation
+   profile (client component) above an always-open trail timeline (server,
+   no JS). */
 
 type RouteItineraryProps = {
-  detailedItinerary: DayDetail[];
+  detailedItinerary: KilimanjaroRouteDay[];
 };
 
-function DayCard({ detail, isOpen, onToggle }: { detail: DayDetail; isOpen: boolean; onToggle: () => void }) {
+function TrailTimeline({ days }: { days: KilimanjaroRouteDay[] }) {
   return (
-    <div className="border border-taupe/10 rounded-xl overflow-hidden transition-colors hover:border-gold/30">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center gap-4 p-4 md:p-5 text-left"
-      >
-        <div className="shrink-0 w-12 h-12 rounded-full bg-gold/20 text-gold-deep font-bold flex items-center justify-center text-sm">
-          D{detail.day}
-        </div>
-        <div className="flex-1 min-w-0">
-          <h4 className="text-olive font-semibold text-sm md:text-base truncate">
-            {detail.title}
-          </h4>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
-            <span className="text-olive/65 text-xs">{detail.elevation}</span>
-            <span className="text-olive/65 text-xs">{detail.distance}</span>
-            <span className="text-olive/65 text-xs">{detail.time}</span>
-          </div>
-        </div>
-        <svg
-          className={`w-5 h-5 text-olive/40 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      <div
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="px-4 md:px-5 pb-5 pt-0">
-            <div className="border-t border-taupe/5 pt-4">
-              <div className="inline-block bg-gold/15 text-gold-deep text-xs font-medium px-3 py-1 rounded-full mb-3">
-                {detail.terrain}
+    <ol className="relative">
+      {days.map((d, i) => {
+        const isSummit = d.elevation.includes("5,895m");
+        const isLast = i === days.length - 1;
+        return (
+          <li key={d.day} className="relative flex gap-5 md:gap-8 pb-10 last:pb-0">
+            <div className="flex flex-col items-center">
+              <div
+                className={`shrink-0 w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm border-2 ${
+                  isSummit
+                    ? "bg-gold border-gold text-olive-deep"
+                    : "bg-parchment border-olive/40 text-olive"
+                }`}
+              >
+                {d.day}
               </div>
-              <p className="text-olive/85 text-sm leading-relaxed">
-                {detail.description}
+              {!isLast && <div className="w-px flex-1 bg-olive/20 mt-2" />}
+            </div>
+            <div className="flex-1 min-w-0 pt-1">
+              <h3 className="text-olive font-bold text-lg md:text-xl leading-snug">
+                {d.title}
+              </h3>
+              <div className="flex flex-wrap gap-x-5 gap-y-1 mt-2 mb-3">
+                {[d.elevation, d.distance, d.time, d.terrain].map((stat) => (
+                  <span
+                    key={stat}
+                    className="text-olive/65 text-[11px] uppercase tracking-wider font-semibold"
+                  >
+                    {stat}
+                  </span>
+                ))}
+              </div>
+              <p className="text-olive/85 text-sm md:text-base leading-relaxed">
+                {d.description}
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 
 export default function RouteItinerary({ detailedItinerary }: RouteItineraryProps) {
-  const [openDay, setOpenDay] = useState<number | null>(null);
-
   return (
-    <div className="space-y-3">
-      {detailedItinerary.map((detail) => (
-        <DayCard
-          key={detail.day}
-          detail={detail}
-          isOpen={openDay === detail.day}
-          onToggle={() => setOpenDay(openDay === detail.day ? null : detail.day)}
-        />
-      ))}
+    <div>
+      <AscentProfile days={detailedItinerary} />
+      <div className="mt-10 md:mt-12">
+        <TrailTimeline days={detailedItinerary} />
+      </div>
     </div>
   );
 }

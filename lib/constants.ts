@@ -599,30 +599,35 @@ export const KILIMANJARO_ROUTES: KilimanjaroRoute[] = [
 export const SAFARI_PARKS = [
   {
     name: "Serengeti National Park",
+    image: "/images/zebra-herd.jpg",
     description:
-      "Home to the Great Migration — witness millions of wildebeest and zebras crossing the plains in one of nature's greatest spectacles.",
+      "Home to the Great Migration: millions of wildebeest and zebras crossing the plains in one of nature's greatest spectacles.",
     highlights: ["Great Migration", "Big Five", "Endless plains", "Hot air balloon safaris"],
   },
   {
     name: "Ngorongoro Crater",
+    image: "/images/ngorongoro-wildlife.jpg",
     description:
-      "The world's largest intact volcanic caldera, teeming with wildlife in a breathtaking natural amphitheater.",
+      "The world's largest intact volcanic caldera, a natural amphitheater holding one of the densest wildlife populations in Africa.",
     highlights: ["UNESCO World Heritage Site", "Dense wildlife concentration", "Flamingo-lined lakes", "Maasai culture"],
   },
   {
     name: "Tarangire National Park",
+    image: "/images/waterhole-wildlife.jpg",
     description:
       "Famous for its massive elephant herds and iconic baobab trees, offering an intimate safari experience away from the crowds.",
     highlights: ["Large elephant herds", "Ancient baobab trees", "Bird watching paradise", "Less crowded"],
   },
   {
     name: "Lake Manyara National Park",
+    image: "/images/flamingos-flight.jpg",
     description:
       "A compact gem known for tree-climbing lions and diverse birdlife along the shores of a beautiful soda lake.",
     highlights: ["Tree-climbing lions", "Flamingo flocks", "Diverse ecosystems", "Scenic lake views"],
   },
   {
     name: "Mkomazi National Park",
+    image: "/images/kilimanjaro-peak.jpg",
     description:
       "A hidden treasure bordering Kenya, home to rare African wild dogs, black rhinos, and stunning semi-arid landscapes.",
     highlights: ["Black rhinos", "African wild dogs", "Remote wilderness", "Scenic semi-arid terrain"],
@@ -741,28 +746,372 @@ export const SAFARI_CREW = [
   "Wildlife Specialist Guide",
 ];
 
-export const PACKAGE_INCLUDES = [
-  "Airport pick up and drop off",
-  "2-night hotel accommodation in Moshi/Arusha (before and after trek)",
-  "Quality, waterproof, four-season mountain sleeping tent",
-  "Quality mess tents with table and chairs",
-  "Experienced English-speaking Tanzanian guides",
-  "All Tanzanian National Park fees (≈35% of total trip cost)",
-  "All hot meals prepared by our cook while on the mountain",
-  "Portable toilet tent",
-  "Fair wages and proper gear for guides, porters, and cook (KPAP-aligned standards)",
-  "Oxygen tank and pulse oximeter for health and safety",
-  "Hot drinks at every meal",
+export interface PackageItem {
+  icon: string;
+  title: string;
+  detail: string;
+}
+
+export const PACKAGE_INCLUDES: PackageItem[] = [
+  {
+    icon: "plane",
+    title: "Airport transfers",
+    detail:
+      "We meet you at Kilimanjaro International Airport and drive you to your hotel in Moshi or Arusha. After the climb, we take you back for your flight or onward to your next stop.",
+  },
+  {
+    icon: "bed",
+    title: "Hotel before and after the trek",
+    detail:
+      "Two hotel nights in Moshi or Arusha, one before and one after the climb, on a full board basis. You start rested and come down to a hot shower and a proper bed.",
+  },
+  {
+    icon: "tent",
+    title: "Four-season sleeping tent",
+    detail:
+      "Quality, waterproof mountain tents built for all conditions on the mountain. The crew pitches and packs them for you at every camp.",
+  },
+  {
+    icon: "table",
+    title: "Mess tent",
+    detail:
+      "A dining tent with a proper table and chairs at every camp, so meals happen out of the wind and rain.",
+  },
+  {
+    icon: "guide",
+    title: "Mountain guides",
+    detail:
+      "Professional, experienced, English-speaking guides who grew up on these mountains. They set the pace, watch your health, and know every section of the route.",
+  },
+  {
+    icon: "ticket",
+    title: "All park fees",
+    detail:
+      "Conservation, camping, and rescue fees charged by Tanzanian National Parks are all covered in the price. Park fees are the single largest cost of a Kilimanjaro climb.",
+  },
+  {
+    icon: "fire",
+    title: "Hot meals on the mountain",
+    detail:
+      "Our mountain cook prepares hot meals at every camp, portioned for long walking days at altitude.",
+  },
+  {
+    icon: "sparkles",
+    title: "Private toilet tent",
+    detail:
+      "A portable toilet tent reserved for your group, set up at every camp.",
+  },
+  {
+    icon: "heart",
+    title: "Fair crew wages",
+    detail:
+      "Fair pay for guides, porters, and cook, at the wage levels approved by KINAPA, the Kilimanjaro National Park Authority.",
+  },
+  {
+    icon: "pulse",
+    title: "Oxygen & pulse oximeter",
+    detail:
+      "Every climb carries an emergency oxygen tank. Guides check your blood oxygen with a pulse oximeter through the climb to catch altitude problems early.",
+  },
+  {
+    icon: "mug",
+    title: "Hot drinks",
+    detail:
+      "Hot drinks at every meal. A small thing that matters more with every meter of altitude.",
+  },
+  {
+    icon: "droplet",
+    title: "Drinking water",
+    detail:
+      "Mineral water on day one, then safe boiled water refilled daily for the rest of the climb.",
+  },
+  {
+    icon: "award",
+    title: "Certificate of achievement",
+    detail:
+      "Presented after the climb, marking the point you reached on the mountain.",
+  },
 ];
 
-export const PACKAGE_EXCLUDES = [
-  "International and domestic flights",
-  "Tanzanian entry visa fees",
-  "Travel insurance (mandatory for trekkers)",
-  "Sleeping bags and personal trekking gear (available for rent)",
-  "Tips for guides, porters, and cook",
-  "Personal expenses (drinks, snacks, laundry, souvenirs)",
-  "Additional accommodation before or after the trek (unless included in package)",
+export const PACKAGE_EXCLUDES: PackageItem[] = [
+  {
+    icon: "globe",
+    title: "Flights",
+    detail:
+      "International and domestic flights are not included. Most climbers fly into Kilimanjaro International Airport (JRO), and we meet you there.",
+  },
+  {
+    icon: "cash",
+    title: "Crew tips",
+    detail:
+      "Tipping your climbing crew is a well-established practice in mountain hiking all over the world. It is never mandatory, but if your crew looks after you well, tips are encouraged and shared across guides, porters, and cook at the end of the climb. A recommended amount is USD 250 to 350 per climber.",
+  },
+  {
+    icon: "passport",
+    title: "Tanzanian visa",
+    detail:
+      "Most nationalities can get a tourist visa online before travel or on arrival. Budget around $50, or $100 for US passport holders.",
+  },
+  {
+    icon: "shield",
+    title: "Travel insurance",
+    detail:
+      "Mandatory for trekkers. Make sure your policy covers trekking up to 6,000m and emergency evacuation.",
+  },
+  {
+    icon: "backpack",
+    title: "Sleeping bag & personal gear",
+    detail:
+      "Bring your own or rent locally before the climb. We send a full packing list when you book.",
+  },
+  {
+    icon: "bag",
+    title: "Personal expenses",
+    detail:
+      "Drinks, snacks, laundry, souvenirs, and anything else you pick up along the way.",
+  },
+];
+
+export interface SafariDay {
+  day: number;
+  title: string;
+  park: string;
+  description: string;
+}
+
+export interface Safari {
+  slug: string;
+  name: string;
+  tag: string;
+  image: string;
+  days: number;
+  priceFrom: string;
+  parks: string[];
+  summary: string;
+  detailedItinerary: SafariDay[];
+}
+
+export const SAFARIS: Safari[] = [
+  {
+    slug: "serengeti-migration",
+    name: "Serengeti Migration Safari",
+    tag: "The Great Migration",
+    image: "/images/zebra-herd.jpg",
+    days: 5,
+    priceFrom: "$2,230",
+    parks: ["Serengeti National Park", "Ngorongoro Crater"],
+    summary:
+      "Five days built around the Great Migration: millions of wildebeest and zebra moving across the Serengeti in search of fresh grazing, with lions, cheetahs, and crocodiles close behind. Depending on the season, your guide positions you where the herds are, river crossings included when the timing is right. The safari finishes with a half day on the floor of Ngorongoro Crater.",
+    detailedItinerary: [
+      {
+        day: 1,
+        title: "Arusha to Serengeti National Park",
+        park: "Serengeti",
+        description:
+          "An early morning departure from Arusha takes you through the landscapes of northern Tanzania, past local villages and the Ngorongoro highlands. You enter the Serengeti with your first game drive, so the wildlife starts before the bags are unpacked. The day ends with a relaxed evening at your lodge or camp.",
+      },
+      {
+        day: 2,
+        title: "Full day in the Serengeti",
+        park: "Serengeti",
+        description:
+          "A whole day on the vast plains: following wildlife movements, searching for predators, and watching animal behavior in its own habitat. Your guide takes you to the areas known for high activity and reads the day as it unfolds.",
+      },
+      {
+        day: 3,
+        title: "Tracking the Migration",
+        park: "Serengeti",
+        description:
+          "The day is dedicated to locating and following the Great Migration. Depending on the season, your guide takes you where the herds are active. That can mean dramatic river crossings or huge concentrations of animals moving together across the plains.",
+      },
+      {
+        day: 4,
+        title: "Serengeti to Ngorongoro",
+        park: "Ngorongoro Conservation Area",
+        description:
+          "A morning game drive, then the road south toward the Ngorongoro area. Wildlife sightings continue along the way as the open plains give way to highland forest. Overnight near the crater rim.",
+      },
+      {
+        day: 5,
+        title: "Ngorongoro Crater and return to Arusha",
+        park: "Ngorongoro Crater",
+        description:
+          "Descend into the crater for a half-day game drive among one of the highest concentrations of wildlife in Africa. After the tour, return to Arusha.",
+      },
+    ],
+  },
+  {
+    slug: "tarangire-ngorongoro-manyara",
+    name: "Tarangire, Ngorongoro & Lake Manyara",
+    tag: "Three parks in three days",
+    image: "/images/flamingos-flight.jpg",
+    days: 3,
+    priceFrom: "$1,365",
+    parks: ["Tarangire", "Ngorongoro Crater", "Lake Manyara"],
+    summary:
+      "Three days, three completely different ecosystems. Baobab country and big elephant herds in Tarangire, the wildlife-packed floor of Ngorongoro Crater, and the groundwater forest and lakeshore of Lake Manyara. The fastest real introduction to northern Tanzania.",
+    detailedItinerary: [
+      {
+        day: 1,
+        title: "Arusha to Tarangire, land of giants",
+        park: "Tarangire",
+        description:
+          "A morning departure from Arusha toward Tarangire National Park, known for its untouched feel and large concentrations of wildlife. Iconic baobab trees, often called the tree of life, stand tall across the landscape, and the park is famous for its elephant herds: families interacting, feeding, and moving across the plains. The Tarangire River acts as a lifeline, drawing giraffe, zebra, wildebeest, buffalo, and the lions and leopards that follow them. Picnic lunch inside the park, an afternoon game drive, then on to your lodge for dinner.",
+      },
+      {
+        day: 2,
+        title: "Ngorongoro Crater",
+        park: "Ngorongoro Crater",
+        description:
+          "After an early breakfast, travel to the Ngorongoro Conservation Area and descend onto the crater floor, a massive volcanic caldera that forms a natural enclosure for wildlife. It holds one of the highest concentrations of animals in Africa and one of the best chances anywhere to see the Big Five, including the rare black rhino. Grassland, swamp, forest, and a soda lake each support their own animals, from hippos resting in the pools to lions out on the open floor. Your guide fills in the geology and history as you go. Ascend in the late afternoon and return to your lodge.",
+      },
+      {
+        day: 3,
+        title: "Lake Manyara, forest and lakeshore",
+        park: "Lake Manyara",
+        description:
+          "Your final day is spent in Lake Manyara National Park, where a lush groundwater forest meets the lake. Monkeys, birds, and elephants move through the trees, the shoreline often fills with flamingos, and the park is known for its tree-climbing lions, a rare behavior. After the game drive, return to Arusha.",
+      },
+    ],
+  },
+  {
+    slug: "serengeti-ngorongoro",
+    name: "Serengeti & Ngorongoro",
+    tag: "More time in the Serengeti",
+    image: "/images/ngorongoro-wildlife.jpg",
+    days: 4,
+    priceFrom: "$1,670",
+    parks: ["Serengeti National Park", "Ngorongoro Crater"],
+    summary:
+      "Four days for travelers who want longer in the Serengeti: time to track predators, sit with the herds, and feel the scale of the plains, finished with a final game drive on the floor of Ngorongoro Crater.",
+    detailedItinerary: [
+      {
+        day: 1,
+        title: "Arusha to the Serengeti",
+        park: "Serengeti",
+        description:
+          "Depart Arusha early and climb through the Ngorongoro highlands before the land opens into the Serengeti's endless plains. Your first game drive begins at the gate: lions, cheetahs, elephants, giraffes, and large herds of grazers are all possible before you reach your camp or lodge for dinner.",
+      },
+      {
+        day: 2,
+        title: "Full day in the Serengeti",
+        park: "Serengeti",
+        description:
+          "A full-day game drive across different regions of the park, each with its own wildlife. Your guide heads for the areas known for predator activity, where you may catch lions hunting, cheetahs in a chase, or a leopard resting in a tree, with large herds of wildebeest and zebra moving across the plains. A picnic lunch in the wild keeps you out among the animals all day.",
+      },
+      {
+        day: 3,
+        title: "Serengeti to Ngorongoro",
+        park: "Ngorongoro Conservation Area",
+        description:
+          "After a morning game drive, begin the journey toward the Ngorongoro Conservation Area, watching the landscape change from open plains to highland forest, with wildlife along the way. Dinner and overnight near the crater rim.",
+      },
+      {
+        day: 4,
+        title: "Ngorongoro Crater and return",
+        park: "Ngorongoro Crater",
+        description:
+          "Descend into the Ngorongoro Crater for your final game drive. The crater floor offers one of the best chances in Africa to see the Big Five in a single day. After the tour, return to Arusha.",
+      },
+    ],
+  },
+  {
+    slug: "mkomazi-day-trip",
+    name: "Mkomazi Day Trip",
+    tag: "Off the beaten track",
+    image: "/images/waterhole-wildlife.jpg",
+    days: 1,
+    priceFrom: "$430",
+    parks: ["Mkomazi National Park"],
+    summary:
+      "A single-day safari in one of northern Tanzania's quietest parks. Mkomazi sits near Kilimanjaro and protects some of the country's rarest animals, including black rhino and African wild dog, in semi-arid country most visitors never see.",
+    detailedItinerary: [
+      {
+        day: 1,
+        title: "Mkomazi day trip",
+        park: "Mkomazi",
+        description:
+          "An early morning departure from Arusha or Moshi, then a game drive through this quiet, beautiful park. Mkomazi is home to rare species such as black rhino and African wild dog, protected within the park, and its semi-arid landscape feels different from any other park in the north. On a clear day, Kilimanjaro stands on the horizon. Picnic lunch in the park, an afternoon of exploring, and back to your hotel in Arusha or Moshi by early evening.",
+      },
+    ],
+  },
+];
+
+export const SAFARI_INCLUDES: PackageItem[] = [
+  {
+    icon: "truck",
+    title: "Private 4x4 safari vehicle",
+    detail:
+      "A private 4x4 with a pop-up roof for unobstructed wildlife viewing and photography. The vehicle is yours alone for the whole safari.",
+  },
+  {
+    icon: "guide",
+    title: "Professional driver guide",
+    detail:
+      "An experienced safari driver guide who understands animal behavior, migration patterns, and the best times and places for wildlife viewing.",
+  },
+  {
+    icon: "ticket",
+    title: "All park fees",
+    detail:
+      "Entry and conservation fees for every park on your itinerary are covered in the price.",
+  },
+  {
+    icon: "bed",
+    title: "Accommodation",
+    detail:
+      "Carefully selected lodges and camps, from mid-range to luxury depending on your preference. We match the level to your budget when you book.",
+  },
+  {
+    icon: "fire",
+    title: "All meals on safari",
+    detail:
+      "Breakfast and dinner at your lodge or camp, with picnic lunches inside the parks so you stay out among the animals.",
+  },
+  {
+    icon: "droplet",
+    title: "Mineral water",
+    detail: "Bottled water in the vehicle throughout your safari.",
+  },
+  {
+    icon: "plane",
+    title: "Airport transfers",
+    detail:
+      "Pick up and drop off at Kilimanjaro International Airport, or from your hotel in Arusha or Moshi.",
+  },
+];
+
+export const SAFARI_EXCLUDES: PackageItem[] = [
+  {
+    icon: "globe",
+    title: "Flights",
+    detail:
+      "International and domestic flights are not included. Most travelers fly into Kilimanjaro International Airport (JRO), and we meet you there.",
+  },
+  {
+    icon: "cash",
+    title: "Tips for your driver guide",
+    detail:
+      "Tipping is customary on safari and always at your discretion. We give clear guidance on usual amounts when you book.",
+  },
+  {
+    icon: "passport",
+    title: "Tanzanian visa",
+    detail:
+      "Most nationalities can get a tourist visa online before travel or on arrival. Budget around $50, or $100 for US passport holders.",
+  },
+  {
+    icon: "shield",
+    title: "Travel insurance",
+    detail:
+      "Make sure your policy covers your travel dates and activities, including game drives.",
+  },
+  {
+    icon: "bag",
+    title: "Personal expenses",
+    detail:
+      "Drinks beyond water, snacks, laundry, souvenirs, and anything else you pick up along the way.",
+  },
 ];
 
 export const TOUR_INTERESTS = [

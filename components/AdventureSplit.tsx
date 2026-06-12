@@ -5,7 +5,7 @@ const ADVENTURES = [
   {
     title: "Climb Kilimanjaro",
     subtitle: "Six routes to Uhuru Peak, 5,895m",
-    cta: "See routes & prices",
+    cta: "See routes",
     href: "/tours/kilimanjaro",
     image: "/images/kilimanjaro-peak.jpg",
     alt: "The snow-capped peak of Mount Kilimanjaro",
@@ -13,30 +13,39 @@ const ADVENTURES = [
   {
     title: "Tanzania Safari",
     subtitle: "Serengeti, Ngorongoro and the Great Migration",
-    cta: "See safaris & prices",
+    cta: "See safaris",
     href: "/tours/safaris",
     image: "/images/zebra-herd.jpg",
     alt: "A herd of zebra on the Tanzanian plains",
+  },
+  {
+    title: "Zanzibar",
+    subtitle: "White-sand beaches, Stone Town and spice tours",
+    cta: "See Zanzibar",
+    href: "/tours/zanzibar",
+    image: "/images/flamingos-flight.jpg",
+    alt: "Flamingos in flight over the water",
+  },
+  {
+    title: "Cultural Tours",
+    subtitle: "Maasai villages, coffee farms and local markets",
+    cta: "See cultural tours",
+    href: "/tours/cultural",
+    image: "/images/guide-client.jpg",
+    alt: "A local guide sharing a moment with a guest",
   },
 ];
 
 export default function AdventureSplit() {
   return (
-    <section className="section-padding">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-olive mb-4">
-          Our Adventures
-        </h2>
-        <p className="text-olive/75 max-w-2xl mx-auto">
-          From the summit of Kilimanjaro to the plains of the Serengeti. Pick your next trip.
-        </p>
-      </div>
+    <section className="bg-parchment">
+      <div className="section-padding">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {ADVENTURES.map((adventure) => (
           <Link
             key={adventure.href}
             href={adventure.href}
-            className="group relative block h-[380px] md:h-[460px] rounded-2xl overflow-hidden"
+            className="group relative block aspect-square md:aspect-[16/15] rounded-2xl overflow-hidden"
           >
             <Image
               src={adventure.image}
@@ -72,6 +81,7 @@ export default function AdventureSplit() {
             </div>
           </Link>
         ))}
+      </div>
       </div>
     </section>
   );
