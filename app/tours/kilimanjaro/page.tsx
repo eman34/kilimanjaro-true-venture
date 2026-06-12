@@ -3,6 +3,7 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
 import RouteSpread from "@/components/RouteSpread";
+import SectionDivider from "@/components/SectionDivider";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
 import {
   KILIMANJARO_ROUTES,
@@ -32,22 +33,13 @@ export default function KilimanjaroPage() {
         backgroundImage="/images/summit-glaciers.jpg"
       />
 
-      {/* Trust strip */}
-      <section className="bg-parchment border-y border-taupe/30 py-4">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-          <p className="text-forest text-sm md:text-base font-semibold">
-            Tanzanian-owned · Tanzanian-guided · Sekei, Arusha
-          </p>
-        </div>
-      </section>
-
       {/* Routes — stacked editorial spread */}
       <section className="section-padding">
-        <div className="max-w-3xl mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest">
+        <div className="mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
             Six routes to the summit
           </h2>
-          <p className="text-forest/70 mt-3 leading-relaxed">
+          <p className="text-olive/85 mt-3 leading-relaxed">
             Each route has a different character. Tell us how you want to
             experience the mountain and we&apos;ll match you to a route.
           </p>
@@ -60,13 +52,15 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
+      <SectionDivider from="paper" to="parchment" />
+
       {/* When to climb */}
-      <section className="bg-parchment py-16 md:py-20">
+      <section className="bg-parchment py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
             When to climb.
           </h2>
-          <p className="text-forest/70 mt-4 max-w-3xl leading-relaxed">
+          <p className="text-olive/85 mt-4 leading-relaxed">
             Kilimanjaro has two dry windows and two rainy ones. Climbing
             is possible year-round, but trail conditions, visibility, and
             crowds shift. The northern-side routes (Rongai, Londorossi)
@@ -76,24 +70,24 @@ export default function KilimanjaroPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             <div className="bg-paper border border-taupe rounded-xl p-5">
-              <p className="text-emerald text-[11px] uppercase tracking-[0.18em] font-semibold">
+              <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold">
                 Dry season
               </p>
-              <p className="text-forest font-bold mt-2">
+              <p className="text-olive font-bold mt-2">
                 January – early March
               </p>
-              <p className="text-forest/70 text-sm mt-2 leading-relaxed">
+              <p className="text-olive/85 text-sm mt-2 leading-relaxed">
                 Cool, clear days; snow on the crater rim is common. Smaller
                 crowds than mid-year and some of the best summit-day
                 photographs.
               </p>
             </div>
             <div className="bg-paper border border-taupe rounded-xl p-5">
-              <p className="text-emerald text-[11px] uppercase tracking-[0.18em] font-semibold">
+              <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold">
                 Long rains
               </p>
-              <p className="text-forest font-bold mt-2">April – May</p>
-              <p className="text-forest/70 text-sm mt-2 leading-relaxed">
+              <p className="text-olive font-bold mt-2">April – May</p>
+              <p className="text-olive/85 text-sm mt-2 leading-relaxed">
                 Heaviest rainfall on the southern approaches. Climbs
                 continue but trails are slick and views often clouded.
                 Rongai and Londorossi (northern side) stay relatively
@@ -101,22 +95,22 @@ export default function KilimanjaroPage() {
               </p>
             </div>
             <div className="bg-paper border border-taupe rounded-xl p-5">
-              <p className="text-emerald text-[11px] uppercase tracking-[0.18em] font-semibold">
+              <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold">
                 Dry season (peak)
               </p>
-              <p className="text-forest font-bold mt-2">June – October</p>
-              <p className="text-forest/70 text-sm mt-2 leading-relaxed">
+              <p className="text-olive font-bold mt-2">June – October</p>
+              <p className="text-olive/85 text-sm mt-2 leading-relaxed">
                 The long high-season window. Stable weather, busier camps
                 and gates. Book early for July and August — the most
                 popular months on the mountain.
               </p>
             </div>
             <div className="bg-paper border border-taupe rounded-xl p-5">
-              <p className="text-emerald text-[11px] uppercase tracking-[0.18em] font-semibold">
+              <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold">
                 Short rains
               </p>
-              <p className="text-forest font-bold mt-2">November</p>
-              <p className="text-forest/70 text-sm mt-2 leading-relaxed">
+              <p className="text-olive font-bold mt-2">November</p>
+              <p className="text-olive/85 text-sm mt-2 leading-relaxed">
                 Brief afternoon storms, fewer climbers, lush forest.
                 Mornings are typically clear. A quiet shoulder month for
                 travellers who want the trail to themselves.
@@ -126,16 +120,18 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
+      <SectionDivider from="parchment" to="olive" />
+
       {/* Ecological zones band */}
-      <section className="bg-forest text-paper py-16 md:py-20">
+      <section className="bg-olive text-paper py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <p className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
+          <p className="text-gold-deep text-xs uppercase tracking-[0.18em] font-semibold mb-3">
             On the mountain
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-paper leading-tight">
             Five ecological zones in five days
           </h2>
-          <p className="text-paper/80 mt-4 max-w-3xl leading-relaxed">
+          <p className="text-paper/90 mt-4 leading-relaxed">
             {MOUNTAIN_INTRO}
           </p>
 
@@ -143,14 +139,14 @@ export default function KilimanjaroPage() {
             {ECOLOGICAL_ZONES.map((zone, idx) => (
               <li
                 key={zone.name}
-                className="border-l-2 border-emerald/40 pl-4"
+                className="border-l-2 border-gold/40 pl-4"
               >
-                <p className="text-emerald text-[11px] uppercase tracking-wider font-semibold">
+                <p className="text-gold-deep text-[11px] uppercase tracking-wider font-semibold">
                   Zone {idx + 1}
                 </p>
                 <p className="text-paper font-bold mt-1">{zone.name}</p>
-                <p className="text-paper/60 text-xs mt-0.5">{zone.altitude}</p>
-                <p className="text-paper/70 text-sm mt-2 leading-relaxed">
+                <p className="text-paper/75 text-xs mt-0.5">{zone.altitude}</p>
+                <p className="text-paper/85 text-sm mt-2 leading-relaxed">
                   {zone.note}
                 </p>
               </li>
@@ -159,132 +155,107 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
+      <SectionDivider from="olive" to="paper" />
+
       {/* How we operate */}
       <section className="section-padding">
-        <h2 className="text-3xl md:text-4xl font-bold text-forest">
+        <h2 className="text-3xl md:text-4xl font-bold text-olive">
           How we run a climb.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-          <div>
-            <h3 className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
-              Altitude safety
-            </h3>
-            <p className="text-forest/80 leading-relaxed">
-              Most climbers worry about fitness. The real risk on
-              Kilimanjaro is altitude. About 10 deaths a year out of
-              35,000 to 50,000 climbers, almost all from acute mountain
-              sickness, and almost all preventable. The principle is
-              simple: climb high during the day, sleep lower at night,
-              give your body time. We check pulse-ox and symptoms with
-              you every day, carry oxygen and a first-aid kit on every
-              climb, and the moment something looks acute we go down.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
-              Porter standards
-            </h3>
-            <p className="text-forest/80 leading-relaxed">
-              KPAP — the Kilimanjaro Porters Assistance Project — is the
-              program that audits operators on porter welfare. The closest
-              thing the mountain has to a B-Corp standard. KPAP-aligned
-              operators agree to a few things: a 20kg load cap per porter,
-              wages at or above the KPAP-monitored floor, three meals per
-              porter per day, and weather-appropriate gear. We work to
-              those numbers on every climb.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
-              Lead guides
-            </h3>
-            <p className="text-forest/80 leading-relaxed">
-              Senior Mountain Guide Ivan Ismail Kaaya leads many of our
-              climbs, with 15–20 years on Kilimanjaro. Assistant Guide
-              Amdani Mputa supports pace and health monitoring throughout.{" "}
-              <Link
-                href="/about"
-                className="text-emerald underline-offset-4 hover:underline"
-              >
-                Meet the full crew
-              </Link>
-              .
-            </p>
-          </div>
-          <div>
-            <h3 className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
-              Crew ratio
-            </h3>
-            <p className="text-forest/80 leading-relaxed">
-              Typical 3:1 porter-to-climber ratio. The crew carries water,
-              food, tents, and the cooking kit. You carry a day pack.
-            </p>
-          </div>
+        <div className="mt-8 space-y-5">
+          <p className="text-olive/95 leading-relaxed">
+            Most climbers worry about fitness. The real risk on Kilimanjaro
+            is altitude — about 10 deaths a year out of 35,000 to 50,000
+            climbers, almost all from acute mountain sickness, and almost
+            all preventable. The principle is simple: climb high during the
+            day, sleep lower at night, give your body time. We check
+            pulse-ox and symptoms with you every day, carry oxygen and a
+            first-aid kit on every climb, and the moment something looks
+            acute we go down.
+          </p>
+          <p className="text-olive/95 leading-relaxed">
+            The crew that gets you up the mountain matters just as much.
+            KPAP — the Kilimanjaro Porters Assistance Project — audits
+            operators on porter welfare; it&apos;s the closest thing the
+            mountain has to a B-Corp standard. KPAP-aligned operators agree
+            to a 20kg load cap per porter, wages at or above the
+            KPAP-monitored floor, three meals per porter per day, and
+            weather-appropriate gear. We work to those numbers on every
+            climb, with a typical 3:1 porter-to-climber ratio — the crew
+            carries water, food, tents, and the cooking kit; you carry a
+            day pack.
+          </p>
+          <p className="text-olive/95 leading-relaxed">
+            Senior Mountain Guide Ivan Ismail Kaaya leads many of our
+            climbs, with 15–20 years on Kilimanjaro. Assistant Guide Amdani
+            Mputa supports pace and health monitoring throughout.{" "}
+            <Link
+              href="/about"
+              className="text-gold-deep underline-offset-4 hover:underline"
+            >
+              Meet the full crew
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
       {/* Training and acclimatization */}
       <section className="section-padding">
-        <h2 className="text-3xl md:text-4xl font-bold text-forest">
+        <h2 className="text-3xl md:text-4xl font-bold text-olive">
           Training and acclimatization.
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mt-8">
-          <div className="lg:col-span-3">
-            <p className="text-forest/80 leading-relaxed">
-              Kilimanjaro is a fitness walk, not an endurance event. The
-              summit question is rarely &ldquo;am I fit enough.&rdquo; It is
-              &ldquo;will my body acclimatize.&rdquo; That is why longer
-              routes (7–9 days) post better summit rates than shorter ones:
-              more nights between 3,500m and 4,500m before summit night, more
-              hours under &ldquo;climb high, sleep low.&rdquo; Pace is the
-              work. Fitness lets you enjoy it.
-            </p>
-            <p className="text-forest/80 leading-relaxed mt-4">
-              For fitness, build a slow base over 8–12 weeks. You are
-              training to walk 5–7 hours a day, on uneven ground, in light
-              layers, with a daypack. Not to set personal bests. If you can
-              hike a full day, sleep, and hike again the next morning, you
-              are ready.
-            </p>
-          </div>
-          <div className="lg:col-span-2">
-            <p className="text-emerald text-xs uppercase tracking-[0.18em] font-semibold mb-3">
-              Training, at a glance
-            </p>
-            <ul className="space-y-2 text-forest/80 text-sm leading-relaxed">
-              <li>· Weekly long walk: 3–5 hours on hills or stairs</li>
-              <li>· One loaded day hike per week: daypack with 5–7kg</li>
-              <li>· Two cardio sessions: walking, cycling, or steady running</li>
-              <li>· Back-to-back hike weekends 3–4 weeks before departure</li>
-              <li>· If possible, one night above 3,000m in the 30 days prior</li>
-            </ul>
-            <p className="text-forest/60 text-xs mt-4 leading-relaxed">
-              We&apos;ll talk through your fitness on the call and recommend
-              a route that matches it.
-            </p>
-          </div>
+        <div className="mt-8 space-y-5">
+          <p className="text-olive/95 leading-relaxed">
+            Kilimanjaro is a fitness walk, not an endurance event. The
+            summit question is rarely &ldquo;am I fit enough.&rdquo; It is
+            &ldquo;will my body acclimatize.&rdquo; That is why longer
+            routes (7–9 days) post better summit rates than shorter ones:
+            more nights between 3,500m and 4,500m before summit night, more
+            hours under &ldquo;climb high, sleep low.&rdquo; Pace is the
+            work. Fitness lets you enjoy it.
+          </p>
+          <p className="text-olive/95 leading-relaxed">
+            For fitness, build a slow base over 8–12 weeks. You are
+            training to walk 5–7 hours a day, on uneven ground, in light
+            layers, with a daypack. Not to set personal bests. If you can
+            hike a full day, sleep, and hike again the next morning, you
+            are ready.
+          </p>
+          <p className="text-olive/95 leading-relaxed">
+            In practice that means a longer walk most weeks — a couple of
+            hours, on hills if you have them — plus whatever steady cardio
+            you already enjoy, like walking, cycling, or swimming. Take the
+            odd hike with your daypack on so the weight feels familiar,
+            and if you can, fit in one back-to-back hike weekend before you
+            fly. That&apos;s it — no gym program required. We&apos;ll talk
+            through your fitness on the call and recommend a route that
+            matches it.
+          </p>
         </div>
       </section>
 
+      <SectionDivider from="paper" to="parchment" />
+
       {/* What's Included / Excluded */}
-      <section className="py-20 bg-parchment">
+      <section className="py-6 md:py-7 bg-parchment">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
             What&apos;s Included
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div>
-              <h3 className="text-xl font-bold text-emerald mb-4">
+              <h3 className="text-xl font-bold text-gold-deep mb-4">
                 Included in Your Package
               </h3>
               <ul className="space-y-3">
                 {PACKAGE_INCLUDES.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-forest/70 text-sm"
+                    className="flex items-start gap-3 text-olive/85 text-sm"
                   >
                     <svg
-                      className="w-5 h-5 text-emerald shrink-0 mt-0.5"
+                      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -302,15 +273,15 @@ export default function KilimanjaroPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-emerald mb-4">Not Included</h3>
+              <h3 className="text-xl font-bold text-gold-deep mb-4">Not Included</h3>
               <ul className="space-y-3">
                 {PACKAGE_EXCLUDES.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-forest/70 text-sm"
+                    className="flex items-start gap-3 text-olive/85 text-sm"
                   >
                     <svg
-                      className="w-5 h-5 text-emerald shrink-0 mt-0.5"
+                      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -334,6 +305,7 @@ export default function KilimanjaroPage() {
       <CTABanner
         title="Plan your Kilimanjaro climb"
         subtitle="Tell us your dates, group size, and route interest. Abu will reply within 4 hours on WhatsApp."
+        seamFrom="parchment"
       />
 
       <StickyWhatsApp />

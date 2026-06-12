@@ -11,7 +11,7 @@ export default function StickyWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Message Abu on WhatsApp, replies within 4 hours"
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 inline-flex items-center gap-2 bg-emerald text-paper font-semibold rounded-full pl-4 pr-5 py-3 shadow-lg hover:bg-emerald-deep transition-all duration-200 motion-safe:hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 inline-flex items-center gap-2 bg-gold text-paper font-semibold rounded-full pl-4 pr-5 py-3 shadow-lg hover:bg-gold-deep transition-all duration-200 motion-safe:hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
     >
       <svg
         className="w-5 h-5 shrink-0"

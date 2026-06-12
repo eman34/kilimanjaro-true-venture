@@ -77,7 +77,7 @@ The voice we are actively avoiding is **adventure-bro**.
 | "Push your limits" | "Test yourself" or describe the trek concretely |
 | "Only legends" / "Are you ready?" | Cut entirely. No rhetorical questions. |
 | "Epic", "ultimate", "insane" | Specific words. "Six-day trek." "5,895m peak." |
-| "Dominate" / "Conquer" | "Climb." "Summit." (Hero title "Conquer the Roof of Africa" is grandfathered for now.) |
+| "Dominate" / "Conquer" | "Climb." "Summit." |
 | "Adventure of a lifetime" | Cut. Cliché. |
 
 We are also avoiding:

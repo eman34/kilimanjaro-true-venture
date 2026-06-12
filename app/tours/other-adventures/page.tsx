@@ -5,9 +5,9 @@ import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Other Adventures — Meru, Zanzibar & Cultural Experiences",
+  title: "Other Adventures — Meru, Zanzibar, Gorilla Trekking & More",
   description:
-    "Beyond Kilimanjaro and the safari circuit. Mount Meru treks, Zanzibar beach extensions and cultural day trips across Tanzania.",
+    "Beyond Kilimanjaro and the safari circuit. Mount Meru treks, Zanzibar beach extensions, cultural tours, gorilla trekking in Rwanda and charity climbs.",
 };
 
 const ADVENTURES = [
@@ -28,12 +28,28 @@ const ADVENTURES = [
     href: "/tours/zanzibar",
   },
   {
-    title: "Cultural Experiences",
+    title: "Cultural Tours",
     tag: "Half-day to full-day",
     image: "/images/guide-client.jpg",
     description:
       "Maasai village visits, Chagga coffee farms and local markets. Easy add-ons between adventures.",
     href: "/tours/cultural",
+  },
+  {
+    title: "Gorilla Trekking",
+    tag: "Rwanda collaboration",
+    image: "/images/ngorongoro-wildlife.jpg",
+    description:
+      "Track mountain gorillas in Rwanda's Volcanoes National Park, run with our trusted Rwandan partners.",
+    href: "/tours/gorilla-trekking",
+  },
+  {
+    title: "Charity Climb",
+    tag: "Climb with purpose",
+    image: "/images/summit-celebration.jpg",
+    description:
+      "Summit Kilimanjaro while raising funds for the communities around the mountain.",
+    href: "/tours/charity-climb",
   },
 ];
 
@@ -46,14 +62,14 @@ export default function OtherAdventuresPage() {
         backgroundImage="/images/hero-sunset.jpg"
       />
 
-      <section className="py-16 md:py-20 bg-paper">
+      <section className="py-6 md:py-7 bg-paper">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {ADVENTURES.map((adventure) => (
               <Link
                 key={adventure.href}
                 href={adventure.href}
-                className="group block bg-parchment rounded-2xl overflow-hidden border border-taupe/10 hover:border-emerald/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald/10"
+                className="group block bg-parchment rounded-2xl overflow-hidden border border-taupe/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold/10"
               >
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -65,16 +81,16 @@ export default function OtherAdventuresPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-emerald text-xs uppercase tracking-wider font-semibold mb-2">
+                  <p className="text-gold-deep text-xs uppercase tracking-wider font-semibold mb-2">
                     {adventure.tag}
                   </p>
-                  <h2 className="text-2xl font-bold text-forest mb-3 group-hover:text-emerald transition-colors">
+                  <h2 className="text-2xl font-bold text-olive mb-3 group-hover:text-gold-deep transition-colors">
                     {adventure.title}
                   </h2>
-                  <p className="text-forest/70 leading-relaxed mb-4">
+                  <p className="text-olive/85 leading-relaxed mb-4">
                     {adventure.description}
                   </p>
-                  <span className="text-emerald font-semibold text-sm group-hover:underline">
+                  <span className="text-gold-deep font-semibold text-sm group-hover:underline">
                     Learn more →
                   </span>
                 </div>

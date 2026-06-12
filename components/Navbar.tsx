@@ -19,6 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
+  const [logoFirst, ...logoRest] = COMPANY.name.split(" ");
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -37,12 +38,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-bold text-emerald">
-              KTV
+          <Link href="/" className="flex flex-col leading-none">
+            <span className="text-lg md:text-xl font-extrabold uppercase tracking-[0.08em] text-gold-deep">
+              {logoFirst}
             </span>
-            <span className="hidden sm:block text-forest font-semibold text-sm leading-tight">
-              {COMPANY.name}
+            <span className="text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-olive mt-0.5">
+              {logoRest.join(" ")}
             </span>
           </Link>
 
@@ -55,8 +56,8 @@ export default function Navbar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
-                    ? "text-emerald"
-                    : "text-forest hover:text-emerald"
+                    ? "text-gold-deep font-semibold"
+                    : "text-olive hover:text-gold-deep"
                 }`}
               >
                 {link.label}
@@ -65,7 +66,7 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="p-2 text-forest hover:text-emerald transition-colors"
+              className="p-2 text-olive hover:text-gold-deep transition-colors"
             >
               <SearchIcon />
             </button>
@@ -79,12 +80,12 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
-              className="p-2.5 text-forest"
+              className="p-2.5 text-olive"
             >
               <SearchIcon />
             </button>
             <button
-              className="text-forest p-2.5"
+              className="text-olive p-2.5"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -111,8 +112,8 @@ export default function Navbar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`block px-4 py-3 transition-colors font-medium ${
                   isActive(link.href)
-                    ? "text-emerald"
-                    : "text-forest hover:text-emerald"
+                    ? "text-gold-deep font-semibold"
+                    : "text-olive hover:text-gold-deep"
                 }`}
                 onClick={() => setMobileOpen(false)}
               >

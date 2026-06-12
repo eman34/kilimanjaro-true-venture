@@ -102,19 +102,19 @@ export default function InquiryForm({
 
   if (status === "sent") {
     return (
-      <div className="bg-parchment rounded-2xl p-8 md:p-12 border border-emerald/30 text-center">
-        <div className="w-16 h-16 bg-emerald/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-parchment rounded-2xl p-8 md:p-12 border border-gold-deep/30 text-center">
+        <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-gold-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-forest mb-2">Thank You!</h3>
-        <p className="text-forest/70">
+        <h3 className="text-2xl font-bold text-olive mb-2">Thank You!</h3>
+        <p className="text-olive/85">
           Your inquiry has been sent. Our team will get back to you within 24 hours.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-6 text-emerald hover:text-emerald-deep transition-colors font-medium"
+          className="mt-6 text-gold-deep hover:text-gold-deep transition-colors font-medium"
         >
           Send another inquiry
         </button>
@@ -134,7 +134,7 @@ export default function InquiryForm({
     >
       <div className={`grid gap-6 ${compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
         <div>
-          <label htmlFor="name" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="name" className="block text-olive text-sm font-medium mb-2">
             Full Name *
           </label>
           <input
@@ -142,13 +142,13 @@ export default function InquiryForm({
             id="name"
             name="name"
             onChange={() => clearFieldError("name")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
             placeholder="Your full name"
           />
-          {errors.name && <p className="mt-2 text-emerald text-sm">{errors.name}</p>}
+          {errors.name && <p className="mt-2 text-gold-deep text-sm">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="email" className="block text-olive text-sm font-medium mb-2">
             Email Address *
           </label>
           <input
@@ -156,13 +156,13 @@ export default function InquiryForm({
             id="email"
             name="email"
             onChange={() => clearFieldError("email")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
             placeholder="your@email.com"
           />
-          {errors.email && <p className="mt-2 text-emerald text-sm">{errors.email}</p>}
+          {errors.email && <p className="mt-2 text-gold-deep text-sm">{errors.email}</p>}
         </div>
         <div>
-          <label htmlFor="country" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="country" className="block text-olive text-sm font-medium mb-2">
             Country
           </label>
           <input
@@ -170,12 +170,12 @@ export default function InquiryForm({
             id="country"
             name="country"
             onChange={() => clearFieldError("country")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
             placeholder="Your country"
           />
         </div>
         <div>
-          <label htmlFor="tour" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="tour" className="block text-olive text-sm font-medium mb-2">
             Tour Interest *
           </label>
           <select
@@ -183,7 +183,7 @@ export default function InquiryForm({
             name="tour"
             defaultValue={defaultTour}
             onChange={() => clearFieldError("tour")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive focus:border-gold-deep focus:outline-none transition-colors"
           >
             <option value="">Select a tour</option>
             {TOUR_INTERESTS.map((tour) => (
@@ -192,10 +192,10 @@ export default function InquiryForm({
               </option>
             ))}
           </select>
-          {errors.tour && <p className="mt-2 text-emerald text-sm">{errors.tour}</p>}
+          {errors.tour && <p className="mt-2 text-gold-deep text-sm">{errors.tour}</p>}
         </div>
         <div>
-          <label htmlFor="dates" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="dates" className="block text-olive text-sm font-medium mb-2">
             Preferred Dates
           </label>
           <input
@@ -203,12 +203,12 @@ export default function InquiryForm({
             id="dates"
             name="dates"
             onChange={() => clearFieldError("dates")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
             placeholder="e.g. June 2026"
           />
         </div>
         <div>
-          <label htmlFor="groupSize" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="groupSize" className="block text-olive text-sm font-medium mb-2">
             Group Size
           </label>
           <input
@@ -219,13 +219,13 @@ export default function InquiryForm({
             max="50"
             step="1"
             onChange={() => clearFieldError("groupSize")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
             placeholder="Number of people"
           />
-          {errors.groupSize && <p className="mt-2 text-emerald text-sm">{errors.groupSize}</p>}
+          {errors.groupSize && <p className="mt-2 text-gold-deep text-sm">{errors.groupSize}</p>}
         </div>
         <div className={compact ? "" : "md:col-span-2"}>
-          <label htmlFor="message" className="block text-forest text-sm font-medium mb-2">
+          <label htmlFor="message" className="block text-olive text-sm font-medium mb-2">
             Message
           </label>
           <textarea
@@ -234,10 +234,10 @@ export default function InquiryForm({
             rows={4}
             maxLength={MAX_MESSAGE_LENGTH}
             onChange={() => clearFieldError("message")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-forest placeholder-forest/40 focus:border-emerald focus:outline-none transition-colors resize-none"
+            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors resize-none"
             placeholder="Tell us about your dream adventure..."
           />
-          {errors.message && <p className="mt-2 text-emerald text-sm">{errors.message}</p>}
+          {errors.message && <p className="mt-2 text-gold-deep text-sm">{errors.message}</p>}
         </div>
       </div>
       <div className="mt-6">
@@ -249,7 +249,7 @@ export default function InquiryForm({
           {status === "sending" ? "Sending..." : "Send Inquiry"}
         </button>
         {status === "error" && (
-          <p className="mt-3 text-emerald text-sm">
+          <p className="mt-3 text-gold-deep text-sm">
             Something went wrong. Please try again or get in touch directly.
           </p>
         )}

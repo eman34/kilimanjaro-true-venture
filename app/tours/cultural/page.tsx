@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Cultural Experiences — Authentic Tanzanian Encounters",
@@ -64,10 +65,10 @@ export default function CulturalPage() {
       {/* Intro */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-6">
             More Than Just Tourism
           </h2>
-          <p className="text-forest/70 leading-relaxed">
+          <p className="text-olive/85 leading-relaxed">
             Our cultural experiences are designed in partnership with local communities to create meaningful, respectful exchanges. Every visit supports local families, schools, and community projects. This isn&apos;t a show — it&apos;s a genuine connection.
           </p>
         </div>
@@ -77,24 +78,24 @@ export default function CulturalPage() {
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.title}
-              className="bg-parchment rounded-2xl border border-taupe/10 overflow-hidden hover:border-emerald/30 transition-all duration-300"
+              className="bg-parchment rounded-2xl border border-taupe/10 overflow-hidden hover:border-gold/30 transition-all duration-300"
             >
-              <div className="h-3 bg-gradient-to-r from-emerald to-emerald" />
+              <div className="h-3 bg-gradient-to-r from-gold to-gold" />
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-forest">{exp.title}</h3>
-                  <span className="text-xs text-emerald bg-emerald/10 px-2 py-1 rounded-full shrink-0 ml-2">
+                  <h3 className="text-xl font-bold text-olive">{exp.title}</h3>
+                  <span className="text-xs text-gold-deep bg-gold/10 px-2 py-1 rounded-full shrink-0 ml-2">
                     {exp.duration}
                   </span>
                 </div>
-                <p className="text-forest/60 text-sm leading-relaxed mb-4">
+                <p className="text-olive/75 text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.highlights.map((h) => (
                     <span
                       key={h}
-                      className="bg-forest/30 text-forest/70 text-xs px-2 py-1 rounded-full"
+                      className="bg-olive/30 text-olive/85 text-xs px-2 py-1 rounded-full"
                     >
                       {h}
                     </span>
@@ -106,10 +107,12 @@ export default function CulturalPage() {
         </div>
       </section>
 
+      <SectionDivider from="paper" to="parchment" />
+
       {/* What to Expect */}
-      <section className="py-20 bg-parchment">
+      <section className="py-6 md:py-7 bg-parchment">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold text-forest text-center mb-12">
+          <h2 className="text-3xl font-bold text-olive text-center mb-12">
             What to Expect
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -132,8 +135,8 @@ export default function CulturalPage() {
               },
             ].map((item) => (
               <div key={item.title} className="bg-paper rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-lg font-bold text-emerald mb-2">{item.title}</h3>
-                <p className="text-forest/60 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-gold-deep mb-2">{item.title}</h3>
+                <p className="text-olive/75 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -143,6 +146,7 @@ export default function CulturalPage() {
       <CTABanner
         title="Connect With Tanzania's Culture"
         subtitle="Add a cultural experience to your trek or safari, or book a standalone cultural day trip."
+        seamFrom="parchment"
       />
     </>
   );

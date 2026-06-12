@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Mount Meru Trekking — Tanzania's Hidden Gem",
@@ -63,10 +64,10 @@ export default function MeruPage() {
       {/* Overview */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-6">
             Perfect Preparation Before Kilimanjaro
           </h2>
-          <p className="text-forest/70 leading-relaxed">
+          <p className="text-olive/85 leading-relaxed">
             Climb Tanzania&apos;s second highest peak in Arusha National Park. Mount Meru is often overlooked in favor of its famous neighbor, but those who trek it call it one of the best experiences in East Africa. With close wildlife encounters, dramatic crater scenery, and stunning views of Kilimanjaro, Meru offers an intimate and rewarding adventure.
           </p>
         </div>
@@ -80,17 +81,19 @@ export default function MeruPage() {
             { label: "Price", value: "From $950" },
           ].map((fact) => (
             <div key={fact.label} className="bg-parchment rounded-xl p-6 text-center border border-taupe/10">
-              <p className="text-emerald text-2xl font-bold mb-1">{fact.value}</p>
-              <p className="text-forest/50 text-sm">{fact.label}</p>
+              <p className="text-gold-deep text-2xl font-bold mb-1">{fact.value}</p>
+              <p className="text-olive/65 text-sm">{fact.label}</p>
             </div>
           ))}
         </div>
       </section>
 
+      <SectionDivider from="paper" to="parchment" />
+
       {/* Itinerary */}
-      <section className="py-20 bg-parchment">
+      <section className="py-6 md:py-7 bg-parchment">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
             Day-by-Day Itinerary
           </h2>
           <div className="space-y-6">
@@ -99,20 +102,20 @@ export default function MeruPage() {
                 key={day.day}
                 className="bg-paper rounded-xl p-6 md:p-8 border border-taupe/10 relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-emerald" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-gold" />
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
                   <div className="shrink-0">
-                    <span className="text-emerald font-bold text-lg">{day.day}</span>
-                    <p className="text-forest/40 text-xs">{day.altitude}</p>
+                    <span className="text-gold-deep font-bold text-lg">{day.day}</span>
+                    <p className="text-olive/40 text-xs">{day.altitude}</p>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-forest mb-2">{day.title}</h3>
+                    <h3 className="text-xl font-bold text-olive mb-2">{day.title}</h3>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
-                      <span className="text-emerald/70 text-xs font-medium">{day.distance}</span>
-                      <span className="text-emerald/70 text-xs font-medium">{day.time}</span>
-                      <span className="text-emerald/70 text-xs font-medium">{day.terrain}</span>
+                      <span className="text-gold-deep/70 text-xs font-medium">{day.distance}</span>
+                      <span className="text-gold-deep/70 text-xs font-medium">{day.time}</span>
+                      <span className="text-gold-deep/70 text-xs font-medium">{day.terrain}</span>
                     </div>
-                    <p className="text-forest/70 leading-relaxed">{day.description}</p>
+                    <p className="text-olive/85 leading-relaxed">{day.description}</p>
                   </div>
                 </div>
               </div>
@@ -121,10 +124,12 @@ export default function MeruPage() {
         </div>
       </section>
 
+      <SectionDivider from="parchment" to="paper" />
+
       {/* What's Included */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-forest text-center mb-8">What&apos;s Included</h2>
+          <h2 className="text-3xl font-bold text-olive text-center mb-8">What&apos;s Included</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Professional armed ranger & mountain guide",
@@ -136,8 +141,8 @@ export default function MeruPage() {
               "Pre and post-trek hotel accommodation",
               "Drinking water",
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 text-forest/70">
-                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item} className="flex items-start gap-3 text-olive/85">
+                <svg className="w-5 h-5 text-gold-deep shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 {item}

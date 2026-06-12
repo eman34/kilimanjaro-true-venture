@@ -132,7 +132,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Search"
-      className="fixed inset-0 z-50 flex items-start justify-center bg-forest/40 px-4 pt-20 sm:pt-24"
+      className="fixed inset-0 z-50 flex items-start justify-center bg-olive/40 px-4 pt-20 sm:pt-24"
     >
       <div className="w-full max-w-2xl overflow-hidden rounded-2xl border border-taupe bg-paper shadow-2xl">
         <div className="flex items-center gap-2 border-b border-taupe p-4">
@@ -143,13 +143,13 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search tours, gallery, pages…"
             aria-label="Search query"
-            className="flex-1 bg-transparent text-lg text-forest placeholder:text-rose focus:outline-none"
+            className="flex-1 bg-transparent text-lg text-olive placeholder:text-khaki focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
             aria-label="Close search"
-            className="-mr-1 rounded-md p-2 text-rose transition-colors hover:bg-parchment hover:text-forest focus-visible:bg-parchment focus-visible:outline-none"
+            className="-mr-1 rounded-md p-2 text-khaki transition-colors hover:bg-parchment hover:text-olive focus-visible:bg-parchment focus-visible:outline-none"
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -159,27 +159,27 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
 
         <div className="max-h-[60vh] overflow-y-auto">
           {status === "loading" && (
-            <p className="p-4 text-sm text-rose">Loading search…</p>
+            <p className="p-4 text-sm text-khaki">Loading search…</p>
           )}
           {status === "error" && (
-            <p className="p-4 text-sm text-rose">
+            <p className="p-4 text-sm text-khaki">
               Search index isn&apos;t available. In development, run{" "}
-              <code className="rounded bg-parchment px-1 font-mono text-xs text-forest">
+              <code className="rounded bg-parchment px-1 font-mono text-xs text-olive">
                 npm run build
               </code>{" "}
               once to generate it.
             </p>
           )}
           {status === "ready" && !query.trim() && (
-            <p className="p-4 text-sm text-rose">
+            <p className="p-4 text-sm text-khaki">
               Start typing to search across tours, gallery, and pages.
             </p>
           )}
           {status === "ready" && searchError && (
-            <p className="p-4 text-sm text-rose">{searchError}</p>
+            <p className="p-4 text-sm text-khaki">{searchError}</p>
           )}
           {status === "ready" && !searchError && query.trim() && results.length === 0 && (
-            <p className="p-4 text-sm text-rose">
+            <p className="p-4 text-sm text-khaki">
               No results for &ldquo;{query}&rdquo;.
             </p>
           )}
@@ -192,9 +192,9 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                     onClick={onClose}
                     className="block p-4 transition-colors hover:bg-parchment focus-visible:bg-parchment focus-visible:outline-none"
                   >
-                    <p className="font-medium text-forest">{r.title}</p>
+                    <p className="font-medium text-olive">{r.title}</p>
                     <p
-                      className="mt-1 line-clamp-2 text-sm text-rose"
+                      className="mt-1 line-clamp-2 text-sm text-khaki"
                       dangerouslySetInnerHTML={{ __html: r.excerpt }}
                     />
                   </Link>

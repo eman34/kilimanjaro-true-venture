@@ -3,15 +3,20 @@ import { COMPANY } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-parchment border-t border-taupe">
+    <footer className="bg-olive">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-emerald mb-4">
-              Kilimanjaro True Venture
+            <h3 className="mb-4 flex flex-col leading-none">
+              <span className="text-xl font-extrabold uppercase tracking-[0.08em] text-gold">
+                Kilimanjaro
+              </span>
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-paper mt-1">
+                True Venture
+              </span>
             </h3>
-            <p className="text-forest/70 text-sm leading-relaxed">
+            <p className="text-paper/75 text-sm leading-relaxed">
               Your trusted partner for Mount Kilimanjaro expeditions, Mount Meru
               treks, wildlife safaris, Zanzibar beach holidays, and authentic
               Tanzanian cultural experiences.
@@ -20,7 +25,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-forest font-bold mb-4 uppercase text-sm tracking-wider">
+            <h4 className="text-gold font-bold mb-4 uppercase text-sm tracking-wider">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -37,7 +42,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-forest/70 hover:text-emerald transition-colors text-sm"
+                    className="text-paper/75 hover:text-gold transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -48,24 +53,24 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-forest font-bold mb-4 uppercase text-sm tracking-wider">
+            <h4 className="text-gold font-bold mb-4 uppercase text-sm tracking-wider">
               Get in Touch
             </h4>
-            <ul className="space-y-3 text-sm text-forest/70">
+            <ul className="space-y-3 text-sm text-paper/75">
               <li className="flex items-start gap-2">
-                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 {COMPANY.email}
               </li>
               <li className="flex items-start gap-2">
-                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 {COMPANY.phone}
               </li>
               <li className="flex items-start gap-2">
-                <svg className="w-5 h-5 text-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -76,7 +81,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-forest font-bold mb-4 uppercase text-sm tracking-wider">
+            <h4 className="text-gold font-bold mb-4 uppercase text-sm tracking-wider">
               Follow Us
             </h4>
             <div className="flex gap-4">
@@ -84,7 +89,7 @@ export default function Footer() {
                 href={COMPANY.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-forest/10 rounded-lg flex items-center justify-center hover:bg-emerald hover:text-paper transition-all"
+                className="w-10 h-10 bg-paper/10 text-paper rounded-lg flex items-center justify-center hover:bg-gold hover:text-olive-deep transition-all"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -95,7 +100,7 @@ export default function Footer() {
                 href={COMPANY.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-forest/10 rounded-lg flex items-center justify-center hover:bg-emerald hover:text-paper transition-all"
+                className="w-10 h-10 bg-paper/10 text-paper rounded-lg flex items-center justify-center hover:bg-gold hover:text-olive-deep transition-all"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -106,7 +111,7 @@ export default function Footer() {
                 href={COMPANY.social.tripadvisor}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-forest/10 rounded-lg flex items-center justify-center hover:bg-emerald hover:text-paper transition-all"
+                className="w-10 h-10 bg-paper/10 text-paper rounded-lg flex items-center justify-center hover:bg-gold hover:text-olive-deep transition-all"
                 aria-label="TripAdvisor"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -115,10 +120,10 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-6">
-              <p className="text-forest/70 text-sm">WhatsApp:</p>
+              <p className="text-paper/75 text-sm">WhatsApp:</p>
               <a
                 href={`https://wa.me/${COMPANY.whatsapp.replace(/\s/g, "")}`}
-                className="text-emerald hover:text-emerald-deep transition-colors font-medium"
+                className="text-gold hover:text-paper transition-colors font-medium"
               >
                 {COMPANY.whatsapp}
               </a>
@@ -126,7 +131,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-taupe text-center text-forest/50 text-sm">
+        <div className="mt-12 pt-8 border-t border-paper/15 text-center text-paper/75 text-sm">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
         </div>
       </div>

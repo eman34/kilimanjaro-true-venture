@@ -21,92 +21,6 @@ export const NAV_LINKS = [
   { label: "About Us", href: "/about" },
 ];
 
-export type TourCategory = "kilimanjaro" | "safari";
-
-export interface FeaturedTour {
-  title: string;
-  image: string;
-  href: string;
-  category: TourCategory;
-  duration: string;
-  priceFrom: string;
-}
-
-export const FEATURED_TOURS: FeaturedTour[] = [
-  {
-    title: "Machame Route",
-    image: "/images/kilimanjaro-peak.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "6 days hike",
-    priceFrom: "$2,350",
-  },
-  {
-    title: "Lemosho Route",
-    image: "/images/summit-panorama.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "8 days hike",
-    priceFrom: "$2,640",
-  },
-  {
-    title: "Marangu Route",
-    image: "/images/summit-sunrise.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "5 days hike",
-    priceFrom: "$1,950",
-  },
-  {
-    title: "Rongai Route",
-    image: "/images/mawenzi-silhouette.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "7 days hike",
-    priceFrom: "$2,740",
-  },
-  {
-    title: "Umbwe Route",
-    image: "/images/crater-wall.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "6 days hike",
-    priceFrom: "$2,497",
-  },
-  {
-    title: "Londorossi Route",
-    image: "/images/camp-snowy-peak.jpg",
-    href: "/tours/kilimanjaro",
-    category: "kilimanjaro",
-    duration: "7 days hike",
-    priceFrom: "$2,500",
-  },
-  {
-    title: "Great Migration & River Crossing",
-    image: "/images/zebra-herd.jpg",
-    href: "/tours/safaris",
-    category: "safari",
-    duration: "5 days safari",
-    priceFrom: "$2,230",
-  },
-  {
-    title: "Northern Circuit Safari",
-    image: "/images/ngorongoro-wildlife.jpg",
-    href: "/tours/safaris",
-    category: "safari",
-    duration: "3 days safari",
-    priceFrom: "$1,365",
-  },
-  {
-    title: "Serengeti & Ngorongoro",
-    image: "/images/waterhole-wildlife.jpg",
-    href: "/tours/safaris",
-    category: "safari",
-    duration: "4 days safari",
-    priceFrom: "$1,670",
-  },
-];
-
 export interface KilimanjaroRouteDuration {
   days: string;
   price: string;
@@ -829,18 +743,16 @@ export const SAFARI_CREW = [
 
 export const PACKAGE_INCLUDES = [
   "Airport pick up and drop off",
-  "2-night hotel accommodation in Moshi/Arusha (before and after trek) on full board basis",
+  "2-night hotel accommodation in Moshi/Arusha (before and after trek)",
   "Quality, waterproof, four-season mountain sleeping tent",
   "Quality mess tents with table and chairs",
-  "Experienced Tanzanian guides, English-speaking, with multi-year mountain experience",
+  "Experienced English-speaking Tanzanian guides",
   "All Tanzanian National Park fees (≈35% of total trip cost)",
   "All hot meals prepared by our cook while on the mountain",
   "Portable toilet tent",
   "Fair wages and proper gear for guides, porters, and cook (KPAP-aligned standards)",
   "Oxygen tank and pulse oximeter for health and safety",
   "Hot drinks at every meal",
-  "Water provided on climb (mineral water day 1, boiled water daily)",
-  "Certificate of achievement after the climb",
 ];
 
 export const PACKAGE_EXCLUDES = [

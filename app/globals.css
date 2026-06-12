@@ -1,19 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #FBF9F4;
-  --color-parchment: #F4F1E8;
-  --color-forest: #1A2A22;
-  --color-forest-deep: #0F1B14;
-  --color-rose: #8A6570;
-  --color-emerald: #1F5F3A;
-  --color-emerald-deep: #154528;
-  --color-taupe: #E5DFD2;
+  --color-paper: #F7F2E3;
+  --color-parchment: #EFE7D0;
+  --color-olive: #3A4226;
+  --color-olive-deep: #262B16;
+  --color-khaki: #5E5F45;
+  --color-gold: #D9A441;
+  --color-gold-deep: #855D0D;
+  --color-taupe: #DFD5B8;
+
+  /* Body-text sizes bumped one notch from Tailwind defaults
+     (base 16px → 17px, sm 14px → 15px); headings unchanged. */
+  --text-base: 1.0625rem;
+  --text-sm: 0.9375rem;
 }
 
 @layer base {
   body {
-    @apply bg-paper text-forest antialiased;
+    @apply bg-paper text-olive antialiased text-base;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -23,15 +28,21 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-emerald text-paper font-bold px-8 py-3 rounded-lg hover:bg-emerald-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+    @apply bg-gold text-olive-deep font-bold px-8 py-3 rounded-lg hover:bg-gold-deep hover:text-paper transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-deep;
   }
 
   .btn-accent {
-    @apply bg-forest text-paper font-bold px-8 py-3 rounded-lg hover:bg-forest-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald;
+    @apply bg-olive text-paper font-bold px-8 py-3 rounded-lg hover:bg-olive-deep transition-all duration-300 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-deep;
   }
 
   .section-padding {
-    @apply px-4 py-20 md:px-8 lg:px-16 max-w-7xl mx-auto;
+    @apply px-4 py-6 md:py-7 md:px-8 lg:px-16 max-w-7xl mx-auto;
+  }
+
+  /* Adjacent plain sections would otherwise stack to double the gap
+     (bottom padding + top padding) — collapse to a single one. */
+  .section-padding + .section-padding {
+    @apply pt-0;
   }
 }
 

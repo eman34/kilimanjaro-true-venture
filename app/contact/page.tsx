@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InquiryForm from "@/components/InquiryForm";
+import SectionDivider from "@/components/SectionDivider";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -12,23 +13,25 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="pt-16 pb-12 bg-gradient-to-b from-forest/20 to-forest">
+      <section className="pt-16 pb-12 bg-gradient-to-b from-olive/20 to-olive">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-forest mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-olive mb-4">
             Get in Touch
           </h1>
-          <p className="text-lg text-forest/70 max-w-2xl mx-auto">
+          <p className="text-lg text-olive/85 max-w-2xl mx-auto">
             Ready to plan your Tanzanian adventure? Send us your details and
             our team will create a personalized itinerary within 24 hours.
           </p>
         </div>
       </section>
 
+      <SectionDivider from="olive" to="paper" />
+
       <section className="section-padding pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Form */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-forest mb-6">
+            <h2 className="text-2xl font-bold text-olive mb-6">
               Send Us an Inquiry
             </h2>
             <InquiryForm />
@@ -36,54 +39,54 @@ export default function ContactPage() {
 
           {/* Contact Details Sidebar */}
           <div>
-            <h2 className="text-2xl font-bold text-forest mb-6">
+            <h2 className="text-2xl font-bold text-olive mb-6">
               Contact Details
             </h2>
             <div className="space-y-6">
               <div className="bg-parchment rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-emerald font-bold mb-3">Email</h3>
+                <h3 className="text-gold-deep font-bold mb-3">Email</h3>
                 <a
                   href={`mailto:${COMPANY.email}`}
-                  className="text-forest/70 hover:text-emerald transition-colors break-all"
+                  className="text-olive/85 hover:text-gold-deep transition-colors break-all"
                 >
                   {COMPANY.email}
                 </a>
               </div>
 
               <div className="bg-parchment rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-emerald font-bold mb-3">Phone</h3>
+                <h3 className="text-gold-deep font-bold mb-3">Phone</h3>
                 <a
                   href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="text-forest/70 hover:text-emerald transition-colors"
+                  className="text-olive/85 hover:text-gold-deep transition-colors"
                 >
                   {COMPANY.phone}
                 </a>
               </div>
 
               <div className="bg-parchment rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-emerald font-bold mb-3">WhatsApp</h3>
+                <h3 className="text-gold-deep font-bold mb-3">WhatsApp</h3>
                 <a
                   href={`https://wa.me/${COMPANY.whatsapp.replace(/\s/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-forest/70 hover:text-emerald transition-colors"
+                  className="text-olive/85 hover:text-gold-deep transition-colors"
                 >
                   {COMPANY.whatsapp}
                 </a>
-                <p className="text-forest/40 text-xs mt-1">
+                <p className="text-olive/40 text-xs mt-1">
                   Click to chat with us on WhatsApp
                 </p>
               </div>
 
               <div className="bg-parchment rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-emerald font-bold mb-3">Office</h3>
-                <p className="text-forest/70">{COMPANY.address}</p>
+                <h3 className="text-gold-deep font-bold mb-3">Office</h3>
+                <p className="text-olive/85">{COMPANY.address}</p>
               </div>
 
               <div className="bg-parchment rounded-xl p-6 border border-taupe/10">
-                <h3 className="text-emerald font-bold mb-3">Response Time</h3>
-                <p className="text-forest/70">
-                  We typically respond within <strong className="text-forest">24 hours</strong>.
+                <h3 className="text-gold-deep font-bold mb-3">Response Time</h3>
+                <p className="text-olive/85">
+                  We typically respond within <strong className="text-olive">24 hours</strong>.
                   For urgent inquiries, reach out via WhatsApp.
                 </p>
               </div>
@@ -91,6 +94,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider from="paper" to="olive" />
     </>
   );
 }

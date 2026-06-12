@@ -24,35 +24,37 @@ This project is a **low-stakes vehicle for learning advanced vibe coding** for t
 
 ## Design System
 
-### Color Palette — Forest + Emerald on Paper
-Tokens describe color, not role — palette swaps shouldn't require renames.
+### Color Palette — Olive + Gold on Cream
+Token names are color-descriptive. If the palette ever changes hue family again, rename tokens in the same pass — a token name must never lie about its value.
 
-- **`paper`** `#FBF9F4` — page background AND navbar background (warm paper-white)
-- **`parchment`** `#F4F1E8` — card surface, form-wrapper bg, footer bg (slightly deeper paper)
-- **`forest`** `#1A2A22` — body text, nav text, dark-anchor surfaces (deep evergreen ink)
-- **`forest-deep`** `#0F1B14` — forest accent button hover, CTABanner gradient depth
-- **`rose`** `#8A6570` — muted/secondary text (dusty rose-gray)
-- **`emerald`** `#1F5F3A` — primary CTA, focus rings, hover highlights, accent
-- **`emerald-deep`** `#154528` — primary CTA hover state
-- **`taupe`** `#E5DFD2` — borders, dividers (soft paper-gray)
+- **`paper`** `#F7F2E3` — page background AND navbar background (warm cream)
+- **`parchment`** `#EFE7D0` — card surface, form-wrapper bg, light bands (deeper cream)
+- **`olive`** `#3A4226` — body text, nav text, dark bands (Footer, CTABanner), hero overlays (dark olive ink)
+- **`olive-deep`** `#262B16` — gradient depth, text on gold buttons, `.btn-accent` hover
+- **`khaki`** `#5E5F45` — muted/secondary text
+- **`gold`** `#D9A441` — THE accent: CTA button fills, accents/headings on dark olive surfaces. NEVER as text or icon strokes on cream (fails contrast at 2.0:1)
+- **`gold-deep`** `#855D0D` — the only gold permitted as small text or icons on cream (bronze): links, active nav, focus rings, CTA hover bg
+- **`taupe`** `#DFD5B8` — borders, dividers (warm sand)
 
-Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`bg-paper`, `text-forest`, `border-taupe`, etc.) — do not reach for hex literals in JSX.
+Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`bg-paper`, `text-olive`, `border-taupe`, etc.) — do not reach for hex literals in JSX.
 
 ### Design Principles
 - **Editorial luxe**: Library / national park lodge / boutique-hotel restraint. Photos do the work; the palette is the frame.
 - **Light page, subtle navbar**: Page bg is paper. Navbar uses the same paper with a thin `border-b border-taupe` — sticky and opaque, but has no color block at the top.
-- **One confident accent**: Forest emerald is the only saturated color on the page. Use it for CTAs, focus rings, hover highlights, and the occasional brand mark — sparingly.
-- **Selectively dark**: Hero photo overlays use forest at 45% (`bg-forest/45`) for legibility on bright photos. The CTABanner block uses `bg-forest` for a sophisticated dark anchor section. Gallery lightbox keeps `bg-black/90` for photo-viewing context.
+- **One confident accent**: Gold is the only saturated color on the page. Use it for CTAs, focus rings, hover highlights, and the occasional brand mark — sparingly. On cream surfaces gold text/icons must be `gold-deep`.
+- **Selectively dark**: Hero photo overlays use olive (`bg-olive/30`–`/45`) for legibility on bright photos. The CTABanner block and the Footer band use `bg-olive` as dark anchors. Gallery lightbox keeps `bg-black/90` for photo-viewing context. The page bg itself stays cream — the site must never read dark-themed.
 - **Responsive**: Mobile-first, works on all screen sizes.
 
 ### Component Styling Rules
-- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo "KTV" in `text-emerald`. Nav links `text-forest hover:text-emerald`. Active link `text-emerald`.
-- **Cards**: `bg-parchment border border-taupe` with `hover:border-emerald/40` for interactive cards.
-- **Buttons**: `.btn-primary` (emerald, primary CTA) and `.btn-accent` (forest, secondary heavy action) — defined in `globals.css`.
-- **Form inputs**: `bg-paper border-taupe` inside a `bg-parchment` form card (inputs are lighter than the wrapper — "carved-out" feel). Focus state uses `border-emerald`.
+- **Navbar**: `bg-paper border-b border-taupe sticky top-0 z-50`. Logo is a stacked text lockup: "KILIMANJARO" in `text-gold-deep` extrabold uppercase over "TRUE VENTURE" small `text-olive` wide-tracked (strings derived from `COMPANY.name`). Nav links `text-olive hover:text-gold-deep`. Active link `text-gold-deep font-semibold`.
+- **Cards**: `bg-parchment border border-taupe` with `hover:border-gold/30` for interactive cards.
+- **Buttons**: `.btn-primary` (gold fill, `text-olive-deep`, hover flips to `bg-gold-deep text-paper`) and `.btn-accent` (olive, secondary heavy action) — defined in `globals.css`.
+- **Form inputs**: `bg-paper border-taupe` inside a `bg-parchment` form card (inputs are lighter than the wrapper — "carved-out" feel). Focus state uses `border-gold-deep`.
 - **Images**: Rounded corners (`rounded-xl` or `rounded-2xl`), `border-taupe` outline on cards, photos from `/public/images/`.
-- **Text**: `text-forest` for body and nav; `text-rose` (or `text-forest/60`–`/70`) for muted; `text-paper` only when on a dark surface (Hero overlay, CTABanner, lightbox controls).
-- **Sections**: Default page bg is `bg-paper`. Use `bg-parchment` for distinct sections that need a slightly deeper tone. Use `bg-forest` for dramatic anchor blocks (e.g., CTABanner).
+- **Text**: `text-olive` for body and nav; `text-khaki` (or `text-olive/60`–`/70`) for muted; `text-paper` only when on a dark surface (Hero overlay, CTABanner, Footer band, lightbox controls). Gold-reading text on cream is always `text-gold-deep`.
+- **Sections**: Default page bg is `bg-paper`. Use `bg-parchment` for distinct sections that need a slightly deeper tone. Use `bg-olive` for dramatic anchor blocks (CTABanner, Footer).
+- **SectionDivider**: the torn-edge SVG band lives ONLY at the top of the two dark olive bands (CTABanner, Footer), cream fill. Do not add it elsewhere.
+- **Icon badges**: feature icons on light bands sit in a 56px circle — `w-14 h-14 rounded-full border-2 border-olive/70 text-olive`, icon `w-7 h-7`.
 
 ## Code Standards
 
@@ -163,9 +165,9 @@ Available photos live in `/public/images/`. List the folder before assuming what
 ### Design
 - ❌ Dark page backgrounds (the theme is light/paper — page bg is `bg-paper`, not dark)
 - ❌ Placeholder/generic images (use real nature photos from `/public/images/`)
-- ❌ Low-contrast pairings (e.g. `text-forest` on `bg-emerald` — both dark; use `text-paper` on emerald instead)
-- ❌ Reaching for hex literals in JSX (use the Forest + Emerald tokens: paper, parchment, forest, forest-deep, rose, emerald, emerald-deep, taupe)
-- ❌ Overusing emerald — it's a single confident accent on CTAs and hover states, not flood fill
+- ❌ Low-contrast pairings (e.g. `text-gold` on `bg-paper` — fails at 2.0:1; use `text-gold-deep`, or keep the text olive)
+- ❌ Reaching for hex literals in JSX (use the Olive + Gold tokens: paper, parchment, olive, olive-deep, khaki, gold, gold-deep, taupe)
+- ❌ Overusing gold — it's a single confident accent on CTAs and hover states, not flood fill
 - ❌ Breaking the responsive layout on mobile
 
 ### Code
@@ -193,7 +195,7 @@ Available photos live in `/public/images/`. List the folder before assuming what
 Before considering any page "done", test:
 
 - [ ] **Visual Design**
-  - Page matches Forest + Emerald (paper bg, paper navbar with bottom border, forest body text, emerald CTAs)
+  - Page matches Olive + Gold (cream bg, cream navbar with bottom border, olive body text, gold CTAs with dark text, olive footer band)
   - Colors match design system
   - All images load correctly and look crisp
   - Typography is readable (headings, body text, links)
@@ -297,5 +299,5 @@ Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (track
 ---
 
 **Last Updated**: May 2026
-**Current Theme**: Forest + Emerald on Paper — editorial luxe, photo-led
+**Current Theme**: Olive + Gold on Cream — editorial luxe, photo-led
 **Status**: Active Development

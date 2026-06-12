@@ -10,9 +10,11 @@ Intentionally redundant with `BRAND.md`, `CLAUDE.md`, and `AUDIENCE.md` for the 
 
 ## Aesthetic & design system
 
-- **Do not propose color-palette changes** — new tokens, gradient stacks, accent swaps. The Wine + Emerald system is settled. If a real palette concern surfaces, `CLAUDE.md` requires building it in `/design-preview` first; do not edit `globals.css` until approved.
-- **Do not propose a second saturated accent.** Emerald is the only one. Don't sneak teal, gold, terracotta in via "complementary" language.
-- **Do not propose dark page backgrounds.** Page bg is `paper`. Dark blocks are reserved for CTABanner and Hero overlay specifically.
+- **Do not propose color-palette changes** — new tokens, gradient stacks, accent swaps. The Olive + Gold system (June 2026, derived from the company merch design) is settled. If a real palette concern surfaces, `CLAUDE.md` requires building it in `/design-preview` first; do not edit `globals.css` until approved.
+- **Do not propose a second saturated accent.** Gold is the only one. Don't sneak emerald, teal, terracotta in via "complementary" language.
+- **Do not propose gold text or gold icon strokes on cream surfaces.** `gold` fails contrast there (2.0:1). On cream, gold presence means `text-gold-deep` or a gold fill behind dark text.
+- **Do not propose additional textured dividers.** `SectionDivider` appears only at the top of the two dark olive bands (CTABanner, Footer).
+- **Do not propose dark page backgrounds.** Page bg is `paper` (cream). Dark olive blocks are reserved for CTABanner, Hero overlay, and the Footer band specifically.
 - **Do not propose hex literals in JSX.** Tailwind tokens only.
 - **Do not propose "make it pop / modernize / bring it to life"** or any unfalsifiable aesthetic claim. If there is no one-line acceptance test, drop the proposal.
 - **Do not propose typeface changes** outside the established stack.
