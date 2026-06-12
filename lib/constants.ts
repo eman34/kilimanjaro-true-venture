@@ -596,44 +596,6 @@ export const KILIMANJARO_ROUTES: KilimanjaroRoute[] = [
   },
 ];
 
-export const SAFARI_PARKS = [
-  {
-    name: "Serengeti National Park",
-    image: "/images/zebra-herd.jpg",
-    description:
-      "Home to the Great Migration: millions of wildebeest and zebras crossing the plains in one of nature's greatest spectacles.",
-    highlights: ["Great Migration", "Big Five", "Endless plains", "Hot air balloon safaris"],
-  },
-  {
-    name: "Ngorongoro Crater",
-    image: "/images/ngorongoro-wildlife.jpg",
-    description:
-      "The world's largest intact volcanic caldera, a natural amphitheater holding one of the densest wildlife populations in Africa.",
-    highlights: ["UNESCO World Heritage Site", "Dense wildlife concentration", "Flamingo-lined lakes", "Maasai culture"],
-  },
-  {
-    name: "Tarangire National Park",
-    image: "/images/waterhole-wildlife.jpg",
-    description:
-      "Famous for its massive elephant herds and iconic baobab trees, offering an intimate safari experience away from the crowds.",
-    highlights: ["Large elephant herds", "Ancient baobab trees", "Bird watching paradise", "Less crowded"],
-  },
-  {
-    name: "Lake Manyara National Park",
-    image: "/images/flamingos-flight.jpg",
-    description:
-      "A compact gem known for tree-climbing lions and diverse birdlife along the shores of a beautiful soda lake.",
-    highlights: ["Tree-climbing lions", "Flamingo flocks", "Diverse ecosystems", "Scenic lake views"],
-  },
-  {
-    name: "Mkomazi National Park",
-    image: "/images/kilimanjaro-peak.jpg",
-    description:
-      "A hidden treasure bordering Kenya, home to rare African wild dogs, black rhinos, and stunning semi-arid landscapes.",
-    highlights: ["Black rhinos", "African wild dogs", "Remote wilderness", "Scenic semi-arid terrain"],
-  },
-];
-
 export const TESTIMONIALS = [
   {
     name: "Sarah Johnson",

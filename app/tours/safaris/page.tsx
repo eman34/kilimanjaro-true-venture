@@ -3,9 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
-import SectionDivider from "@/components/SectionDivider";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
-import { SAFARIS, SAFARI_PARKS } from "@/lib/constants";
+import { SAFARIS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Wildlife Safaris — Serengeti, Ngorongoro, Tarangire & More",
@@ -116,53 +115,6 @@ export default function SafarisPage() {
           exact quote when you inquire.
         </p>
       </section>
-
-      <SectionDivider from="paper" to="parchment" />
-
-      {/* Parks We Visit */}
-      <section className="py-6 md:py-7 bg-parchment">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
-            Parks We Visit
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SAFARI_PARKS.map((park) => (
-              <div
-                key={park.name}
-                className="bg-paper rounded-2xl overflow-hidden border border-taupe/10"
-              >
-                <div className="relative h-44">
-                  <Image
-                    src={park.image}
-                    alt={park.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-olive mb-2">{park.name}</h3>
-                  <p className="text-olive/75 text-sm leading-relaxed mb-4">
-                    {park.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {park.highlights.map((h) => (
-                      <span
-                        key={h}
-                        className="bg-olive/10 text-olive text-xs px-3 py-1 rounded-full"
-                      >
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider from="parchment" to="paper" />
 
       {/* Photo Gallery Strip */}
       <section className="py-12">
