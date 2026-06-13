@@ -120,10 +120,10 @@ export default function SafarisPage() {
       <section className="py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-7xl mx-auto px-4">
           {[
-            { src: "/images/zebra-herd.jpg", alt: "Zebra herd on the plains" },
-            { src: "/images/waterhole-wildlife.jpg", alt: "Wildlife at the waterhole" },
-            { src: "/images/flamingos-flight.jpg", alt: "Flamingos in flight" },
-            { src: "/images/ngorongoro-wildlife.jpg", alt: "Ngorongoro Crater wildlife" },
+            { src: "/images/safari-leopard-tree.jpg", alt: "Leopard lounging on a branch" },
+            { src: "/images/safari-serval-grass.jpg", alt: "Serval cat in tall golden grass" },
+            { src: "/images/safari-giraffe-sunset.jpg", alt: "Giraffe at sunset on the savanna" },
+            { src: "/images/safari-elephant-road-crossing.jpg", alt: "Elephant crossing between safari vehicles" },
           ].map((img) => (
             <div key={img.src} className="relative h-48 rounded-lg overflow-hidden">
               <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-500" sizes="25vw" />
@@ -134,7 +134,7 @@ export default function SafarisPage() {
 
       <CTABanner
         title="Plan your Tanzania safari"
-        subtitle="Tell us your dates, group size, and what you want to see. Abu will reply within 4 hours on WhatsApp."
+        subtitle="Tell us your dates, group size, and what you want to see. Abu replies personally on WhatsApp."
         seamFrom="paper"
       />
 

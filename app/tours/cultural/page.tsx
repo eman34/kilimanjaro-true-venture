@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
 import SectionDivider from "@/components/SectionDivider";
@@ -60,6 +61,7 @@ export default function CulturalPage() {
       <Hero
         title="Cultural Experiences"
         tagline="Beyond the trail. Into the community."
+        backgroundImage="/images/culture-maasai-dance.jpg"
       />
 
       {/* Intro */}
@@ -140,6 +142,22 @@ export default function CulturalPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Photo strip */}
+      <section className="py-12 bg-parchment">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-7xl mx-auto px-4">
+          {[
+            { src: "/images/culture-maasai-portrait.jpg", alt: "Maasai woman wearing a traditional beaded headdress" },
+            { src: "/images/culture-coffee-pounding.jpg", alt: "Guest pounding coffee the traditional Chagga way" },
+            { src: "/images/materuni-waterfall.jpg", alt: "Materuni waterfall dropping into a green gorge" },
+            { src: "/images/culture-maasai-women-boma.jpg", alt: "Maasai women outside a traditional boma" },
+          ].map((img) => (
+            <div key={img.src} className="relative h-48 rounded-lg overflow-hidden">
+              <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-500" sizes="25vw" />
+            </div>
+          ))}
         </div>
       </section>
 

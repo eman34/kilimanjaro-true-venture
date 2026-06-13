@@ -30,7 +30,7 @@ const ADVENTURES = [
   {
     title: "Cultural Tours",
     tag: "Half-day to full-day",
-    image: "/images/guide-client.jpg",
+    image: "/images/culture-maasai-dance.jpg",
     description:
       "Maasai village visits, Chagga coffee farms and local markets. Easy add-ons between adventures.",
     href: "/tours/cultural",
