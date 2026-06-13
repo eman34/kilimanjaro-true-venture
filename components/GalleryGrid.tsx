@@ -143,8 +143,10 @@ export default function GalleryGrid() {
               width={img.width}
               height={img.height}
               priority={index < 2}
+              placeholder="blur"
+              blurDataURL={img.blurDataURL}
               className="w-full h-auto"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
             />
           </button>
         ))}
@@ -201,6 +203,8 @@ export default function GalleryGrid() {
               alt={currentImage.alt}
               fill
               sizes="95vw"
+              placeholder="blur"
+              blurDataURL={currentImage.blurDataURL}
               className="object-contain"
             />
           </div>
