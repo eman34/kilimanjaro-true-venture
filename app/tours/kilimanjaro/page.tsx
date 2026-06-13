@@ -28,7 +28,7 @@ export default function KilimanjaroPage() {
       <Hero
         title="Mount Kilimanjaro"
         tagline="Africa's highest mountain. Six routes to the summit. Pick the one that matches your fitness and time."
-        backgroundImage="/images/summit-glaciers.jpg"
+        backgroundImage="/images/kili-glacier-descent.jpg"
       />
 
       {/* Routes — stacked editorial spread */}
@@ -235,7 +235,7 @@ export default function KilimanjaroPage() {
 
       <CTABanner
         title="Plan your Kilimanjaro climb"
-        subtitle="Tell us your dates, group size, and route interest. Abu will reply within 4 hours on WhatsApp."
+        subtitle="Tell us your dates, group size, and route interest. Abu replies personally on WhatsApp."
         seamFrom="paper"
       />
 

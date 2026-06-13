@@ -18,7 +18,7 @@ export default function SafarisPage() {
       <Hero
         title="Wildlife Safaris"
         tagline="Serengeti. Ngorongoro. Tarangire. Mkomazi."
-        backgroundImage="/images/ngorongoro-wildlife.jpg"
+        backgroundImage="/images/safari-ngorongoro-crater-floor.jpg"
       />
 
       {/* Intro */}

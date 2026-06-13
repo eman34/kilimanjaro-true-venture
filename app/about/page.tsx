@@ -40,7 +40,7 @@ export default function AboutPage() {
       <Hero
         title="Our Story"
         tagline="From porter to founder. By design."
-        backgroundImage="/images/summit-panorama.jpg"
+        backgroundImage="/images/kili-group-celebration.jpg"
       />
 
       {/* Story */}

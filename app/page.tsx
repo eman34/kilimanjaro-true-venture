@@ -34,6 +34,9 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-olive leading-tight">
             One Team. One Adventure.
           </h2>
+          <p className="text-gold-deep italic text-base md:text-lg mt-3">
+            &ldquo;Experience True Adventure in Africa&rdquo;
+          </p>
           <span className="block w-16 h-0.5 bg-gold mx-auto mt-5" aria-hidden="true" />
           <p className="text-olive/85 leading-relaxed mt-6 text-base md:text-lg">
             Kilimanjaro True Venture is a Tanzanian-owned tour operator in
@@ -48,12 +51,11 @@ export default function Home() {
       {/* Proof band */}
       <section className="bg-parchment pb-2 md:pb-3">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
-          <dl className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 border-y border-taupe/40 py-6 text-center">
+          <dl className="grid grid-cols-3 gap-y-6 gap-x-4 border-y border-taupe/40 py-6 text-center">
             {[
               ["5,895m", "Africa's highest summit"],
               ["6 routes", "to Uhuru Peak"],
               ["3:1", "crew per climber"],
-              ["4 hrs", "WhatsApp reply time"],
             ].map(([stat, label]) => (
               <div key={stat}>
                 <dt className="sr-only">{label}</dt>
@@ -140,8 +142,8 @@ export default function Home() {
                 alt: "The Milky Way over the mountain at night",
               },
               {
-                src: "/images/ngorongoro-wildlife.jpg",
-                alt: "Zebra and gazelle in the Ngorongoro Crater",
+                src: "/images/safari-elephant-road-crossing.jpg",
+                alt: "An elephant crossing the track between safari vehicles",
               },
             ].map((img) => (
               <Link

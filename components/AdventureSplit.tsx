@@ -15,8 +15,8 @@ const ADVENTURES = [
     subtitle: "Serengeti, Ngorongoro and the Great Migration",
     cta: "See safaris",
     href: "/tours/safaris",
-    image: "/images/zebra-herd.jpg",
-    alt: "A herd of zebra on the Tanzanian plains",
+    image: "/images/safari-giraffe-sunset.jpg",
+    alt: "A giraffe at sunset on the savanna",
   },
   {
     title: "Zanzibar",
@@ -31,8 +31,8 @@ const ADVENTURES = [
     subtitle: "Maasai villages, coffee farms and local markets",
     cta: "See cultural tours",
     href: "/tours/cultural",
-    image: "/images/guide-client.jpg",
-    alt: "A local guide sharing a moment with a guest",
+    image: "/images/culture-maasai-portrait.jpg",
+    alt: "A Maasai woman in a traditional beaded headdress",
   },
 ];
 

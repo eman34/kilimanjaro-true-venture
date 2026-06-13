@@ -15,7 +15,7 @@ export default function CharityPage() {
       <Hero
         title="Charity Climbs & Community Impact"
         tagline="Climb the mountain. Lift the community."
-        backgroundImage="/images/summit-panorama.jpg"
+        backgroundImage="/images/culture-maasai-women-boma.jpg"
       />
 
       {/* Giving Back Through Adventure */}
