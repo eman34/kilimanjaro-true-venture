@@ -1076,6 +1076,135 @@ export const SAFARI_EXCLUDES: PackageItem[] = [
   },
 ];
 
+export interface ZanzibarPackage {
+  name: string;
+  tag: string;
+  duration: string;
+  price: string;
+  priceUnit: "per person" | "per couple" | "per family";
+  summary: string;
+  bestFor: string;
+  includes: string[];
+}
+
+export const ZANZIBAR_PACKAGES: ZanzibarPackage[] = [
+  {
+    name: "Zanzibar Paradise Escape",
+    tag: "Beach & island time",
+    duration: "5 days / 4 nights",
+    price: "$1,350",
+    priceUnit: "per person",
+    summary:
+      "Four nights on the coast with one half-day commitment: a guided walk through Stone Town. The rest is beach, swimming, fresh seafood and time with nothing scheduled. The simplest way to wind down after a climb or safari.",
+    bestFor: "Couples, solo travelers and anyone coming down off the mountain",
+    includes: [
+      "Beachfront accommodation",
+      "Daily breakfast",
+      "Guided Stone Town tour",
+      "Professional local guide",
+      "Airport pick-up and drop-off",
+    ],
+  },
+  {
+    name: "Zanzibar Honeymoon Escape",
+    tag: "For couples",
+    duration: "5 days / 4 nights",
+    price: "$1,950",
+    priceUnit: "per couple",
+    summary:
+      "Four nights in beachfront accommodation chosen for privacy, with a sunset dhow cruise, a snorkeling excursion and a Stone Town tour spaced across the stay. Your room is decorated for the occasion before you arrive.",
+    bestFor: "Honeymoons, anniversaries and couples marking something",
+    includes: [
+      "Beachfront accommodation for two",
+      "Daily breakfast",
+      "Sunset dhow cruise",
+      "Snorkeling excursion",
+      "Stone Town cultural tour",
+      "Honeymoon room decoration",
+      "Airport pick-up and drop-off",
+    ],
+  },
+  {
+    name: "Zanzibar Family Holiday",
+    tag: "For families",
+    duration: "5 days / 4 nights",
+    price: "$2,450",
+    priceUnit: "per family",
+    summary:
+      "Four nights at a family-friendly beach hotel with safe swimming water, a snorkeling trip and a guided Stone Town walk. Paced so the adults get rest and the children stay busy.",
+    bestFor: "Families with children of mixed ages",
+    includes: [
+      "Family-friendly beach accommodation",
+      "Daily breakfast",
+      "Guided Stone Town tour",
+      "Snorkeling experience",
+      "Professional local guide",
+      "Airport pick-up and drop-off",
+    ],
+  },
+];
+
+export const ZANZIBAR_EXCLUDES: string[] = [
+  "International and domestic flights",
+  "Tanzania visa fees",
+  "Travel insurance",
+  "Personal expenses",
+  "Lunch and dinner unless mentioned",
+  "Alcoholic beverages",
+  "Optional tours and activities not listed",
+  "Tips and gratuities",
+  "Laundry services",
+  "Medical expenses",
+];
+
+export interface ZanzibarDayTrip {
+  name: string;
+  duration: string;
+  price: string;
+  description: string;
+  includes: string[];
+}
+
+export const ZANZIBAR_DAY_TRIPS: ZanzibarDayTrip[] = [
+  {
+    name: "Stone Town Cultural Tour",
+    duration: "Half day",
+    price: "$60",
+    description:
+      "A guided walk through Stone Town, a UNESCO World Heritage Site. Narrow streets, carved doors, the old market and the layered history of a port where Swahili, Arab and Indian trade met for centuries.",
+    includes: ["Professional guide", "Entrance fees", "Bottled water"],
+  },
+  {
+    name: "Mnemba Island Snorkeling",
+    duration: "Full day",
+    price: "$120",
+    description:
+      "A boat trip to the reefs off Mnemba Island, the best-known snorkeling water around Zanzibar. Coral, tropical fish and a full day on the water.",
+    includes: [
+      "Boat transfer",
+      "Snorkeling equipment",
+      "Tropical fruits and soft drinks",
+      "Professional guide",
+    ],
+  },
+  {
+    name: "Spice Farm Tour",
+    duration: "Half day",
+    price: "$50",
+    description:
+      "In the 19th century Zanzibar was the world's largest clove producer, which is where the Spice Island name comes from. Walk a working farm and see clove, cinnamon, vanilla and cardamom growing, with fruit tasting along the way.",
+    includes: ["Local guide", "Spice farm entrance fees", "Tropical fruit tasting"],
+  },
+  {
+    name: "Sunset Dhow Cruise",
+    duration: "Evening",
+    price: "$75",
+    description:
+      "An evening sail on a traditional wooden dhow, the boat that has carried trade along this coast for centuries. Calm water, a low sun and snacks on board. Works for couples and families alike.",
+    includes: ["Traditional dhow cruise", "Snacks and soft drinks", "Professional crew"],
+  },
+];
+
 export const TOUR_INTERESTS = [
   "Kilimanjaro: Machame Route",
   "Kilimanjaro: Lemosho Route",
