@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
 import RouteSpread from "@/components/RouteSpread";
 import SectionDivider from "@/components/SectionDivider";
-import StickyWhatsApp from "@/components/StickyWhatsApp";
 import {
   KILIMANJARO_ROUTES,
   MOUNTAIN_INTRO,
@@ -27,7 +26,6 @@ export default function KilimanjaroPage() {
     <>
       <Hero
         title="Mount Kilimanjaro"
-        tagline="Africa's highest mountain. Six routes to the summit. Pick the one that matches your fitness and time."
         backgroundImage="/images/kili-glacier-descent.jpg"
       />
 
@@ -50,13 +48,11 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
-
       {/* When to climb */}
-      <section className="bg-parchment py-6 md:py-7">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-olive">
-            When to climb.
+            When to climb
           </h2>
           <p className="text-olive/85 mt-4 leading-relaxed">
             Kilimanjaro has two dry windows and two rainy ones. Climbing
@@ -118,7 +114,7 @@ export default function KilimanjaroPage() {
         </div>
       </section>
 
-      <SectionDivider from="parchment" to="olive" />
+      <SectionDivider from="paper" to="olive" />
 
       {/* Ecological zones band */}
       <section className="bg-olive text-paper py-6 md:py-7">
@@ -158,7 +154,7 @@ export default function KilimanjaroPage() {
       {/* How we operate */}
       <section className="section-padding">
         <h2 className="text-3xl md:text-4xl font-bold text-olive">
-          How we run a climb.
+          How we run a climb
         </h2>
         <div className="mt-8 space-y-5">
           <p className="text-olive/95 leading-relaxed">
@@ -201,7 +197,7 @@ export default function KilimanjaroPage() {
       {/* Training and acclimatization */}
       <section className="section-padding">
         <h2 className="text-3xl md:text-4xl font-bold text-olive">
-          Training and acclimatization.
+          Training and acclimatization
         </h2>
         <div className="mt-8 space-y-5">
           <p className="text-olive/95 leading-relaxed">
@@ -235,11 +231,10 @@ export default function KilimanjaroPage() {
 
       <CTABanner
         title="Plan your Kilimanjaro climb"
-        subtitle="Tell us your dates, group size, and route interest. Abu replies personally on WhatsApp."
+        subtitle="Tell us your dates, group size, and route interest, and we'll help you plan the rest."
         seamFrom="paper"
       />
 
-      <StickyWhatsApp />
     </>
   );
 }

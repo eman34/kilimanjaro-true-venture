@@ -1,9 +1,8 @@
 import type { KilimanjaroRouteDay } from "@/lib/constants";
-import AscentProfile from "./AscentProfile";
 
-/* "Day by day" section for Kilimanjaro route pages: the animated elevation
-   profile (client component) above an always-open trail timeline (server,
-   no JS). */
+/* "Day by day" trail timeline for mountain route pages — an always-open
+   list of each day on the trail (server, no JS). The animated elevation
+   profile lives separately, beneath the route's quick-facts. */
 
 type RouteItineraryProps = {
   detailedItinerary: KilimanjaroRouteDay[];
@@ -55,12 +54,5 @@ function TrailTimeline({ days }: { days: KilimanjaroRouteDay[] }) {
 }
 
 export default function RouteItinerary({ detailedItinerary }: RouteItineraryProps) {
-  return (
-    <div>
-      <AscentProfile days={detailedItinerary} />
-      <div className="mt-10 md:mt-12">
-        <TrailTimeline days={detailedItinerary} />
-      </div>
-    </div>
-  );
+  return <TrailTimeline days={detailedItinerary} />;
 }

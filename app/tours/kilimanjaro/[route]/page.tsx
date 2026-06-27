@@ -4,8 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PackageInclusions from "@/components/PackageInclusions";
 import RouteItinerary from "@/components/RouteItinerary";
+import AscentProfile from "@/components/AscentProfile";
 import SectionDivider from "@/components/SectionDivider";
-import StickyWhatsApp from "@/components/StickyWhatsApp";
 import {
   KILIMANJARO_ROUTES,
   formatDaysRange,
@@ -45,7 +45,7 @@ export default async function RouteDetailPage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[55vh] min-h-[420px] md:h-[65vh]">
+      <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image
           src={route.image}
           alt={`${route.name} route on Kilimanjaro`}
@@ -57,23 +57,9 @@ export default async function RouteDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-olive/45" />
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto w-full px-4 md:px-8 pb-10 md:pb-14">
-            <Link
-              href="/tours/kilimanjaro"
-              className="inline-flex items-center gap-1 text-paper/90 hover:text-paper text-sm font-semibold mb-3"
-            >
-              <span aria-hidden>←</span> All Kilimanjaro routes
-            </Link>
-            {route.tag && (
-              <span className="inline-block bg-paper/95 backdrop-blur text-olive text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md mb-3">
-                {route.tag}
-              </span>
-            )}
             <h1 className="text-4xl md:text-6xl font-bold text-paper leading-tight">
               {route.name}
             </h1>
-            <p className="text-gold italic text-lg md:text-xl mt-1">
-              {route.nickname}
-            </p>
           </div>
         </div>
       </section>
@@ -81,6 +67,39 @@ export default async function RouteDetailPage({ params }: PageProps) {
       {/* Summary */}
       <section className="section-padding">
         <div>
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex items-center gap-2 text-sm">
+              <li>
+                <Link
+                  href="/tours/kilimanjaro"
+                  className="inline-flex items-center gap-1.5 text-olive/60 hover:text-gold-deep transition-colors font-medium"
+                >
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Kilimanjaro routes
+                </Link>
+              </li>
+              <li aria-hidden className="text-olive/30">/</li>
+              <li className="text-olive/45 font-medium">{route.name}</li>
+            </ol>
+          </nav>
+
+          <p className="text-gold-deep italic text-lg md:text-xl mb-5">
+            {route.nickname}
+          </p>
+
           <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-taupe/30 py-5 mb-8">
             <div>
               <dt className="text-olive/65 text-[10px] uppercase tracking-wider font-semibold">
@@ -128,6 +147,12 @@ export default async function RouteDetailPage({ params }: PageProps) {
             )}
           </dl>
 
+          {route.detailedItinerary && (
+            <div className="mb-8">
+              <AscentProfile days={route.detailedItinerary} />
+            </div>
+          )}
+
           <p className="text-olive/95 text-base md:text-lg leading-relaxed">
             {route.description}
           </p>
@@ -163,8 +188,8 @@ export default async function RouteDetailPage({ params }: PageProps) {
       {/* Itinerary */}
       {route.detailedItinerary && (
         <>
-        <SectionDivider from="paper" to="parchment" />
-        <section className="bg-parchment py-6 md:py-7">
+        <SectionDivider from="paper" to="paper" />
+        <section className="bg-paper py-6 md:py-7">
           <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
               Day by day
@@ -178,41 +203,34 @@ export default async function RouteDetailPage({ params }: PageProps) {
         </>
       )}
 
-      {route.detailedItinerary && <SectionDivider from="parchment" to="paper" />}
+      {route.detailedItinerary && <SectionDivider from="paper" to="paper" />}
 
       <PackageInclusions />
 
-      <SectionDivider from="paper" to="olive" />
+      <SectionDivider from="paper" to="parchment" />
 
       {/* CTA */}
-      <section className="bg-olive py-6 md:py-7">
+      <section className="bg-parchment py-6 md:py-7">
         <div className="max-w-3xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-paper">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
             Ready to climb {route.name}?
           </h2>
-          <p className="text-paper/90 mt-4 leading-relaxed">
+          <p className="text-olive/85 mt-4 leading-relaxed">
             Tell us your dates and group size — we&apos;ll put together a quote,
             confirm guide availability, and answer questions about fitness and
             gear.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
+          <div className="mt-8 flex justify-center">
             <Link
               href={`/contact?route=${slug}`}
               className="btn-primary"
             >
               Get a {route.name} quote
             </Link>
-            <Link
-              href="/tours/kilimanjaro"
-              className="text-paper/90 hover:text-paper font-semibold self-center underline underline-offset-4"
-            >
-              Back to all routes
-            </Link>
           </div>
         </div>
       </section>
 
-      <StickyWhatsApp />
     </>
   );
 }

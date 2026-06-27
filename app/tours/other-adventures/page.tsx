@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
+import AdventureSpread, { type Adventure } from "@/components/AdventureSpread";
 
 export const metadata: Metadata = {
   title: "Other Adventures — Meru, Zanzibar, Gorilla Trekking & More",
@@ -10,97 +9,120 @@ export const metadata: Metadata = {
     "Beyond Kilimanjaro and the safari circuit. Mount Meru treks, Zanzibar beach extensions, cultural tours, gorilla trekking in Rwanda and charity climbs.",
 };
 
-const ADVENTURES = [
+const ADVENTURES: Adventure[] = [
   {
     title: "Mount Meru",
-    tag: "4-day trek · From $950",
-    image: "/images/mawenzi-silhouette.jpg",
-    description:
-      "Tanzania's second-highest peak. Often climbed as acclimatization before Kilimanjaro.",
     href: "/tours/meru",
+    image: "/images/safari-giraffe-landscape.jpg",
+    imageAlt:
+      "A giraffe on the lower slopes of Mount Meru in Arusha National Park",
+    priceFrom: "$950",
+    duration: "4 days",
+    inside: "One trek",
+    summary:
+      "Tanzania's second peak at 4,566m. Most climb it as acclimatization before Kilimanjaro.",
   },
   {
     title: "Zanzibar",
-    tag: "Beach extension",
-    image: "/images/flamingos-flight.jpg",
-    description:
-      "White-sand beaches, spice tours and Stone Town. A common add-on after a climb or safari.",
     href: "/tours/zanzibar",
+    image: "/images/flamingos-flight.jpg",
+    imageAlt: "Coastal birds in flight",
+    priceFrom: "$1,350",
+    duration: "5 days",
+    inside: "3 stays + 4 day trips",
+    summary:
+      "White-sand coast, Stone Town and the Mnemba reef. The wind-down after a climb or safari.",
   },
   {
-    title: "Cultural Tours",
-    tag: "Half-day to full-day",
-    image: "/images/culture-maasai-dance.jpg",
-    description:
-      "Maasai village visits, Chagga coffee farms and local markets. Easy add-ons between adventures.",
+    title: "Cultural experiences",
     href: "/tours/cultural",
+    image: "/images/culture-maasai-dance.jpg",
+    imageAlt: "Maasai dancers in traditional dress",
+    priceFrom: "Day rates",
+    duration: "Half to full day",
+    inside: "6 experiences",
+    summary:
+      "Maasai bomas, Chagga coffee farms and the Materuni falls. Half-days that slot between adventures.",
   },
   {
-    title: "Gorilla Trekking",
-    tag: "Rwanda collaboration",
-    image: "/images/ngorongoro-wildlife.jpg",
-    description:
-      "Track mountain gorillas in Rwanda's Volcanoes National Park, run with our trusted Rwandan partners.",
+    title: "Gorilla trekking",
     href: "/tours/gorilla-trekking",
+    image: "/images/kili-rainforest-trail.jpg",
+    imageAlt: "A forest trail",
+    priceFrom: "On request",
+    duration: "1 day permit",
+    inside: "One experience",
+    summary:
+      "An hour with a mountain gorilla family in Rwanda's Volcanoes National Park, run with our partners.",
   },
   {
-    title: "Charity Climb",
-    tag: "Climb with purpose",
-    image: "/images/summit-celebration.jpg",
-    description:
-      "Summit Kilimanjaro while raising funds for the communities around the mountain.",
+    title: "Charity climb",
     href: "/tours/charity-climb",
+    image: "/images/summit-celebration.jpg",
+    imageAlt: "Climbers celebrating at the summit",
+    priceFrom: "On request",
+    duration: "6 to 9 days",
+    inside: "One climb",
+    summary:
+      "Summit Kilimanjaro with a group raising money for the schools and communities around the mountain.",
   },
 ];
 
 export default function OtherAdventuresPage() {
   return (
     <>
-      <Hero
-        title="Other Adventures"
-        tagline="Beyond the mountain, beyond the safari."
-        backgroundImage="/images/hero-sunset.jpg"
-      />
+      <Hero title="Other adventures" backgroundImage="/images/hero-sunset.jpg" />
 
-      <section className="py-6 md:py-7 bg-paper">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {ADVENTURES.map((adventure) => (
-              <Link
-                key={adventure.href}
-                href={adventure.href}
-                className="group block bg-parchment rounded-2xl overflow-hidden border border-taupe/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold/10"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={adventure.image}
-                    alt={adventure.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-gold-deep text-xs uppercase tracking-wider font-semibold mb-2">
-                    {adventure.tag}
-                  </p>
-                  <h2 className="text-2xl font-bold text-olive mb-3 group-hover:text-gold-deep transition-colors">
-                    {adventure.title}
-                  </h2>
-                  <p className="text-olive/85 leading-relaxed mb-4">
-                    {adventure.description}
-                  </p>
-                  <span className="text-gold-deep font-semibold text-sm group-hover:underline">
-                    Learn more →
-                  </span>
-                </div>
-              </Link>
-            ))}
+      <section className="section-padding">
+        <div className="mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
+            Beyond the mountain and the safari
+          </h2>
+          <p className="text-olive/85 mt-3 leading-relaxed max-w-3xl">
+            A second peak, an island, gorilla trekking in Rwanda, a charity
+            climb and cultural days that slot between the rest. Most pair with a
+            climb or safari. Tell us what you want and we&apos;ll fit it to your
+            trip.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {ADVENTURES.map((a, i) => (
+            <AdventureSpread key={a.href} adventure={a} reverse={i % 2 === 1} />
+          ))}
+        </div>
+      </section>
+
+      {/* Adding it to your trip */}
+      <section className="section-padding">
+        <h2 className="text-3xl md:text-4xl font-bold text-olive">
+          Adding it to your trip
+        </h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-8">
+          <div className="border-t-2 border-gold pt-4">
+            <h3 className="text-olive font-bold text-lg">One trip, one plan</h3>
+            <p className="text-olive/85 leading-relaxed mt-2">
+              Most of these pair with a Kilimanjaro climb or a safari. We handle
+              the timing, the transfers and the internal flights so it reads as
+              one trip, not three bookings.
+            </p>
+          </div>
+          <div className="border-t-2 border-gold pt-4">
+            <h3 className="text-olive font-bold text-lg">Or on its own</h3>
+            <p className="text-olive/85 leading-relaxed mt-2">
+              Coming for the gorillas, the island or a charity climb alone is
+              fine too. Tell us your dates and we&apos;ll build the trip around
+              it.
+            </p>
           </div>
         </div>
       </section>
 
-      <CTABanner />
+      <CTABanner
+        title="Plan something beyond the climb"
+        subtitle="Tell us what you want to add and your rough dates, and we'll help you plan the rest."
+        seamFrom="paper"
+      />
     </>
   );
 }

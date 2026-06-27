@@ -3,13 +3,46 @@
 import { useEffect, useRef, useState } from "react";
 import type { KilimanjaroRouteDay } from "@/lib/constants";
 
-/* Elevation profile for Kilimanjaro route pages — the "Living Trail":
+/* Elevation profile for mountain route pages — the "Living Trail":
    climate zones as tinted bands, the trail draws itself when scrolled into
-   view (camps appearing in walking order), Lava Tower / acclimatization and
-   the 1 AM summit push annotated, and hover or tap a day for its stats.
-   Honors prefers-reduced-motion: everything appears instantly. */
+   view (camps appearing in walking order), acclimatization and the 1 AM
+   summit push annotated, and hover or tap a day for its stats.
+   Honors prefers-reduced-motion: everything appears instantly.
 
-const SUMMIT = 5895;
+   The summit altitude, chart scale, climate-zone bands and summit label are
+   passed in via `config` so the same component serves Kilimanjaro (the
+   default) and other mountains like Mount Meru. */
+
+export type ElevationZone = {
+  top: number;
+  bottom: number;
+  label: string;
+  cls: string;
+  opacity: number;
+};
+
+export type ElevationProfileConfig = {
+  summitAlt: number;
+  summitLabel: string;
+  peakName: string;
+  minAlt: number;
+  maxAlt: number;
+  zones: ElevationZone[];
+};
+
+export const KILIMANJARO_PROFILE: ElevationProfileConfig = {
+  summitAlt: 5895,
+  summitLabel: "Uhuru Peak · 5,895m",
+  peakName: "Uhuru Peak, 5,895 meters",
+  minAlt: 1200,
+  maxAlt: 6300,
+  zones: [
+    { top: 6300, bottom: 5000, label: "Arctic summit", cls: "fill-paper", opacity: 0.75 },
+    { top: 5000, bottom: 4000, label: "Alpine desert", cls: "fill-taupe", opacity: 0.4 },
+    { top: 4000, bottom: 2800, label: "Moorland", cls: "fill-khaki", opacity: 0.12 },
+    { top: 2800, bottom: 1200, label: "Rainforest", cls: "fill-olive", opacity: 0.09 },
+  ],
+};
 
 const CHART = {
   W: 880,
@@ -17,16 +50,7 @@ const CHART = {
   PAD_X: 24,
   PAD_TOP: 40,
   PAD_BOT: 30,
-  MIN_ALT: 1200,
-  MAX_ALT: 6300,
 };
-
-const ZONES = [
-  { top: 6300, bottom: 5000, label: "Arctic summit", cls: "fill-paper", opacity: 0.75 },
-  { top: 5000, bottom: 4000, label: "Alpine desert", cls: "fill-taupe", opacity: 0.4 },
-  { top: 4000, bottom: 2800, label: "Moorland", cls: "fill-khaki", opacity: 0.12 },
-  { top: 2800, bottom: 1200, label: "Rainforest", cls: "fill-olive", opacity: 0.09 },
-];
 
 /* "4,673m to 5,895m, descend to 3,068m" -> [4673, 5895, 3068].
    "3,720m (day hike to 4,200m)" is an out-and-back: close the loop. */
@@ -60,7 +84,13 @@ function buildProfile(days: KilimanjaroRouteDay[]): ProfilePoint[] {
   return points;
 }
 
-export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] }) {
+export default function AscentProfile({
+  days,
+  config = KILIMANJARO_PROFILE,
+}: {
+  days: KilimanjaroRouteDay[];
+  config?: ElevationProfileConfig;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -87,13 +117,14 @@ export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] })
     return () => observer.disconnect();
   }, []);
 
-  const { W, H, PAD_X, PAD_TOP, PAD_BOT, MIN_ALT, MAX_ALT } = CHART;
+  const { W, H, PAD_X, PAD_TOP, PAD_BOT } = CHART;
+  const { summitAlt, summitLabel, peakName, minAlt, maxAlt, zones } = config;
   const points = buildProfile(days);
   if (points.length < 2) return null;
 
   const px = (x: number) => PAD_X + (x / days.length) * (W - PAD_X * 2);
   const py = (alt: number) =>
-    PAD_TOP + (1 - (alt - MIN_ALT) / (MAX_ALT - MIN_ALT)) * (H - PAD_TOP - PAD_BOT);
+    PAD_TOP + (1 - (alt - minAlt) / (maxAlt - minAlt)) * (H - PAD_TOP - PAD_BOT);
 
   const line = points
     .map((p, i) => `${i === 0 ? "M" : "L"}${px(p.x).toFixed(1)},${py(p.alt).toFixed(1)}`)
@@ -101,14 +132,14 @@ export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] })
   const floor = H - PAD_BOT;
   const area = `${line} L${px(points[points.length - 1].x).toFixed(1)},${floor} L${px(points[0].x).toFixed(1)},${floor} Z`;
 
-  const summitIndex = points.findIndex((p) => p.alt === SUMMIT);
+  const summitIndex = points.findIndex((p) => p.alt === summitAlt);
   const summit = summitIndex > 0 ? points[summitIndex] : undefined;
   const beforeSummit = summitIndex > 0 ? points[summitIndex - 1] : undefined;
-  const camps = points.filter((p) => p.isCampEnd && p.alt !== SUMMIT);
+  const camps = points.filter((p) => p.isCampEnd && p.alt !== summitAlt);
   const acclimatizers = points.filter(
     (p, i) =>
       !p.isCampEnd &&
-      p.alt !== SUMMIT &&
+      p.alt !== summitAlt &&
       i > 0 &&
       i < points.length - 1 &&
       p.alt > points[i - 1].alt &&
@@ -146,10 +177,10 @@ export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] })
         viewBox={`0 0 ${W} ${H}`}
         className="w-full"
         role="img"
-        aria-label={`Elevation profile of the route through Kilimanjaro's climate zones, from rainforest to the arctic summit at Uhuru Peak, 5,895 meters, over ${days.length} days`}
+        aria-label={`Elevation profile across ${days.length} days, climbing through the mountain's climate zones to ${peakName}`}
       >
         {/* Climate zone bands */}
-        {ZONES.map((z) => (
+        {zones.map((z) => (
           <g key={z.label}>
             <rect
               x={PAD_X}
@@ -231,7 +262,7 @@ export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] })
           </g>
         )}
 
-        {/* Lava Tower / acclimatization annotations */}
+        {/* Acclimatization annotations */}
         {acclimatizers.map((p) => (
           <g
             key={`acc-${p.day}-${p.alt}`}
@@ -298,7 +329,7 @@ export default function AscentProfile({ days }: { days: KilimanjaroRouteDay[] })
               textAnchor="middle"
               className="fill-gold-deep text-[12px] font-bold"
             >
-              Uhuru Peak · 5,895m
+              {summitLabel}
             </text>
           </g>
         )}

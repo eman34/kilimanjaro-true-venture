@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
-import CTABanner from "@/components/CTABanner";
+import Image from "next/image";
+import Link from "next/link";
 import SectionDivider from "@/components/SectionDivider";
+import SubTourCard from "@/components/SubTourCard";
 import {
   ZANZIBAR_PACKAGES,
   ZANZIBAR_EXCLUDES,
@@ -14,93 +15,109 @@ export const metadata: Metadata = {
     "Zanzibar beach holidays after your climb or safari. Three 5-day packages from $1,350 per person, plus Stone Town, Mnemba snorkeling, spice farm and dhow cruise day trips.",
 };
 
-function CheckIcon() {
-  return (
-    <svg
-      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-    </svg>
-  );
-}
-
 export default function ZanzibarPage() {
   return (
     <>
-      <Hero
-        title="Zanzibar Holidays"
-        tagline="Crystal water. Old Stone Town. Rest."
-        backgroundImage="/images/flamingos-flight.jpg"
-      />
+      {/* Hero */}
+      <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
+        <Image
+          src="/images/flamingos-flight.jpg"
+          alt="Coastal birds in flight"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-olive/45" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto w-full px-4 md:px-8 pb-10 md:pb-14">
+            <h1 className="text-4xl md:text-6xl font-bold text-paper leading-tight">
+              Zanzibar
+            </h1>
+          </div>
+        </div>
+      </section>
 
-      {/* Overview */}
+      {/* Intro */}
       <section className="section-padding">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-6 text-center">
-            The Island After the Mountain
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm">
+            <li>
+              <Link
+                href="/tours/other-adventures"
+                className="inline-flex items-center gap-1.5 text-olive/60 hover:text-gold-deep transition-colors font-medium"
+              >
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                Other Adventures
+              </Link>
+            </li>
+            <li aria-hidden className="text-olive/30">/</li>
+            <li className="text-olive/45 font-medium">Zanzibar</li>
+          </ol>
+        </nav>
+
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
+            The island after the mountain
           </h2>
-          <div className="space-y-5">
+          <div className="space-y-5 mt-6">
             <p className="text-olive/85 leading-relaxed">
               Zanzibar sits a short flight from the mainland, and most of our
-              travelers add it after a climb or a safari: a beach, fresh
-              seafood and nothing scheduled before ten. We run the island side
-              the same way we run the mountain. Our driver meets you at the
-              airport, the hotel is the one we described and the plan holds.
+              travelers add it after a climb or a safari: a beach, fresh seafood
+              and nothing scheduled before ten. We run the island side the same
+              way we run the mountain. Our driver meets you at the airport, the
+              hotel is the one we described and the plan holds.
             </p>
             <p className="text-olive/85 leading-relaxed">
               The island is more than the beach. Stone Town is a UNESCO World
               Heritage Site shaped by centuries of Swahili, Arab and Indian
               trade. The reefs off Mnemba Island hold the clearest snorkeling
               water in the area. The interior grows the cloves, cinnamon and
-              vanilla that gave Zanzibar its Spice Island name. All of it
-              works as a half-day or full-day trip from your hotel.
+              vanilla that gave Zanzibar its Spice Island name. All of it works
+              as a half-day or full-day trip from your hotel.
             </p>
           </div>
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
+      <SectionDivider from="paper" to="paper" />
 
       {/* Holiday packages */}
-      <section className="py-6 md:py-7 bg-parchment">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
-            Zanzibar Holiday Packages
+          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
+            Holiday packages
           </h2>
+          <p className="text-olive/85 leading-relaxed mb-8">
+            Three five-day stays. Pick the one that matches who you&apos;re
+            travelling with.
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {ZANZIBAR_PACKAGES.map((pkg) => (
-              <article
+              <SubTourCard
                 key={pkg.name}
-                className="bg-paper rounded-2xl p-6 md:p-8 border border-taupe/10 hover:border-gold/30 transition-all duration-300 flex flex-col"
-              >
-                <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold mb-2">
-                  {pkg.tag}
-                </p>
-                <h3 className="text-2xl font-bold text-olive leading-snug">{pkg.name}</h3>
-                <p className="text-olive/65 text-sm mt-1">{pkg.duration}</p>
-                <p className="text-olive mt-4">
-                  <span className="text-olive/65 text-xs uppercase tracking-wider font-semibold mr-2">
-                    From
-                  </span>
-                  <span className="font-bold text-2xl text-gold-deep">{pkg.price}</span>
-                  <span className="text-olive/65 text-sm"> {pkg.priceUnit}</span>
-                </p>
-                <p className="text-olive/80 text-sm leading-relaxed mt-4">{pkg.summary}</p>
-                <p className="text-olive/65 text-sm mt-3">
-                  <span className="font-semibold text-olive/80">Best for:</span> {pkg.bestFor}
-                </p>
-                <ul className="mt-5 pt-5 border-t border-taupe/40 space-y-2">
-                  {pkg.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-olive/85 text-sm">
-                      <CheckIcon />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                eyebrow={pkg.tag}
+                name={pkg.name}
+                durationLine={pkg.duration}
+                price={pkg.price}
+                priceUnit={pkg.priceUnit}
+                summary={pkg.summary}
+                bestFor={pkg.bestFor}
+                items={pkg.includes}
+              />
             ))}
           </div>
           <p className="text-olive/65 text-sm mt-6">
@@ -111,15 +128,43 @@ export default function ZanzibarPage() {
         </div>
       </section>
 
-      <SectionDivider from="parchment" to="paper" />
+      <SectionDivider from="paper" to="paper" />
+
+      {/* Day trips */}
+      <section className="bg-paper py-6 md:py-7">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
+            Day trips and excursions
+          </h2>
+          <p className="text-olive/85 leading-relaxed mb-8">
+            Each runs from your hotel and books on its own or as an add-on to any
+            package.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {ZANZIBAR_DAY_TRIPS.map((trip) => (
+              <SubTourCard
+                key={trip.name}
+                eyebrow={trip.duration}
+                name={trip.name}
+                price={trip.price}
+                priceUnit="per person"
+                summary={trip.description}
+                items={trip.includes}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider from="paper" to="paper" />
 
       {/* Not included */}
       <section className="section-padding">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-olive text-center mb-4">
-            Not Included
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
+            Not included
           </h2>
-          <p className="text-olive/75 text-center mb-8">
+          <p className="text-olive/85 leading-relaxed mt-4 mb-8">
             The same exclusions apply to all three packages, so there are no
             surprises on the invoice.
           </p>
@@ -148,51 +193,23 @@ export default function ZanzibarPage() {
 
       <SectionDivider from="paper" to="parchment" />
 
-      {/* Day trips */}
-      <section className="py-6 md:py-7 bg-parchment">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-4">
-            Day Trips & Excursions
+      {/* CTA */}
+      <section className="bg-parchment py-6 md:py-7">
+        <div className="max-w-3xl mx-auto px-4 md:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
+            Add Zanzibar to your trip?
           </h2>
-          <p className="text-olive/75 text-center max-w-2xl mx-auto mb-12">
-            Each of these runs from your hotel and books on its own or as an
-            add-on to any package.
+          <p className="text-olive/85 mt-4 leading-relaxed">
+            Tell us your dates and group size. We&apos;ll match the stay to your
+            budget and handle the timing around a climb or safari.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ZANZIBAR_DAY_TRIPS.map((trip) => (
-              <article
-                key={trip.name}
-                className="bg-paper rounded-xl p-6 border border-taupe/10 hover:border-gold/30 transition-all duration-300"
-              >
-                <div className="flex items-baseline justify-between gap-4 mb-1">
-                  <p className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold">
-                    {trip.duration}
-                  </p>
-                  <p className="text-olive whitespace-nowrap">
-                    <span className="text-olive/65 text-xs uppercase tracking-wider font-semibold mr-1.5">
-                      From
-                    </span>
-                    <span className="font-bold">{trip.price}</span>
-                    <span className="text-olive/65 text-sm"> per person</span>
-                  </p>
-                </div>
-                <h3 className="text-xl font-bold text-olive">{trip.name}</h3>
-                <p className="text-olive/80 text-sm leading-relaxed mt-3">{trip.description}</p>
-                <p className="text-olive/65 text-sm mt-4">
-                  <span className="font-semibold text-olive/80">Includes:</span>{" "}
-                  {trip.includes.join(" · ")}
-                </p>
-              </article>
-            ))}
+          <div className="mt-8 flex justify-center">
+            <Link href="/contact?adventure=zanzibar" className="btn-primary">
+              Get a quote
+            </Link>
           </div>
         </div>
       </section>
-
-      <CTABanner
-        seamFrom="parchment"
-        title="Add Zanzibar to Your Adventure"
-        subtitle="Combine a Kilimanjaro climb or safari with a Zanzibar beach holiday, or book the island on its own. We handle the timing either way."
-      />
     </>
   );
 }

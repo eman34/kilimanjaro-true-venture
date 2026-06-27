@@ -22,11 +22,6 @@ export default function RouteSpread({ route, reverse }: RouteSpreadProps) {
         className="object-cover"
         sizes="(min-width: 1024px) 50vw, 100vw"
       />
-      {route.tag && (
-        <span className="absolute top-4 left-4 bg-paper/95 backdrop-blur text-olive text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md">
-          {route.tag}
-        </span>
-      )}
       {route.successRate && (
         <div className="absolute top-4 right-4 bg-paper/95 backdrop-blur rounded-lg px-3 py-2 shadow-sm">
           <p className="text-olive/75 text-[10px] uppercase tracking-wider font-semibold">

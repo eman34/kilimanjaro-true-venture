@@ -39,7 +39,6 @@ export default function AboutPage() {
     <>
       <Hero
         title="Our Story"
-        tagline="From porter to founder. By design."
         backgroundImage="/images/kili-group-celebration.jpg"
       />
 
@@ -98,10 +97,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
+      <SectionDivider from="paper" to="paper" />
 
       {/* Team */}
-      <section id="team" className="py-6 md:py-7 bg-parchment">
+      <section id="team" className="py-6 md:py-7 bg-paper">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
             Meet Our Team
@@ -173,7 +172,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider from="parchment" to="paper" />
+      <SectionDivider from="paper" to="paper" />
 
       {/* Safety & Ethics */}
       <section className="section-padding">
@@ -204,10 +203,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
+      <SectionDivider from="paper" to="paper" />
 
       {/* Values */}
-      <section className="py-6 md:py-7 bg-parchment">
+      <section className="py-6 md:py-7 bg-paper">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-olive text-center mb-12">
             What Sets Us Apart
@@ -229,7 +228,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CTABanner seamFrom="parchment" />
+      <CTABanner seamFrom="paper" />
     </>
   );
 }

@@ -2,17 +2,56 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { GALLERY_IMAGES } from "@/lib/constants";
+import { GALLERY_IMAGES, GALLERY_FEATURED } from "@/lib/constants";
 
 const CATEGORIES = ["All", ...Array.from(new Set(GALLERY_IMAGES.map((img) => img.category)))];
 
-const CATEGORY_TOUR_LINKS: Record<string, { href: string; label: string }> = {
-  Kilimanjaro: { href: "/tours/kilimanjaro", label: "See Kilimanjaro tours" },
-  Safari: { href: "/tours/safaris", label: "See safari tours" },
-};
-
 type GalleryImage = (typeof GALLERY_IMAGES)[0];
+
+const SHUFFLE_SEED = 0x5ea50fed;
+
+/* Deterministic shuffle so the non-featured photos feel mixed instead of grouped
+   by category. A fixed seed keeps the order identical on the server and client —
+   a live Math.random() would reshuffle every render and break hydration. */
+function seededShuffle<T>(items: readonly T[], seed: number): T[] {
+  const arr = [...items];
+  let s = seed >>> 0;
+  const rand = () => {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    return s / 0x100000000;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* Resolve GALLERY_FEATURED (file names) to real photos, in listed order.
+   Unknown names are dropped so a typo or removed photo can't break the grid. */
+const IMAGES_BY_SRC = new Map(GALLERY_IMAGES.map((img) => [img.src, img]));
+const FEATURED: GalleryImage[] = GALLERY_FEATURED.map(
+  (name) => IMAGES_BY_SRC.get(`/images/${name}`)
+).filter((img): img is GalleryImage => Boolean(img));
+const FEATURED_SRCS = new Set(FEATURED.map((img) => img.src));
+
+if (process.env.NODE_ENV !== "production") {
+  const missing = GALLERY_FEATURED.filter((name) => !IMAGES_BY_SRC.has(`/images/${name}`));
+  if (missing.length) {
+    console.warn("[gallery] GALLERY_FEATURED names not found in GALLERY_IMAGES:", missing);
+  }
+}
+
+/* Featured photos first (in GALLERY_FEATURED order), then the rest. The rest are
+   shuffled on the "All" view for variety, or kept in natural order per category. */
+function withFeaturedFirst(list: GalleryImage[], shuffleRest: boolean): GalleryImage[] {
+  const listSrcs = new Set(list.map((img) => img.src));
+  const featured = FEATURED.filter((img) => listSrcs.has(img.src));
+  const rest = list.filter((img) => !FEATURED_SRCS.has(img.src));
+  return [...featured, ...(shuffleRest ? seededShuffle(rest, SHUFFLE_SEED) : rest)];
+}
+
+const ALL_IMAGES = withFeaturedFirst(GALLERY_IMAGES, true);
 
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -24,8 +63,11 @@ export default function GalleryGrid() {
 
   const filteredImages: GalleryImage[] =
     activeCategory === "All"
-      ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter((img) => img.category === activeCategory);
+      ? ALL_IMAGES
+      : withFeaturedFirst(
+          GALLERY_IMAGES.filter((img) => img.category === activeCategory),
+          false
+        );
 
   // Keyboard navigation + focus trap inside the lightbox
   useEffect(() => {
@@ -260,19 +302,11 @@ export default function GalleryGrid() {
             </button>
           )}
 
-          {/* Tour link + counter */}
+          {/* Counter */}
           <div
             className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-3"
             onClick={(e) => e.stopPropagation()}
           >
-            {CATEGORY_TOUR_LINKS[currentImage.category] && (
-              <Link
-                href={CATEGORY_TOUR_LINKS[currentImage.category].href}
-                className="text-gold hover:text-gold/80 transition-colors text-sm font-semibold inline-flex items-center gap-1"
-              >
-                {CATEGORY_TOUR_LINKS[currentImage.category].label} →
-              </Link>
-            )}
             <p className="text-paper/75 text-xs">
               {lightboxIndex + 1} of {filteredImages.length}
             </p>

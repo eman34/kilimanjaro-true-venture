@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AdventureSplit from "@/components/AdventureSplit";
+import SectionLink from "@/components/SectionLink";
 import CTABanner from "@/components/CTABanner";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 
@@ -29,10 +30,10 @@ export default function Home() {
       </section>
 
       {/* Intro blurb — the local-operator story */}
-      <section className="bg-parchment py-6 md:py-7">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-olive leading-tight">
-            One Team. One Adventure.
+            One Team. One Adventure
           </h2>
           <p className="text-gold-deep italic text-base md:text-lg mt-3">
             &ldquo;Experience True Adventure in Africa&rdquo;
@@ -49,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Proof band */}
-      <section className="bg-parchment pb-2 md:pb-3">
+      <section className="bg-paper pb-2 md:pb-3">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <dl className="grid grid-cols-3 gap-y-6 gap-x-4 border-y border-taupe/40 py-6 text-center">
             {[
@@ -72,7 +73,7 @@ export default function Home() {
       <AdventureSplit />
 
       {/* Founder */}
-      <section className="bg-parchment py-6 md:py-7">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="relative w-44 h-44 md:w-56 md:h-56 shrink-0 rounded-2xl overflow-hidden">
@@ -89,7 +90,7 @@ export default function Home() {
                 Founder
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-olive mt-2">
-                From porter to founder.
+                From porter to founder
               </h2>
               <p className="text-olive/85 leading-relaxed mt-4">
                 Abdallah Athumani — Abu — grew up in Lokoro, a small village
@@ -107,25 +108,18 @@ export default function Home() {
                 that knowledge: unforgettable adventures for travelers, and
                 fair, dignified work for the crews who make them possible.
               </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-1 text-gold-deep font-semibold mt-5 group"
-              >
-                Meet Abu and the team
-                <span
-                  aria-hidden
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </Link>
             </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <SectionLink href="/about">
+              Meet Abu and the team
+            </SectionLink>
           </div>
         </div>
       </section>
 
       {/* Photo strip */}
-      <section className="bg-parchment py-6 md:py-7">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {[
@@ -138,8 +132,8 @@ export default function Home() {
                 alt: "Camp tents below Kilimanjaro's snowy peak",
               },
               {
-                src: "/images/milky-way.jpg",
-                alt: "The Milky Way over the mountain at night",
+                src: "/images/kili-camp-night-town-lights.jpg",
+                alt: "Mountain camp at night with town lights glowing far below",
               },
               {
                 src: "/images/safari-elephant-road-crossing.jpg",
@@ -161,26 +155,15 @@ export default function Home() {
               </Link>
             ))}
           </div>
-          <div className="text-center mt-6">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-1 text-gold-deep font-semibold group"
-            >
-              Explore the gallery
-              <span
-                aria-hidden
-                className="transition-transform group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </Link>
+          <div className="flex justify-center mt-8">
+            <SectionLink href="/gallery">Explore the gallery</SectionLink>
           </div>
         </div>
       </section>
 
       <TestimonialCarousel />
 
-      <CTABanner seamFrom="parchment" />
+      <CTABanner seamFrom="paper" />
     </>
   );
 }

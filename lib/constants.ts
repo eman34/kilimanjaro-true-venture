@@ -5,11 +5,6 @@ export const COMPANY = {
   phone: "+255 791 137 698",
   whatsapp: "+255 791 137 698",
   address: "Sekei, Arusha, Tanzania",
-  social: {
-    instagram: "https://instagram.com/kilimanjarotrueventure",
-    facebook: "https://facebook.com/kilimanjarotrueventure",
-    tripadvisor: "https://tripadvisor.com/kilimanjarotrueventure",
-  },
 };
 
 export const NAV_LINKS = [
@@ -844,12 +839,12 @@ export interface SafariDay {
 export interface Safari {
   slug: string;
   name: string;
-  tag: string;
   image: string;
   days: number;
   priceFrom: string;
   parks: string[];
   summary: string;
+  highlights: string[];
   detailedItinerary: SafariDay[];
 }
 
@@ -857,13 +852,16 @@ export const SAFARIS: Safari[] = [
   {
     slug: "serengeti-migration",
     name: "Serengeti Migration Safari",
-    tag: "The Great Migration",
     image: "/images/safari-wildebeest-herd.jpg",
     days: 5,
     priceFrom: "$2,230",
     parks: ["Serengeti National Park", "Ngorongoro Crater"],
     summary:
       "Five days built around the Great Migration: millions of wildebeest and zebra moving across the Serengeti in search of fresh grazing, with lions, cheetahs, and crocodiles close behind. Depending on the season, your guide positions you where the herds are, river crossings included when the timing is right. The safari finishes with a half day on the floor of Ngorongoro Crater.",
+    highlights: [
+      "Positioned where the herds are by season",
+      "A half day on the Ngorongoro Crater floor",
+    ],
     detailedItinerary: [
       {
         day: 1,
@@ -905,13 +903,16 @@ export const SAFARIS: Safari[] = [
   {
     slug: "tarangire-ngorongoro-manyara",
     name: "Tarangire, Ngorongoro & Lake Manyara",
-    tag: "Three parks in three days",
     image: "/images/safari-elephant-mother-calf.jpg",
     days: 3,
     priceFrom: "$1,365",
     parks: ["Tarangire", "Ngorongoro Crater", "Lake Manyara"],
     summary:
       "Three days, three completely different ecosystems. Baobab country and big elephant herds in Tarangire, the wildlife-packed floor of Ngorongoro Crater, and the groundwater forest and lakeshore of Lake Manyara. The fastest real introduction to northern Tanzania.",
+    highlights: [
+      "Three parks and three ecosystems in three days",
+      "Big elephant herds among Tarangire's baobabs",
+    ],
     detailedItinerary: [
       {
         day: 1,
@@ -939,13 +940,16 @@ export const SAFARIS: Safari[] = [
   {
     slug: "serengeti-ngorongoro",
     name: "Serengeti & Ngorongoro",
-    tag: "More time in the Serengeti",
     image: "/images/safari-lion-portrait.jpg",
     days: 4,
     priceFrom: "$1,670",
     parks: ["Serengeti National Park", "Ngorongoro Crater"],
     summary:
       "Four days for travelers who want longer in the Serengeti: time to track predators, sit with the herds, and feel the scale of the plains, finished with a final game drive on the floor of Ngorongoro Crater.",
+    highlights: [
+      "Extra days to track predators on the plains",
+      "A final game drive on the Ngorongoro Crater floor",
+    ],
     detailedItinerary: [
       {
         day: 1,
@@ -980,13 +984,16 @@ export const SAFARIS: Safari[] = [
   {
     slug: "mkomazi-day-trip",
     name: "Mkomazi Day Trip",
-    tag: "Off the beaten track",
     image: "/images/waterhole-wildlife.jpg",
     days: 1,
     priceFrom: "$430",
     parks: ["Mkomazi National Park"],
     summary:
       "A single-day safari in one of northern Tanzania's quietest parks. Mkomazi sits near Kilimanjaro and protects some of the country's rarest animals, including black rhino and African wild dog, in semi-arid country most visitors never see.",
+    highlights: [
+      "A quiet park most visitors never reach",
+      "Black rhino and wild dog country near Kilimanjaro",
+    ],
     detailedItinerary: [
       {
         day: 1,
@@ -1073,6 +1080,40 @@ export const SAFARI_EXCLUDES: PackageItem[] = [
     title: "Personal expenses",
     detail:
       "Drinks beyond water, snacks, laundry, souvenirs, and anything else you pick up along the way.",
+  },
+];
+
+export interface NorthernPark {
+  name: string;
+  locator: string;
+  note: string;
+}
+
+export const NORTHERN_PARKS: NorthernPark[] = [
+  {
+    name: "Serengeti",
+    locator: "Endless plains",
+    note: "The stage for the Great Migration. Big cats, big herds, and the widest horizon in Tanzania.",
+  },
+  {
+    name: "Ngorongoro Crater",
+    locator: "Volcanic caldera",
+    note: "A natural enclosure with one of the highest wildlife densities in Africa. One of the best chances at the Big Five in a day, black rhino included.",
+  },
+  {
+    name: "Tarangire",
+    locator: "Baobab country",
+    note: "Big elephant herds and ancient baobabs along the Tarangire River. Quieter than the Serengeti.",
+  },
+  {
+    name: "Lake Manyara",
+    locator: "Forest and lakeshore",
+    note: "A groundwater forest meeting a soda lake. Flamingos, monkeys, and the park's tree-climbing lions.",
+  },
+  {
+    name: "Mkomazi",
+    locator: "Semi-arid north",
+    note: "Quiet country near Kilimanjaro, protecting black rhino and African wild dog. Few visitors get here.",
   },
 ];
 
@@ -1218,6 +1259,23 @@ export const TOUR_INTERESTS = [
   "Cultural Experience",
   "Kilimanjaro + Safari Combo",
   "Custom Trip",
+];
+
+/* Featured gallery photos, in display order. These float to the top of the
+   gallery — the first one lands top-left. To promote a photo, move its filename
+   UP this list; to feature a new one, add its filename (just the file name, no
+   "/images/" prefix). Anything that doesn't match a GALLERY_IMAGES src is
+   ignored, so a typo or a deleted photo never breaks the page. */
+export const GALLERY_FEATURED: string[] = [
+  "kili-jump-above-clouds.jpg",
+  "safari-lion-portrait.jpg",
+  "culture-maasai-dance.jpg",
+  "kili-summit-sign-group.jpg",
+  "safari-leopard-tree.jpg",
+  "kili-sunrise-cloud-sea.jpg",
+  "safari-elephant-mother-calf.jpg",
+  "kili-glacier-descent.jpg",
+  "safari-lilac-breasted-roller.jpg",
 ];
 
 export const GALLERY_IMAGES = [

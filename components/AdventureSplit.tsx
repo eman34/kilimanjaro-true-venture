@@ -38,7 +38,7 @@ const ADVENTURES = [
 
 export default function AdventureSplit() {
   return (
-    <section className="bg-parchment">
+    <section className="bg-paper">
       <div className="section-padding">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {ADVENTURES.map((adventure) => (

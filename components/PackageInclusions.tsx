@@ -228,12 +228,9 @@ export default function PackageInclusions({
       </div>
 
       <div className="mt-12 mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-olive">
           Not included
         </h2>
-        <p className="text-olive/85 leading-relaxed">
-          Plan for these separately. Expand any item for the practical detail.
-        </p>
       </div>
 
       <div className="space-y-3 md:space-y-4">

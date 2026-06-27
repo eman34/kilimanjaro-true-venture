@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PackageInclusions from "@/components/PackageInclusions";
 import SectionDivider from "@/components/SectionDivider";
-import StickyWhatsApp from "@/components/StickyWhatsApp";
 import { SAFARIS, SAFARI_INCLUDES, SAFARI_EXCLUDES } from "@/lib/constants";
 
 interface PageProps {
@@ -39,7 +38,7 @@ export default async function SafariDetailPage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[55vh] min-h-[420px] md:h-[65vh]">
+      <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image
           src={safari.image}
           alt={safari.name}
@@ -51,21 +50,9 @@ export default async function SafariDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-olive/45" />
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto w-full px-4 md:px-8 pb-10 md:pb-14">
-            <Link
-              href="/tours/safaris"
-              className="inline-flex items-center gap-1 text-paper/90 hover:text-paper text-sm font-semibold mb-3"
-            >
-              <span aria-hidden>←</span> All safaris
-            </Link>
-            <span className="inline-block bg-paper/95 backdrop-blur text-olive text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md mb-3">
-              {safari.tag}
-            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-paper leading-tight">
               {safari.name}
             </h1>
-            <p className="text-gold italic text-lg md:text-xl mt-1">
-              {daysLabel} · {safari.parks.join(" · ")}
-            </p>
           </div>
         </div>
       </section>
@@ -73,6 +60,35 @@ export default async function SafariDetailPage({ params }: PageProps) {
       {/* Summary */}
       <section className="section-padding">
         <div>
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex items-center gap-2 text-sm">
+              <li>
+                <Link
+                  href="/tours/safaris"
+                  className="inline-flex items-center gap-1.5 text-olive/60 hover:text-gold-deep transition-colors font-medium"
+                >
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Wildlife safaris
+                </Link>
+              </li>
+              <li aria-hidden className="text-olive/30">/</li>
+              <li className="text-olive/45 font-medium">{safari.name}</li>
+            </ol>
+          </nav>
+
           <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-taupe/30 py-5 mb-8">
             <div>
               <dt className="text-olive/65 text-[10px] uppercase tracking-wider font-semibold">
@@ -101,17 +117,44 @@ export default async function SafariDetailPage({ params }: PageProps) {
           <p className="text-olive/95 text-base md:text-lg leading-relaxed">
             {safari.summary}
           </p>
-          <p className="text-olive/65 text-sm mt-4">
+
+          {safari.highlights && safari.highlights.length > 0 && (
+            <ul className="mt-6 space-y-2">
+              {safari.highlights.map((h) => (
+                <li
+                  key={h}
+                  className="flex items-start gap-2 text-olive/95 text-base"
+                >
+                  <svg
+                    className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <p className="text-olive/65 text-sm mt-6">
             Prices are per person and vary with group size and season. You get
             an exact quote when you inquire.
           </p>
         </div>
       </section>
 
-      <SectionDivider from="paper" to="parchment" />
+      <SectionDivider from="paper" to="paper" />
 
       {/* Itinerary */}
-      <section className="bg-parchment py-6 md:py-7">
+      <section className="bg-paper py-6 md:py-7">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
           <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
             Day by day
@@ -155,7 +198,7 @@ export default async function SafariDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <SectionDivider from="parchment" to="paper" />
+      <SectionDivider from="paper" to="paper" />
 
       <PackageInclusions
         includes={SAFARI_INCLUDES}
@@ -163,33 +206,25 @@ export default async function SafariDetailPage({ params }: PageProps) {
         subline="The same setup on every safari, whichever itinerary you choose."
       />
 
-      <SectionDivider from="paper" to="olive" />
+      <SectionDivider from="paper" to="parchment" />
 
       {/* CTA */}
-      <section className="bg-olive py-6 md:py-7">
+      <section className="bg-parchment py-6 md:py-7">
         <div className="max-w-3xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-paper">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive">
             Ready for the {safari.name}?
           </h2>
-          <p className="text-paper/90 mt-4 leading-relaxed">
+          <p className="text-olive/85 mt-4 leading-relaxed">
             Tell us your dates and group size. We&apos;ll confirm availability,
             lodge options, and a full quote.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <Link href="/contact" className="btn-primary">
+          <div className="mt-8 flex justify-center">
+            <Link href={`/contact?safari=${safari.slug}`} className="btn-primary">
               Get a quote
-            </Link>
-            <Link
-              href="/tours/safaris"
-              className="text-paper/90 hover:text-paper font-semibold self-center underline underline-offset-4"
-            >
-              Back to all safaris
             </Link>
           </div>
         </div>
       </section>
-
-      <StickyWhatsApp />
     </>
   );
 }

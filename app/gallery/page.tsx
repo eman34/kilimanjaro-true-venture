@@ -14,7 +14,6 @@ export default function GalleryPage() {
     <>
       <Hero
         title="Gallery"
-        tagline="Summits, plains, coast. Captured."
         backgroundImage="/images/summit-panorama.jpg"
       />
 

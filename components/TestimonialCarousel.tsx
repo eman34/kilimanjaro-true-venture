@@ -13,7 +13,7 @@ export default function TestimonialCarousel() {
   const testimonial = TESTIMONIALS[current];
 
   return (
-    <section className="py-6 md:py-7 bg-parchment">
+    <section className="py-6 md:py-7 bg-paper">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-olive mb-4">
           What Our Adventurers Say
@@ -23,7 +23,7 @@ export default function TestimonialCarousel() {
         </p>
 
         <div className="relative">
-          <div className="bg-paper rounded-2xl p-8 md:p-12 border border-taupe/10">
+          <div className="bg-parchment rounded-2xl p-8 md:p-12 border border-taupe/10">
             {/* Stars */}
             <div className="flex gap-1 mb-6 justify-center">
               {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -47,7 +47,6 @@ export default function TestimonialCarousel() {
             <div className="text-center">
               <p className="text-gold-deep font-bold">{testimonial.name}</p>
               <p className="text-olive/65 text-sm">{testimonial.location}</p>
-              <p className="text-olive/40 text-xs mt-1">{testimonial.tour}</p>
             </div>
           </div>
 
