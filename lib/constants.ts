@@ -424,7 +424,7 @@ export const KILIMANJARO_ROUTES: KilimanjaroRoute[] = [
     difficulty: "Very Challenging",
     scenery: 4,
     tag: "Experienced only",
-    image: "/images/kili-glacier-descent.jpg",
+    image: "/images/kili-kibo-face-group.jpg",
     description:
       "The steepest and most direct route. Climbs sharply through dense forest in the first days, with rapid altitude gain and less time to acclimatize. Suitable only for climbers with prior high-altitude experience and a strong fitness base. We will talk through your altitude history before confirming a Umbwe booking. Few climbers, demanding terrain.",
     itinerary: [
@@ -844,242 +844,196 @@ export interface Safari {
   priceFrom: string;
   parks: string[];
   summary: string;
-  highlights: string[];
-  detailedItinerary: SafariDay[];
+  goodFor?: string;
+  includes: string[];
+  excludes: string[];
+  detailedItinerary?: SafariDay[];
 }
 
 export const SAFARIS: Safari[] = [
   {
-    slug: "serengeti-migration",
-    name: "Serengeti Migration Safari",
+    slug: "elephant-crater-discovery",
+    name: "Elephant & Crater Discovery",
+    image: "/images/safari-elephant-mother-calf.jpg",
+    days: 2,
+    priceFrom: "$1,850",
+    parks: ["Tarangire National Park", "Ngorongoro Crater"],
+    summary:
+      "A short but unforgettable safari for travelers who want Tanzania's iconic wildlife in a limited time. It begins in Tarangire National Park, famous for its giant baobab trees, massive elephant herds and rich wildlife, then continues to the Ngorongoro Crater, one of the best places in Tanzania to spot the Big Five in a single day.",
+    goodFor:
+      "Couples, solo travelers, photographers and first-time safari visitors",
+    includes: [
+      "Professional safari guide",
+      "Private or shared safari vehicle",
+      "Park entry fees",
+      "Lodge accommodation",
+      "Meals during safari",
+      "Drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Travel insurance",
+      "Tips & personal expenses",
+      "Alcoholic drinks",
+    ],
+  },
+  {
+    slug: "northern-tanzania-classic",
+    name: "Northern Tanzania Classic Safari",
+    image: "/images/safari-lion-pride-tree.jpg",
+    days: 4,
+    priceFrom: "$2,520",
+    parks: [
+      "Tarangire National Park",
+      "Serengeti National Park",
+      "Ngorongoro Crater",
+    ],
+    summary:
+      "The legendary northern safari circuit in one journey. It combines the elephant-filled landscapes of Tarangire National Park, the endless wildlife plains of the Serengeti and the spectacular Ngorongoro Crater. Expect game drives, African sunsets, mid-range or luxury lodges and wildlife including lions, elephants, giraffes, zebras and cheetahs. Ideal for travelers looking for the complete Tanzania wildlife experience.",
+    includes: [
+      "Safari vehicle with pop-up roof",
+      "Professional safari guide",
+      "Park fees",
+      "Safari lodge or tented camp accommodation",
+      "Breakfast, lunch & dinner during safari",
+      "Drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "Flights & visas",
+      "Insurance",
+      "Tips & personal expenses",
+      "Alcoholic beverages",
+    ],
+  },
+  {
+    slug: "serengeti-migration-experience",
+    name: "Serengeti Migration Experience",
     image: "/images/safari-wildebeest-herd.jpg",
     days: 5,
-    priceFrom: "$2,230",
+    priceFrom: "$2,400",
     parks: ["Serengeti National Park", "Ngorongoro Crater"],
     summary:
-      "Five days built around the Great Migration: millions of wildebeest and zebra moving across the Serengeti in search of fresh grazing, with lions, cheetahs, and crocodiles close behind. Depending on the season, your guide positions you where the herds are, river crossings included when the timing is right. The safari finishes with a half day on the floor of Ngorongoro Crater.",
-    highlights: [
-      "Positioned where the herds are by season",
-      "A half day on the Ngorongoro Crater floor",
+      "The magic of the African wilderness in the world-famous Serengeti, home to the Great Migration and some of the highest concentrations of wildlife on Earth. You spend days exploring endless plains filled with lions, elephants, giraffes, cheetahs, leopards and thousands of wildebeest, before continuing to the Ngorongoro Crater.",
+    goodFor: "Wildlife lovers, photographers, honeymooners and adventure travelers",
+    includes: [
+      "Safari transport & guide",
+      "Park entry fees",
+      "Accommodation",
+      "Meals during safari",
+      "Daily game drives",
+      "Drinking water",
     ],
-    detailedItinerary: [
-      {
-        day: 1,
-        title: "Arusha to Serengeti National Park",
-        park: "Serengeti",
-        description:
-          "An early morning departure from Arusha takes you through the landscapes of northern Tanzania, past local villages and the Ngorongoro highlands. You enter the Serengeti with your first game drive, so the wildlife starts before the bags are unpacked. The day ends with a relaxed evening at your lodge or camp.",
-      },
-      {
-        day: 2,
-        title: "Full day in the Serengeti",
-        park: "Serengeti",
-        description:
-          "A whole day on the vast plains: following wildlife movements, searching for predators, and watching animal behavior in its own habitat. Your guide takes you to the areas known for high activity and reads the day as it unfolds.",
-      },
-      {
-        day: 3,
-        title: "Tracking the Migration",
-        park: "Serengeti",
-        description:
-          "The day is dedicated to locating and following the Great Migration. Depending on the season, your guide takes you where the herds are active. That can mean dramatic river crossings or huge concentrations of animals moving together across the plains.",
-      },
-      {
-        day: 4,
-        title: "Serengeti to Ngorongoro",
-        park: "Ngorongoro Conservation Area",
-        description:
-          "A morning game drive, then the road south toward the Ngorongoro area. Wildlife sightings continue along the way as the open plains give way to highland forest. Overnight near the crater rim.",
-      },
-      {
-        day: 5,
-        title: "Ngorongoro Crater and return to Arusha",
-        park: "Ngorongoro Crater",
-        description:
-          "Descend into the crater for a half-day game drive among one of the highest concentrations of wildlife in Africa. After the tour, return to Arusha.",
-      },
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
     ],
   },
   {
-    slug: "tarangire-ngorongoro-manyara",
-    name: "Tarangire, Ngorongoro & Lake Manyara",
-    image: "/images/safari-elephant-mother-calf.jpg",
+    slug: "tanzania-family-safari-escape",
+    name: "Tanzania Family Safari Escape",
+    image: "/images/safari-giraffe-golden-hour.jpg",
     days: 3,
-    priceFrom: "$1,365",
-    parks: ["Tarangire", "Ngorongoro Crater", "Lake Manyara"],
-    summary:
-      "Three days, three completely different ecosystems. Baobab country and big elephant herds in Tarangire, the wildlife-packed floor of Ngorongoro Crater, and the groundwater forest and lakeshore of Lake Manyara. The fastest real introduction to northern Tanzania.",
-    highlights: [
-      "Three parks and three ecosystems in three days",
-      "Big elephant herds among Tarangire's baobabs",
+    priceFrom: "$1,350",
+    parks: [
+      "Lake Manyara National Park",
+      "Ngorongoro Crater",
+      "Tarangire National Park",
     ],
-    detailedItinerary: [
-      {
-        day: 1,
-        title: "Arusha to Tarangire, land of giants",
-        park: "Tarangire",
-        description:
-          "A morning departure from Arusha toward Tarangire National Park, known for its untouched feel and large concentrations of wildlife. Iconic baobab trees, often called the tree of life, stand tall across the landscape, and the park is famous for its elephant herds: families interacting, feeding, and moving across the plains. The Tarangire River acts as a lifeline, drawing giraffe, zebra, wildebeest, buffalo, and the lions and leopards that follow them. Picnic lunch inside the park, an afternoon game drive, then on to your lodge for dinner.",
-      },
-      {
-        day: 2,
-        title: "Ngorongoro Crater",
-        park: "Ngorongoro Crater",
-        description:
-          "After an early breakfast, travel to the Ngorongoro Conservation Area and descend onto the crater floor, a massive volcanic caldera that forms a natural enclosure for wildlife. It holds one of the highest concentrations of animals in Africa and one of the best chances anywhere to see the Big Five, including the rare black rhino. Grassland, swamp, forest, and a soda lake each support their own animals, from hippos resting in the pools to lions out on the open floor. Your guide fills in the geology and history as you go. Ascend in the late afternoon and return to your lodge.",
-      },
-      {
-        day: 3,
-        title: "Lake Manyara, forest and lakeshore",
-        park: "Lake Manyara",
-        description:
-          "Your final day is spent in Lake Manyara National Park, where a lush groundwater forest meets the lake. Monkeys, birds, and elephants move through the trees, the shoreline often fills with flamingos, and the park is known for its tree-climbing lions, a rare behavior. After the game drive, return to Arusha.",
-      },
+    summary:
+      "Designed for families, couples and travelers with limited time, this is a perfect introduction to Tanzania's wildlife and landscapes. Explore the forests and tree-climbing lions of Lake Manyara, the wildlife inside the Ngorongoro Crater and the giant elephant herds of Tarangire.",
+    goodFor: "Families, couples and travelers with limited time",
+    includes: [
+      "Safari vehicle & guide",
+      "Accommodation",
+      "Park fees",
+      "Meals during safari",
+      "Drinking water",
+    ],
+    excludes: [
+      "Flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
     ],
   },
   {
-    slug: "serengeti-ngorongoro",
-    name: "Serengeti & Ngorongoro",
-    image: "/images/safari-lion-portrait.jpg",
-    days: 4,
-    priceFrom: "$1,670",
-    parks: ["Serengeti National Park", "Ngorongoro Crater"],
-    summary:
-      "Four days for travelers who want longer in the Serengeti: time to track predators, sit with the herds, and feel the scale of the plains, finished with a final game drive on the floor of Ngorongoro Crater.",
-    highlights: [
-      "Extra days to track predators on the plains",
-      "A final game drive on the Ngorongoro Crater floor",
-    ],
-    detailedItinerary: [
-      {
-        day: 1,
-        title: "Arusha to the Serengeti",
-        park: "Serengeti",
-        description:
-          "Depart Arusha early and climb through the Ngorongoro highlands before the land opens into the Serengeti's endless plains. Your first game drive begins at the gate: lions, cheetahs, elephants, giraffes, and large herds of grazers are all possible before you reach your camp or lodge for dinner.",
-      },
-      {
-        day: 2,
-        title: "Full day in the Serengeti",
-        park: "Serengeti",
-        description:
-          "A full-day game drive across different regions of the park, each with its own wildlife. Your guide heads for the areas known for predator activity, where you may catch lions hunting, cheetahs in a chase, or a leopard resting in a tree, with large herds of wildebeest and zebra moving across the plains. A picnic lunch in the wild keeps you out among the animals all day.",
-      },
-      {
-        day: 3,
-        title: "Serengeti to Ngorongoro",
-        park: "Ngorongoro Conservation Area",
-        description:
-          "After a morning game drive, begin the journey toward the Ngorongoro Conservation Area, watching the landscape change from open plains to highland forest, with wildlife along the way. Dinner and overnight near the crater rim.",
-      },
-      {
-        day: 4,
-        title: "Ngorongoro Crater and return",
-        park: "Ngorongoro Crater",
-        description:
-          "Descend into the Ngorongoro Crater for your final game drive. The crater floor offers one of the best chances in Africa to see the Big Five in a single day. After the tour, return to Arusha.",
-      },
-    ],
-  },
-  {
-    slug: "mkomazi-day-trip",
-    name: "Mkomazi Day Trip",
-    image: "/images/waterhole-wildlife.jpg",
+    slug: "arusha-walking-safari",
+    name: "Arusha Walking Safari Experience",
+    image: "/images/safari-giraffe-landscape.jpg",
     days: 1,
-    priceFrom: "$430",
+    priceFrom: "$280",
+    parks: ["Arusha National Park"],
+    summary:
+      "Nature from a different perspective: a guided walking safari inside Arusha National Park. With an armed ranger and professional guide, you walk through landscapes of giraffes, zebras, buffaloes, waterfalls and tropical forest. On clear days there are views of Mount Kilimanjaro and Mount Meru.",
+    goodFor:
+      "Nature lovers and travelers wanting a more personal connection with the wildlife",
+    includes: [
+      "Park fees",
+      "Walking safari ranger",
+      "Professional guide",
+      "Transport",
+      "Lunch box & drinking water",
+    ],
+    excludes: ["Tips", "Personal expenses", "Insurance"],
+  },
+  {
+    slug: "hidden-wilderness-mkomazi",
+    name: "Hidden Wilderness Safari",
+    image: "/images/waterhole-wildlife.jpg",
+    days: 2,
+    priceFrom: "$980",
     parks: ["Mkomazi National Park"],
     summary:
-      "A single-day safari in one of northern Tanzania's quietest parks. Mkomazi sits near Kilimanjaro and protects some of the country's rarest animals, including black rhino and African wild dog, in semi-arid country most visitors never see.",
-    highlights: [
-      "A quiet park most visitors never reach",
-      "Black rhino and wild dog country near Kilimanjaro",
+      "Escape the crowds at one of Tanzania's hidden treasures, Mkomazi National Park. Known for its peaceful wilderness, scenery, black rhino conservation project and rare African wild dogs, Mkomazi is a safari for travelers looking for somewhere less crowded. On clear days it offers views toward Mount Kilimanjaro.",
+    includes: [
+      "Safari vehicle",
+      "Professional guide",
+      "Park fees",
+      "Lodge accommodation",
+      "Meals during safari",
+      "Drinking water",
     ],
-    detailedItinerary: [
-      {
-        day: 1,
-        title: "Mkomazi day trip",
-        park: "Mkomazi",
-        description:
-          "An early morning departure from Arusha or Moshi, then a game drive through this quiet, beautiful park. Mkomazi is home to rare species such as black rhino and African wild dog, protected within the park, and its semi-arid landscape feels different from any other park in the north. On a clear day, Kilimanjaro stands on the horizon. Picnic lunch in the park, an afternoon of exploring, and back to your hotel in Arusha or Moshi by early evening.",
-      },
+    excludes: [
+      "Flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
     ],
   },
-];
-
-export const SAFARI_INCLUDES: PackageItem[] = [
   {
-    icon: "truck",
-    title: "Private 4x4 safari vehicle",
-    detail:
-      "A private 4x4 with a pop-up roof for unobstructed wildlife viewing and photography. The vehicle is yours alone for the whole safari.",
-  },
-  {
-    icon: "guide",
-    title: "Professional driver guide",
-    detail:
-      "An experienced safari driver guide who understands animal behavior, migration patterns, and the best times and places for wildlife viewing.",
-  },
-  {
-    icon: "ticket",
-    title: "All park fees",
-    detail:
-      "Entry and conservation fees for every park on your itinerary are covered in the price.",
-  },
-  {
-    icon: "bed",
-    title: "Accommodation",
-    detail:
-      "Carefully selected lodges and camps, from mid-range to luxury depending on your preference. We match the level to your budget when you book.",
-  },
-  {
-    icon: "fire",
-    title: "All meals on safari",
-    detail:
-      "Breakfast and dinner at your lodge or camp, with picnic lunches inside the parks so you stay out among the animals.",
-  },
-  {
-    icon: "droplet",
-    title: "Mineral water",
-    detail: "Bottled water in the vehicle throughout your safari.",
-  },
-  {
-    icon: "plane",
-    title: "Airport transfers",
-    detail:
-      "Pick up and drop off at Kilimanjaro International Airport, or from your hotel in Arusha or Moshi.",
-  },
-];
-
-export const SAFARI_EXCLUDES: PackageItem[] = [
-  {
-    icon: "globe",
-    title: "Flights",
-    detail:
-      "International and domestic flights are not included. Most travelers fly into Kilimanjaro International Airport (JRO), and we meet you there.",
-  },
-  {
-    icon: "cash",
-    title: "Tips for your driver guide",
-    detail:
-      "Tipping is customary on safari and always at your discretion. We give clear guidance on usual amounts when you book.",
-  },
-  {
-    icon: "passport",
-    title: "Tanzanian visa",
-    detail:
-      "Most nationalities can get a tourist visa online before travel or on arrival. Budget around $50, or $100 for US passport holders.",
-  },
-  {
-    icon: "shield",
-    title: "Travel insurance",
-    detail:
-      "Make sure your policy covers your travel dates and activities, including game drives.",
-  },
-  {
-    icon: "bag",
-    title: "Personal expenses",
-    detail:
-      "Drinks beyond water, snacks, laundry, souvenirs, and anything else you pick up along the way.",
+    slug: "ultimate-tanzania-safari",
+    name: "Ultimate Tanzania Safari Journey",
+    image: "/images/safari-serengeti-aerial.jpg",
+    days: 6,
+    priceFrom: "$3,500",
+    parks: [
+      "Tarangire National Park",
+      "Serengeti National Park",
+      "Ngorongoro Crater",
+      "Lake Manyara National Park",
+    ],
+    summary:
+      "The ultimate Tanzania safari for travelers who want to fully immerse themselves in Africa's wildlife, landscapes and luxury safari lifestyle. From the elephants and baobabs of Tarangire to the endless plains of the Serengeti and the natural wonder of the Ngorongoro Crater, every day brings something new, ending in the forests and lakeside scenery of Lake Manyara.",
+    goodFor: "Luxury travelers, photographers, couples and wildlife enthusiasts",
+    includes: [
+      "Luxury safari lodges or tented camps",
+      "Professional safari guide",
+      "Park entry fees",
+      "Daily game drives",
+      "Meals & drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
+    ],
   },
 ];
 
@@ -1109,6 +1063,11 @@ export const NORTHERN_PARKS: NorthernPark[] = [
     name: "Lake Manyara",
     locator: "Forest and lakeshore",
     note: "A groundwater forest meeting a soda lake. Flamingos, monkeys, and the park's tree-climbing lions.",
+  },
+  {
+    name: "Arusha",
+    locator: "Forest and lakes",
+    note: "Giraffes, buffalo and flamingo-filled lakes on the slopes of Mount Meru, minutes from Arusha town. The one park you can explore on foot.",
   },
   {
     name: "Mkomazi",

@@ -71,7 +71,7 @@ const ADVENTURES: Adventure[] = [
 export default function OtherAdventuresPage() {
   return (
     <>
-      <Hero title="Other adventures" backgroundImage="/images/hero-sunset.jpg" />
+      <Hero title="Other adventures" backgroundImage="/images/kili-trekkers-above-clouds.jpg" />
 
       <section className="section-padding">
         <div className="mb-10">

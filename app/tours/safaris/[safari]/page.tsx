@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PackageInclusions from "@/components/PackageInclusions";
 import SectionDivider from "@/components/SectionDivider";
-import { SAFARIS, SAFARI_INCLUDES, SAFARI_EXCLUDES } from "@/lib/constants";
+import { SAFARIS } from "@/lib/constants";
 
 interface PageProps {
   params: Promise<{ safari: string }>;
@@ -34,6 +33,7 @@ export default async function SafariDetailPage({ params }: PageProps) {
   if (!safari) notFound();
 
   const daysLabel = safari.days === 1 ? "Day trip" : `${safari.days} days`;
+  const itinerary = safari.detailedItinerary ?? [];
 
   return (
     <>
@@ -44,6 +44,7 @@ export default async function SafariDetailPage({ params }: PageProps) {
           alt={safari.name}
           fill
           priority
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />
@@ -118,30 +119,11 @@ export default async function SafariDetailPage({ params }: PageProps) {
             {safari.summary}
           </p>
 
-          {safari.highlights && safari.highlights.length > 0 && (
-            <ul className="mt-6 space-y-2">
-              {safari.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-start gap-2 text-olive/95 text-base"
-                >
-                  <svg
-                    className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  {h}
-                </li>
-              ))}
-            </ul>
+          {safari.goodFor && (
+            <p className="text-olive/85 text-base mt-6">
+              <span className="font-semibold text-olive">Good for:</span>{" "}
+              {safari.goodFor}
+            </p>
           )}
 
           <p className="text-olive/65 text-sm mt-6">
@@ -159,14 +141,16 @@ export default async function SafariDetailPage({ params }: PageProps) {
           <h2 className="text-3xl md:text-4xl font-bold text-olive mb-2">
             Day by day
           </h2>
-          <p className="text-olive/85 leading-relaxed mb-8">
-            {safari.days === 1
-              ? "One full day in the park, gate to gate."
-              : "Every day of the safari, park by park."}
-          </p>
+          {itinerary.length === 0 ? (
+            <p className="text-olive/85 leading-relaxed max-w-3xl">
+              We&apos;ll send you the full day-by-day itinerary when you inquire,
+              built around your dates, group size and how much ground you want to
+              cover.
+            </p>
+          ) : (
           <ol className="relative">
-            {safari.detailedItinerary.map((d, i) => {
-              const isLast = i === safari.detailedItinerary.length - 1;
+            {itinerary.map((d, i) => {
+              const isLast = i === itinerary.length - 1;
               return (
                 <li
                   key={d.day}
@@ -195,16 +179,72 @@ export default async function SafariDetailPage({ params }: PageProps) {
               );
             })}
           </ol>
+          )}
         </div>
       </section>
 
       <SectionDivider from="paper" to="paper" />
 
-      <PackageInclusions
-        includes={SAFARI_INCLUDES}
-        excludes={SAFARI_EXCLUDES}
-        subline="The same setup on every safari, whichever itinerary you choose."
-      />
+      {/* What's included */}
+      <section className="bg-paper py-6 md:py-7">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-olive mb-8">
+            What&apos;s included
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div>
+              <h3 className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold mb-4">
+                Included
+              </h3>
+              <ul className="space-y-3">
+                {safari.includes.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-olive/85">
+                    <svg
+                      className="w-5 h-5 text-gold-deep shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-gold-deep text-[11px] uppercase tracking-[0.18em] font-semibold mb-4">
+                Not included
+              </h3>
+              <ul className="space-y-3">
+                {safari.excludes.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-olive/85">
+                    <svg
+                      className="w-5 h-5 text-khaki shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <SectionDivider from="paper" to="parchment" />
 

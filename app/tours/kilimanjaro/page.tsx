@@ -26,7 +26,7 @@ export default function KilimanjaroPage() {
     <>
       <Hero
         title="Mount Kilimanjaro"
-        backgroundImage="/images/kili-glacier-descent.jpg"
+        backgroundImage="/images/kili-kibo-snowcap-approach.jpg"
       />
 
       {/* Routes — stacked editorial spread */}

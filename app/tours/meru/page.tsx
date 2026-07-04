@@ -191,6 +191,7 @@ export default function MeruPage() {
           alt="A giraffe in Arusha National Park, on the lower slopes of Mount Meru"
           fill
           priority
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />

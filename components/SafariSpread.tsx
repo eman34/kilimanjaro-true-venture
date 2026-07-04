@@ -57,29 +57,6 @@ export default function SafariSpread({ safari, reverse }: SafariSpreadProps) {
         {safari.summary}
       </p>
 
-      {safari.highlights && safari.highlights.length > 0 && (
-        <ul className="mt-3 space-y-1.5">
-          {safari.highlights.slice(0, 2).map((h) => (
-            <li key={h} className="flex items-start gap-2 text-olive/95 text-sm">
-              <svg
-                className="w-4 h-4 text-gold-deep shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              {h}
-            </li>
-          ))}
-        </ul>
-      )}
-
       <div className="mt-auto pt-3">
         <Link href={`/tours/safaris/${safari.slug}`} className="btn-primary">
           View details

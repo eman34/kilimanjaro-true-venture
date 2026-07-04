@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { COMPANY } from "@/lib/constants";
 
 const MAX_MESSAGE_LENGTH = 2000;
@@ -12,6 +12,88 @@ const WHATSAPP_DIGITS = COMPANY.whatsapp.replace(/[^0-9]/g, "");
 const CONTACT_EMAIL = COMPANY.email;
 
 type ContactMethod = "email" | "whatsapp";
+
+const ICON = "w-[18px] h-[18px] shrink-0";
+
+const TRIPS = [
+  {
+    id: "kilimanjaro",
+    label: "Kilimanjaro",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 20l6-11 4 6 3-5 5 10z" />
+      </svg>
+    ),
+  },
+  {
+    id: "safari",
+    label: "Safari",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <ellipse cx="12" cy="15.5" rx="3.4" ry="3" />
+        <circle cx="6.6" cy="11" r="1.7" />
+        <circle cx="10" cy="8" r="1.8" />
+        <circle cx="14" cy="8" r="1.8" />
+        <circle cx="17.4" cy="11" r="1.7" />
+      </svg>
+    ),
+  },
+  {
+    id: "zanzibar",
+    label: "Zanzibar",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.1 5.1l1.4 1.4M17.5 17.5l1.4 1.4M18.9 5.1l-1.4 1.4M6.5 17.5l-1.4 1.4" />
+      </svg>
+    ),
+  },
+  {
+    id: "meru",
+    label: "Mount Meru",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 20L12 7l8 13z" />
+      </svg>
+    ),
+  },
+  {
+    id: "cultural",
+    label: "Cultural",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3.2" />
+        <path d="M2.8 19.5c0-3.4 2.8-5.7 6.2-5.7s6.2 2.3 6.2 5.7" />
+        <path d="M16.5 5.3a3 3 0 010 5.5" />
+        <path d="M17.6 13.9c2.3.5 3.6 2.4 3.6 5.1" />
+      </svg>
+    ),
+  },
+  {
+    id: "unsure",
+    label: "Not sure yet",
+    icon: (
+      <svg className={ICON} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9.6 9.2a2.5 2.5 0 014.9.7c0 1.7-2.5 2.1-2.5 3.6" />
+        <path d="M12 17.2h.01" />
+      </svg>
+    ),
+  },
+];
+
+// Map a ?trip= or ?route= value passed from a tour page onto a trip id.
+const TRIP_PARAM_MAP: Record<string, string> = {
+  kilimanjaro: "kilimanjaro",
+  kili: "kilimanjaro",
+  safari: "safari",
+  safaris: "safari",
+  zanzibar: "zanzibar",
+  meru: "meru",
+  "mount-meru": "meru",
+  cultural: "cultural",
+  culture: "cultural",
+};
 
 function validate(
   data: Record<string, string>,
@@ -38,21 +120,35 @@ function validate(
     }
   }
 
-  if (!data.message) {
-    errs.message = "Please tell us a little about your trip.";
-  } else if (data.message.length > MAX_MESSAGE_LENGTH) {
-    errs.message = `Message is too long. Please keep it under ${MAX_MESSAGE_LENGTH} characters.`;
-  }
-
   return errs;
 }
 
+const FIELD =
+  "w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors";
+const LABEL = "block text-olive text-sm font-medium mb-2";
+
 export default function InquiryForm() {
   const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [contactMethod, setContactMethod] = useState<ContactMethod>("email");
   const [sentMethod, setSentMethod] = useState<ContactMethod>("email");
+  const [trips, setTrips] = useState<string[]>([]);
+  const [travellers, setTravellers] = useState(2);
+
+  // Prefill the trip when arriving from a tour page (e.g. /contact?route=machame
+  // or /contact?trip=safari). Read on the client so we avoid a Suspense boundary.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const preset: string[] = [];
+    if (params.get("route")) preset.push("kilimanjaro");
+    const trip = params.get("trip");
+    if (trip) {
+      const id = TRIP_PARAM_MAP[trip.toLowerCase()];
+      if (id) preset.push(id);
+    }
+    if (preset.length) setTrips([...new Set(preset)]);
+  }, []);
 
   function clearFieldError(name: string) {
     if (errors[name]) {
@@ -75,11 +171,17 @@ export default function InquiryForm() {
     });
   }
 
+  function toggleTrip(id: string) {
+    setTrips((prev) =>
+      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id],
+    );
+  }
+
   function handleSubmit() {
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
-    const data: Record<string, string> = { contactMethod };
+    const data: Record<string, string> = {};
     for (const [key, value] of formData.entries()) {
       if (typeof value === "string") {
         data[key] = value.trim();
@@ -95,10 +197,17 @@ export default function InquiryForm() {
 
     // No backend: build a pre-filled message and hand off to WhatsApp or the
     // visitor's mail app. The inquiry is delivered by the app they send it from.
+    const chosenTrips = trips
+      .map((id) => TRIPS.find((t) => t.id === id)?.label)
+      .filter(Boolean);
+
     const lines = [`Name: ${data.name}`];
+    if (chosenTrips.length) lines.push(`Trip: ${chosenTrips.join(", ")}`);
+    lines.push(`Travellers: ${travellers}`);
+    if (data.when) lines.push(`When: ${data.when}`);
     if (data.email) lines.push(`Email: ${data.email}`);
     if (data.phone) lines.push(`WhatsApp: ${data.phone}`);
-    lines.push("", data.message);
+    if (data.message) lines.push("", data.message);
     const body = lines.join("\n");
 
     try {
@@ -117,6 +226,8 @@ export default function InquiryForm() {
       setSentMethod(contactMethod);
       setStatus("sent");
       formRef.current.reset();
+      setTrips([]);
+      setTravellers(2);
     } catch {
       setStatus("error");
     }
@@ -181,28 +292,100 @@ export default function InquiryForm() {
         handleSubmit();
       }}
       noValidate
-      className="bg-parchment rounded-2xl p-8 md:p-12 border border-taupe"
+      className="bg-parchment rounded-2xl p-6 sm:p-8 md:p-10 border border-taupe"
     >
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+      <div className="space-y-7">
+        {/* Trip — elevated icon chips */}
         <div>
-          <label htmlFor="name" className="block text-olive text-sm font-medium mb-2">
-            Full Name *
+          <span className={LABEL}>
+            Which trip?{" "}
+            <span className="text-olive/50 font-normal">pick any</span>
+          </span>
+          <div className="flex flex-wrap gap-2.5">
+            {TRIPS.map((t) => {
+              const active = trips.includes(t.id);
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => toggleTrip(t.id)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm transition-all ${
+                    active
+                      ? "border-gold bg-gold text-olive-deep font-semibold shadow-[0_4px_12px_-3px_rgba(133,93,13,0.4)]"
+                      : "border-taupe bg-paper text-olive hover:border-gold/60 hover:shadow-sm"
+                  }`}
+                >
+                  <span className={active ? "" : "text-gold-deep"}>{t.icon}</span>
+                  {t.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Travellers + When */}
+        <div className="flex flex-wrap gap-x-8 gap-y-6">
+          <div>
+            <span className={LABEL}>Travellers</span>
+            <div className="inline-flex items-center gap-4 bg-paper border border-taupe rounded-lg px-4 py-2.5">
+              <button
+                type="button"
+                aria-label="Fewer travellers"
+                onClick={() => setTravellers((n) => Math.max(1, n - 1))}
+                className="text-gold-deep hover:text-olive transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                </svg>
+              </button>
+              <span className="text-olive font-bold w-6 text-center">{travellers}</span>
+              <button
+                type="button"
+                aria-label="More travellers"
+                onClick={() => setTravellers((n) => Math.min(20, n + 1))}
+                className="text-gold-deep hover:text-olive transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="flex-1 min-w-[180px]">
+            <label htmlFor="when" className={LABEL}>
+              When?
+            </label>
+            <input
+              type="text"
+              id="when"
+              name="when"
+              className={FIELD}
+              placeholder="e.g. June 2026, or flexible"
+            />
+          </div>
+        </div>
+
+        {/* Name */}
+        <div>
+          <label htmlFor="name" className={LABEL}>
+            Full name *
           </label>
           <input
             type="text"
             id="name"
             name="name"
             onChange={() => clearFieldError("name")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
+            className={FIELD}
             placeholder="Your full name"
           />
           {errors.name && <p className="mt-2 text-gold-deep text-sm">{errors.name}</p>}
         </div>
 
+        {/* Reach us */}
         <div>
-          <span className="block text-olive text-sm font-medium mb-2">
-            How would you like to reach us? *
-          </span>
+          <span className={LABEL}>How would you like to reach us? *</span>
           <div className="flex w-full bg-paper border border-taupe rounded-lg p-1">
             {([
               {
@@ -241,60 +424,59 @@ export default function InquiryForm() {
               );
             })}
           </div>
+
+          <div className="mt-4">
+            {contactMethod === "email" ? (
+              <>
+                <label htmlFor="email" className={LABEL}>
+                  Email address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={() => clearFieldError("email")}
+                  className={FIELD}
+                  placeholder="your@email.com"
+                />
+                {errors.email && <p className="mt-2 text-gold-deep text-sm">{errors.email}</p>}
+              </>
+            ) : (
+              <>
+                <label htmlFor="phone" className={LABEL}>
+                  WhatsApp number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  onChange={() => clearFieldError("phone")}
+                  className={FIELD}
+                  placeholder="+1 555 123 4567"
+                />
+                {errors.phone && <p className="mt-2 text-gold-deep text-sm">{errors.phone}</p>}
+              </>
+            )}
+          </div>
         </div>
 
-        {contactMethod === "email" ? (
-          <div className="md:col-span-2">
-            <label htmlFor="email" className="block text-olive text-sm font-medium mb-2">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={() => clearFieldError("email")}
-              className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
-              placeholder="your@email.com"
-            />
-            {errors.email && <p className="mt-2 text-gold-deep text-sm">{errors.email}</p>}
-          </div>
-        ) : (
-          <div className="md:col-span-2">
-            <label htmlFor="phone" className="block text-olive text-sm font-medium mb-2">
-              WhatsApp Number *
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              onChange={() => clearFieldError("phone")}
-              className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors"
-              placeholder="+1 555 123 4567"
-            />
-            <p className="mt-2 text-olive/60 text-xs">
-              Include your country code so we can reach you on WhatsApp.
-            </p>
-            {errors.phone && <p className="mt-2 text-gold-deep text-sm">{errors.phone}</p>}
-          </div>
-        )}
-
-        <div className="md:col-span-2">
-          <label htmlFor="message" className="block text-olive text-sm font-medium mb-2">
-            Message *
+        {/* Message */}
+        <div>
+          <label htmlFor="message" className={LABEL}>
+            Anything else?
           </label>
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={4}
             maxLength={MAX_MESSAGE_LENGTH}
-            onChange={() => clearFieldError("message")}
-            className="w-full bg-paper border border-taupe rounded-lg px-4 py-3 text-olive placeholder-olive/40 focus:border-gold-deep focus:outline-none transition-colors resize-none"
-            placeholder="Which trip you're interested in, rough dates, how many of you, and anything you'd like to know."
+            className={`${FIELD} resize-none`}
+            placeholder="Rough plans, questions, must-sees, mobility needs…"
           />
-          {errors.message && <p className="mt-2 text-gold-deep text-sm">{errors.message}</p>}
         </div>
       </div>
-      <div className="mt-6">
+
+      <div className="mt-8">
         <button type="submit" className="btn-primary w-full md:w-auto">
           {contactMethod === "whatsapp" ? "Send on WhatsApp" : "Send by email"}
         </button>

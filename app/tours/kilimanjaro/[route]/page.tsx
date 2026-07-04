@@ -51,6 +51,7 @@ export default async function RouteDetailPage({ params }: PageProps) {
           alt={`${route.name} route on Kilimanjaro`}
           fill
           priority
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />

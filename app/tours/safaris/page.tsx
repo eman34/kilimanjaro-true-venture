@@ -16,18 +16,24 @@ export default function SafarisPage() {
     <>
       <Hero
         title="Wildlife safaris"
-        backgroundImage="/images/safari-ngorongoro-crater-floor.jpg"
+        backgroundImage="/images/safari-zebra-herd-crater.jpg"
       />
 
       {/* Safaris — stacked editorial spread */}
       <section className="section-padding">
         <div className="mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-olive">
-            Four safaris in northern Tanzania
+            Safaris across Tanzania
           </h2>
-          <p className="text-olive/85 mt-3 leading-relaxed">
-            From a single day near Kilimanjaro to five days on the Serengeti
-            plains. Tell us what you want to see and we&apos;ll match you to one.
+          <p className="text-olive/85 mt-3 leading-relaxed max-w-3xl">
+            Tanzania is home to some of the greatest wildlife on Earth: endless
+            golden savannahs, massive elephant herds, ancient volcanic craters,
+            tree-climbing lions, flamingo-filled lakes and the world-famous Great
+            Migration. From the plains of the Serengeti to the elephants of
+            Tarangire, the Ngorongoro Crater, the forests of Lake Manyara, Arusha
+            National Park and the hidden wilderness of Mkomazi, every safari
+            shows a different side of the country, guided by experienced local
+            professionals who know Tanzania deeply.
           </p>
         </div>
 
@@ -143,11 +149,11 @@ export default function SafarisPage() {
         </h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-8">
           <div className="border-t-2 border-gold pt-4">
-            <h3 className="text-olive font-bold text-lg">Your own 4x4</h3>
+            <h3 className="text-olive font-bold text-lg">Private or shared 4x4</h3>
             <p className="text-olive/85 leading-relaxed mt-2">
-              A private vehicle with a pop-up roof, yours alone for the trip. No
-              shared seats, no strangers. You set the pace and stop as long as
-              you want at a sighting.
+              Every safari runs in a 4x4 with a pop-up roof. Most are private,
+              yours alone to set the pace and linger at a sighting; some can be
+              shared to keep the cost down. Your call when you book.
             </p>
           </div>
           <div className="border-t-2 border-gold pt-4">

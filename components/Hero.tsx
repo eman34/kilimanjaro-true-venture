@@ -16,7 +16,7 @@ export default function Hero({ title, tagline, backgroundImage }: HeroProps) {
           fill
           className="object-cover"
           priority
-          quality={85}
+          quality={90}
           sizes="100vw"
         />
       ) : (

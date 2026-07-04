@@ -15,10 +15,11 @@ export default function CharityClimbPage() {
       {/* Hero */}
       <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image
-          src="/images/summit-celebration.jpg"
-          alt="Climbers celebrating at the summit"
+          src="/images/kili-summit-celebration-group.jpg"
+          alt="Climbers celebrating below Kilimanjaro's snowy summit"
           fill
           priority
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />
