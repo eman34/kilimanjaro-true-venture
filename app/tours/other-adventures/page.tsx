@@ -25,8 +25,8 @@ const ADVENTURES: Adventure[] = [
   {
     title: "Zanzibar",
     href: "/tours/zanzibar",
-    image: "/images/flamingos-flight.jpg",
-    imageAlt: "Coastal birds in flight",
+    image: "/images/zanzibar-rock-restaurant.jpg",
+    imageAlt: "The Rock restaurant perched on a coral outcrop at low tide",
     priceFrom: "$1,350",
     duration: "5 days",
     inside: "3 stays + 4 day trips",

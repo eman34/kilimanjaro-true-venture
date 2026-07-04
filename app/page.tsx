@@ -11,11 +11,11 @@ export default function Home() {
       {/* Hero — centered minimal wordmark over the glacier sunrise */}
       <section className="relative h-[240px] sm:h-[300px] md:h-[400px]">
         <Image
-          src="/images/summit-glaciers.jpg"
-          alt="Sunrise over the glacier fields on Kilimanjaro's summit"
+          src="/images/kili-trail-kibo-group.jpg"
+          alt="Trekkers walking the trail toward the snow-capped Kibo summit"
           fill
           priority
-          className="object-cover object-[center_60%]"
+          className="object-cover object-[center_40%]"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-olive-deep/35" />

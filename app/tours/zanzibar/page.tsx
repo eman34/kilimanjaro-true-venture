@@ -21,8 +21,8 @@ export default function ZanzibarPage() {
       {/* Hero */}
       <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image
-          src="/images/flamingos-flight.jpg"
-          alt="Coastal birds in flight"
+          src="/images/zanzibar-turquoise-cove.jpg"
+          alt="Turquoise water and coral rock formations on the Zanzibar coast"
           fill
           priority
           quality={90}

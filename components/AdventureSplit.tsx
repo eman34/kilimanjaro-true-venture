@@ -23,8 +23,8 @@ const ADVENTURES = [
     subtitle: "White-sand beaches, Stone Town and spice tours",
     cta: "See Zanzibar",
     href: "/tours/zanzibar",
-    image: "/images/flamingos-flight.jpg",
-    alt: "Flamingos in flight over the water",
+    image: "/images/zanzibar-beach-cove-steps.jpg",
+    alt: "Stone steps leading down to a hidden beach cove in Zanzibar",
   },
   {
     title: "Cultural Tours",
