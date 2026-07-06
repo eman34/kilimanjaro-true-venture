@@ -169,6 +169,15 @@ Run all three as a checklist before drafting any copy that touches the founder, 
 
 If a tour page has fewer than ~60% of the topics relevant to it, the page is too thin, regardless of how good the voice is. Voice without substance is decoration.
 
+## Search positioning
+
+Decided 2026-07 with Edson. Four rules for anything that touches titles, meta descriptions, share images, or other SEO surfaces:
+
+1. **The search wedge is "local".** We compete on local-operator queries ("local tour operator Tanzania", "local Kilimanjaro operator", "tour operator Arusha"), not on head terms owned by content factories. Titles carry what people type (Kilimanjaro, safari, local tour operator, Arusha); descriptions carry why to click (locally owned and run in Arusha, local guides and crews, plan on WhatsApp).
+2. **Plain words, no coined slogans.** "Locally owned and run" — never invented taglines on positioning surfaces.
+3. **"Experience True Adventure in Africa" is Abu's motto.** Quoted on the home page only. Never in titles, descriptions, share images, or the footer identity.
+4. **No unverified claims on SEO surfaces.** The open list lives in `docs/VERIFY-WITH-ABU.md`; anything unticked stays out of metadata and share images.
+
 ## A test before publishing
 
 Before any copy ships:

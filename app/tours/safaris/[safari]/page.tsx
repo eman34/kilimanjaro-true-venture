@@ -3,33 +3,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SectionDivider from "@/components/SectionDivider";
-import { SAFARIS } from "@/lib/constants";
+import JsonLd from "@/components/JsonLd";
+import { getSafaris, getSafari } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ safari: string }>;
 }
 
-export function generateStaticParams() {
-  return SAFARIS.map((s) => ({ safari: s.slug }));
-}
-
-function findSafari(slug: string) {
-  return SAFARIS.find((s) => s.slug === slug);
+export async function generateStaticParams() {
+  const safaris = await getSafaris();
+  return safaris.map((s) => ({ safari: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { safari: slug } = await params;
-  const safari = findSafari(slug);
+  const safari = await getSafari(slug);
   if (!safari) return { title: "Safari not found" };
   return {
     title: `${safari.name} — Tanzania Safari`,
     description: `${safari.summary.slice(0, 150)}…`,
+    openGraph: {
+      title: `${safari.name} — Tanzania Safari`,
+      description: `${safari.name} with a locally owned operator in Arusha, Tanzania.`,
+      images: [{ url: safari.image }],
+    },
   };
 }
 
 export default async function SafariDetailPage({ params }: PageProps) {
   const { safari: slug } = await params;
-  const safari = findSafari(slug);
+  const safari = await getSafari(slug);
   if (!safari) notFound();
 
   const daysLabel = safari.days === 1 ? "Day trip" : `${safari.days} days`;
@@ -37,6 +41,36 @@ export default async function SafariDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Wildlife safaris",
+              item: `${SITE_URL}/tours/safaris`,
+            },
+            { "@type": "ListItem", position: 3, name: safari.name },
+          ],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristTrip",
+          name: `${safari.name} — Tanzania Safari`,
+          description: safari.summary,
+          image: `${SITE_URL}${safari.image}`,
+          provider: {
+            "@type": "TravelAgency",
+            name: "Kilimanjaro True Venture",
+            url: SITE_URL,
+          },
+        }}
+      />
       {/* Hero */}
       <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image

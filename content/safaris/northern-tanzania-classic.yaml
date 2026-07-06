@@ -1,0 +1,31 @@
+name: Northern Tanzania Classic Safari
+order: 2
+image: /images/safari-lion-pride-tree.jpg
+days: 4
+priceFrom: "$2,520"
+parks:
+  - Tarangire National Park
+  - Serengeti National Park
+  - Ngorongoro Crater
+summary: >-
+  The legendary northern safari circuit in one journey. It combines the
+  elephant-filled landscapes of Tarangire National Park, the endless wildlife
+  plains of the Serengeti and the spectacular Ngorongoro Crater. Expect game
+  drives, African sunsets, mid-range or luxury lodges and wildlife including
+  lions, elephants, giraffes, zebras and cheetahs. Ideal for travelers looking
+  for the complete Tanzania wildlife experience.
+goodFor: ""
+includes:
+  - Safari vehicle with pop-up roof
+  - Professional safari guide
+  - Park fees
+  - Safari lodge or tented camp accommodation
+  - Breakfast, lunch & dinner during safari
+  - Drinking water
+  - Airport transfers
+excludes:
+  - Flights & visas
+  - Insurance
+  - Tips & personal expenses
+  - Alcoholic beverages
+detailedItinerary: []

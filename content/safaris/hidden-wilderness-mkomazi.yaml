@@ -1,0 +1,27 @@
+name: Hidden Wilderness Safari
+order: 6
+image: /images/waterhole-wildlife.jpg
+days: 2
+priceFrom: "$980"
+parks:
+  - Mkomazi National Park
+summary: >-
+  Escape the crowds at one of Tanzania's hidden treasures, Mkomazi National
+  Park. Known for its peaceful wilderness, scenery, black rhino conservation
+  project and rare African wild dogs, Mkomazi is a safari for travelers
+  looking for somewhere less crowded. On clear days it offers views toward
+  Mount Kilimanjaro.
+goodFor: ""
+includes:
+  - Safari vehicle
+  - Professional guide
+  - Park fees
+  - Lodge accommodation
+  - Meals during safari
+  - Drinking water
+excludes:
+  - Flights
+  - Visa fees
+  - Insurance
+  - Tips & personal expenses
+detailedItinerary: []

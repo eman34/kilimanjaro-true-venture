@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AdventureSplit from "@/components/AdventureSplit";
 import SectionLink from "@/components/SectionLink";
 import CTABanner from "@/components/CTABanner";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+
+export const metadata: Metadata = {
+  // Root page doesn't inherit the layout title template — spell out the brand.
+  title:
+    "Kilimanjaro Climbs & Tanzania Safaris — Local Tour Operator | Kilimanjaro True Venture",
+  description:
+    "Kilimanjaro climbs, Serengeti safaris, Zanzibar and cultural trips from a tour operator that's locally owned and run in Arusha, Tanzania. Local guides and crews on every trip.",
+};
 
 export default function Home() {
   return (
@@ -105,7 +114,7 @@ export default function Home() {
                 and finally professional mountain guide — he has done every
                 job on a climb, and knows exactly what each one costs the
                 person doing it. True Venture is the company he built from
-                that knowledge: unforgettable adventures for travelers, and
+                that knowledge: adventures for travelers, and
                 fair, dignified work for the crews who make them possible.
               </p>
             </div>

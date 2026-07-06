@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Mount Kilimanjaro Climbing Routes & Expeditions",
   description:
-    "Choose from 6 unique routes to summit Africa's highest peak at 5,895m. Expert guides, all-inclusive packages. Machame, Lemosho, Marangu, Rongai, Umbwe, Londorossi.",
+    "Six routes to Uhuru Peak at 5,895m — Machame, Lemosho, Marangu, Rongai, Umbwe and Londorossi. Route character, seasons and prices from a locally owned operator in Arusha.",
 };
 
 export default function KilimanjaroPage() {

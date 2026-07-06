@@ -6,11 +6,13 @@ import PackageInclusions from "@/components/PackageInclusions";
 import RouteItinerary from "@/components/RouteItinerary";
 import AscentProfile from "@/components/AscentProfile";
 import SectionDivider from "@/components/SectionDivider";
+import JsonLd from "@/components/JsonLd";
 import {
   KILIMANJARO_ROUTES,
   formatDaysRange,
   minPrice,
 } from "@/lib/constants";
+import { SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ route: string }>;
@@ -31,6 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${route.name} Route — Mount Kilimanjaro`,
     description: `${route.name} (${route.nickname}). ${route.description.slice(0, 140)}…`,
+    openGraph: {
+      title: `${route.name} Route — Mount Kilimanjaro`,
+      description: `${route.name} (${route.nickname}) with a locally owned operator in Arusha, Tanzania.`,
+      images: [{ url: route.image }],
+    },
   };
 }
 
@@ -44,6 +51,36 @@ export default async function RouteDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Kilimanjaro routes",
+              item: `${SITE_URL}/tours/kilimanjaro`,
+            },
+            { "@type": "ListItem", position: 3, name: `${route.name} Route` },
+          ],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristTrip",
+          name: `${route.name} Route — Mount Kilimanjaro`,
+          description: route.description,
+          image: `${SITE_URL}${route.image}`,
+          provider: {
+            "@type": "TravelAgency",
+            name: "Kilimanjaro True Venture",
+            url: SITE_URL,
+          },
+        }}
+      />
       {/* Hero */}
       <section className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[16/5] min-h-[280px] w-full">
         <Image

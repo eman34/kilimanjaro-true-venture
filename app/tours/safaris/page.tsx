@@ -3,7 +3,8 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import CTABanner from "@/components/CTABanner";
 import SafariSpread from "@/components/SafariSpread";
-import { SAFARIS, NORTHERN_PARKS } from "@/lib/constants";
+import { NORTHERN_PARKS } from "@/lib/constants";
+import { getSafaris } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Wildlife Safaris — Serengeti, Ngorongoro, Tarangire & More",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
     "Four Tanzanian safaris with private 4x4, professional driver guides, and park fees included: Serengeti Migration, Ngorongoro Crater, Tarangire, Lake Manyara, and Mkomazi. From $430.",
 };
 
-export default function SafarisPage() {
+export default async function SafarisPage() {
+  const safaris = await getSafaris();
   return (
     <>
       <Hero
@@ -38,7 +40,7 @@ export default function SafarisPage() {
         </div>
 
         <div className="space-y-6">
-          {SAFARIS.map((safari, i) => (
+          {safaris.map((safari, i) => (
             <SafariSpread key={safari.slug} safari={safari} reverse={i % 2 === 1} />
           ))}
         </div>

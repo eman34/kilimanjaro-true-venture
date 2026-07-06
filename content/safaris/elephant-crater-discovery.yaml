@@ -1,0 +1,30 @@
+name: Elephant & Crater Discovery
+order: 1
+image: /images/safari-elephant-mother-calf.jpg
+days: 2
+priceFrom: "$1,850"
+parks:
+  - Tarangire National Park
+  - Ngorongoro Crater
+summary: >-
+  A short but unforgettable safari for travelers who want Tanzania's iconic
+  wildlife in a limited time. It begins in Tarangire National Park, famous for
+  its giant baobab trees, massive elephant herds and rich wildlife, then
+  continues to the Ngorongoro Crater, one of the best places in Tanzania to
+  spot the Big Five in a single day.
+goodFor: Couples, solo travelers, photographers and first-time safari visitors
+includes:
+  - Professional safari guide
+  - Private or shared safari vehicle
+  - Park entry fees
+  - Lodge accommodation
+  - Meals during safari
+  - Drinking water
+  - Airport transfers
+excludes:
+  - International flights
+  - Visa fees
+  - Travel insurance
+  - Tips & personal expenses
+  - Alcoholic drinks
+detailedItinerary: []
