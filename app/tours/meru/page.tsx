@@ -268,6 +268,11 @@ export default function MeruPage() {
             on Kilimanjaro.
           </p>
 
+          <p className="text-olive/65 text-sm mt-6">
+            Prices are in US dollars, per person, and vary with group size and
+            season. You get an exact quote when you inquire.
+          </p>
+
           <ul className="mt-6 space-y-2">
             {HIGHLIGHTS.map((h) => (
               <li

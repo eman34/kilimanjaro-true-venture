@@ -47,6 +47,10 @@ const FAQS = [
     q: "How does booking work?",
     a: "Start with a message — WhatsApp or the contact form — with your rough dates, group size and what you want to do. We reply with a suggested itinerary and a full quote, then keep refining it with you until it fits. You'll always know the price and what it covers before you commit.",
   },
+  {
+    q: "What currency are your prices in?",
+    a: "All prices on the site are in US dollars, which is the standard for Tanzania — park fees, the largest single cost of any trip, are set in US dollars by the national parks. Your quote will be in US dollars too, and we'll walk you through how to pay when you're ready to book.",
+  },
 ];
 
 export default function FaqPage() {

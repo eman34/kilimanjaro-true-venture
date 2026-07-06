@@ -161,8 +161,8 @@ export default async function SafariDetailPage({ params }: PageProps) {
           )}
 
           <p className="text-olive/65 text-sm mt-6">
-            Prices are per person and vary with group size and season. You get
-            an exact quote when you inquire.
+            Prices are in US dollars, per person, and vary with group size and
+            season. You get an exact quote when you inquire.
           </p>
         </div>
       </section>

@@ -46,6 +46,11 @@ export default function KilimanjaroPage() {
             <RouteSpread key={route.name} route={route} reverse={i % 2 === 1} />
           ))}
         </div>
+
+        <p className="text-olive/65 text-sm mt-6">
+          Prices are in US dollars, per person, and vary with group size and
+          season. You get an exact quote when you inquire.
+        </p>
       </section>
 
       {/* When to climb */}

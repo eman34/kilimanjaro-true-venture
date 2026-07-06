@@ -91,6 +91,10 @@ export default function OtherAdventuresPage() {
             <AdventureSpread key={a.href} adventure={a} reverse={i % 2 === 1} />
           ))}
         </div>
+
+        <p className="text-olive/65 text-sm mt-6">
+          Prices are in US dollars. You get an exact quote when you inquire.
+        </p>
       </section>
 
       {/* Adding it to your trip */}

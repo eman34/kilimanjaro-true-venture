@@ -122,9 +122,9 @@ export default function ZanzibarPage() {
             ))}
           </div>
           <p className="text-olive/65 text-sm mt-6">
-            Prices vary with season and hotel level. You get an exact quote when
-            you inquire, and we time the package around your climb or safari
-            dates.
+            Prices are in US dollars and vary with season and hotel level. You
+            get an exact quote when you inquire, and we time the package around
+            your climb or safari dates.
           </p>
         </div>
       </section>

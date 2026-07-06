@@ -93,6 +93,13 @@ can be written without Abu's actual terms — never invent them.
 
 - ☐ **Deposit.** What % (or amount) confirms a booking, and when is the
   balance due?
+- ☐ **Currencies and payment methods.** The site now states prices are in US
+  dollars (the Tanzania standard; park fees are USD-denominated). Confirm:
+  does Abu accept anything other than USD (EUR, GBP, TZS)? How is payment
+  actually taken — bank transfer, card, Wise, cash on arrival? Until
+  confirmed, the FAQ says only "we'll walk you through how to pay." If Abu
+  accepts other currencies, revisit the currency-display decision (option B,
+  static equivalents, becomes worth reconsidering).
 - ☐ **Postponement / date changes.** How long before departure can a client
   move dates, and at what cost?
 - ☐ **Cancellation and refunds.** Actual tiers (e.g. full refund to X days
