@@ -1,18 +1,5 @@
 # Kilimanjaro True Venture - Project Guidelines
 
-## Active Learning Curriculum
-
-This project is a **low-stakes vehicle for learning advanced vibe coding** for the user (a beginner programmer with course exposure). Building Abu's site is the side effect; the user's skill development is the primary goal.
-
-- **Curriculum:** `LEARNING.md` — 8 modules, ~22 lessons, structured/school-esque
-- **Progress tracker:** `PROGRESS.md` — checkboxes per lesson; current state of the journey
-
-**At session start:** read `PROGRESS.md` to find the next unchecked lesson. The user may say "next lesson" (start it), "where am I?" (summarize without starting), or "skip to module N."
-
-**Every session follows the Session Protocol** in `LEARNING.md`. Name the primary skill at the start of the lesson. After the session, append a one-line entry to the Session Log in `PROGRESS.md` and tick the lesson's checkbox.
-
-**Calibration:** explanations should name patterns ("this is `useState`") without re-explaining fundamentals (what React is). The Skills Matrix in `LEARNING.md` is the user's vocabulary — use those tags in conversation.
-
 ## Project Overview
 
 **Kilimanjaro True Venture** is a premium editorial-luxe travel website showcasing mountain trekking, wildlife safaris, beach holidays, and cultural experiences in Tanzania.
@@ -60,7 +47,7 @@ Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`
 
 ### TypeScript & Quality
 - **Strict TypeScript**: No `any` types, all types explicitly defined
-- **ESLint rules**: Follow Next.js defaults
+- **`npm run typecheck` is the quality gate** — run it before considering work done (no separate linter)
 - **No console.log** in production code (use proper logging)
 - **Component naming**: PascalCase for files and components
 - **File naming**: kebab-case for folders, PascalCase for component files
@@ -69,33 +56,27 @@ Tokens live in `app/globals.css` `@theme` block. Use Tailwind utility classes (`
 ```
 app/
 ├── page.tsx (Home)
-├── layout.tsx (Root layout)
-├── globals.css (Global styles)
+├── layout.tsx (Root layout + site metadata)
+├── globals.css (Global styles + design tokens)
+├── sitemap.ts / robots.ts (SEO)
 ├── tours/
-│   ├── kilimanjaro/page.tsx
-│   ├── meru/page.tsx
-│   ├── safaris/page.tsx
-│   ├── zanzibar/page.tsx
-│   └── cultural/page.tsx
-├── about/page.tsx
-├── gallery/page.tsx
-├── contact/page.tsx
-└── api/inquiry/route.ts
+│   ├── kilimanjaro/page.tsx + [route]/page.tsx (6 route detail pages)
+│   ├── safaris/page.tsx + [safari]/page.tsx (7 package detail pages)
+│   ├── meru/ · zanzibar/ · cultural/ · gorilla-trekking/
+│   ├── charity-climb/ · other-adventures/
+├── about/ · gallery/ · contact/ · faq/ · charity/
+└── api/inquiry/route.ts (contact form handler)
 
-components/
-├── Hero.tsx
-├── Navbar.tsx
-├── Footer.tsx
-├── TourCard.tsx
-├── CTABanner.tsx
-└── ...
+components/ (Navbar, Footer, Hero, InquiryForm, GalleryGrid,
+             TestimonialCarousel, RouteSpread, SafariSpread, RouteItinerary,
+             AscentProfile, SearchModal, CTABanner, JsonLd, ...)
 
 lib/
-├── constants.ts (All data: tours, team, testimonials)
-├── safari-packages.ts (Safari tour details)
-└── [other utilities]
+├── constants.ts (ALL content: routes, SAFARIS, team, testimonials, COMPANY)
+├── content.ts (safari accessors — getSafaris/getSafari)
+└── site.ts (canonical site URL)
 
-public/images/ (All nature photos, 17 high-quality images available)
+public/images/ (photo library — list the folder before assuming contents)
 ```
 
 ### Import Aliases
@@ -130,22 +111,32 @@ For the funnel and persona logic that drives this — buyer objections, conversi
 
 ### Complete Features
 ✅ Home page with featured tours & testimonials
-✅ About page with founder story & team profiles
+✅ About page with founder story & named team profiles
 ✅ Kilimanjaro routes with day-by-day itineraries (Machame detailed, others summarized)
 ✅ Mount Meru trek details
-✅ Safari packages (Serengeti, Ngorongoro, Tarangire, Mkomazi)
+✅ Safari packages (Serengeti, Ngorongoro, Tarangire, Manyara, Mkomazi, Arusha NP)
 ✅ Zanzibar holidays
 ✅ Cultural experiences
 ✅ Gallery (showcasing nature photos)
+✅ FAQ page (with FAQPage JSON-LD)
+✅ Site search — Pagefind, indexed at build time (`postbuild` script)
 ✅ Contact form
 ✅ Charity section (Abu Hope Foundation)
-✅ Team profiles (8 team members)
+
+### Pending / known gaps
+- **Inquiry email delivery.** `app/api/inquiry/route.ts` currently logs
+  submissions to the server console only — wire an email service (e.g. Resend)
+  once the domain + Google Workspace setup is done. Until then, inquiries
+  submitted through the form are NOT delivered to anyone.
+- **Unverified claims.** `docs/VERIFY-WITH-ABU.md` is the gate — content on
+  that list stays hedged or off the site until Abu confirms it. Never invent
+  numbers, credentials, policies, or reviews.
 
 ### Contact Info & Pricing — source of truth
 
 Never hardcode contact info or pricing. Always read from `lib/constants.ts`:
 - `COMPANY` → phone, email, address, company name, slogan
-- `KILIMANJARO_ROUTES` and `SAFARI_PACKAGES` → starting prices
+- `KILIMANJARO_ROUTES` and `SAFARIS` → starting prices
 
 If a value isn't in `lib/constants.ts`, ask before inventing one.
 
@@ -245,12 +236,6 @@ Before considering any page "done", test:
   - Buttons have hover states
   - Links are understandable
 
-## Learning & Education
-
-Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (tracker). The Active Learning Curriculum section at the top of this file points there. Don't restate teaching style here — the calibration ("name patterns without re-explaining fundamentals") is in the Active Learning Curriculum section above.
-
----
-
 ## How to Work With Me
 
 ### Ask Before Making Changes
@@ -298,6 +283,6 @@ Teaching mode is governed by `LEARNING.md` (curriculum) and `PROGRESS.md` (track
 
 ---
 
-**Last Updated**: May 2026
+**Last Updated**: July 2026
 **Current Theme**: Olive + Gold on Cream — editorial luxe, photo-led
 **Status**: Active Development

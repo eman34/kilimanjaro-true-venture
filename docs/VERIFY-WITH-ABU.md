@@ -85,3 +85,32 @@ Legend: ☐ unconfirmed · ☑ confirmed (note the answer inline)
   First-party data that would sharpen AUDIENCE.md's assumptions.
 - ☐ **TripAdvisor / Google review presence.** Does KTV have profiles? Counts
   and ratings, so real reviews can be surfaced and linked.
+
+## Booking terms and policies (blocks policy pages + "Booking and changes" section)
+
+Buyers weighing a $2,000+ trip look for these before contacting anyone. None
+can be written without Abu's actual terms — never invent them.
+
+- ☐ **Deposit.** What % (or amount) confirms a booking, and when is the
+  balance due?
+- ☐ **Postponement / date changes.** How long before departure can a client
+  move dates, and at what cost?
+- ☐ **Cancellation and refunds.** Actual tiers (e.g. full refund to X days
+  out, then Y%). This unlocks a cancellation-policy page and answers
+  AUDIENCE.md objection #6.
+- ☐ **Privacy.** The inquiry form collects name, email, phone. Where does
+  that data go and who sees it? (Needed for a short, honest privacy page.)
+
+## Abu Hope Foundation (for the charity page)
+
+Foundation year + website/Instagram links are asked above. The rest of what
+the charity page needs (draft copy structure preserved in git history —
+`docs/CHARITY-PLACEHOLDER.md`):
+
+- ☐ **2–3 most significant projects to date**, with real numbers (students
+  supported, healthcare beneficiaries, guides trained…).
+- ☐ **What share of bookings** (if any fixed %) goes to the foundation — only
+  claim a number if Abu commits to it.
+- ☐ **What visitors can actually join** (school visit, clinic day, project
+  work) and how it's arranged.
+- ☐ **Direct-donation route** — is there one (account, link, tiers)?

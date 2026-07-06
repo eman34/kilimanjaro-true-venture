@@ -850,6 +850,184 @@ export interface Safari {
   detailedItinerary?: SafariDay[];
 }
 
+/* Abu's 7 safari packages, in display order. Slugs are the public URLs
+   (/tours/safaris/<slug>) — changing one breaks inbound links. */
+export const SAFARIS: Safari[] = [
+  {
+    slug: "elephant-crater-discovery",
+    name: "Elephant & Crater Discovery",
+    image: "/images/safari-elephant-mother-calf.jpg",
+    days: 2,
+    priceFrom: "$1,850",
+    parks: ["Tarangire National Park", "Ngorongoro Crater"],
+    summary:
+      "A short but unforgettable safari for travelers who want Tanzania's iconic wildlife in a limited time. It begins in Tarangire National Park, famous for its giant baobab trees, massive elephant herds and rich wildlife, then continues to the Ngorongoro Crater, one of the best places in Tanzania to spot the Big Five in a single day.",
+    goodFor: "Couples, solo travelers, photographers and first-time safari visitors",
+    includes: [
+      "Professional safari guide",
+      "Private or shared safari vehicle",
+      "Park entry fees",
+      "Lodge accommodation",
+      "Meals during safari",
+      "Drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Travel insurance",
+      "Tips & personal expenses",
+      "Alcoholic drinks",
+    ],
+  },
+  {
+    slug: "northern-tanzania-classic",
+    name: "Northern Tanzania Classic Safari",
+    image: "/images/safari-lion-pride-tree.jpg",
+    days: 4,
+    priceFrom: "$2,520",
+    parks: [
+      "Tarangire National Park",
+      "Serengeti National Park",
+      "Ngorongoro Crater",
+    ],
+    summary:
+      "The legendary northern safari circuit in one journey. It combines the elephant-filled landscapes of Tarangire National Park, the endless wildlife plains of the Serengeti and the spectacular Ngorongoro Crater. Expect game drives, African sunsets, mid-range or luxury lodges and wildlife including lions, elephants, giraffes, zebras and cheetahs. Ideal for travelers looking for the complete Tanzania wildlife experience.",
+    includes: [
+      "Safari vehicle with pop-up roof",
+      "Professional safari guide",
+      "Park fees",
+      "Safari lodge or tented camp accommodation",
+      "Breakfast, lunch & dinner during safari",
+      "Drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "Flights & visas",
+      "Insurance",
+      "Tips & personal expenses",
+      "Alcoholic beverages",
+    ],
+  },
+  {
+    slug: "serengeti-migration-experience",
+    name: "Serengeti Migration Experience",
+    image: "/images/safari-wildebeest-herd.jpg",
+    days: 5,
+    priceFrom: "$2,400",
+    parks: ["Serengeti National Park", "Ngorongoro Crater"],
+    summary:
+      "The magic of the African wilderness in the world-famous Serengeti, home to the Great Migration and some of the highest concentrations of wildlife on Earth. You spend days exploring endless plains filled with lions, elephants, giraffes, cheetahs, leopards and thousands of wildebeest, before continuing to the Ngorongoro Crater.",
+    goodFor: "Wildlife lovers, photographers, honeymooners and adventure travelers",
+    includes: [
+      "Safari transport & guide",
+      "Park entry fees",
+      "Accommodation",
+      "Meals during safari",
+      "Daily game drives",
+      "Drinking water",
+    ],
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
+    ],
+  },
+  {
+    slug: "tanzania-family-safari-escape",
+    name: "Tanzania Family Safari Escape",
+    image: "/images/safari-giraffe-golden-hour.jpg",
+    days: 3,
+    priceFrom: "$1,350",
+    parks: [
+      "Lake Manyara National Park",
+      "Ngorongoro Crater",
+      "Tarangire National Park",
+    ],
+    summary:
+      "Designed for families, couples and travelers with limited time, this is a perfect introduction to Tanzania's wildlife and landscapes. Explore the forests and tree-climbing lions of Lake Manyara, the wildlife inside the Ngorongoro Crater and the giant elephant herds of Tarangire.",
+    goodFor: "Families, couples and travelers with limited time",
+    includes: [
+      "Safari vehicle & guide",
+      "Accommodation",
+      "Park fees",
+      "Meals during safari",
+      "Drinking water",
+    ],
+    excludes: ["Flights", "Visa fees", "Insurance", "Tips & personal expenses"],
+  },
+  {
+    slug: "arusha-walking-safari",
+    name: "Arusha Walking Safari Experience",
+    image: "/images/safari-giraffe-landscape.jpg",
+    days: 1,
+    priceFrom: "$280",
+    parks: ["Arusha National Park"],
+    summary:
+      "Nature from a different perspective: a guided walking safari inside Arusha National Park. With an armed ranger and professional guide, you walk through landscapes of giraffes, zebras, buffaloes, waterfalls and tropical forest. On clear days there are views of Mount Kilimanjaro and Mount Meru.",
+    goodFor:
+      "Nature lovers and travelers wanting a more personal connection with the wildlife",
+    includes: [
+      "Park fees",
+      "Walking safari ranger",
+      "Professional guide",
+      "Transport",
+      "Lunch box & drinking water",
+    ],
+    excludes: ["Tips", "Personal expenses", "Insurance"],
+  },
+  {
+    slug: "hidden-wilderness-mkomazi",
+    name: "Hidden Wilderness Safari",
+    image: "/images/waterhole-wildlife.jpg",
+    days: 2,
+    priceFrom: "$980",
+    parks: ["Mkomazi National Park"],
+    summary:
+      "Escape the crowds at one of Tanzania's hidden treasures, Mkomazi National Park. Known for its peaceful wilderness, scenery, black rhino conservation project and rare African wild dogs, Mkomazi is a safari for travelers looking for somewhere less crowded. On clear days it offers views toward Mount Kilimanjaro.",
+    includes: [
+      "Safari vehicle",
+      "Professional guide",
+      "Park fees",
+      "Lodge accommodation",
+      "Meals during safari",
+      "Drinking water",
+    ],
+    excludes: ["Flights", "Visa fees", "Insurance", "Tips & personal expenses"],
+  },
+  {
+    slug: "ultimate-tanzania-safari",
+    name: "Ultimate Tanzania Safari Journey",
+    image: "/images/safari-serengeti-aerial.jpg",
+    days: 6,
+    priceFrom: "$3,500",
+    parks: [
+      "Tarangire National Park",
+      "Serengeti National Park",
+      "Ngorongoro Crater",
+      "Lake Manyara National Park",
+    ],
+    summary:
+      "The ultimate Tanzania safari for travelers who want to fully immerse themselves in Africa's wildlife, landscapes and luxury safari lifestyle. From the elephants and baobabs of Tarangire to the endless plains of the Serengeti and the natural wonder of the Ngorongoro Crater, every day brings something new, ending in the forests and lakeside scenery of Lake Manyara.",
+    goodFor: "Luxury travelers, photographers, couples and wildlife enthusiasts",
+    includes: [
+      "Luxury safari lodges or tented camps",
+      "Professional safari guide",
+      "Park entry fees",
+      "Daily game drives",
+      "Meals & drinking water",
+      "Airport transfers",
+    ],
+    excludes: [
+      "International flights",
+      "Visa fees",
+      "Insurance",
+      "Tips & personal expenses",
+    ],
+  },
+];
+
 export interface NorthernPark {
   name: string;
   locator: string;
